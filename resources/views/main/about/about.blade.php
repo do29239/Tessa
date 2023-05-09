@@ -229,7 +229,7 @@
                         </li>
                         <li class="nav-item megamenu">
                             <a href="../products-sidebar-fullwidth.html" class="nav-link"
-                            >Shop
+                            >Shoppp
                             </a>
                         </li>
                         <li class="nav-item megamenu">
