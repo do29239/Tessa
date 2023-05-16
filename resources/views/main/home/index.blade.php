@@ -74,7 +74,7 @@
             <div class="col-lg-6 col-md-12">
                 <ul class="header-top-menu">
                     <li>
-                        <a href="../main/login.html"><i class="bx bxs-user"></i> My Account</a>
+                        <a href="../login.html"><i class="bx bxs-user"></i> My Account</a>
                     </li>
                     <li>
                         <a
@@ -774,7 +774,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="products-box">
                     <div class="products-image">
-                        <a href="../main/products-type-1.html">
+                        <a href="../products-type-1.html">
                             <img src="assets/img/products/prod-oro1.jpg" class="main-image" alt="image">
                             <img src="assets/img/products/prod-oro1.jpg" class="hover-image" alt="image">
                         </a>
@@ -806,7 +806,7 @@
 
                     <div class="products-content">
                         <span class="category">T-Shirt</span>
-                        <h3><a href="../main/products-type-1.html">Tbmpoy Men's Tapered</a></h3>
+                        <h3><a href="../products-type-1.html">Tbmpoy Men's Tapered</a></h3>
                         <div class="star-rating">
                             <i class='bx bxs-star'></i>
                             <i class='bx bxs-star'></i>
@@ -832,7 +832,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="products-box">
                     <div class="products-image">
-                        <a href="../main/products-type-1.html">
+                        <a href="../products-type-1.html">
                             <img src="assets/img/products/prod-fano-2.jpg" class="main-image" alt="image">
                             <img src="assets/img/products/prod-fano-2.jpg" class="hover-image" alt="image">
                         </a>
@@ -862,7 +862,7 @@
 
                     <div class="products-content">
                         <span class="category">T-Shirt</span>
-                        <h3><a href="../main/products-type-1.html">Sunnyme Women's Ponchos</a></h3>
+                        <h3><a href="../products-type-1.html">Sunnyme Women's Ponchos</a></h3>
                         <div class="star-rating">
                             <i class='bx bxs-star'></i>
                             <i class='bx bxs-star'></i>
@@ -882,7 +882,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="products-box">
                     <div class="products-image">
-                        <a href="../main/products-type-1.html">
+                        <a href="../products-type-1.html">
                             <img src="assets/img/products/prod-fano-3.jpg" class="main-image" alt="image">
                             <img src="assets/img/products/prod-fano-3.jpg" class="hover-image" alt="image">
                         </a>
@@ -912,7 +912,7 @@
 
                     <div class="products-content">
                         <span class="category">Shirt</span>
-                        <h3><a href="../main/products-type-1.html">Open Front Knit Sweaters</a></h3>
+                        <h3><a href="../products-type-1.html">Open Front Knit Sweaters</a></h3>
                         <div class="star-rating">
                             <i class='bx bxs-star'></i>
                             <i class='bx bxs-star'></i>
@@ -1002,7 +1002,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="products-box">
                     <div class="products-image">
-                        <a href="../main/products-type-1.html">
+                        <a href="../products-type-1.html">
                             <img src="assets/img/products/bestprod1.jpg" class="main-image" alt="image">
                             <img src="assets/img/products/bestprod1.jpg" class="hover-image" alt="image">
                         </a>
@@ -1034,7 +1034,7 @@
 
                     <div class="products-content">
                         <span class="category">T-Shirt</span>
-                        <h3><a href="../main/products-type-1.html">Sleeve Faux Suede Loose</a></h3>
+                        <h3><a href="../products-type-1.html">Sleeve Faux Suede Loose</a></h3>
                         <div class="star-rating">
                             <i class='bx bxs-star'></i>
                             <i class='bx bxs-star'></i>
@@ -1060,7 +1060,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="products-box">
                     <div class="products-image">
-                        <a href="../main/products-type-1.html">
+                        <a href="../products-type-1.html">
                             <img src="assets/img/products/bestprod2.jpg" class="main-image" alt="image">
                             <img src="assets/img/products/bestprod2.jpg" class="hover-image" alt="image">
                         </a>
@@ -1090,7 +1090,7 @@
 
                     <div class="products-content">
                         <span class="category">T-Shirt</span>
-                        <h3><a href="../main/products-type-1.html">T-Shirt Casual Stripe Tunic</a></h3>
+                        <h3><a href="../products-type-1.html">T-Shirt Casual Stripe Tunic</a></h3>
                         <div class="star-rating">
                             <i class='bx bxs-star'></i>
                             <i class='bx bxs-star'></i>
@@ -1110,7 +1110,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="products-box">
                     <div class="products-image">
-                        <a href="../main/products-type-1.html">
+                        <a href="../products-type-1.html">
                             <img src="assets/img/products/bestprod3.jpg" class="main-image" alt="image">
                             <img src="assets/img/products/bestprod3.jpg" class="hover-image" alt="image">
                         </a>
@@ -1140,7 +1140,7 @@
 
                     <div class="products-content">
                         <span class="category">Shirt</span>
-                        <h3><a href="../main/products-type-1.html">Chest Cutout Tunics Long</a></h3>
+                        <h3><a href="../products-type-1.html">Chest Cutout Tunics Long</a></h3>
                         <div class="star-rating">
                             <i class='bx bxs-star'></i>
                             <i class='bx bxs-star'></i>
@@ -1851,10 +1851,10 @@
                 <div class="single-footer-widget">
                     <h3>Customer Support</h3>
                     <ul class="customer-support">
-                        <li><a href="../main/login.html">My Account</a></li>
+                        <li><a href="../login.html">My Account</a></li>
                         <li><a href="../checkout.html">Checkout</a></li>
                         <li><a href="../cart.html">Cart</a></li>
-                        <li><a href="../main/track-order.html">Order Tracking</a></li>
+                        <li><a href="../track-order.html">Order Tracking</a></li>
                         <li><a href="../contact.html">Help & Support</a></li>
                     </ul>
                 </div>
