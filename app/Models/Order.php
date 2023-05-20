@@ -12,7 +12,7 @@ class Order extends Model
     use HasFactory;
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class)->withTimestamps();
+        return $this->hasMany(Product::class)->withTimestamps();
     }
     public function item():HasMany
     {
