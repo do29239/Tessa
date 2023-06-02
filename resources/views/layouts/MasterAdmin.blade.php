@@ -15,15 +15,14 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Nucleo Icons -->
-    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="{{asset('../assets/adminassets/css/nucleo-icons.css')}}" rel="stylesheet" />
     <!-- CSS Files -->
-    <link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+    <link href="{{asset('../assets/adminassets/css/black-dashboard.css?v=1.0.0')}}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="../assets/demo/demo.css" rel="stylesheet" />
+    <link href="{{asset('../assets/adminassets/demo/demo.css')}}" rel="stylesheet" />
 </head>
 
 <body class="">
-@yield('content')
 <div class="wrapper">
     <div class="sidebar">
         <!--
@@ -46,7 +45,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./icons.html">
+                    <a href={{ route('categories.index') }}>
+                        <i class="tim-icons icon-book-bookmark"></i>
+                        <p>Categories</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url('/admin/icons')}}">
                         <i class="tim-icons icon-atom"></i>
                         <p>Icons</p>
                     </a>
@@ -173,6 +178,7 @@
             </div>
         </div>
         <!-- End Navbar -->
+        @yield('content')
 
         <footer class="footer">
 
@@ -180,20 +186,20 @@
     </div>
 </div>
         <!--   Core JS Files   -->
-        <script src="../assets/js/core/jquery.min.js"></script>
-        <script src="../assets/js/core/popper.min.js"></script>
-        <script src="../assets/js/core/bootstrap.min.js"></script>
-        <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <script src="../assets/adminassets/js/core/jquery.min.js"></script>
+        <script src="../assets/adminassets/js/core/popper.min.js"></script>
+        <script src="../assets/adminassets/js/core/bootstrap.min.js"></script>
+        <script src="../assets/adminassets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
         <!--  Google Maps Plugin    -->
         <!-- Place this tag in your head or just before your close body tag. -->
         <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
         <!-- Chart JS -->
-        <script src="../assets/js/plugins/chartjs.min.js"></script>
+        <script src="../assets/adminassets/js/plugins/chartjs.min.js"></script>
         <!--  Notifications Plugin    -->
-        <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+        <script src="../assets/adminassets/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-        <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
-        <script src="../assets/demo/demo.js"></script>
+        <script src="../assets/adminassets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+        <script src="../assets/adminassets/demo/demo.js"></script>
 
 
 

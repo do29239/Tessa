@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Categories;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -12,44 +14,28 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-
-        return view('categories.index', compact('categories'));
-    }
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view('admin.category')->with('categories', $categories);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreCategoryRequest $request)
     {
-        // Retrieve validated data from the request
         $validatedData = $request->validated();
 
-        // Create a new category with the validated data
-        $category = Category::create($validatedData);
+        Category::create($validatedData);
 
-
-        return redirect()->route('admin.category')->with('success', 'Category created successfully');
+        return redirect()->route('categories.index')->with('success', 'Category created successfully');
     }
+
+
 
     // Method to update an existing category
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        // Retrieve validated data from the request
         $validatedData = $request->validated();
 
-        // Update the category with the validated data
         $category->update($validatedData);
 
-        // Optionally, you can redirect the user to a success page or return a JSON response
-        // For example:
-        return redirect()->route('admin.category')->with('success', 'Category updated successfully');
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully');
     }
 
     /**
@@ -63,11 +49,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.edit-category', compact('category'));
     }
-
     /**
      * Update the specified resource in storage.
      */
@@ -76,8 +61,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully');
     }
 }
