@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/dashboard', function () {
             return view('admin.dashboard');
         });
-        Route::resource('categories', CategoryController::class);
+        Route::resource('categories', CategoryController::class)->except('show');
     });;
 
 Route::get('/dashboard', function () {

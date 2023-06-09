@@ -23,7 +23,7 @@ class CategoryController extends Controller
 
         Category::create($validatedData);
 
-        return redirect()->route('categories.index')->with('success', 'Category created successfully');
+        return redirect()->route('categories.edit')->with('success', 'Category created successfully');
     }
 
 
@@ -35,17 +35,8 @@ class CategoryController extends Controller
 
         $category->update($validatedData);
 
-        return redirect()->route('categories.index')->with('success', 'Category updated successfully');
+        return redirect()->route('categories.edit')->with('success', 'Category updated successfully');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      */
