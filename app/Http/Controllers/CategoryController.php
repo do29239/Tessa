@@ -19,11 +19,9 @@ class CategoryController extends Controller
 
     public function store(StoreCategoryRequest $request)
     {
-        $validatedData = $request->validated();
+        $category = Category::create($request->validated());
 
-        Category::create($validatedData);
-
-        return redirect()->route('categories.edit')->with('success', 'Category created successfully');
+        return redirect()->route('categories.edit', $category)->with('success', 'Category created successfully');
     }
 
 
@@ -31,11 +29,9 @@ class CategoryController extends Controller
     // Method to update an existing category
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $validatedData = $request->validated();
+        $category->update($request->validated());
 
-        $category->update($validatedData);
-
-        return redirect()->route('categories.edit')->with('success', 'Category updated successfully');
+        return redirect()->route('categories.edit', $category)->with('success', 'Category updated successfully');
     }
     /**
      * Show the form for editing the specified resource.
