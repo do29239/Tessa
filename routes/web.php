@@ -18,9 +18,24 @@ Route::get('/', function () {
     return view('main/home/index');
 });
 
+<<<<<<< Updated upstream
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+=======
+Route::middleware('auth')->group(function () {
+
+    Route::middleware(['admin'])->group(function () {
+        Route::get('/admin/dashboard', function () {
+            return view('admin.dashboard');
+        });
+        Route::resource('categories', CategoryController::class)->exept('create');
+    });
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+>>>>>>> Stashed changes
 
 Route::middleware('auth')->group(function () {
 
@@ -34,5 +49,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+<<<<<<< Updated upstream
 require __DIR__.'/auth.php';
+=======
+
+require __DIR__ . '/auth.php';
+>>>>>>> Stashed changes
 
