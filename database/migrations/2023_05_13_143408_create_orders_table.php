@@ -17,7 +17,6 @@ return new class extends Migration
 	        $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->decimal('total');
             $table->decimal('discount');
-	        $table->foreignId('items_id')->constrained('items')->onDelete('cascade');
             $table->timestamps();
         });
     }

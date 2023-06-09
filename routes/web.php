@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,41 +19,27 @@ Route::get('/', function () {
     return view('main/home/index');
 });
 
-<<<<<<< Updated upstream
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-=======
 Route::middleware('auth')->group(function () {
 
     Route::middleware(['admin'])->group(function () {
         Route::get('/admin/dashboard', function () {
             return view('admin.dashboard');
         });
-        Route::resource('categories', CategoryController::class)->exept('create');
-    });
+        Route::resource('categories', CategoryController::class)->except('show');
+    });;
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
->>>>>>> Stashed changes
-
-Route::middleware('auth')->group(function () {
-
-    Route::middleware('admin')->group(function () {
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 
-
-    });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-<<<<<<< Updated upstream
-require __DIR__.'/auth.php';
-=======
 
-require __DIR__ . '/auth.php';
->>>>>>> Stashed changes
+
+
+require __DIR__.'/auth.php';
 

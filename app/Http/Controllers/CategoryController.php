@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -12,38 +13,30 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category')->with('categories', Category::all());
+        $categories = Category::all();
+        return view('admin.category')->with('categories', $categories);
     }
 
-    public function store(CategoryRequest $request)
+    public function store(StoreCategoryRequest $request)
     {
-        Category::create($request->validated());
+        $validatedData = $request->validated();
 
-        return redirect()->route('categories.index')
-                    ->with('success', 'Category created successfully');
+        Category::create($validatedData);
+
+        return redirect()->route('categories.edit')->with('success', 'Category created successfully');
     }
 
 
 
     // Method to update an existing category
-    public function update(CategoryRequest $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
+        $validatedData = $request->validated();
 
+        $category->update($validatedData);
 
-        $category->update($request->validated());
-
-        return redirect()->route('categories.index')
-                ->with('success', 'Category updated successfully');
+        return redirect()->route('categories.edit')->with('success', 'Category updated successfully');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      */
