@@ -26,9 +26,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/dashboard', function () {
             return view('admin.dashboard');
         });
+
         Route::resource('categories', CategoryController::class);
         Route::resource('brands', BrandController::class)->except('show');
     });
+
+        Route::resource('categories', CategoryController::class)->except('show');
+    });
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -38,10 +43,10 @@ Route::get('/dashboard', function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 
 
 
-require __DIR__.'/auth.php';
+
+
 
