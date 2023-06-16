@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
@@ -26,7 +27,8 @@ Route::middleware('auth')->group(function () {
             return view('admin.dashboard');
         });
         Route::resource('categories', CategoryController::class);
-    });;
+        Route::resource('brands', BrandController::class)->except('show');
+    });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
