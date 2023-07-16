@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreCategoryRequest;
-use App\Http\Requests\UpdateCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -17,7 +16,7 @@ class CategoryController extends Controller
         return view('admin.category')->with('categories', $categories);
     }
 
-    public function store(StoreCategoryRequest $request)
+    public function store(CategoryRequest $request)
     {
         $category = Category::create($request->validated());
 
@@ -27,7 +26,7 @@ class CategoryController extends Controller
 
 
     // Method to update an existing category
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
         $category->update($request->validated());
 

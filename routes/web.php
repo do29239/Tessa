@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
@@ -26,12 +27,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/dashboard', function () {
             return view('admin.dashboard');
         });
-
+        Route::resource('products', ProductController::class)->except('create');
         Route::resource('categories', CategoryController::class);
         Route::resource('brands', BrandController::class)->except('show');
     });
 
-        Route::resource('categories', CategoryController::class)->except('show');
+
     });
 
 
@@ -49,4 +50,5 @@ Route::get('/dashboard', function () {
 
 
 
+require __DIR__.'/auth.php';
 

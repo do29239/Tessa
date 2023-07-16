@@ -82,7 +82,7 @@
             </a>
           </li>
           <li>
-            <a href="./tables.html">
+            <a href="product.blade.php">
               <i class="tim-icons icon-puzzle-10"></i>
               <p>Table List</p>
             </a>

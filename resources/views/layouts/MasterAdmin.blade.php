@@ -51,6 +51,18 @@
                     </a>
                 </li>
                 <li>
+                    <a href={{ route('brands.index') }}>
+                        <i class="tim-icons icon-book-bookmark"></i>
+                        <p>Brands</p>
+                    </a>
+                </li>
+                <li>
+                    <a href={{ route('products.index') }}>
+                        <i class="tim-icons icon-book-bookmark"></i>
+                        <p>Products</p>
+                    </a>
+                </li>
+                <li>
                     <a href="{{url('/admin/icons')}}">
                         <i class="tim-icons icon-atom"></i>
                         <p>Icons</p>
@@ -157,8 +169,16 @@
                                 <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>
                                 <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
                                 <li class="dropdown-divider"></li>
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
+                                <li class="nav-link">
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button type="submit" class="nav-item dropdown-item">
+                                            {{ __('Log Out') }}
+                                        </button>
+                                    </form>
+                                </li>
                             </ul>
+
                         </li>
                         <li class="separator d-lg-none"></li>
                     </ul>

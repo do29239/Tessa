@@ -12,7 +12,14 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 class Product extends Model
 {
     use HasFactory;
-
+    protected $fillable = [
+        'name',
+        'description',
+        'brand_id',
+        'category_id',
+        'quantity',
+        'price',
+    ];
     public function brand(): BelongsTo
     {
         return $this->belongsTo(Brand::class);

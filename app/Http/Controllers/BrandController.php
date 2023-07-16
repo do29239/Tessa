@@ -22,7 +22,7 @@ class BrandController extends Controller
 
 
 
-    // Method to update an existing category
+    // Method to update an existing brand
     public function update(BrandRequest $request, Brand $brand)
     {
         $validatedData = $request->validated();
