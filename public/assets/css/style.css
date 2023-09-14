@@ -10542,3 +10542,152 @@ Go Top CSS
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/*Added CSS */
+.button-dalje {
+    background: #f53f85;
+    border: 1px solid #f53f85;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Cabin";
+    font-size: 15px;
+    font-weight: 650;
+    line-height: 1px;
+    min-height: 35px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+.button-dalje:hover,
+.button-dalje:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #f53f85;
+}
+
+.button-dalje:active {
+    opacity: .5;
+}
+.addToCartBtn {
+    background-color: #fbdeeb;
+    border-radius: 100px;
+    box-shadow: rgba(205, 88, 136, .2) 0 -25px 18px -14px inset,rgba(205, 88, 136, .15) 0 1px 2px,rgba(205, 88, 136, .15) 0 2px 4px,rgba(205, 88, 136, .15) 0 4px 8px,rgba(205, 88, 136, .15) 0 8px 16px,rgba(205, 88, 136, .15) 0 16px 32px;
+    color: #400E32;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.addToCartBtn:hover {
+    box-shadow: rgba(205, 88, 136, .2) 0 -25px 18px -14px inset,rgba(205, 88, 136, .15) 0 1px 2px,rgba(205, 88, 136, .15) 0 2px 4px,rgba(205, 88, 136, .15) 0 4px 8px,rgba(205, 88, 136, .15) 0 8px 16px,rgba(205, 88, 136, .15) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+.addToCartBtn {
+    background-color: #fbdeeb;
+    border-radius: 100px;
+    box-shadow: rgba(205, 88, 136, .2) 0 -25px 18px -14px inset,rgba(205, 88, 136, .15) 0 1px 2px,rgba(205, 88, 136, .15) 0 2px 4px,rgba(205, 88, 136, .15) 0 4px 8px,rgba(205, 88, 136, .15) 0 8px 16px,rgba(205, 88, 136, .15) 0 16px 32px;
+    color: #400E32;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.addToCartBtn:hover {
+    box-shadow: rgba(205, 88, 136, .2) 0 -25px 18px -14px inset,rgba(205, 88, 136, .15) 0 1px 2px,rgba(205, 88, 136, .15) 0 2px 4px,rgba(205, 88, 136, .15) 0 4px 8px,rgba(205, 88, 136, .15) 0 8px 16px,rgba(205, 88, 136, .15) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+.input-counter{
+
+    padding-top: 10px;;
+}
+
+.haircolor{
+    display: flex;
+    flex-direction: row;
+    gap: 180px;
+    padding-left: 90px;
+    padding-top: 50px;
+}
+
+.colorImage{
+    width: 150px;
+}
+
+.haircolorimg{
+    display: flex;
+    flex-direction: row;
+}
+
+.hairtext{
+    align-items: center;
+}
+
+.contact{
+    font-size: 25px;
+    font-weight: 600;
+    color: #f53f85;
+}
+
+.w3rcontainer{
+    border: 1px solid #f53f85;
+    border-radius: 2px;
+}
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #f53f85;
+}
+
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #f53f85;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.img-orderimage{
+    max-width: 80px;
+    max-height: 80px;
+}
+

@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,15 @@ Route::middleware('auth')->group(function () {
         Route::resource('categories', CategoryController::class);
         Route::resource('brands', BrandController::class)->except('show');
     });
+    Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
+    Route::get('/shop',[MainController::class,'showProducts'])->name('shop');
+    Route::get('product/show-product/{product}', [MainController::class, 'show'])->name('showProduct');
+    Route::get('/shop/brand/{brand}',[MainController::class, 'getProductsByBrand'])->name('productsByBrand');
+    Route::get('/shop/category/{category}',[MainController::class, 'getProductsByCategory'])->name('productsByCategory');
 
 
-    });
+
+});
 
 
 Route::get('/dashboard', function () {
@@ -51,4 +58,3 @@ Route::get('/dashboard', function () {
 
 
 require __DIR__.'/auth.php';
-
