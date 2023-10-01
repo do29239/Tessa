@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use App\Http\Livewire\ProductFilter\ProductFilter;
+use App\Livewire\ProductFilter;
+use App\Livewire\LoadProducts;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -24,5 +25,8 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot()
     {
+
+        Livewire::component('product-filter', ProductFilter::class);
+        Livewire::component('load-products', LoadProducts::class);
     }
 }

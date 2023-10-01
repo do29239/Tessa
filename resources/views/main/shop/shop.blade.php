@@ -20,46 +20,7 @@
 <section class="products-area products-collections-area pt-100 pb-70">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4 col-md-12">
-                <div class="woocommerce-widget-area">
-                    <div class="woocommerce-widget collections-list-widget">
-                        <h3 class="woocommerce-widget-title">Categories</h3>
-
-                        <ul class="collections-list-row">
-                            @foreach($categories as $category)
-                                <li>
-                                    <a href="{{route('productsByCategory', $category->id)}}"><span></span> {{$category->name}}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-
-                    <div class="woocommerce-widget brands-list-widget">
-                        <h3 class="woocommerce-widget-title">Brands</h3>
-
-                        <ul class="brands-list-row">
-                            @foreach($brands as $brand)
-                                <li>
-                                    <a href="{{ route('productsByBrand', $brand) }}"><span></span> {{$brand->name}}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-                    <div class="woocommerce-widget aside-trending-widget">
-                        <div class="aside-trending-products">
-                            <img src="assets/img/offer-bg.jpg" alt="image" />
-
-                            <div class="category">
-                                <h3>Courses here</h3>
-                                <span>Spring/Summer 2021 Collection</span>
-                            </div>
-                            <a href="#" class="link-btn"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @livewire('ProductFilter')
 
             <div class="col-lg-8 col-md-12">
                 <div class="products-filter-options">
@@ -128,74 +89,9 @@
                 </div>
 
 
-                <div id="products-collections-filter" class="row">
-                    @foreach($products as $product)
-                        <div class="col-lg-4 col-md-6 col-sm-6 products-col-item">
-                            <div class="single-products-box">
-                                <div class="products-image">
-                                    <a href="#">
-                                        <img src="{{ asset('storage/images/'.$product->image->name) }}" class="main-image" alt="image" />
-                                        <img src="{{ asset('storage/images/'.$product->image->name) }}" class="hover-image" alt="image" />
-                                    </a>
+                @livewire ('loadProducts')
+            </div>
 
-                                    <div class="products-button">
-                                        <ul>
-                                            <li>
-                                                <div class="wishlist-btn">z
-                                                    <a href="#">
-                                                        <i class="bx bx-heart"></i>
-                                                        <span class="tooltip-label">Add to Wishlist</span>
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="quick-view-btn">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                                                        <i class="bx bx-search-alt"></i>
-                                                        <span class="tooltip-label">Quick View</span>
-                                                    </a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="products-content">
-                                    <span class="category">{{$product->category->name}}</span>
-                                    <h3><a href="#">{{ $product->name }}</a></h3>
-                                    <div class="price">
-                                        <span class="new-price">{{ $product->price }}den</span>
-                                    </div>
-                                    <input type="hidden" value="{{ $product->id }}" class="prod_id">
-                                    <div class="d-flex align-items-center" style="padding-top: 15px;">
-                                        <button type="submit" class="col-md-6 addToCartBtn mr-3">Add Cart</button>
-                                        <div class="input-counter">
-                                            <span class="minus-btn"><i class="bx bx-minus"></i></span>
-                                            <input type="text" class="qty-input" value="1" />
-                                            <span class="plus-btn"><i class="bx bx-plus"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-                </div>
-
-
-                <div class="pagination-area text-center">
-                    <a href="#" class="prev page-numbers"
-                    ><i class="bx bx-chevron-left"></i
-                        ></a>
-                    <span class="page-numbers current" aria-current="page">1</span>
-                    <a href="#" class="page-numbers">2</a>
-                    <a href="#" class="page-numbers">3</a>
-                    <a href="#" class="page-numbers">4</a>
-                    <a href="#" class="page-numbers">5</a>
-                    <a href="#" class="next page-numbers"
-                    ><i class="bx bx-chevron-right"></i
-                        ></a>
-                </div>
             </div>
         </div>
     </div>
@@ -375,9 +271,4 @@
 </div>
 <!-- End QuickView Modal Area -->
 
-
-<!-- Start Products Filter Modal Area -->
-<span class="text-center">
-                {{ $products->links('main.shop.my-paginate') }}
-              </span>
 @endsection
