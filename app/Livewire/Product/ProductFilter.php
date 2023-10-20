@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Product;
 
-use Livewire\Component;
-use App\Models\Category;
 use App\Models\Brand;
-use Livewire\Attributes\Layout;
+use App\Models\Category;
+use Livewire\Component;
 
 class ProductFilter extends Component
 {

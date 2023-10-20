@@ -23,7 +23,7 @@
     </style>
         <div id="products-collections-filter" class="row">
             @foreach($products as $product)
-                <div class="col-lg-4 col-md-6 col-sm-6 products-col-item">
+                <div wire:key="{{ $product->id }}" class="col-lg-4 col-md-6 col-sm-6 products-col-item">
                     <div class="single-products-box">
                         <div class="products-image">
                             <a href="{{ route('showProduct', $product->id) }}">
@@ -34,7 +34,7 @@
                             <div class="products-button">
                                 <ul>
                                     <li>
-                                        <div class="wishlist-btn">z
+                                        <div class="wishlist-btn">
                                             <a href="#">
                                                 <i class="bx bx-heart"></i>
                                                 <span class="tooltip-label">Add to Wishlist</span>
@@ -51,22 +51,15 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-
-                        <div class="products-content">
-                            <span class="category">{{$product->category->name}}</span>
-                            <h3><a href="#">{{ $product->name }}</a></h3>
-                            <div class="price">
-                                <span class="new-price">{{ $product->price }}den</span>
-                            </div>
-                            <input type="hidden" value="{{ $product->id }}" class="prod_id">
-                            <div class="d-flex align-items-center" style="padding-top: 15px;">
-                                <button type="submit" class="default-btn">Add Cart</button>
-                                <div class="input-counter">
-                                    <span class="minus-btn"><i class="bx bx-minus"></i></span>
-                                    <input type="text" class="qty-input" value="1" />
-                                    <span class="plus-btn"><i class="bx bx-plus"></i></span>
+                            <div class="products-content">
+                                <span class="category">{{$product->category->name}}</span>
+                                <h3><a href="#">{{ $product->name }}</a></h3>
+                                <div class="price">
+                                    <span class="new-price">{{ $product->price }}den</span>
                                 </div>
+                                <input type="hidden" value="{{ $product->id }}" class="prod_id">
+
+                                @livewire('add-to-cart', ['product_id' => $product->id], key($product->id))
                             </div>
                         </div>
                     </div>

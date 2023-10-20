@@ -11,6 +11,9 @@
                 <li><a href="index.html">Home</a></li>
                 <li>Shop</li>
             </ul>
+            @if(Session('message'))
+                <div>{{session('message')}}</div>
+            @endif
         </div>
     </div>
 </div>
@@ -20,7 +23,7 @@
 <section class="products-area products-collections-area pt-100 pb-70">
     <div class="container-fluid">
         <div class="row">
-            @livewire('ProductFilter')
+            @livewire('Product.ProductFilter')
 
             <div class="col-lg-8 col-md-12">
                 <div class="products-filter-options">
@@ -89,7 +92,7 @@
                 </div>
 
 
-                @livewire ('loadProducts')
+                @livewire ('Product.loadProducts')
             </div>
 
             </div>

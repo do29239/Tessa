@@ -233,17 +233,7 @@
                                 <span class="new-price">{{$product->price}}den</span>
                             </div>
                             <input type="hidden" value="{{$product->id}}" class="prod_id">
-                            <div class="d-flex align-items-center" style="padding-top: 15px;">
-                                <button type="submit" class="default-btn">
-                                    <i class="fas fa-cart-plus"></i> Add to Cart
-                                </button>
-{{--                                test cart button--}}
-                                <div class="input-counter">
-                                    <span class="minus-btn"><i class="bx bx-minus"></i></span>
-                                    <input type="text" class="qty-input" value="1" />
-                                    <span class="plus-btn"><i class="bx bx-plus"></i></span>
-                                </div>
-                            </div>
+                            @livewire('add-to-cart', ['product_id' => $product->id])
                         </div>
 
                         <span class="products-discount">
@@ -327,14 +317,7 @@
                                 <span class="new-price">{{$product->price}}den</span>
                             </div>
                             <input type="hidden" value="{{$product->id}}" class="prod_id">
-                            <div class="d-flex align-items-center" style="padding-top: 15px;">
-                                <button type="submit" class="col-md-6 addToCartBtn mr-3">Add Cart</button>
-                                <div class="input-counter">
-                                    <span class="minus-btn"><i class="bx bx-minus"></i></span>
-                                    <input type="text" class="qty-input" value="1" />
-                                    <span class="plus-btn"><i class="bx bx-plus"></i></span>
-                                </div>
-                            </div>
+                            @livewire('add-to-cart', ['product_id' => $product->id])
                         </div>
 
                         <span class="products-discount">

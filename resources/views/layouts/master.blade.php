@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
-
+    @livewireStyles
 
     <title>Tessa Academy</title>
 
@@ -169,14 +169,9 @@
                             </div>
                         </div>
                         <div class="option-item">
-                            <div class="cart-btn">
-                                <a
-                                    href="#"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#shoppingCartModal"
-                                ><i class="bx bx-shopping-bag"></i><span>0</span></a
-                                >
-                            </div>
+                            @livewire('cart.cart-counter')
+
+
                         </div>
                         <div class="option-item">
                             <div
@@ -234,14 +229,8 @@
                             </div>
                         </div>
                         <div class="option-item">
-                            <div class="cart-btn">
-                                <a
-                                    href="#"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#shoppingCartModal"
-                                ><i class="bx bx-shopping-bag"></i><span>0</span></a
-                                >
-                            </div>
+                            @livewire('cart.cart-counter')
+
                         </div>
                         <div class="option-item">
                             <div
@@ -482,75 +471,9 @@
             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true"><i class='bx bx-x'></i></span>
             </button>
-
-            <div class="modal-body">
-                <h3>My Cart (3)</h3>
-
-                <div class="products-cart-content">
-                    <div class="products-cart">
-                        <div class="products-image">
-                            <a href="#"><img src="{{asset('assets/img/products/img1.jpg')}}" alt="image"></a>
-                        </div>
-
-                        <div class="products-content">
-                            <h3><a href="#">Long Sleeve Leopard T-Shirt</a></h3>
-                            <span>Blue / XS</span>
-                            <div class="products-price">
-                                <span class="qnt-element">1</span>
-                                <span>x</span>
-                                <span class="price">$250.00</span>
-                            </div>
-                            <a href="#" class="remove-btn"><i class='bx bx-trash'></i></a>
-                        </div>
-                    </div>
-
-                    <div class="products-cart">
-                        <div class="products-image">
-                            <a href="#"><img src="{{asset('assets/img/products/img2.jpg')}}" alt="image"></a>
-                        </div>
-
-                        <div class="products-content">
-                            <h3><a href="#">Causal V-Neck Soft Raglan</a></h3>
-                            <span>Blue / XS</span>
-                            <div class="products-price">
-                                <span>1</span>
-                                <span>x</span>
-                                <span class="price">$200.00</span>
-                            </div>
-                            <a href="#" class="remove-btn"><i class='bx bx-trash'></i></a>
-                        </div>
-                    </div>
-
-                    <div class="products-cart">
-                        <div class="products-image">
-                            <a href="#"><img src="{{asset('assets/img/products/img3.jpg')}}" alt="image"></a>
-                        </div>
-
-                        <div class="products-content">
-                            <h3><a href="#">Hanes Men's Pullover</a></h3>
-                            <span>Blue / XS</span>
-                            <div class="products-price">
-                                <span>1</span>
-                                <span>x</span>
-                                <span class="price">$200.00</span>
-                            </div>
-                            <a href="#" class="remove-btn"><i class='bx bx-trash'></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="products-cart-subtotal">
-                    <span>Subtotal</span>
-
-                    <span class="subtotal">$524.00</span>
-                </div>
-
-                <div class="products-cart-btn">
-                    <a href="../checkout.html" class="default-btn">Proceed to Checkout</a>
-                    <a href="../cart.html" class="optional-btn">View Shopping Cart</a>
-                </div>
-            </div>
+            @livewire('cart.ShowCart', ['view' => 'show-cart-modal'])
         </div>
+    </div>
     </div>
 </div>
 <!-- End Shopping Cart Modal -->
@@ -718,6 +641,7 @@
 <script src="{{ asset('assets/js/contact-form-script.js') }}"></script>
 <script src="{{ asset('assets/js/ajaxchimp.min.js') }}"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
+@livewireScripts
 </body>
 </html>
 

@@ -6830,15 +6830,8 @@ Modal CSS
                             visibility: hidden;
                             transition: $transition;
 
-                            &:hover {
-                                color: red;
-                            }
+                            /* Remove the :hover selector */
                         }
-                        &:hover {
-                            .remove-btn {
-                                opacity: 1;
-                                visibility: visible;
-                            }
                         }
                     }
                 }

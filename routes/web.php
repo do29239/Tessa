@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -34,12 +35,9 @@ Route::middleware('auth')->group(function () {
     });
     Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
     Route::get('/shop',[MainController::class,'showProducts'])->name('shop');
-    Route::get('/shop/load-products',[MainController::class,'loadProducts'])->name('loadProducts');
     Route::get('product/show-product/{product}', [MainController::class, 'show'])->name('showProduct');
-//    Route::get('/shop/brand/{brand}',[MainController::class, 'getProductsByBrand'])->name('productsByBrand');
-//    Route::get('/shop/category/{category}',[MainController::class, 'getProductsByCategory'])->name('productsByCategory');
-
-
+    Route::get('/cart',[CartController::class,'showCart'])->name('Cart');
+    Route::get('/checkout',[CartController::class,'Checkout'])->name('Checkout');
 
 });
 
