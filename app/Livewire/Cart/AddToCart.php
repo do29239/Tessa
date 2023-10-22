@@ -41,7 +41,7 @@ class AddToCart extends Component
         $cartCount = Cart::where('user_id', auth()->id())
             ->where('completed', false)
             ->count();
-        $this->dispatch('cart_updated', $cartCount); // in CartCount
+        $this->dispatch('cart_updated', $cartCount); // in CartCounter
         $this->dispatch('load_cart'); //in ShowCart
     }
     public function decrementQuantity()

@@ -14,7 +14,7 @@ class ShowCart extends Component
 
     public function loadCart()
     {
-        $this->cartItems = Cart::all();
+        $this->cartItems = Cart::where('user_id', auth()->id())->get();
         $this->updateCart();
         $this->calculateTotal();
 

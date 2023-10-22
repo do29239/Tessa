@@ -51,12 +51,13 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-12 col-md-12">
-                                <div class="form-group">
-                                    <label>Company Name</label>
-                                    <input type="text" class="form-control" />
-                                </div>
-                            </div>
+{{--    review thiss!!!!
+                        <div class="col-lg-12 col-md-12">--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label>Company Name</label>--}}
+{{--                                    <input type="text" class="form-control" />--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <div class="col-lg-12 col-md-6">
                                 <div class="form-group">

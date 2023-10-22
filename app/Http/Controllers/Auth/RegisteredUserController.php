@@ -34,8 +34,10 @@ class RegisteredUserController extends Controller
         $request->validate([
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'role' => ['in:0,1'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'address' => ['required', 'string'],
+            'city' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -47,12 +49,10 @@ class RegisteredUserController extends Controller
             'role' => 0,
         ]);
         $userProfile = Profile::create([
-           'user_id' => $request->user->id,
-           'saloon_name' =>$request->saloon_name,
-            'saloon_address' => $request->saloon_address,
+           'user_id' => $user->id,
+            'address' => $request->address,
             'city' => $request->city,
             'phone'=> $request->phone,
-            'discount' => $request->discount,
         ]);
 
         event(new Registered($user));
