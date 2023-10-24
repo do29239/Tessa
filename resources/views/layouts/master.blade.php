@@ -153,7 +153,7 @@
                             <a href="{{ route('shop') }}" class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">Shop</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="../blog-1.html" class="nav-link">Courses </a>
+                            <a href="{{ route('courses') }}" class="nav-link{{ request()->routeIs('courses') ? ' active' : '' }}">Courses </a>
                         </li>
                         <li class="nav-item megamenu">
                             <a href="../about.html" class="nav-link">About Us </a>

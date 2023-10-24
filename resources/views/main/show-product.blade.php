@@ -251,6 +251,7 @@
             </div>
 
       </div>
+      </div>
     </section>
     <!-- End Product Details Area -->
 @endsection
