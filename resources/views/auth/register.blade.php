@@ -38,6 +38,12 @@
             <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>
+        <!-- Postcode -->
+        <div>
+            <x-input-label for="postcode" :value="__('postcode')" />
+            <x-text-input id="postcode" class="block mt-1 w-full" type="text" name="postcode" :value="old('postcode')"  />
+            <x-input-error :messages="$errors->get('postcode')" class="mt-2" />
+        </div>
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />

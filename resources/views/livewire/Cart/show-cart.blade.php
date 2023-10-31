@@ -57,12 +57,9 @@
             <div class="cart-buttons">
                 <div class="row align-items-center">
                     <div class="col-lg-7 col-sm-7 col-md-7">
-                        <a href="#" class="optional-btn">Continue Shopping</a>
+                        <a href="{{url('/shop')}}" class="optional-btn">Continue Shopping</a>
                     </div>
 
-                    <div class="col-lg-5 col-sm-5 col-md-5 text-end">
-                        <a href="#" class="default-btn">Update Cart</a>
-                    </div>
                 </div>
             </div>
 
@@ -74,8 +71,9 @@
                     <li>Shipping <span>150.00 den</span></li>
                     <li>Total <span>{{number_format($Subtotal, 2) }} den</span></li>
                 </ul>
-
-                <a href="../checkout.html" class="default-btn">Proceed to Checkout</a>
+                @if(!$isEmpty)
+                <a href="{{route('Checkout')}}" class="default-btn">Proceed to Checkout</a>
+                @endif
             </div>
 
 </div>

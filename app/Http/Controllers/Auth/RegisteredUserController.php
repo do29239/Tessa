@@ -38,6 +38,7 @@ class RegisteredUserController extends Controller
             'address' => ['required', 'string'],
             'city' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
+            'postcode'=>['required', 'integer'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -53,6 +54,7 @@ class RegisteredUserController extends Controller
             'address' => $request->address,
             'city' => $request->city,
             'phone'=> $request->phone,
+            'postcode'=>$request->postcode,
         ]);
 
         event(new Registered($user));

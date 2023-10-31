@@ -78,6 +78,9 @@
                         <a href="../login.html"><i class="bx bxs-user"></i> My Account</a>
                     </li>
                     <li>
+                        <a href="{{route('my.orders')}}"><i class="bx bxs-user"></i> My orders</a>
+                    </li>
+                    <li>
                         <a
                             href="#"
                             data-bs-toggle="modal"

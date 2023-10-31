@@ -10,6 +10,7 @@ class ShowCart extends Component
     public $view;
     public $Subtotal = 0;
     public $cartItems;
+    public $isEmpty = true;
     protected $listeners = ['load_cart' => 'loadCart'];
 
     public function loadCart()
@@ -17,8 +18,7 @@ class ShowCart extends Component
         $this->cartItems = Cart::where('user_id', auth()->id())->get();
         $this->updateCart();
         $this->calculateTotal();
-
-
+        $this->isEmpty = $this->cartItems->isEmpty();
     }
 
     public function updateCart()
