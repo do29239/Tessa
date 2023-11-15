@@ -34,7 +34,9 @@
     </div>
 
     <div class="products-cart-btn">
-        <a href="{{route('Checkout')}}" class="default-btn">Proceed to Checkout</a>
-        <a href="{{route('Cart')}}" class="optional-btn">View Shopping Cart</a>
+        @if (!$isEmpty)
+            <a href="{{ route('Checkout') }}" class="default-btn">Proceed to Checkout</a>
+            <a href="{{ route('Cart') }}" class="optional-btn">View Shopping Cart</a>
+        @endif
     </div>
 </div>

@@ -14,7 +14,8 @@
             >
         </div>
 
-        <form>
+        <form action="{{url('place-order')}}" method="POST">
+            @csrf
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="billing-details">
@@ -25,13 +26,8 @@
                                 <div class="form-group">
                                     <label>Town / City <span class="required">*</span></label>
                                     <div class="select-box">
-                                        <select class="form-control">
-                                            <option>Skopje</option>
-                                            <option>Tetovo</option>
-                                            <option>Gostivar</option>
-                                            <option>Ohrid</option>
-                                            <option>Prilep</option>
-                                            <option>Struga</option>
+                                        <select class="form-control" >
+                                            <option>{{ Auth::user()->profile->city }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -40,14 +36,14 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>First Name <span class="required">*</span></label>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="first_name" value="{{ Auth::user()->first_name }}" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>Last Name <span class="required">*</span></label>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" class="form-control" name="last_name" value="{{ Auth::user()->last_name }}" />
                                 </div>
                             </div>
 
@@ -62,14 +58,14 @@
                             <div class="col-lg-12 col-md-6">
                                 <div class="form-group">
                                     <label>Address <span class="required">*</span></label>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" class="form-control" name="address" value="{{ Auth::user()->profile->address }}"/>
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>Phone <span class="required">*</span></label>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" class="form-control" name="phone" value="{{ Auth::user()->profile->phone }}" />
                                 </div>
                             </div>
 
@@ -78,7 +74,7 @@
                                     <label
                                     >Postcode / Zip <span class="required">*</span></label
                                     >
-                                    <input type="text" class="form-control" />
+                                    <input type="text" class="form-control" name="postcode" value="{{ Auth::user()->profile->postcode }}" />
                                 </div>
                             </div>
 
@@ -87,7 +83,7 @@
                                     <label
                                     >Email Address <span class="required">*</span></label
                                     >
-                                    <input type="email" class="form-control" />
+                                    <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}" />
                                 </div>
                             </div>
                         </div>
@@ -103,59 +99,40 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Product Name</th>
+                                    <th scope="col">Quantity</th>
                                     <th scope="col">Total</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
-                                <tr>
-                                    <td class="product-name">
-                                        <a href="#">Long Sleeve Leopard T-Shirt</a>
-                                    </td>
+                                @foreach($cartItems as $cartItem)
+                                    <tr>
+                                        <td class="product-name">
+                                            <a href="#">{{ $cartItem->product->name }}</a>
+                                        </td>
 
-                                    <td class="product-total">
-                                        <span class="subtotal-amount">$250.00</span>
-                                    </td>
-                                </tr>
+                                        <td class="product-quantity">
+                                            {{ $cartItem->quantity }}
+                                        </td>
 
-                                <tr>
-                                    <td class="product-name">
-                                        <a href="#">Causal V-Neck Soft Raglan</a>
-                                    </td>
-
-                                    <td class="product-total">
-                                        <span class="subtotal-amount">$200.00</span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="product-name">
-                                        <a href="#">Book Divas</a>
-                                    </td>
-
-                                    <td class="product-total">
-                                        <span class="subtotal-amount">$140.50</span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="product-name">
-                                        <a href="#">Hanes Men's Pullover</a>
-                                    </td>
-
-                                    <td class="product-total">
-                                        <span class="subtotal-amount">$200.00</span>
-                                    </td>
-                                </tr>
+                                        <td class="product-total">
+                                            <span class="subtotal-amount">{{ $cartItem->total }} den</span>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
                                 <tr>
                                     <td class="order-subtotal">
                                         <span>Cart Subtotal</span>
                                     </td>
 
-                                    <td class="order-subtotal-price">
-                                        <span class="order-subtotal-amount">$800.00</span>
+                                    <td class="order-subtotal-quantity">
+                                        <span>-</span>
                                     </td>
+
+                                    <td class="order-subtotal-price">
+                                        <span class="order-subtotal-amount">{{ $cartItems->sum('total') }} den</span>
+                                    </td
                                 </tr>
 
                                 <tr>
@@ -164,7 +141,10 @@
                                     </td>
 
                                     <td class="shipping-price">
-                                        <span>$30.00</span>
+                                        <span>-</span>
+                                    </td>
+                                    <td class="product-subtotal">
+                                        <span>150 den</span>
                                     </td>
                                 </tr>
 
@@ -174,34 +154,22 @@
                                     </td>
 
                                     <td class="product-subtotal">
-                                        <span class="subtotal-amount">$830.00</span>
+                                        <span>-</span>
+                                    </td>
+
+                                    <td class="subtotal-amount">
+                                        <span class="subtotal-amount">{{ $cartItems->sum('total') + 150.00 }} den</span>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="payment-box">
+
+                <div class="payment-box">
                             <div class="payment-method">
-                                <p>
-                                    <input
-                                        type="radio"
-                                        id="direct-bank-transfer"
-                                        name="radio-group"
-                                        checked
-                                    />
-                                    <label for="direct-bank-transfer"
-                                    >Direct Bank Transfer</label
-                                    >
-                                    Make your payment directly into our bank account. Please
-                                    use your Order ID as the payment reference. Your order
-                                    will not be shipped until the funds have cleared in our
-                                    account.
-                                </p>
-                                <p>
-                                    <input type="radio" id="paypal" name="radio-group" />
-                                    <label for="paypal">PayPal</label>
-                                </p>
                                 <p>
                                     <input
                                         type="radio"
@@ -212,7 +180,7 @@
                                 </p>
                             </div>
 
-                            <a href="#" class="default-btn">Place Order</a>
+                            <button type="submit" class="default-btn">Place Order</button>
                         </div>
                     </div>
                 </div>

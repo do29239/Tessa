@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,13 +33,17 @@ Route::middleware('auth')->group(function () {
         Route::resource('products', ProductController::class)->except('create');
         Route::resource('categories', CategoryController::class);
         Route::resource('brands', BrandController::class)->except('show');
+        Route::resource('orders', \App\Http\Controllers\Admin\OrderController::class);
+        Route::get('order-history', [\App\Http\Controllers\Admin\OrderController::class, 'history'])->name('history');
     });
     Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
     Route::get('/shop',[MainController::class,'showProducts'])->name('shop');
     Route::get('product/show-product/{product}', [MainController::class, 'show'])->name('showProduct');
     Route::get('/cart',[CartController::class,'showCart'])->name('Cart');
     Route::get('/checkout',[CartController::class,'Checkout'])->name('Checkout');
-
+    Route::post('/place-order',[OrderController::class,'placeOrder'])->name('place.order');
+    Route::get('/my-orders',[OrderController::class,'myOrders'])->name('my.orders');
+    Route::get('/order-details/{order_id}',[OrderController::class,'orderDetails'])->name('order.details');
 });
 
 

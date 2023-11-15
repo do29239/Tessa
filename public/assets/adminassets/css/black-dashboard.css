@@ -18451,7 +18451,14 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 .bd-docs .card .card-body {
   color: rgba(255, 255, 255, 0.8);
 }
-
+.centered-card{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.card-half{
+    max-width: 70% !important;
+}
 .bd-docs label,
 .bd-docs .form-check {
   color: rgba(255, 255, 255, 0.8);

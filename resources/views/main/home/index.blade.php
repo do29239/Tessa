@@ -228,7 +228,7 @@
 
                         <div class="products-content">
                             <span class="category">{{$product->category->name}}</span>
-                            <h3><a href="{{ route('showProduct', $product->id) }}">{{$product->name}}</a></h3>
+                            <h3><a href="{{ route('showProduct', $product->id) }}">{{$product->brand->name. '   ' .$product->name}}</a></h3>
                             <div class="price">
                                 <span class="new-price">{{$product->price}}den</span>
                             </div>

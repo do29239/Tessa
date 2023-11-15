@@ -10,9 +10,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Order extends Model
 {
     use HasFactory;
-    public function products(): BelongsToMany
+    protected $fillable = ['user_id', 'total'];
+
+    public function user()
     {
-        return $this->hasMany(Product::class)->withTimestamps();
+        return $this->belongsTo(User::class);
     }
     public function item():HasMany
     {

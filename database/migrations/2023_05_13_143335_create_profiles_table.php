@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('phone');
 			$table->decimal('discount')->default(0);
+            $table->Integer('postcode');
             $table->timestamps();
         });
     }

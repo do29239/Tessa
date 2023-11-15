@@ -14,6 +14,7 @@ class Profile extends Model
         'city',
         'phone',
         'discount',
+        'postcode',
     ];
     use HasFactory;
 	public function user(): BelongsTo

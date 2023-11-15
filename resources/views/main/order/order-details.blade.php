@@ -1,0 +1,73 @@
+@extends('layouts.master')
+
+@section('content')
+
+    <div class="page-title-area">
+        <div class="container">
+            <div class="page-title-content">
+                <h2>Order Details</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>Order Details</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="cart-area ptb-100">
+        <div class="container">
+            <form>
+                <div class="cart-table table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Unit Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($order->item as $orderItems)
+                            <tr>
+                                <td class="product-thumbnail">
+                                    <a href="#">
+                                        <img src="{{ asset('storage/images/'.$orderItems->product->image->name) }}" alt="item" />
+                                    </a>
+                                </td>
+
+                                <td class="product-name">
+                                    <a href="#">{{ $orderItems->product->name }}</a>
+                                </td>
+
+                                <td class="product-price">
+                                    <span class="unit-amount">{{ number_format($orderItems->product->price, 2) }}</span>
+                                </td>
+                                <td class="product-subtotal">
+                                    <span class="subtotal-amount">{{number_format($orderItems->quantity, 2) }}</span>
+                                </td>
+                                <td class="product-subtotal">
+                                    <span class="subtotal-amount">{{number_format($orderItems->quantity*$orderItems->product->price, 2) }}</span>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cart-totals">
+                    <h3>Order Totals</h3>
+
+                    <ul>
+                        <li>Subtotal <span>{{number_format($order->total, 2) }} den</span></li>
+                        <li>Shipping <span>150.00 den</span></li>
+                        <li>Total <span>{{number_format($order->total + 150, 2) }} den</span></li>
+                    </ul>
+
+                    <a href="../checkout.html" class="default-btn">Continue Shopping</a>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- End Cart Area -->
+@endsection
