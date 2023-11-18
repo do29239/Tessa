@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
@@ -31,6 +32,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('products', ProductController::class)->except('create');
         Route::resource('categories', CategoryController::class);
         Route::resource('brands', BrandController::class)->except('show');
+        Route::get('/users', [UserController::class, 'index'])->name('show_users');
+        Route::delete('users/{user}', 'UserController@destroy')->name('user.destroy');
     });
     Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
     Route::get('/shop',[MainController::class,'showProducts'])->name('shop');

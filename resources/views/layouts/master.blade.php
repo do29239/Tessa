@@ -27,7 +27,6 @@
     <script src="cart.js"></script>
 </head>
 <body>
-
 <!-- Start Top Header Area -->
 <div class="top-header">
     <div class="container">
@@ -261,28 +260,9 @@
     </div>
 </div>
 <!-- End Header Area -->
+
 <!-- Start Search Overlay -->
-<div class="search-overlay">
-    <div class="d-table">
-        <div class="d-table-cell">
-            <div class="search-overlay-layer"></div>
-            <div class="search-overlay-layer"></div>
-            <div class="search-overlay-layer"></div>
-
-            <div class="search-overlay-close">
-                <span class="search-overlay-close-line"></span>
-                <span class="search-overlay-close-line"></span>
-            </div>
-
-            <div class="search-overlay-form">
-                <form>
-                    <input type="text" class="input-search" placeholder="Search here...">
-                    <button type="submit"><i class='bx bx-search-alt'></i></button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+@livewire('Search')
 <!-- End Search Overlay -->
 
 @yield('content')
@@ -697,7 +677,6 @@
     </div>
 </footer>
 <!-- End Footer Area -->
-
 <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
 
 <!-- Links of JS files -->

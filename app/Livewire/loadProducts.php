@@ -6,17 +6,28 @@ use App\Models\Product;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 
-class LoadProducts extends Component
+class loadProducts extends Component
 {
     public $amount = 9;
     public $selectedCategory = null;
     public $selectedBrand = null;
     public $noMoreProducts = null;
-    protected $listeners = ['categorySelected', 'brandSelected'];
+    public $searchTerm = null;
+
+    protected $listeners = ['categorySelected', 'brandSelected', 'searchTerm'];
+
+    public function searchTerm($searchTerm)
+    {
+        $this->searchTerm = $searchTerm;
+
+    }
 
     public function render()
     {
         $products = Product::query()
+            ->when($this->searchTerm, function ($query) {
+                return $query->where('name', 'like', '%' . $this->searchTerm . '%');
+            })
             ->when($this->selectedCategory, function ($query) {
                 return $query->where('category_id', $this->selectedCategory);
             })
@@ -32,6 +43,9 @@ class LoadProducts extends Component
     public function load()
     {
         $productsQuery = Product::query()
+            ->when($this->searchTerm, function ($query) {
+                return $query->where('name', 'like', '%' . $this->searchTerm . '%');
+            })
             ->when($this->selectedCategory, function ($query) {
                 return $query->where('category_id', $this->selectedCategory);
             })
