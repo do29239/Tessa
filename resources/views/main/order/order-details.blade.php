@@ -22,6 +22,8 @@
                         <thead>
                         <tr>
                             <th scope="col">Product</th>
+                            <th scope="col">Brand</th>
+                            <th scope="col">Category</th>
                             <th scope="col">Name</th>
                             <th scope="col">Unit Price</th>
                             <th scope="col">Quantity</th>
@@ -36,7 +38,12 @@
                                         <img src="{{ asset('storage/images/'.$orderItems->product->image->name) }}" alt="item" />
                                     </a>
                                 </td>
-
+                                <td class="product-name">
+                                    <a href="#">{{ $orderItems->product->brand->name }}</a>
+                                </td>
+                                <td class="product-name">
+                                    <a href="#">{{ $orderItems->product->category->name }}</a>
+                                </td>
                                 <td class="product-name">
                                     <a href="#">{{ $orderItems->product->name }}</a>
                                 </td>

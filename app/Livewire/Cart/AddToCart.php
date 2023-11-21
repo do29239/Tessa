@@ -3,6 +3,7 @@
 namespace App\Livewire\Cart;
 
 use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class AddToCart extends Component
@@ -19,6 +20,10 @@ class AddToCart extends Component
 
     public function addToCart()
     {
+        if (!Auth::check()) {
+            // Redirect to the login page
+            return redirect()->route('login');
+        }
         $cartItem = Cart::firstOrNew([
             'user_id' => auth()->id(),
             'product_id' => $this->productId,

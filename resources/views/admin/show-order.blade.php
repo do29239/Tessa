@@ -17,6 +17,9 @@
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title text-center-custom">Order Details</h2>
+                        <div>
+                            <a href="{{ route('orders.index') }}" class="btn btn-primary">Orders</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

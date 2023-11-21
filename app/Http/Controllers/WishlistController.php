@@ -9,8 +9,7 @@ class WishlistController extends Controller
 {
     public function showWishlist()
     {
-        $items = Wishlist::all()->where('user_id', auth()->id());
-        return view('main.wishlist.show-wishlist', compact('items'));
+        return view('main.wishlist.show-wishlist');
     }
 
 }

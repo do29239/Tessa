@@ -88,17 +88,7 @@
               </div>
 
               <div class="products-add-to-cart">
-                  <div class="input-counter">
-                      <span class="counter-btn minus-btn"><i class="bx bx-minus"></i></span>
-                      <input type="text" value="1" />
-                      <span class="counter-btn plus-btn"><i class="bx bx-plus"></i></span>
-                  </div>
-
-
-
-                <button type="submit" class="default-btn">
-                  <i class="fas fa-cart-plus"></i> Add to Cart
-                </button>
+                  @livewire('add-to-cart', ['product_id' => $product->id])
               </div>
 
               <div class="wishlist-compare-btn">

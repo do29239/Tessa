@@ -10,7 +10,7 @@
             <i class="bx bx-log-in"></i>
             <span
             >Returning customer?
-            <a href="../login.html">Click here to login</a></span
+            <a href="../login.blade.php">Click here to login</a></span
             >
         </div>
 

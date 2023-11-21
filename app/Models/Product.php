@@ -40,6 +40,10 @@ class Product extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+    public function wishlist()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
 
 
 

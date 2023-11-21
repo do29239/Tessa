@@ -24,7 +24,7 @@
     <title>Tessa Academy</title>
 
     <link rel="icon" type="image/png" href="{{asset('assets/img/tessapurplelogo-01.png')}}">
-    <script src="cart.js"></script>
+
 </head>
 <body>
 
@@ -65,36 +65,37 @@
                                     />
                                     <span>MK</span>
                                 </a>
-
-
                             </div>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="col-lg-6 col-md-12">
-                <ul class="header-top-menu">
-                    <li>
-                        <a href="../login.html"><i class="bx bxs-user"></i> My Account</a>
-                    </li>
-                    <li>
-                        <a href="{{route('my.orders')}}"><i class="bx bxs-user"></i> My orders</a>
-                    </li>
-                    <li>
-                        <a
-                            href="#"
-                            data-bs-toggle="modal"
-                            data-bs-target="#shoppingWishlistModal"
-                        ><i class="bx bx-heart"></i> Wishlist</a
-                        >
-                    </li>
-                    <li>
-                        <a href="{{ route('register') }}"><i class="bx bx-log-in"></i> Register</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('login') }}"><i class="bx bx-log-in"></i> Login</a>
-                    </li>
-                </ul>
+                @auth
+                    <!-- Displayed when the user is logged in -->
+                    <ul class="header-top-menu">
+                        <li><a href="#"><i class="bx bxs-user"></i> My Account</a></li>
+                        <li><a href="{{ route('my.orders') }}"><i class="bx bxs-user"></i> My orders</a></li>
+                        <li><a href="{{ route('show.wishlist') }}"><i class="bx bx-heart"></i> Wishlist</a></li>
+                        <li>
+                            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+                                <i class="bx bx-log-in"></i> <span style="margin-left: 5px;">Log Out</span>
+                            </a>
+
+                            <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+
+
+                    </ul>
+                @else
+                    <!-- Displayed when the user is not logged in -->
+                    <ul class="header-top-menu">
+                        <li><a href="{{ route('login') }}"><i class="bx bx-log-in"></i> Login</a></li>
+                        <li><a href="{{ route('register') }}"><i class="bx bx-log-in"></i> Register</a></li>
+                    </ul>
+                @endauth
                 <ul class="header-top-others-option">
                     <div class="option-item">
                         <div class="search-btn-box">
@@ -116,6 +117,7 @@
         </div>
     </div>
 </div>
+
 <!-- End Top Header Area -->
 
 <!-- Start Navbar Area -->
@@ -254,27 +256,7 @@
 </div>
 <!-- End Header Area -->
 <!-- Start Search Overlay -->
-<div class="search-overlay">
-    <div class="d-table">
-        <div class="d-table-cell">
-            <div class="search-overlay-layer"></div>
-            <div class="search-overlay-layer"></div>
-            <div class="search-overlay-layer"></div>
-
-            <div class="search-overlay-close">
-                <span class="search-overlay-close-line"></span>
-                <span class="search-overlay-close-line"></span>
-            </div>
-
-            <div class="search-overlay-form">
-                <form>
-                    <input type="text" class="input-search" placeholder="Search here...">
-                    <button type="submit"><i class='bx bx-search-alt'></i></button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+    @livewire('search')
 <!-- End Search Overlay -->
 
 @yield('content')
@@ -644,6 +626,7 @@
 <script src="{{ asset('assets/js/contact-form-script.js') }}"></script>
 <script src="{{ asset('assets/js/ajaxchimp.min.js') }}"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
+
 @livewireScripts
 </body>
 </html>

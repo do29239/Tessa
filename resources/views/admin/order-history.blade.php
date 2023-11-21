@@ -12,6 +12,12 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title text-center-custom">Completed Orders</h4>
+                        <div class="card-header">
+                            <h4 class="card-title text-center-custom">Orders</h4>
+                            <div>
+                                <a href="{{ route('orders.index') }}" class="btn btn-primary">Orders</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

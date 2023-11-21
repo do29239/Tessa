@@ -30,4 +30,5 @@ class ProductFilter extends Component
         $this->selectedBrand = $brandId;
         $this->dispatch('brandSelected', $this->selectedBrand); // Changed from emit
     }
+
 }
