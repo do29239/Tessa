@@ -24,6 +24,6 @@ class UserSeeder extends Seeder
             'role'=>'0',
             'email' => 'user@user.com',
         ]);
-        \App\Models\User::factory(10000)->create();
+        \App\Models\User::factory(100)->create();
     }
 }

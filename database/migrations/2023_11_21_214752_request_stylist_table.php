@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('saloon_city');
             $table->text('saloon_address');
             $table->string('saloon_phone');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

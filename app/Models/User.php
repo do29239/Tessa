@@ -47,11 +47,12 @@ class User extends Authenticatable
 
 	public function profile(): HasOne
 	{
-		return $this->hasOne(Profile::class);
+		return $this->hasOne(Stylist_Profile::class);
 	}
 
-    public function request(): BelongsTo
+    public function request(): HasOne
     {
-        return $this->belongsTo(Request_Stylist::class);
+        return $this->hasOne(Request_Stylist::class, 'user_id');
     }
+
 }

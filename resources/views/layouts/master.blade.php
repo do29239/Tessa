@@ -85,6 +85,9 @@
                         >
                     </li>
                     <li>
+                        <a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i> Request Stylist</a>
+                    </li>
+                    <li>
                         <a href="{{ route('register') }}"><i class="bx bx-log-in"></i> Register</a>
                     </li>
                     <li>

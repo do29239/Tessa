@@ -26,10 +26,16 @@
                                     <td>{{ $user->last_name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>
-                                        <form method="POST" action="{{ route('user.destroy', ['user' => $user]) }}" onsubmit="return confirm('Confirm Deletion')">
+                                        <form method="POST" action="{{ route('user.destroy', ['user' => $user]) }}">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form  action="{{ route('show_user', ['user' => $user]) }}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary btn-sm">View</button>
                                         </form>
                                     </td>
 

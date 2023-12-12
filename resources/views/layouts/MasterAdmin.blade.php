@@ -63,6 +63,24 @@
                     </a>
                 </li>
                 <li>
+                    <a href={{ route('show_users') }}>
+                        <i class="tim-icons icon-book-bookmark"></i>
+                        <p>Users</p>
+                    </a>
+                </li>
+                <li>
+                    <a href={{ route('request.index') }}>
+                        <i class="tim-icons icon-book-bookmark"></i>
+                        <p>Requests</p>
+                    </a>
+                </li>
+                <li>
+                    <a href={{ route('show_stylists') }}>
+                        <i class="tim-icons icon-book-bookmark"></i>
+                        <p>Stylists</p>
+                    </a>
+                </li>
+                <li>
                     <a href="{{url('/admin/icons')}}">
                         <i class="tim-icons icon-atom"></i>
                         <p>Icons</p>

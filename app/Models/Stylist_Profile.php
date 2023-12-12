@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Request_Stylist extends Model
+class Stylist_Profile extends Model
 {
     use HasFactory;
 
-    protected $table = 'request_stylist';
+    protected $table = 'stylist_profiles';
     protected $fillable = [
         'user_id',
         'saloon_name',
@@ -24,5 +23,4 @@ class Request_Stylist extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-
 }

@@ -9,21 +9,19 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::where('role', 0)->get();
-        return view('admin.show-users', compact('users'));
+        $users = User::all();
+        return view('admin.users', compact('users'));
     }
 
-    public function approve_account($id)
-    {
-        $user = User::find($id);
-        $user->usertype = 2;
-        $user->save();
-        return redirect()->back()->with('success', 'User approved successfully');
-    }
     public function destroy(User $user)
     {
         $user->delete();
 
-        return redirect()->route('admin.show-users')->with('success', 'User deleted successfully');
+        return redirect()->back()->with('success', 'User deleted successfully');
+    }
+
+    public function show(User $user)
+    {
+        return view('admin.show-user', compact('user'));
     }
 }

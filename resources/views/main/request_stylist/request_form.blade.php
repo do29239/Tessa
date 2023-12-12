@@ -1,32 +1,39 @@
 @extends('layouts.master')
 
 @section('content')
-
 <section class="login-area ptb-100">
-
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     <div class="login-content">
         <h2>Request stylist account:</h2>
 
-        <form class="login-form" action="{{url('sendemail/send')}}" method="POST">
+        <form class="login-form" action="{{route('requests.store')}}" method="POST">
             @csrf
             <div class="form-group">
-                <input type="text" name="name" class="form-control" placeholder="Enter your name">
+                <input type="text" name="saloon_name" class="form-control" placeholder="Enter your saloon name" required>
             </div>
             <div class="form-group">
-                <input type="text" name="surname" class="form-control" placeholder="Enter your saloon phone number">
+                <input type="text" name="saloon_city" class="form-control" placeholder="Enter your saloon city" required>
             </div>
             <div class="form-group">
-                <input type="email" name="email" class="form-control" placeholder="Enter your saloon city">
+                <input type="text" name="saloon_address" class="form-control" placeholder="Enter your saloon address" required>
             </div>
             <div class="form-group">
-                <input type="text" name="saloon" class="form-control" placeholder="Enter your saloon name">
+                <input type="text" name="saloon_phone" class="form-control" placeholder="Enter your saloon phone number" required>
             </div>
-            <div class="form-group">
-                <input type="text" name="address" class="form-control" placeholder="Enter your saloon address">
-            </div>
+
             <button type="submit" class="default-btn">Submit request</button>
 
         </form>
     </div>
 
 </section>
+@endsection

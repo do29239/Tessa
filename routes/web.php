@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\RequestStylistController;
+use App\Http\Controllers\Admin\StylistController;
+use App\Http\Controllers\Admin\StylistRequestController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\MainController;
@@ -32,9 +35,18 @@ Route::middleware('auth')->group(function () {
         Route::resource('products', ProductController::class)->except('create');
         Route::resource('categories', CategoryController::class);
         Route::resource('brands', BrandController::class)->except('show');
+        Route::resource('request', RequestStylistController::class)->except(['create','store']);
+        Route::post('/approve-request/{request}', [RequestStylistController::class, 'approveRequest'])->name('approve_request');
+        Route::get('/disapprove-request/{request}', [RequestStylistController::class, 'disapproveRequest'])->name('disapprove_request');
         Route::get('/users', [UserController::class, 'index'])->name('show_users');
-        Route::delete('users/{user}', 'UserController@destroy')->name('user.destroy');
+        Route::get('/user/{user}', [UserController::class, 'show'])->name('show_user');
+        Route::delete('users/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+        Route::get('/stylists', [StylistController::class, 'index'])->name('show_stylists');
+        Route::get('/stylist/{stylist}', [StylistController::class, 'show'])->name('show_stylist');
+        Route::delete('stylists/{stylist}', [StylistController::class, 'destroy'])->name('stylist.destroy');
     });
+    Route::resource('requests', RequestStylistController::class)->only('store');
+    Route::view('/request_form', 'main/request_stylist/request_form');
     Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
     Route::get('/shop',[MainController::class,'showProducts'])->name('shop');
     Route::get('/shop/load-products',[MainController::class,'loadProducts'])->name('loadProducts');
