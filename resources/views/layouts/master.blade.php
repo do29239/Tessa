@@ -100,17 +100,11 @@
                     <div class="option-item">
                         <div class="search-btn-box">
                             <i class="search-btn bx bx-search-alt"></i>
+                            <livewire:search/>
                         </div>
                     </div>
                     <div class="option-item">
-                        <div class="cart-btn">
-                            <a
-                                href="#"
-                                data-bs-toggle="modal"
-                                data-bs-target="#shoppingCartModal"
-                            ><i class="bx bx-shopping-bag"></i><span>0</span></a
-                            >
-                        </div>
+                        <livewire:cart.cart-counter/>
                     </div>
                 </ul>
             </div>
@@ -167,96 +161,28 @@
                             <a href="../contact.html" class="nav-link">Contact </a>
                         </li>
                     </ul>
+                </div>
                     <div class="others-option">
                         <div class="option-item">
                             <div class="search-btn-box">
                                 <i class="search-btn bx bx-search-alt"></i>
+                                <livewire:search/>
                             </div>
                         </div>
                         <div class="option-item">
-                            @livewire('cart.cart-counter')
-
-
-                        </div>
-                        <div class="option-item">
-                            <div
-                                class="burger-menu"
-                                data-bs-toggle="modal"
-                                data-bs-target="#sidebarModal"
-                            >
-                                <span class="top-bar"></span>
-                                <span class="middle-bar"></span>
-                                <span class="bottom-bar"></span>
-                            </div>
+                            <livewire:cart.cart-counter/>
                         </div>
                     </div>
-                </div>
             </nav>
         </div>
     </div>
 </div>
 <!-- End Navbar Area -->
 <!-- Start Sticky Navbar Area -->
-<div class="navbar-area header-sticky">
-    <div class="xton-nav">
-        <div class="container">
-            <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="{{url('/')}}">
-                    <img src="{{asset('assets/img/tessablack3.png')}}" class="main-logo" alt="logo" />
-                    <img
-                        src="{{asset('assets/img/tesawhitelogo.png')}}"
-                        class="white-logo"
-                        alt="logo"
-                    />
-                </a>
-                <div class="collapse navbar-collapse mean-menu">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="{{ url('/') }}" class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">Home</a>
-                        </li>
-                        <li class="nav-item megamenu">
-                            <a href="{{ route('shop') }}" class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">Shop</a>
-                        </li>
-                        <li class="nav-item megamenu">
-                            <a href="../blog-1.html" class="nav-link">Courses</a>
-                        </li>
-                        <li class="nav-item megamenu">
-                            <a href="../about.html" class="nav-link">About Us </a>
-                        </li>
-                        <li class="nav-item megamenu">
-                            <a href="../contact.html" class="nav-link">Contact </a>
-                        </li>
-                    </ul>
-                    <div class="others-option">
-                        <div class="option-item">
-                            <div class="search-btn-box">
-                                <i class="search-btn bx bx-search-alt"></i>
-                            </div>
-                        </div>
-                        <div class="option-item">
-                            @livewire('cart.cart-counter')
 
-                        </div>
-                        <div class="option-item">
-                            <div
-                                class="burger-menu"
-                                data-bs-toggle="modal"
-                                data-bs-target="#sidebarModal"
-                            >
-                                <span class="top-bar"></span>
-                                <span class="middle-bar"></span>
-                                <span class="bottom-bar"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
-</div>
 <!-- End Header Area -->
 <!-- Start Search Overlay -->
-    @livewire('search')
+
 <!-- End Search Overlay -->
 
 @yield('content')
@@ -389,66 +315,6 @@
     </div>
 </div>
 <!-- End Instagram Area -->
-<!-- Start Sidebar Modal -->
-<div class="modal right fade sidebarModal" id="sidebarModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><i class='bx bx-x'></i></span>
-            </button>
-
-            <div class="modal-body">
-                <div class="sidebar-about-content">
-                    <h3>About The Store</h3>
-
-                    <div class="about-the-store">
-                        <p>One of the most popular on the web is shopping. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-                        <ul class="sidebar-contact-info">
-                            <li><i class='bx bx-map'></i> <a href="#" target="_blank">Gostivar , North Macedonia</a></li>
-                            <li><i class='bx bx-phone-call'></i> <a href="tel:+01321654214">+389 78 286 003</a></li>
-                            <li><i class='bx bx-envelope'></i> <a href="mailto:hello@xton.com">tessa.academy@gmail.com</a></li>
-                        </ul>
-                    </div>
-
-                    <ul class="social-link">
-                        <li><a href="#" class="d-block" target="_blank"><i class='bx bxl-facebook'></i></a></li>
-                        <li><a href="#" class="d-block" target="_blank"><i class='bx bxl-twitter'></i></a></li>
-                        <li><a href="#" class="d-block" target="_blank"><i class='bx bxl-instagram'></i></a></li>
-                        <li><a href="#" class="d-block" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
-                        <li><a href="#" class="d-block" target="_blank"><i class='bx bxl-pinterest-alt'></i></a></li>
-                    </ul>
-                </div>
-
-                <div class="sidebar-new-in-store">
-                    <h3>New In Store</h3>
-
-                    <ul class="products-list">
-                        <li>
-                            <a href="#"><img src="{{asset('assets/img/produkt prova-01.png')}}" alt="image"></a>
-                        </li>
-
-                        <li>
-                            <a href="#"><img src="{{asset('assets/img/produkt prova 2-01.png')}}" alt="image"></a>
-                        </li>
-
-                        <li>
-                            <a href="#"><img src="{{asset('assets/img/produkt prova 3-01.png')}}" alt="image"></a>
-                        </li>
-
-                        <li>
-                            <a href="#"><img src="{{asset('assets/img/produkt prova 4-01.png')}}" alt="image"></a>
-                        </li>
-                    </ul>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <a href="../products-sidebar-fullwidth.html" class="shop-now-btn">Shop Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Sidebar Modal -->
 <!-- Start Shopping Cart Modal -->
 <div class="modal right fade shoppingCartModal" id="shoppingCartModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -456,7 +322,7 @@
             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true"><i class='bx bx-x'></i></span>
             </button>
-            @livewire('cart.ShowCart', ['view' => 'show-cart-modal'])
+            <livewire:cart.show-cart :view="'show-cart-modal'" />
         </div>
     </div>
     </div>
@@ -610,7 +476,6 @@
 
 <!-- Links of JS files -->
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets/js/magnific-popup.min.js') }}"></script>

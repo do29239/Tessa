@@ -22,7 +22,6 @@ class loadProducts extends Component
         }
 
         $products = $this->queryProducts();
-        $this->load();
 
         return view('livewire.load-products', compact('products'));
     }

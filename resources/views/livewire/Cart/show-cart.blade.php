@@ -73,6 +73,8 @@
                 </ul>
                 @if(!$isEmpty)
                 <a href="{{route('Checkout')}}" class="default-btn">Proceed to Checkout</a>
+                    <a href="{{route('Cart')}}" class="default-btn">View Shopping Cart</a>
+
                 @endif
             </div>
 

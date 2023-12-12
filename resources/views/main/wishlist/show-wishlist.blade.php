@@ -18,7 +18,7 @@
     <section class="cart-area ptb-100">
         <div class="container">
             <form>
-                    @livewire('show-wishlist')
+                    <livewire:show-wishlist/>
 
             </form>
         </div>

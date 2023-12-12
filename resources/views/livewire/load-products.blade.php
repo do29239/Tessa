@@ -57,9 +57,8 @@
                                 <div class="price">
                                     <span class="new-price">{{ $product->price }}den</span>
                                 </div>
-                                <input type="hidden" value="{{ $product->id }}" class="prod_id">
+                                <livewire:cart.add-to-cart :product_id="$product->id" :key="$product->id" />
 
-                                @livewire('add-to-cart', ['product_id' => $product->id], key($product->id))
                             </div>
                         </div>
                     </div>

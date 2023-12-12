@@ -23,7 +23,7 @@
 <section class="products-area products-collections-area pt-100 pb-70">
     <div class="container-fluid">
         <div class="row">
-            @livewire('Product.ProductFilter')
+            <livewire:Product.ProductFilter/>
 
             <div class="col-lg-8 col-md-12">
                 <div class="products-filter-options">
@@ -92,7 +92,7 @@
                 </div>
 
 
-                @livewire ('Product.loadProducts')
+                <livewire:Product.loadProducts/>
             </div>
 
             </div>

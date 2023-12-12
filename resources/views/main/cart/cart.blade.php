@@ -17,7 +17,8 @@
 <section class="cart-area ptb-100">
     <div class="container">
         <form>
-            @livewire('cart.ShowCart', ['view' => 'show-cart'])
+            <livewire:cart.show-cart :view="'show-cart'" />
+
         </form>
     </div>
 </section>

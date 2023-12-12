@@ -11,12 +11,7 @@ class AddToCart extends Component
     public $quantityCount = 1;
     public $productId;
     protected $listeners = ['cartCheck'=>'checkCartCount'];
-    public function mount($product_id)
-    {
-        $this->productId = $product_id;
-        $this->checkCartCount();
 
-    }
 
     public function addToCart()
     {
@@ -37,8 +32,10 @@ class AddToCart extends Component
 
         $this->reset('quantityCount'); // Reset the quantity input
 
-
-
+    }
+    public function mount($product_id)
+    {
+        $this->productId = $product_id;
     }
 
     public function checkCartCount()

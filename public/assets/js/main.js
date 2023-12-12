@@ -17,27 +17,17 @@
         meanScreenWidth: "991"
     });
 
-    // Header Sticky
-    $(window).on('scroll',function() {
-        if ($(this).scrollTop() > 130){
-            $('.header-sticky').addClass("is-sticky");
+// Header Sticky
+    window.addEventListener("scroll", function () {
+        const xtonNav = document.querySelector(".xton-nav");
+        if (xtonNav) {
+            if (window.scrollY >= 1) {
+                // Change 1 to the minimum scroll position where you want the style to be applied
+                xtonNav.style.top = "0px"; // Change the top position when scrolling starts
+            } else {
+                xtonNav.style.top = "50px"; // Reset to the initial top position
+            }
         }
-        else{
-            $('.header-sticky').removeClass("is-sticky");
-        }
-    });
-    var c, currentScrollTop = 0,
-    navbar = $('.header-sticky');
-    $(window).scroll(function () {
-        var a = $(window).scrollTop();
-        var b = navbar.height();
-        currentScrollTop = a;
-        if (c < currentScrollTop && a > b + b) {
-            navbar.addClass("scrollUp");
-        } else if (c > currentScrollTop && !(a <= b)) {
-            navbar.removeClass("scrollUp");
-        }
-        c = currentScrollTop;
     });
 
     // Home Slides

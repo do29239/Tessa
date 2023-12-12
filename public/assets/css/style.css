@@ -647,33 +647,6 @@ Navbar CSS
   display: none;
 }
 
-.navbar-area.header-sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  -webkit-box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
-          box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
-  background: #ffffff !important;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-.navbar-area.header-sticky.is-sticky {
-  opacity: 1;
-  visibility: visible;
-}
-
-.navbar-area.header-sticky.scrollUp {
-  -webkit-transform: translateY(-85px);
-          transform: translateY(-85px);
-  opacity: 0;
-  visibility: hidden;
-}
-
 .navbar-area.navbar-style-two .xton-nav .navbar .navbar-nav {
   margin-left: 50px;
   margin-right: auto;
@@ -687,19 +660,25 @@ Navbar CSS
   display: none;
 }
 
+/* Navbar CSS */
 .xton-nav {
-  background-color: #ffffff;
+    background-color: #ffffff;
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    z-index: 999;
+
 }
 
+
 .xton-nav .container-fluid {
-  padding-left: 40px;
-  padding-right: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .xton-nav .navbar {
-  position: inherit;
-  padding-left: 0;
-  padding-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .xton-nav .navbar .navbar-brand {
@@ -1395,9 +1374,7 @@ Navbar CSS
     padding-top: 15px;
     padding-bottom: 15px;
   }
-  .navbar-area.header-sticky {
-    display: none;
-  }
+
 
 
 
@@ -1881,27 +1858,21 @@ Main Banner CSS
           animation-delay: 0.3s;
 }
 
-.home-slides.owl-theme .owl-nav {
-  margin-top: 0;
-}
-
 .home-slides.owl-theme .owl-nav [class*=owl-] {
-  color: #000000;
-  font-size: 45px;
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  display: inline-block;
-  border-radius: 0;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+    color: #000000;
+    font-size: 45px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    display: inline-block;
+    border-radius: 0;
+    transition: 0.5s;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 50px); /* Adjusted top position */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%);
 }
 
 .home-slides.owl-theme .owl-nav [class*=owl-].owl-next {
@@ -5147,7 +5118,12 @@ Facility CSS
 
 .facility-slides.owl-theme .owl-nav {
   margin-top: 0;
+    top: 100px;
 }
+.custom-banner-container {
+    margin-top: 50px;
+}
+j
 
 .facility-slides.owl-theme .owl-nav [class*=owl-] {
   color: #87a1c1;
