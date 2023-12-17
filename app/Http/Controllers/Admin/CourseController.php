@@ -94,7 +94,7 @@ class CourseController extends Controller
 
         $course->image()->delete();
 
-        return redirect()->route('course.index')->with('success', 'Course deleted successfully');
+        return redirect()->back()->with('success', 'Course deleted successfully');
     }
 
     public function destroyImage(Course $course, Image $image)

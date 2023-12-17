@@ -11,6 +11,10 @@ class Image extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+    ];
+
     public function delete()
     {
         // Delete the image file from storage if needed
