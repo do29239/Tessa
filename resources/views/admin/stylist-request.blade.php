@@ -12,8 +12,14 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title text-center-custom">Stylist Requests</h4>
-
+                        <div class="text-right">
+                            <form action="{{ route('show_stylists') }}">
+                                @csrf
+                                <button type="submit" class="btn btn-primary btn-sm">Stylists</button>
+                            </form>
+                        </div>
                     </div>
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <div style="overflow-x: auto;">
