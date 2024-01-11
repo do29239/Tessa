@@ -87,7 +87,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./map.html">
+                    <a href={{ route('courses.index') }}>
                         <i class="tim-icons icon-pin"></i>
                         <p>Maps</p>
                     </a>

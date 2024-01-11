@@ -9,6 +9,12 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 class Course extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'category',
+    ];
     public function image():MorphMany
     {
         return $this->morphMany(Image::class, 'imageable');

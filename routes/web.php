@@ -7,8 +7,11 @@ use App\Http\Controllers\Admin\StylistController;
 use App\Http\Controllers\Admin\StylistRequestController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Main\CoursesController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +36,8 @@ Route::middleware('auth')->group(function () {
             return view('admin.dashboard');
         });
         Route::resource('products', ProductController::class)->except('create');
+        Route::resource('courses', CourseController::class)->except('create');
+        Route::delete('courses/{course}/images/{image}', [CourseController::class, 'destroyImage'])->name('image.destroy');
         Route::resource('categories', CategoryController::class);
         Route::resource('brands', BrandController::class)->except('show');
         Route::resource('request', RequestStylistController::class)->except(['create','store']);
@@ -48,11 +53,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('requests', RequestStylistController::class)->only('store');
     Route::view('/request_form', 'main/request_stylist/request_form');
     Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
-    Route::get('/shop',[MainController::class,'showProducts'])->name('shop');
-    Route::get('/shop/load-products',[MainController::class,'loadProducts'])->name('loadProducts');
+    Route::get('/shop', [MainController::class, 'showProducts'])->name('shop');
     Route::get('product/show-product/{product}', [MainController::class, 'show'])->name('showProduct');
-//    Route::get('/shop/brand/{brand}',[MainController::class, 'getProductsByBrand'])->name('productsByBrand');
-//    Route::get('/shop/category/{category}',[MainController::class, 'getProductsByCategory'])->name('productsByCategory');
+    Route::get('course/show-course/{course}', [CoursesController::class, 'show'])->name('showCourse');
+    Route::get('/course', [CoursesController::class, 'index'])->name('courses');
 
 
 
@@ -64,13 +68,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-
-
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
 
 require __DIR__.'/auth.php';
+
+
