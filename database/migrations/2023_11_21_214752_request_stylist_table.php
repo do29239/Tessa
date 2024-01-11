@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('request_stylist', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()
-                ->onUpdate('cascade')->onDelete('cascade');
-            $table->text('address');
-            $table->string('city');
-            $table->string('phone');
-			$table->decimal('discount')->default(0);
-            $table->Integer('postcode');
+            $table->string('saloon_name');
+            $table->string('saloon_city');
+            $table->text('saloon_address');
+            $table->string('saloon_phone');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('request_stylist');
     }
 };

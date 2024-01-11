@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -23,9 +24,7 @@ class User extends Authenticatable
         'first_name',
         'email',
         'password',
-        'role'=>0,
     ];
-
 
     /**
      * The attributes that should be hidden for serialization.
@@ -46,20 +45,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function orders()
-    {
-        return $this->hasMany(Order::class);
-    }
-    public function wishlist()
-    {
-        return $this->hasMany(Wishlist::class);
-    }
 	public function profile(): HasOne
 	{
-		return $this->hasOne(Profile::class);
+		return $this->hasOne(Stylist_Profile::class);
 	}
-    public function stylistprofile(): HasOne
+
+    public function request(): HasOne
     {
-        return $this->hasOne(StylistProfile::class);
+        return $this->hasOne(Request_Stylist::class, 'user_id');
     }
+
 }

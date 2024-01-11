@@ -65,6 +65,8 @@
                                     />
                                     <span>MK</span>
                                 </a>
+
+
                             </div>
                         </div>
                     </li>
@@ -96,6 +98,28 @@
                         <li><a href="{{ route('register') }}"><i class="bx bx-log-in"></i> Register</a></li>
                     </ul>
                 @endauth
+                <ul class="header-top-menu">
+                    <li>
+                        <a href="../login.html"><i class="bx bxs-user"></i> My Account</a>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            data-bs-toggle="modal"
+                            data-bs-target="#shoppingWishlistModal"
+                        ><i class="bx bx-heart"></i> Wishlist</a
+                        >
+                    </li>
+                    <li>
+                        <a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i> Request Stylist</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('register') }}"><i class="bx bx-log-in"></i> Register</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('login') }}"><i class="bx bx-log-in"></i> Login</a>
+                    </li>
+                </ul>
                 <ul class="header-top-others-option">
                     <div class="option-item">
                         <div class="search-btn-box">
@@ -111,7 +135,6 @@
         </div>
     </div>
 </div>
-
 <!-- End Top Header Area -->
 
 <!-- Start Navbar Area -->
@@ -152,7 +175,7 @@
                             <a href="{{ route('shop') }}" class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">Shop</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="../blog-1.html" class="nav-link">Courses </a>
+                            <a href="{{ route('courses') }}" class="nav-link{{ request()->routeIs('courses') ? ' active' : '' }}">Courses </a>
                         </li>
                         <li class="nav-item megamenu">
                             <a href="../about.html" class="nav-link">About Us </a>
@@ -173,13 +196,76 @@
                             <livewire:cart.cart-counter/>
                         </div>
                     </div>
+                </div>
             </nav>
         </div>
     </div>
 </div>
 <!-- End Navbar Area -->
 <!-- Start Sticky Navbar Area -->
-
+<div class="navbar-area header-sticky">
+    <div class="xton-nav">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand" href="{{url('/')}}">
+                    <img src="{{asset('assets/img/tessablack3.png')}}" class="main-logo" alt="logo" />
+                    <img
+                        src="{{asset('assets/img/tesawhitelogo.png')}}"
+                        class="white-logo"
+                        alt="logo"
+                    />
+                </a>
+                <div class="collapse navbar-collapse mean-menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="{{ url('/') }}" class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">Home</a>
+                        </li>
+                        <li class="nav-item megamenu">
+                            <a href="{{ route('shop') }}" class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">Shop</a>
+                        </li>
+                        <li class="nav-item megamenu">
+                            <a href="../blog-1.html" class="nav-link">Courses</a>
+                        </li>
+                        <li class="nav-item megamenu">
+                            <a href="../about.html" class="nav-link">About Us </a>
+                        </li>
+                        <li class="nav-item megamenu">
+                            <a href="../contact.html" class="nav-link">Contact </a>
+                        </li>
+                    </ul>
+                    <div class="others-option">
+                        <div class="option-item">
+                            <div class="search-btn-box">
+                                <i class="search-btn bx bx-search-alt"></i>
+                            </div>
+                        </div>
+                        <div class="option-item">
+                            <div class="cart-btn">
+                                <a
+                                    href="#"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#shoppingCartModal"
+                                ><i class="bx bx-shopping-bag"></i><span>0</span></a
+                                >
+                            </div>
+                        </div>
+                        <div class="option-item">
+                            <div
+                                class="burger-menu"
+                                data-bs-toggle="modal"
+                                data-bs-target="#sidebarModal"
+                            >
+                                <span class="top-bar"></span>
+                                <span class="middle-bar"></span>
+                                <span class="bottom-bar"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
 <!-- End Header Area -->
 <!-- Start Search Overlay -->
 
