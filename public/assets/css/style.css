@@ -647,6 +647,33 @@ Navbar CSS
   display: none;
 }
 
+.navbar-area.header-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    -webkit-box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+    background: #ffffff !important;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.navbar-area.header-sticky.is-sticky {
+    opacity: 1;
+    visibility: visible;
+}
+
+.navbar-area.header-sticky.scrollUp {
+    -webkit-transform: translateY(-85px);
+    transform: translateY(-85px);
+    opacity: 0;
+    visibility:hidden;
+}
+
 .navbar-area.navbar-style-two .xton-nav .navbar .navbar-nav {
   margin-left: 50px;
   margin-right: auto;
@@ -663,8 +690,7 @@ Navbar CSS
 /* Navbar CSS */
 .xton-nav {
     background-color: #ffffff;
-    position: fixed;
-    top: 50px;
+    position: relative;
     width: 100%;
     z-index: 999;
 
@@ -1374,8 +1400,9 @@ Navbar CSS
     padding-top: 15px;
     padding-bottom: 15px;
   }
-
-
+  .navbar-area.header-sticky {
+        display: none;
+  }
 
 
 
