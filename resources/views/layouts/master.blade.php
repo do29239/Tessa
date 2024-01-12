@@ -219,28 +219,11 @@
                         <div class="option-item">
                             <div class="search-btn-box">
                                 <i class="search-btn bx bx-search-alt"></i>
+                                <livewire:search/>
                             </div>
                         </div>
                         <div class="option-item">
-                            <div class="cart-btn">
-                                <a
-                                    href="#"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#shoppingCartModal"
-                                ><i class="bx bx-shopping-bag"></i><span>0</span></a
-                                >
-                            </div>
-                        </div>
-                        <div class="option-item">
-                            <div
-                                class="burger-menu"
-                                data-bs-toggle="modal"
-                                data-bs-target="#sidebarModal"
-                            >
-                                <span class="top-bar"></span>
-                                <span class="middle-bar"></span>
-                                <span class="bottom-bar"></span>
-                            </div>
+                            <livewire:cart.cart-counter/>
                         </div>
                     </div>
                 </div>

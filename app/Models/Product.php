@@ -32,9 +32,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Order::class)->withTimestamps();
     }
-    public function item():HasOne
+    public function items()
     {
-        return $this->hasOne(Item::class);
+        return $this->hasMany(Item::class);
     }
     public function image():MorphOne
     {

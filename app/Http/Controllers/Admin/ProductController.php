@@ -8,6 +8,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Image;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 
 class ProductController extends Controller
@@ -17,34 +18,51 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $brands = Brand::all();
-        $categories = Category::all();
-        $products = Product::all();
+      $brands = Brand::all();
+      $categories = Category::all();
+      $products = Product::all();
+
+        //$products = Product::query()->with(['category','brand']);
         return view('admin.product', compact('brands', 'categories', 'products'));
+//        return view('admin.product', 'products');
     }
 
 
     /**
      * Store a newly created resource in storage.
      */
-
     public function store(ProductRequest $request)
     {
         $validatedData = $request->validated();
 
         // Create a new product with validated input data
-        $product = Product::create($validatedData);
+        //$product = Product::create($validatedData);
+       $product = Product::query()->make($validatedData);
 
         // Handle photo upload
         if ($request->hasFile('image')) {
             $imageFile = $request->file('image');
             $imageName = time().'.'.$imageFile->getClientOriginalExtension();
-            $imageFile->storeAs('public/images', $imageName);
+            $imageFile->storeAs( 'public/images', $imageName);
 
             // Create a new image record in the database and associate it with the product
+            //$image = new Image(['name'=> $imageName]);
             $image = new Image();
             $image->name = $imageName;
-            $product->image()->save($image);
+
+            DB::beginTransaction();
+            try {
+                $product->save();
+                $product->image()->save($image);
+                DB::commit();
+            }
+            catch (\Exception $e){
+                DB::rollBack();
+
+                throw $e;
+            }
+
+
         }
 
         return redirect()->back()->with('message', 'Product Added Successfully');

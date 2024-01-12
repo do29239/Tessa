@@ -18,8 +18,9 @@ return new class extends Migration
 			$table->foreignId('brand_id')->constrained('brands')->onDelete('cascade');
 	        $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
 			$table->integer('quantity');
-			$table->decimal('price',8,2);
-            $table->decimal('stylist_price',8,2);
+            $table->integer('price');
+            $table->integer('stylist_price');
+
             $table->timestamps();
         });
     }

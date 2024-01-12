@@ -26,10 +26,16 @@ class MainController extends Controller
 
     public function show(Product $product)
     {
-        $relatedProducts = Product::with('image')
+//        $product$relatedProducts = Product::with('image')
+//            ->where('category_id', $product->category_id)
+//            ->where('id', '!=', $product->id)
+//            ->get();
+        $relatedProducts = Product::query()
             ->where('category_id', $product->category_id)
             ->where('id', '!=', $product->id)
+            ->with('image')
             ->get();
+
         return view('main.show-product', compact('product','relatedProducts'));
     }
 
