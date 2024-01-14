@@ -106,7 +106,7 @@
                     <div class="option-item">
                         <div class="search-btn-box">
                             <i class="search-btn bx bx-search-alt"></i>
-                            <livewire:search/>
+
                         </div>
                     </div>
                     <div class="option-item">
@@ -171,7 +171,7 @@
                         <div class="option-item">
                             <div class="search-btn-box">
                                 <i class="search-btn bx bx-search-alt"></i>
-                                <livewire:search/>
+
                             </div>
                         </div>
                         <div class="option-item">
@@ -219,7 +219,7 @@
                         <div class="option-item">
                             <div class="search-btn-box">
                                 <i class="search-btn bx bx-search-alt"></i>
-                                <livewire:search/>
+
                             </div>
                         </div>
                         <div class="option-item">
@@ -233,7 +233,7 @@
 </div>
 <!-- End Header Area -->
 <!-- Start Search Overlay -->
-
+<livewire:search/>
 <!-- End Search Overlay -->
 
 @yield('content')
