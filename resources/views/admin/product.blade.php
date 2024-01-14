@@ -38,6 +38,10 @@
                                 <input type="number" name="price" id="price" class="form-control" placeholder="Enter product price" required>
                             </div>
                             <div class="form-group">
+                                <label for="stylist_price">Stylist Price</label>
+                                <input type="number" name="stylist_price" id="price" class="form-control" placeholder="Enter stylist price" required>
+                            </div>
+                            <div class="form-group">
                                 <label for="photo" class="file-input">
                                     <input type="file" name="image" id="photo" class="form-control-file" required>
                                     <span class="btn btn-sm btn-primary">Add Photo</span>
@@ -85,6 +89,7 @@
                                         <th>Description</th>
                                         <th>Quantity</th>
                                         <th>Price</th>
+                                        <th>Stylist Price</th>
                                         <th>Image</th>
                                         <th>Actions</th>
                                     </tr>
@@ -96,6 +101,7 @@
                                             <td>{{ $product->description }}</td>
                                             <td>{{ $product->quantity }}</td>
                                             <td>{{ $product->price }}</td>
+                                            <td>{{ $product->stylist_price }}</td>
                                             <td>
                                                 @if($product->image)
                                                     <img src="{{ asset('storage/images/'.$product->image->name) }}" alt="Product Image" style="width: 100px; height: 100px;">

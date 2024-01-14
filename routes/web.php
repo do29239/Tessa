@@ -92,4 +92,3 @@ Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.
 
 require __DIR__.'/auth.php';
 
-

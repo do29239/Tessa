@@ -29,6 +29,7 @@ class ProductRequest extends FormRequest
             'category_id' => 'required|exists:categories,id',
             'quantity' => 'required|integer',
             'price' => 'required|numeric',
+            'stylist_price' => 'required|numeric',
 
         ];
     }
