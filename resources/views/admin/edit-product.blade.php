@@ -34,6 +34,10 @@
                                 <input type="number" name="price" id="price" class="form-control" placeholder="Enter product price" value="{{ $product->price }}" required>
                             </div>
                             <div class="form-group">
+                                <label for="stylist_price">Stylist Price</label>
+                                <input type="number" name="stylist_price" id="stylist_price" class="form-control" placeholder="Enter product price" value="{{ $product->stylist_price }}" required>
+                            </div>
+                            <div class="form-group">
                                 <label for="photo" class="file-input">
                                     <input type="file" name="image" id="photo" class="form-control-file">
                                     <span class="btn btn-sm btn-primary">Change Photo</span>

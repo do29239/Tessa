@@ -46,14 +46,17 @@
                                             <td class="text-center-custom">{{ $request->saloon_address }}</td>
                                             <td class="text-center-custom">{{ $request->saloon_phone }}</td>
                                             <td class="text-center-custom">
-                                                <form action="{{ route('approve_request', $request) }}" method="POST">
+                                                <form action="{{ route('request.update', $request) }}" method="POST">
                                                     @csrf
+                                                    @method('PUT') {{-- This line specifies that the form is making a PUT request --}}
                                                     <button type="submit" class="btn btn-primary btn-sm">Approve</button>
                                                 </form>
+
                                             </td>
                                             <td class="text-center-custom">
-                                                <form action="{{ route('disapprove_request', $request) }}" method="GET">
+                                                <form action="{{ route('request.destroy', $request) }}" method="POST">
                                                     @csrf
+                                                    @method('DELETE') {{-- This specifies that the form is making a DELETE request --}}
                                                     <button type="submit" class="btn btn-primary btn-sm">Disapprove</button>
                                                 </form>
                                             </td>

@@ -49,8 +49,6 @@ Route::middleware('auth')->group(function () {
         Route::resource('orders', \App\Http\Controllers\Admin\OrderController::class);
         Route::get('order-history', [\App\Http\Controllers\Admin\OrderController::class, 'history'])->name('history');
         Route::resource('request', RequestStylistController::class)->except(['create','store']);
-        Route::post('/approve-request/{request}', [RequestStylistController::class, 'approveRequest'])->name('approve_request');
-        Route::get('/disapprove-request/{request}', [RequestStylistController::class, 'disapproveRequest'])->name('disapprove_request');
         Route::get('/users', [UserController::class, 'index'])->name('show_users');
         Route::get('/user/{user}', [UserController::class, 'show'])->name('show_user');
         Route::delete('users/{user}', [UserController::class, 'destroy'])->name('user.destroy');

@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestStylistRequest;
 use App\Mail\RequestDenied;
 use App\Models\Request_Stylist;
-use App\Models\_Profile;
 use App\Models\Stylist_Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class RequestStylistController extends Controller
@@ -19,10 +19,10 @@ class RequestStylistController extends Controller
      */
     public function index()
     {
-        $requests=Request_Stylist::all();
-        $users=User::all();
-        return view('admin.stylist-request',compact('requests','users'));
+        $requests = Request_Stylist::with('user')->get();
+        return view('admin.stylist-request', compact('requests'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -65,52 +65,91 @@ class RequestStylistController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
-
-    public function approveRequest(Request_Stylist $request)
+    public function update(Request_Stylist $request)
     {
         // Assuming there's a user associated with the request
         $user = $request->user;
 
         // Check if the user exists and has the role 0
         if ($user && $user->role === 0) {
-            // Move data to stylist_profiles table
-            Stylist_Profile::create([
-                'user_id' => $user->id,
-                'saloon_name' => $request->saloon_name,
-                'saloon_city' => $request->saloon_city,
-                'saloon_address' => $request->saloon_address,
-                'saloon_phone' => $request->saloon_phone,
-                // Add other fields as needed
-            ]);
+            DB::beginTransaction();
 
-            // Delete the record from request_stylist table
-            $request->delete();
+            try {
+                // First, change the user's role to 2
+                $user->update(['role' => 2]);
 
-            // Change the user's role to 2
-            $request->user()->update(['role' => 2]);
+                // Then, move data to stylist_profiles table
+                $stylistProfile = Stylist_Profile::make([
+                    'user_id' => $user->id,
+                    'saloon_name' => $request->saloon_name,
+                    'saloon_city' => $request->saloon_city,
+                    'saloon_address' => $request->saloon_address,
+                    'saloon_phone' => $request->saloon_phone,
+                    // Add other fields as needed
+                ]);
 
-            // Additional logic if needed
+                // Save the created profile
+                $stylistProfile->save();
 
-            // Redirect back with a success message
-            return redirect()->back()->with('success', 'Request approved successfully');
+                // Delete the record from request_stylist table
+                $request->delete();
+
+                // Commit the transaction
+                DB::commit();
+
+                // Redirect back with a success message
+                return redirect()->back()->with('success', 'Request approved successfully');
+            } catch (\Exception $e) {
+                // Rollback the transaction in case of an error
+                DB::rollBack();
+
+                // Handle the exception (e.g., log it, show an error message)
+                // Redirect back with an error message
+                return redirect()->back()->with('error', 'Unable to approve request');
+            }
+        } else {
+            // Redirect back with an error message if the user does not exist or has a different role
+            return redirect()->back()->with('error', 'Unable to approve request');
         }
-
-        // Redirect back with an error message if the user does not exist or has a different role
-        return redirect()->back()->with('error', 'Unable to approve request');
     }
-    public function disapproveRequest(Request_Stylist $request)
+
+
+
+
+//    public function approveRequest(Request_Stylist $request)
+//    {
+//        // Assuming there's a user associated with the request
+//        $user = $request->user;
+//
+//        // Check if the user exists and has the role 0
+//        if ($user && $user->role === 0) {
+//            // Move data to stylist_profiles table
+//            Stylist_Profile::create([
+//                'user_id' => $user->id,
+//                'saloon_name' => $request->saloon_name,
+//                'saloon_city' => $request->saloon_city,
+//                'saloon_address' => $request->saloon_address,
+//                'saloon_phone' => $request->saloon_phone,
+//                // Add other fields as needed
+//            ]);
+//
+//            // Delete the record from request_stylist table
+//            $request->delete();
+//
+//            // Change the user's role to 2
+//            $request->user()->update(['role' => 2]);
+//
+//            // Additional logic if needed
+//
+//            // Redirect back with a success message
+//            return redirect()->back()->with('success', 'Request approved successfully');
+//        }
+//
+//        // Redirect back with an error message if the user does not exist or has a different role
+//        return redirect()->back()->with('error', 'Unable to approve request');
+//    }
+    public function destroy(Request_Stylist $request)
     {
         // Assuming there's a user associated with the request
         $user = $request->user;

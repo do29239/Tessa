@@ -38,7 +38,7 @@ class RegisteredUserController extends Controller
             'address' => ['required', 'string'],
             'city' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
-            'postcode'=>['required', 'integer'],
+            'postcode'=>['required', 'string', 'max:255'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -46,15 +46,12 @@ class RegisteredUserController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
+            'address'=>$request->address,
+            'city'=>$request->city,
+            'phone'=>$request->phone,
+            'postcode'=>$request->postcode,
             'password' => Hash::make($request->password),
             'role' => 0,
-        ]);
-        $userProfile = Profile::create([
-           'user_id' => $user->id,
-            'address' => $request->address,
-            'city' => $request->city,
-            'phone'=> $request->phone,
-            'postcode'=>$request->postcode,
         ]);
 
         event(new Registered($user));

@@ -40,9 +40,6 @@
                                     <span class="btn btn-sm btn-primary">Add Photo</span>
                                 </label>
                             </div>
-
-
-
                                 <button type="submit" class="btn btn-primary btn-block">Add Course</button>
                         </form>
                     </div>

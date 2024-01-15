@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CourseRequest;
 use App\Models\Course;
 use App\Models\Image;
+use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
 {
@@ -21,27 +22,45 @@ class CourseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(CourseRequest $request)
     {
         $validatedData = $request->validated();
 
-        $course = Course::create($validatedData);
+        DB::beginTransaction();
 
-        if ($request->hasFile('images')) {
-            $images = $request->file('images');
+        try {
+            $course = Course::create($validatedData);
 
-            foreach ($images as $image) {
-                $imageName = time() . '.' . $image->getClientOriginalName();
-                $image->storeAs('public/images', $imageName);
+            if ($request->hasFile('images')) {
+                $images = collect($request->file('images'));
 
-                // Create a new image record in the database and associate it with the product
-                $course->image()->create([
-                    'name' => $imageName,
-                ]);
+                $imageRecords = $images->map(function ($image) use ($course) {
+                    $imageName = time() . '.' . $image->getClientOriginalName();
+                    $image->storeAs('public/images', $imageName);
+
+                    return [
+                        'name' => $imageName,
+                        'imageable_id' => $course->id,
+                        'imageable_type' => get_class($course),
+                    ];
+                });
+
+                // Batch insert images associated with the course
+                $course->image()->createMany($imageRecords->all());
             }
+
+            DB::commit();
+            return redirect()->back()->with('message', 'Course Added Successfully');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            // Handle the exception (e.g., log it, show an error message)
+            return redirect()->back()->with('error', 'Error adding course');
         }
-        return redirect()->back()->with('message', 'Course Added Successfully');
     }
+
+
+
 
     /**
      * Display the specified resource.
@@ -62,27 +81,45 @@ class CourseController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function update(CourseRequest $request, Course $course)
     {
         $validatedData = $request->validated();
 
-        // Update the product with validated input data
-        $course->update($validatedData);
+        DB::beginTransaction();
 
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $imageFile) {
-                $imageName = time() . '.' . $imageFile->getClientOriginalName();
-                $imageFile->storeAs('public/images', $imageName);
+        try {
+            $course->update($validatedData);
 
-                // Create a new image record in the database and associate it with the course
-                $image = new Image();
-                $image->name = $imageName;
-                $course->image()->save($image);
+            if ($request->hasFile('images')) {
+                $images = collect($request->file('images'));
+
+                $imageRecords = $images->map(function ($imageFile) use ($course) {
+                    $imageName = time() . '.' . $imageFile->getClientOriginalName();
+                    $imageFile->storeAs('public/images', $imageName);
+
+                    return [
+                        'name' => $imageName,
+                        'imageable_id' => $course->id,
+                        'imageable_type' => get_class($course),
+                    ];
+                });
+
+                // Batch insert new image records associated with the course
+                $course->image()->createMany($imageRecords->all());
             }
-        }
 
-        return redirect()->back()->with('message', 'Course Updated Successfully');
+            DB::commit();
+            return redirect()->back()->with('message', 'Course Updated Successfully');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            // Handle the exception (e.g., log it, show an error message)
+            return redirect()->back()->with('error', 'Error updating course');
+        }
     }
+
+
+
 
 
     /**

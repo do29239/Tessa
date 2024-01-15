@@ -43,9 +43,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="photo" class="file-input">
-                                    <input type="file" name="image" id="photo" class="form-control-file" required>
+                                    <input type="file" name="image" id="photo" class="form-control-file" onchange="previewImage();" required>
                                     <span class="btn btn-sm btn-primary">Add Photo</span>
                                 </label>
+
+                            </div>
+                            <div class="form-group" id="imagePreviewContainer" style="max-width: 150px; max-height: 150px; display: block; margin: 0 auto 20px; /* Adds space below the image */">
+                                <img id="imagePreview" src="#" alt="Image Preview" class="img-fluid" />
                             </div>
                             <div class="form-group">
                                 <label>Product Brand:</label>
@@ -130,4 +134,25 @@
             </div>
         </div>
     </div>
+    <script>
+        function previewImage() {
+            var preview = document.getElementById('imagePreview');
+            var container = document.getElementById('imagePreviewContainer');
+            var file = document.getElementById('photo').files[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function() {
+                preview.src = reader.result;
+                container.style.display = 'block';
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+                container.style.display = 'none';
+            }
+        }
+    </script>
+
 @endsection

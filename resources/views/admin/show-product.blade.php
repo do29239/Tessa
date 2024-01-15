@@ -19,6 +19,8 @@
                         <p><strong>Description:</strong> {{ $product->description }}</p>
                         <p><strong>Quantity:</strong> {{ $product->quantity }}</p>
                         <p><strong>Price:</strong> {{ $product->price }}</p>
+                        <p><strong>Stylist Price:</strong> {{ $product->stylist_price }}</p>
+
                         <div class="form-group">
                             <label for="brand">Brand:</label>
                             <p>{{ $product->brand->name }}</p>
