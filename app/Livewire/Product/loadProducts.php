@@ -16,12 +16,9 @@ class loadProducts extends Component
 
     public function render()
     {
-        if (session()->has('searchTerm')) {
-            $this->search = session('searchTerm');
-            session()->forget('searchTerm');
-        }
-
+        $this->search = session('searchTerm', '');
         $products = $this->queryProducts();
+        session()->forget('searchTerm');
 
         return view('livewire.load-products', compact('products'));
     }
@@ -39,37 +36,31 @@ class loadProducts extends Component
 
     private function queryProducts()
     {
-        $searchTerms = explode(' ', $this->search);
+        $query = Product::query();
 
-        return Product::query()
-            ->where(function ($query) use ($searchTerms) {
-                foreach ($searchTerms as $term) {
-                    $query->where(function ($query) use ($term) {
-                        $query->where('name', 'like', '%' . $term . '%')
-                            ->orWhereHas('category', function ($query) use ($term) {
-                                $query->where('name', 'like', '%' . $term . '%');
-                            })
-                            ->orWhereHas('brand', function ($query) use ($term) {
-                                $query->where('name', 'like', '%' . $term . '%');
-                            });
-                    });
-                }
-            })
-            ->when($this->selectedCategory, function ($query) {
-                return $query->where('category_id', $this->selectedCategory);
-            })
-            ->when($this->selectedBrand, function ($query) {
-                return $query->where('brand_id', $this->selectedBrand);
-            })
-            ->take($this->amount)
-            ->get();
-    }
-    public function searchPerformed($query)
-    {
-        $this->resetPage();
-        // Update the search query
-        $this->search = $query;
+        // Optimize search by avoiding splitting into multiple terms
+        if (!empty($this->search)) {
+            $searchTerm = '%' . $this->search . '%';
+            $query->where('name', 'like', $searchTerm)
+                ->orWhereHas('category', function ($query) use ($searchTerm) {
+                    $query->where('name', 'like', $searchTerm);
+                })
+                ->orWhereHas('brand', function ($query) use ($searchTerm) {
+                    $query->where('name', 'like', $searchTerm);
+                });
+        }
 
+        // Apply filters for category and brand if they are set
+        if (!empty($this->selectedCategory)) {
+            $query->where('category_id', $this->selectedCategory);
+        }
+
+        if (!empty($this->selectedBrand)) {
+            $query->where('brand_id', $this->selectedBrand);
+        }
+
+        // Implement pagination and limit the number of products loaded
+        return $query->take($this->amount)->get();
     }
 
     public function resetNoMoreProducts()

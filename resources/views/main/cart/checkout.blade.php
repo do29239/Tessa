@@ -27,7 +27,7 @@
                                     <label>Town / City <span class="required">*</span></label>
                                     <div class="select-box">
                                         <select class="form-control" >
-                                            <option>{{ Auth::user()->profile->city }}</option>
+                                            <option>{{ Auth::user()->city }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -58,14 +58,14 @@
                             <div class="col-lg-12 col-md-6">
                                 <div class="form-group">
                                     <label>Address <span class="required">*</span></label>
-                                    <input type="text" class="form-control" name="address" value="{{ Auth::user()->profile->address }}"/>
+                                    <input type="text" class="form-control" name="address" value="{{ Auth::user()->address }}"/>
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>Phone <span class="required">*</span></label>
-                                    <input type="text" class="form-control" name="phone" value="{{ Auth::user()->profile->phone }}" />
+                                    <input type="text" class="form-control" name="phone" value="{{ Auth::user()->phone }}" />
                                 </div>
                             </div>
 
@@ -74,7 +74,7 @@
                                     <label
                                     >Postcode / Zip <span class="required">*</span></label
                                     >
-                                    <input type="text" class="form-control" name="postcode" value="{{ Auth::user()->profile->postcode }}" />
+                                    <input type="text" class="form-control" name="postcode" value="{{ Auth::user()->postcode }}" />
                                 </div>
                             </div>
 

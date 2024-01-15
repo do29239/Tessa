@@ -86,6 +86,7 @@ class OrderController extends Controller
                 'order_id' => $order->id,
                 'quantity' => $cartItem->quantity, // Fix the typo
                 'price' => $cartItem->total,
+
             ]));
 
             // Update the total for this order

@@ -28,13 +28,21 @@ class ShowCart extends Component
     public function calculateTotal()
     {
         $this->Subtotal = 0;
+
         foreach ($this->cartItems as $cartItem) {
-            $cartItem->total = $cartItem->product->price * $cartItem->quantity;
+            if (auth()->check() && auth()->user()->role == 2) {
+                // If the user is a stylist, use stylist_price for calculation
+                $cartItem->total = $cartItem->product->stylist_price * $cartItem->quantity;
+            } else {
+                // Otherwise, use regular price for calculation
+                $cartItem->total = $cartItem->product->price * $cartItem->quantity;
+            }
+
             $cartItem->save();
             $this->Subtotal += $cartItem->total;
         }
-
     }
+
     public function deleteItem($cartItemId)
     {
 

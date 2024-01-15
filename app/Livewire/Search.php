@@ -17,12 +17,16 @@ class Search extends Component
     public function search()
     {
         $this->redirectToShop();
+        session(['searchTerm' => $this->searchTerm]);
+
     }
 
     public function redirectToShop()
     {
+
         // Redirect to the shop page
-        return redirect()->route('shop')->with('searchTerm', $this->searchTerm);
+        return redirect()->route('shop');
+
     }
 
 }
