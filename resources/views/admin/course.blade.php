@@ -36,10 +36,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="photo" class="file-input">
-                                    <input type="file" name="images[]" id="photo" class="form-control-file" multiple required>
+                                    <input type="file" name="images[]" id="photo" class="form-control-file" multiple onchange="previewImages();" required>
+
                                     <span class="btn btn-sm btn-primary">Add Photo</span>
                                 </label>
                             </div>
+
+                                <!-- Container for image previews -->
+                                <div id="imagePreviewContainer"></div>
+
                                 <button type="submit" class="btn btn-primary btn-block">Add Course</button>
                         </form>
                     </div>
@@ -114,4 +119,32 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function previewImages() {
+            var container = document.getElementById('imagePreviewContainer');
+            container.innerHTML = ""; // Clear the container
+            var files = document.getElementById('photo').files;
+
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+
+                reader.onloadend = (function(index) {
+                    return function(e) {
+                        var span = document.createElement('span');
+                        span.innerHTML = `<img src="${e.target.result}" class="img-fluid img-thumbnail" style="max-width: 100px; max-height: 100px; margin: 10px;">`;
+                        container.appendChild(span);
+                    };
+                })(i);
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                } else {
+                    container.innerHTML = "";
+                }
+            }
+        }
+    </script>
+
 @endsection

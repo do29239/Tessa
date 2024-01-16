@@ -43,14 +43,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="photo" class="file-input">
-                                    <input type="file" name="image" id="photo" class="form-control-file" onchange="previewImage();" required>
+                                    <input type="file" name="image" id="photo" class="form-control-file" onchange="previewImages();" required>
                                     <span class="btn btn-sm btn-primary">Add Photo</span>
                                 </label>
 
                             </div>
-                            <div class="form-group" id="imagePreviewContainer" style="max-width: 150px; max-height: 150px; display: block; margin: 0 auto 20px; /* Adds space below the image */">
-                                <img id="imagePreview" src="#" alt="Image Preview" class="img-fluid" />
-                            </div>
+                            <div id="imagePreviewContainer"></div>
                             <div class="form-group">
                                 <label>Product Brand:</label>
                                 <select class="text_color" name="brand_id" required>
@@ -135,24 +133,31 @@
         </div>
     </div>
     <script>
-        function previewImage() {
-            var preview = document.getElementById('imagePreview');
+        function previewImages() {
             var container = document.getElementById('imagePreviewContainer');
-            var file = document.getElementById('photo').files[0];
-            var reader = new FileReader();
+            container.innerHTML = ""; // Clear the container
+            var files = document.getElementById('photo').files;
 
-            reader.onloadend = function() {
-                preview.src = reader.result;
-                container.style.display = 'block';
-            }
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
 
-            if (file) {
-                reader.readAsDataURL(file);
-            } else {
-                preview.src = "";
-                container.style.display = 'none';
+                reader.onloadend = (function(index) {
+                    return function(e) {
+                        var span = document.createElement('span');
+                        span.innerHTML = `<img src="${e.target.result}" class="img-fluid img-thumbnail" style="max-width: 100px; max-height: 100px; margin: 10px;">`;
+                        container.appendChild(span);
+                    };
+                })(i);
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                } else {
+                    container.innerHTML = "";
+                }
             }
         }
     </script>
+
 
 @endsection
