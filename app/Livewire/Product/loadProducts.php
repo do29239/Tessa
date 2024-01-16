@@ -18,7 +18,7 @@ class loadProducts extends Component
     {
         $this->search = session('searchTerm', '');
         $products = $this->queryProducts();
-        session()->forget('searchTerm');
+
 
         return view('livewire.load-products', compact('products'));
     }
@@ -69,10 +69,11 @@ class loadProducts extends Component
     }
     public function resetFilters()
     {
+        session()->forget('searchTerm');
         $this->search = null;
         $this->selectedCategory = null;
         $this->selectedBrand = null;
-        $this->amount = 9;
+        $this->resetPage();
     }
 
     public function categorySelected($categoryId)
