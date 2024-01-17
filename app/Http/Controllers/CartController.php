@@ -19,8 +19,12 @@ class CartController extends Controller
 
     public function Checkout()
     {
+        $total = 0;
         $cartItems = Cart::all()->where('user_id', auth()->id());
-        return view('main.cart.checkout', compact('cartItems'));
+        foreach ($cartItems as $cartItem){
+            $total += $cartItem->price *$cartItem->quantity;
+        }
+        return view('main.cart.checkout', compact('cartItems', 'total'));
 
     }
 

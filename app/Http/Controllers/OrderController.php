@@ -72,7 +72,6 @@ class OrderController extends Controller
             // Create the order with initial total of 0
             $order = Order::create([
                 'user_id' => $userId,
-                'items_id' => 0,
                 'total' => 0,
             ]);
 
@@ -140,7 +139,7 @@ class OrderController extends Controller
                 'product_id' => $cartItem->product_id,
                 'order_id' => $order->id,
                 'quantity' => $cartItem->quantity, // Fix the typo
-                'price' => $cartItem->total,
+                'price' => $cartItem->total /$cartItem->quantity ,
 
             ]));
 

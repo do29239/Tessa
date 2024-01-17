@@ -43,7 +43,7 @@
 
                     <td class="product-subtotal">
                             <span class="subtotal-amount">
-                                {{ number_format($cartItem->total, 2) }}
+                                {{ number_format($cartItem->price * $cartItem->quantity, 2) }}
                             </span>
 
                         <div wire:loading.remove="deleteItem({{$cartItem->id}}"> <!-- Only show when deleting -->

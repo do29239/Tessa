@@ -116,7 +116,7 @@
                                         </td>
 
                                         <td class="product-total">
-                                            <span class="subtotal-amount">{{ $cartItem->total }} den</span>
+                                            <span class="subtotal-amount">{{ $cartItem->price * $cartItem->quantity }} den</span>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -131,7 +131,7 @@
                                     </td>
 
                                     <td class="order-subtotal-price">
-                                        <span class="order-subtotal-amount">{{ $cartItems->sum('total') }} den</span>
+                                        <span class="order-subtotal-amount">{{ $total}} den</span>
                                     </td
                                 </tr>
 
@@ -158,7 +158,7 @@
                                     </td>
 
                                     <td class="subtotal-amount">
-                                        <span class="subtotal-amount">{{ $cartItems->sum('total') + 150.00 }} den</span>
+                                        <span class="subtotal-amount">{{ $total + 150.00 }} den</span>
                                     </td>
                                 </tr>
                                 </tbody>

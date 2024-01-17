@@ -32,9 +32,9 @@ class ShowCart extends Component
         $this->subtotal = 0;
         foreach ($this->cartItems as $cartItem) {
             $price = $this->determinePrice($cartItem);
-            $cartItem->total = $price* $cartItem->quantity;
+            $cartItem->price = $price;
             $cartItem->save();
-            $this->subtotal += $cartItem->total;
+            $this->subtotal += $cartItem->price * $cartItem->quantity;
         }
     }
 

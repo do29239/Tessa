@@ -209,39 +209,35 @@
         </div>
       </div>
 
-      <div class="related-products">
-        <div class="container">
-          <div class="section-title">
-            <span class="sub-title">Our Shop</span>
-            <h2>Related Products</h2>
-          </div>
+        <div class="related-products">
+            <div class="container">
+                <div class="section-title">
+                    <span class="sub-title">Our Shop</span>
+                    <h2>Related Products</h2>
+                </div>
 
-            <div class="products-slides owl-carousel owl-theme">
-                @foreach($relatedProducts as $relatedProduct)
-                    <div class="single-products-box">
-                        <div class="products-image">
-                            <a href="{{ route('showProduct', $relatedProduct->id) }}">
-                                <img src="{{ asset('storage/images/'.$relatedProduct->image->name) }}" class="main-image" alt="image">
-                                <img src="{{ asset('storage/images/'.$relatedProduct->image->name) }}" class="hover-image" alt="image">
-                            </a>
+                <div class="products-slides owl-carousel owl-theme">
+                    @foreach($relatedProducts as $relatedProduct)
+                        <div class="single-products-box">
+                            <div class="products-image">
+                                <a href="{{ route('showProduct', $relatedProduct->id) }}">
+                                    <img src="{{ asset('storage/images/'.$relatedProduct->image->name) }}" class="main-image" alt="image">
+                                    <img src="{{ asset('storage/images/'.$relatedProduct->image->name) }}" class="hover-image" alt="image">
+                                </a>
 
-                            <div class="products-content">
-                                <span class="category">{{$relatedProduct->category->name}}</span>
-                                <h3><a href="#">{{ $relatedProduct->name }}</a></h3>
-                                <div class="price">
-                                    <span class="new-price">{{ $relatedProduct->price }}</span>
+                                <div class="products-content">
+                                    <span class="category">{{$relatedProduct->category->name}}</span>
+                                    <h3><a href="{{ route('showProduct', $relatedProduct->id) }}">{{ $relatedProduct->name }}</a></h3>
+                                    <div class="price">
+                                        <span class="new-price">{{ $relatedProduct->price }} den</span>
+                                    </div>
                                 </div>
-                                <button type="submit" class="default-btn">
-                                    <i class="fas fa-cart-plus"></i> Add to Cart
-                                </button>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-
-      </div>
-      </div>
+        </div>
     </section>
     <!-- End Product Details Area -->
 @endsection

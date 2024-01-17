@@ -15,7 +15,7 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         // Assuming you have already seeded the Brand and Category tables
-        Product::factory()->count(100)->create()->each(function ($product) {
+        Product::factory()->count(150)->create()->each(function ($product) {
             // Simulate the image storage path as it would be after uploading
             // Example: 'storage/images/product_1234567890.jpg'
             $imageName = '1705396913'. '.jpg';

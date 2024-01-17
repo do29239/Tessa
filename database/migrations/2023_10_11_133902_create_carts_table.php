@@ -18,7 +18,7 @@ return new class extends Migration
            // $table->foreignId('product_id')->references('id')->on('products');
             $table->foreignId('product_id')->constrained('products');
             $table->integer('quantity');
-            $table->boolean('completed')->default(false);
+            $table->integer('price');
             $table->timestamps();
         });
     }
