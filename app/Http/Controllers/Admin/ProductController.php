@@ -98,7 +98,6 @@ class ProductController extends Controller
         $validatedData = $request->validated();
 
         // Update the product with validated input data
-        $product->update($validatedData);
 
         // Handle photo upload
         if ($request->hasFile('image')) {
@@ -109,7 +108,19 @@ class ProductController extends Controller
             // Update the associated image record in the database
             $image = $product->image;
             $image->name = $imageName;
-            $image->save();
+
+            DB::beginTransaction();
+            try{
+                $product->update($validatedData);
+                $image->save();
+                DB::commit();
+
+            }
+            catch (\Exception $e){
+                DB::rollBack();
+
+                throw $e;
+            }
         }
 
         return redirect()->back()->with('message', 'Product Updated Successfully');

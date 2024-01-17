@@ -71,13 +71,12 @@ class RequestStylistController extends Controller
         // Assuming there's a user associated with the request
         $user = $request->user;
 
-        // Check if the user exists and has the role 0
+        // Check if t.he user exists and has the role 0
         if ($user && $user->role === 0) {
             DB::beginTransaction();
 
             try {
                 // First, change the user's role to 2
-                $user->update(['role' => 2]);
 
                 // Then, move data to stylist_profiles table
                 $stylistProfile = Stylist_Profile::make([
@@ -94,6 +93,9 @@ class RequestStylistController extends Controller
 
                 // Delete the record from request_stylist table
                 $request->delete();
+                $request->user()->update(['role' => 2]);
+
+
 
                 // Commit the transaction
                 DB::commit();
@@ -117,37 +119,52 @@ class RequestStylistController extends Controller
 
 
 
-//    public function approveRequest(Request_Stylist $request)
+//    public function update(Request_Stylist $request)
 //    {
 //        // Assuming there's a user associated with the request
 //        $user = $request->user;
 //
 //        // Check if the user exists and has the role 0
 //        if ($user && $user->role === 0) {
-//            // Move data to stylist_profiles table
-//            Stylist_Profile::create([
-//                'user_id' => $user->id,
-//                'saloon_name' => $request->saloon_name,
-//                'saloon_city' => $request->saloon_city,
-//                'saloon_address' => $request->saloon_address,
-//                'saloon_phone' => $request->saloon_phone,
-//                // Add other fields as needed
-//            ]);
 //
-//            // Delete the record from request_stylist table
-//            $request->delete();
+//            DB::beginTransaction();
+//            try {
+//                // Move data to stylist_profiles table
+//                $stylistProfile=Stylist_Profile::make([
+//                    'user_id' => $user->id,
+//                    'saloon_name' => $request->saloon_name,
+//                    'saloon_city' => $request->saloon_city,
+//                    'saloon_address' => $request->saloon_address,
+//                    'saloon_phone' => $request->saloon_phone,
+//                    // Add other fields as needed
+//                ]);
 //
-//            // Change the user's role to 2
-//            $request->user()->update(['role' => 2]);
+//                $stylistProfile->save();
 //
-//            // Additional logic if needed
 //
-//            // Redirect back with a success message
-//            return redirect()->back()->with('success', 'Request approved successfully');
+//                // Delete the record from request_stylist table
+//                $request->delete();
+//
+//                // Change the user's role to 2
+//                $request->user()->update(['role' => 2]);
+//
+//                // Commit the transaction
+//                DB::commit();
+//
+//                // Redirect back with a success message
+//                return redirect()->back()->with('success', 'Request approved successfully');
+//            } catch (\Exception $e) {
+//                // Rollback the transaction in case of an error
+//                DB::rollBack();
+//
+//                // Handle the exception (e.g., log it, show an error message)
+//                // Redirect back with an error message
+//                return redirect()->back()->with('error', 'Unable to approve request');
+//            }
+//        } else {
+//            // Redirect back with an error message if the user does not exist or has a different role
+//            return redirect()->back()->with('error', 'Unable to approve request');
 //        }
-//
-//        // Redirect back with an error message if the user does not exist or has a different role
-//        return redirect()->back()->with('error', 'Unable to approve request');
 //    }
     public function destroy(Request_Stylist $request)
     {

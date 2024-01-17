@@ -10,9 +10,9 @@ class StylistController extends Controller
 {
     public function index()
     {
-        $stylists=Stylist_Profile::all();
-        $users=User::all();
-        return view('admin.stylists', compact('stylists','users'));
+        $stylists = Stylist_Profile::all();
+
+        return view('admin.stylists', compact('stylists'));
     }
 
     public function show(Stylist_Profile $stylist)
