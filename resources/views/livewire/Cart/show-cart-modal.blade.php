@@ -13,9 +13,15 @@
                     <div class="products-price">
                         <span class="qnt-element">{{ $cartItem->quantity }}</span>
                         <span>x</span>
-                        <span class="price">{{ number_format($cartItem->product->price, 2) }} den</span>
+                        <span class="price">
+                            @if(auth()->check() && auth()->user()->role == 2)
+                                {{ number_format($cartItem->product->stylist_price, 2) }} den
+                            @else
+                                {{ number_format($cartItem->product->price, 2) }} den
+                            @endif
+                        </span>
                     </div>
-                    <div class="text-center"   wire:loading>
+                    <div class="text-center" wire:loading>
                         <a class="remove-btn">Deleting...</a>
                     </div>
                     <div wire:loading.remove>
@@ -30,7 +36,9 @@
 
     <div class="products-cart-subtotal">
         <span>Subtotal</span>
-        <span class="subtotal">{{number_format($Subtotal, 2) }} den</span>
+        <span class="subtotal">
+            {{ number_format($subtotal, 2) }} den
+        </span>
     </div>
 
     <div class="products-cart-btn">

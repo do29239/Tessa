@@ -66,6 +66,57 @@ class RequestStylistController extends Controller
      * Update the specified resource in storage.
      */
 
+//    public function update(Request_Stylist $request)
+//    {
+//        // Assuming there's a user associated with the request
+//        $user = $request->user;
+//
+//        // Check if the user exists and has the role 0
+//        if ($user && $user->role === 0) {
+//            DB::beginTransaction();
+//
+//            try {
+//                // First, change the user's role to 2
+//
+//
+//                // Then, move data to stylist_profiles table
+//                $stylistProfile = Stylist_Profile::make([
+//                    'user_id' => $user->id,
+//                    'saloon_name' => $request->saloon_name,
+//                    'saloon_city' => $request->saloon_city,
+//                    'saloon_address' => $request->saloon_address,
+//                    'saloon_phone' => $request->saloon_phone,
+//                    // Add other fields as needed
+//                ]);
+//                $request->user->update(['role' => 2]);
+//                // Save the created profile
+//                $stylistProfile->save();
+//
+//                // Delete the record from request_stylist table
+//                $request->delete();
+//
+//                // Commit the transaction
+//                DB::commit();
+//
+//                // Redirect back with a success message
+//                return redirect()->back()->with('success', 'Request approved successfully');
+//            } catch (\Exception $e) {
+//                // Rollback the transaction in case of an error
+//                DB::rollBack();
+//
+//                // Handle the exception (e.g., log it, show an error message)
+//                // Redirect back with an error message
+//                return redirect()->back()->with('error', 'Unable to approve request');
+//            }
+//        } else {
+//            // Redirect back with an error message if the user does not exist or has a different role
+//            return redirect()->back()->with('error', 'Unable to approve request');
+//        }
+//    }
+
+
+
+
     public function update(Request_Stylist $request)
     {
         // Assuming there's a user associated with the request
@@ -76,18 +127,24 @@ class RequestStylistController extends Controller
             DB::beginTransaction();
 
             try {
+<<<<<<< Updated upstream
                 // First, change the user's role to 2
+=======
+            // Move data to stylist_profiles table
+            $s = Stylist_Profile::make([
+                'user_id' => $user->id,
+                'saloon_name' => $request->saloon_name,
+                'saloon_city' => $request->saloon_city,
+                'saloon_address' => $request->saloon_address,
+                'saloon_phone' => $request->saloon_phone,
+                // Add other fields as needed
+            ]);
+>>>>>>> Stashed changes
 
-                // Then, move data to stylist_profiles table
-                $stylistProfile = Stylist_Profile::make([
-                    'user_id' => $user->id,
-                    'saloon_name' => $request->saloon_name,
-                    'saloon_city' => $request->saloon_city,
-                    'saloon_address' => $request->saloon_address,
-                    'saloon_phone' => $request->saloon_phone,
-                    // Add other fields as needed
-                ]);
+            // Delete the record from request_stylist table
+            $request->delete();
 
+<<<<<<< Updated upstream
                 // Save the created profile
                 $stylistProfile->save();
 
@@ -98,6 +155,11 @@ class RequestStylistController extends Controller
 
 
                 // Commit the transaction
+=======
+            // Change the user's role to 2
+            $request->user()->update(['role' => 2]);
+            $s->save();
+>>>>>>> Stashed changes
                 DB::commit();
 
                 // Redirect back with a success message
@@ -115,6 +177,7 @@ class RequestStylistController extends Controller
             return redirect()->back()->with('error', 'Unable to approve request');
         }
     }
+<<<<<<< Updated upstream
 
 
 
@@ -166,6 +229,8 @@ class RequestStylistController extends Controller
 //            return redirect()->back()->with('error', 'Unable to approve request');
 //        }
 //    }
+=======
+>>>>>>> Stashed changes
     public function destroy(Request_Stylist $request)
     {
         // Assuming there's a user associated with the request

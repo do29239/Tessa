@@ -8,80 +8,85 @@ use App\Models\Cart;
 class ShowCart extends Component
 {
     public $view;
-    public $Subtotal = 0;
+    public $subtotal = 0;
     public $cartItems;
     public $isEmpty = true;
     protected $listeners = ['load_cart' => 'loadCart'];
 
+    public function mount()
+    {
+        $this->loadCart();
+    }
+
     public function loadCart()
     {
-        $this->cartItems = Cart::where('user_id', auth()->id())->get();
-        $this->updateCart();
+        $this->cartItems = Cart::with('product')
+            ->where('user_id', auth()->id())
+            ->get();
         $this->calculateTotal();
         $this->isEmpty = $this->cartItems->isEmpty();
     }
 
-    public function updateCart()
-    {
-        $this->dispatch('cart_updated', $this->cartItems->count());
-    }
     public function calculateTotal()
     {
-        $this->Subtotal = 0;
-
+        $this->subtotal = 0;
         foreach ($this->cartItems as $cartItem) {
-            if (auth()->check() && auth()->user()->role == 2) {
-                // If the user is a stylist, use stylist_price for calculation
-                $cartItem->total = $cartItem->product->stylist_price * $cartItem->quantity;
-            } else {
-                // Otherwise, use regular price for calculation
-                $cartItem->total = $cartItem->product->price * $cartItem->quantity;
-            }
-
+            $price = $this->determinePrice($cartItem);
+            $cartItem->total = $price* $cartItem->quantity;
             $cartItem->save();
-            $this->Subtotal += $cartItem->total;
+            $this->subtotal += $cartItem->total;
         }
+    }
+
+    private function determinePrice($cartItem)
+    {
+        if (auth()->check() && auth()->user()->role == 2) {
+            return $cartItem->product->stylist_price;
+        }
+        return $cartItem->product->price;
     }
 
     public function deleteItem($cartItemId)
     {
-
-        $cartItem = Cart::find($cartItemId)->delete();
-
-
-
+        $cartItem = Cart::where('id', $cartItemId)
+            ->where('user_id', auth()->id())
+            ->first();
+        if ($cartItem) {
+            $cartItem->delete();
+            $this->loadCart();
+            $this->dispatch('cart_updated');
+        }
     }
 
     public function incrementQuantity($cartItemId)
     {
-        $cartItem = Cart::find($cartItemId);
-        if ($cartItem) {
-            $cartItem->quantity++;
-            $cartItem->save();
-        }
+        $this->updateQuantity($cartItemId, 1);
     }
 
     public function decrementQuantity($cartItemId)
     {
-        $cartItem = Cart::find($cartItemId);
-        if ($cartItem && $cartItem->quantity > 1) {
-            $cartItem->quantity--;
+        $this->updateQuantity($cartItemId, -1);
+    }
+
+    private function updateQuantity($cartItemId, $count)
+    {
+        $cartItem = Cart::where('id', $cartItemId)
+            ->where('user_id', auth()->id())
+            ->first();
+        if ($cartItem && ($cartItem->quantity > 1 || $count > 0)) {
+            $cartItem->quantity += $count;
             $cartItem->save();
+            $this->loadCart();
+            $this->calculateTotal();
         }
     }
 
-
-
     public function render()
     {
-        $this->loadCart();
-        if($this->view == 'show-cart-modal')
-        {
-            return view('livewire/cart/show-cart-modal');
-        }
-        elseif ($this->view == 'show-cart')
-        {
-            return view('livewire/cart/show-cart');
+        if ($this->view === 'show-cart-modal') {
+            return view('livewire.cart.show-cart-modal');
+        } elseif ($this->view === 'show-cart') {
+            return view('livewire.cart.show-cart');
         }
     }
 }

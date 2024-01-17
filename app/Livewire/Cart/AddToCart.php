@@ -13,12 +13,14 @@ class AddToCart extends Component
     protected $listeners = ['cartCheck'=>'checkCartCount'];
 
 
+
     public function addToCart()
     {
         if (!Auth::check()) {
             // Redirect to the login page
             return redirect()->route('login');
         }
+
         $cartItem = Cart::firstOrNew([
             'user_id' => auth()->id(),
             'product_id' => $this->productId,
@@ -26,13 +28,24 @@ class AddToCart extends Component
         ]);
 
         $cartItem->quantity += $this->quantityCount;
+
+        // Calculate the total based on user role
+        $cartItem->total = $this->calculateTotal($cartItem);
+
         $cartItem->save();
         $this->checkCartCount();
-
-
         $this->reset('quantityCount'); // Reset the quantity input
-
     }
+
+    private function calculateTotal($cartItem)
+    {
+        $productPrice = $cartItem->product->price;
+        if (auth()->user()->role == 2) { // Assuming role 2 is for stylists
+            $productPrice = $cartItem->product->stylist_price;
+        }
+        return $cartItem->quantity * $productPrice;
+    }
+
     public function mount($product_id)
     {
         $this->productId = $product_id;
@@ -40,10 +53,7 @@ class AddToCart extends Component
 
     public function checkCartCount()
     {
-        $cartCount = Cart::where('user_id', auth()->id())
-            ->where('completed', false)
-            ->count();
-        $this->dispatch('cart_updated', $cartCount); // in CartCounter
+        $this->dispatch('cart_updated'); // in CartCounter
         $this->dispatch('load_cart'); //in ShowCart
     }
     public function decrementQuantity()
