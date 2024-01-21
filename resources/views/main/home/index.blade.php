@@ -84,10 +84,10 @@
                     <img src="{{asset('assets/img/CategoriesBanner/orrossss1.jpg')}}" alt="image">
 
                     <div class="content">
-                        <h3>New Collections!</h3>
+                        <h3>Products on Sale!</h3>
                     </div>
 
-                    <a href="{{url('/shop')}}" class="link-btn"></a>
+                    <a href="{{route('sales')}}" class="link-btn"></a>
                 </div>
             </div>
 
@@ -148,40 +148,7 @@
 <!-- End Categories Banner Area -->
 
 <!-- Start Products Area -->
-<style>
 
-    .input-counter{
-        padding-left: 20px;
-    }
-    .qty-input{
-
-        max-width: 60px;
-    }
-
-    .input-counter {
-        display: flex;
-        align-items: center;
-    }
-    .btn {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background-color: #ddd;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    }
-    .qty-input {
-        width: 40px;
-        height: 32px;
-        text-align: center;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        margin: 0 10px;
-    }
-
-</style>
 
 <section class="products-area pt-100 pb-70">
     <div class="container">

@@ -231,6 +231,9 @@
                                     <div class="price">
                                         <span class="new-price">{{ $relatedProduct->price }} den</span>
                                     </div>
+                                    <div class="products-add-to-cart">
+                                        @livewire('add-to-cart', ['product_id' => $relatedProduct->id], key($relatedProduct->id))
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -239,5 +242,6 @@
             </div>
         </div>
     </section>
+
     <!-- End Product Details Area -->
 @endsection
