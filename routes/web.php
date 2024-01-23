@@ -13,6 +13,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SalesController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/stylists', [StylistController::class, 'index'])->name('show_stylists');
         Route::get('/stylist/{stylist}', [StylistController::class, 'show'])->name('show_stylist');
         Route::delete('stylists/{stylist}', [StylistController::class, 'destroy'])->name('stylist.destroy');
+        Route::resource('sales', \App\Http\Controllers\Admin\SalesController::class);
     });
     Route::resource('requests', RequestStylistController::class)->only('store');
     Route::view('/request_form', 'main/request_stylist/request_form');
@@ -63,6 +65,7 @@ Route::middleware('auth')->group(function () {
     Route::get('product/show-product/{product}', [MainController::class, 'show'])->name('showProduct');
     Route::get('course/show-course/{course}', [CoursesController::class, 'show'])->name('showCourse');
     Route::get('/course', [CoursesController::class, 'index'])->name('courses');
+    Route::get('/sales', [SalesController::class, 'index'])->name('sales');
 
 
 

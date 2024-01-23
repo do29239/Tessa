@@ -1,6 +1,7 @@
 @extends('layouts.MasterAdmin')
 
 @section('content')
+
     <div class="content">
         <div class="row justify-content-center mt-4">
             <div class="col-md-6">

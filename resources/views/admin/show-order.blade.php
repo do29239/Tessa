@@ -82,19 +82,19 @@
                                     </tr>
                                     <tr>
                                         <td><strong>City:</strong></td>
-                                        <td>{{ $order->user->profile->city }}</td>
+                                        <td>{{ $order->user->city }}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Address:</strong></td>
-                                        <td>{{ $order->user->profile->address }}</td>
+                                        <td>{{ $order->user->address }}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Postcode / Zip:</strong></td>
-                                        <td>{{ $order->user->profile->postcode }}</td>
+                                        <td>{{ $order->user->postcode }}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Phone:</strong></td>
-                                        <td>{{ $order->user->profile->phone }}</td>
+                                        <td>{{ $order->user->phone }}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Email Address:</strong></td>

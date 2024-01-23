@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< Updated upstream
-    "content-hash": "c92b01b7baa0b5643c7edab8fd2da2e1",
-=======
     "content-hash": "d16f212a0cbd0bd384ed5b01b6b4b17c",
->>>>>>> Stashed changes
     "packages": [
         {
             "name": "beberlei/assert",
