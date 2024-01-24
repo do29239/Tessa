@@ -7,6 +7,7 @@ use App\Http\Requests\ProductRequest;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Image;
+use Intervention\Image\Facades\Image as Images;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 
@@ -41,12 +42,7 @@ class ProductController extends Controller
 
         // Handle photo upload
         if ($request->hasFile('image')) {
-            $imageFile = $request->file('image');
-            $imageName = time().'.'.$imageFile->getClientOriginalExtension();
-            $imageFile->storeAs( 'public/images', $imageName);
-
-            // Create a new image record in the database and associate it with the product
-            //$image = new Image(['name'=> $imageName]);
+            $imageName = $request->input('image');
             $image = new Image();
             $image->name = $imageName;
 
@@ -55,14 +51,10 @@ class ProductController extends Controller
                 $product->save();
                 $product->image()->save($image);
                 DB::commit();
-            }
-            catch (\Exception $e){
+            } catch (\Exception $e) {
                 DB::rollBack();
-
                 throw $e;
             }
-
-
         }
 
         return redirect()->back()->with('message', 'Product Added Successfully');
@@ -101,13 +93,11 @@ class ProductController extends Controller
 
         // Handle photo upload
         if ($request->hasFile('image')) {
-            $imageFile = $request->file('image');
-            $imageName = time().'.'.$imageFile->getClientOriginalExtension();
-            $imageFile->storeAs('public/images', $imageName);
+            $imageFile = $request->input('image');
 
             // Update the associated image record in the database
             $image = $product->image;
-            $image->name = $imageName;
+            $image->name = $imageFile;
 
             DB::beginTransaction();
             try{

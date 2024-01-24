@@ -41,8 +41,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/dashboard', function () {
             return view('admin.dashboard');
         });
-        Route::resource('products', ProductController::class)->except('create');
-        Route::resource('courses', CourseController::class)->except('create');
+        Route::resource('products', ProductController::class)->except('create')->middleware('convertToWebp');
+        Route::resource('courses', CourseController::class)->except('create')->middleware('convertToWebp');
         Route::delete('courses/{course}/images/{image}', [CourseController::class, 'destroyImage'])->name('image.destroy');
         Route::resource('categories', CategoryController::class);
         Route::resource('brands', BrandController::class)->except('show');
