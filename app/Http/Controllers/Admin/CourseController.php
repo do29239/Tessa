@@ -32,13 +32,9 @@ class CourseController extends Controller
         try {
             $course = Course::create($validatedData);
 
-            if ($request->hasFile('images')) {
-                $images = collect($request->file('images'));
-
-                $imageRecords = $images->map(function ($image) use ($course) {
-                    $imageName = time() . '.' . $image->getClientOriginalName();
-                    $image->storeAs('public/images', $imageName);
-
+            if ($request->has('images')) {
+                $imageNames = $request->input('images');
+                $imageRecords = collect($imageNames)->map(function ($imageName) use ($course) {
                     return [
                         'name' => $imageName,
                         'imageable_id' => $course->id,
@@ -91,19 +87,21 @@ class CourseController extends Controller
         try {
             $course->update($validatedData);
 
-            if ($request->hasFile('images')) {
-                $images = collect($request->file('images'));
+            if ($request->has('images')) {
+                // Get the processed image names from the request
+                $imageNames = $request->input('images');
 
-                $imageRecords = $images->map(function ($imageFile) use ($course) {
-                    $imageName = time() . '.' . $imageFile->getClientOriginalName();
-                    $imageFile->storeAs('public/images', $imageName);
-
+                // Create new image records for each image name
+                $imageRecords = collect($imageNames)->map(function ($imageName) use ($course) {
                     return [
                         'name' => $imageName,
                         'imageable_id' => $course->id,
                         'imageable_type' => get_class($course),
                     ];
                 });
+
+                // Remove old image records if necessary
+                // $course->image()->delete(); // Uncomment if you want to delete old images
 
                 // Batch insert new image records associated with the course
                 $course->image()->createMany($imageRecords->all());
@@ -117,6 +115,7 @@ class CourseController extends Controller
             return redirect()->back()->with('error', 'Error updating course');
         }
     }
+
 
 
 
