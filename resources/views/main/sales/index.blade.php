@@ -46,7 +46,7 @@
                                 </ul>
                             </div>
 
-                            <div class="new-tag">Sale!</div>
+                            <div class="sale-tag">Sale!</div>
                         </div>
 
                         <div class="products-content">

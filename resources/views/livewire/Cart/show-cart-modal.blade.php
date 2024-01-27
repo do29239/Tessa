@@ -14,11 +14,7 @@
                         <span class="qnt-element">{{ $cartItem->quantity }}</span>
                         <span>x</span>
                         <span class="price">
-                            @if(auth()->check() && auth()->user()->role == 2)
-                                {{ number_format($cartItem->product->stylist_price, 2) }} den
-                            @else
-                                {{ number_format($cartItem->product->price, 2) }} den
-                            @endif
+                                {{ number_format($cartItem->price, 2) }} den
                         </span>
                     </div>
                     <div class="text-center" wire:loading>

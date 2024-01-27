@@ -4,6 +4,7 @@ namespace App\Livewire\Cart;
 
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class AddToCart extends Component
@@ -38,14 +39,21 @@ class AddToCart extends Component
 
     private function checkPrice($cartItem)
     {
+        $sale = $cartItem->product->sale->active();
+//        dd($sale);
+        // If the user is a stylist, assign stylist price unless the product is on sale
+        if (auth()->user()->role == 2) {
+            return $cartItem->product->stylist_price;
+        }
 
-        if (auth()->user()->role == 2) { // Assuming role 2 is for stylists
-            $productPrice = $cartItem->product->stylist_price;
+        // If there's an active sale and the user is not a stylist, use the sale price
+        if ($sale && auth()->user()->role == 0) {
+            return $cartItem->product->sale->sale_price;
+
         }
-        else{
-            $productPrice = $cartItem->product->price;
-        }
-        return  $productPrice;
+
+        // If none of the above, use the regular price
+        return $cartItem->product->price;
     }
 
 

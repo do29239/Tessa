@@ -183,8 +183,6 @@
                                     </li>
                                 </ul>
                             </div>
-
-                            <div class="new-tag">New!</div>
                         </div>
 
                         <div class="products-content">
@@ -192,20 +190,24 @@
                             <h3><a href="{{ route('showProduct', $product->id) }}">{{$product->brand->name. '   ' .$product->name}}</a></h3>
                             <div class="price">
                                 @if(auth()->check() && auth()->user()->role == 2)
-                                    <span class="new-price">{{$product->stylist_price}}den</span>
+                                    <span class="new-price">{{ $product->stylist_price }}den</span>
+                                @elseif($product->sale()->active()->exists())
+                                    <span class="old-price">${{ $product->price }}</span>
+                                    <span class="new-price">${{ $product->sale->sale_price }}</span>
                                 @else
-                                    <span class="new-price">{{$product->price}}den</span>
+                                    <span class="new-price">{{ $product->price }}den</span>
                                 @endif
                             </div>
                             <input type="hidden" value="{{$product->id}}" class="prod_id">
                             @livewire('add-to-cart', ['product_id' => $product->id])
                         </div>
-
+                        @if($product->sale()->active()->exists())
                         <span class="products-discount">
                             <span>
-                                20% OFF
+                                Sale!
                             </span>
                         </span>
+                        @endif
                     </div>
                 </div>
             @endforeach
@@ -267,8 +269,6 @@
                                     </li>
                                 </ul>
                             </div>
-
-                            <div class="new-tag">New!</div>
                         </div>
 
                         <div class="products-content">
@@ -276,20 +276,25 @@
                             <h3><a href="products-type-2.html">{{$product->name}}</a></h3>
                             <div class="price">
                                 @if(auth()->check() && auth()->user()->role == 2)
-                                    <span class="new-price">{{$product->stylist_price}}den</span>
+                                    <span class="new-price">{{ $product->stylist_price }}den</span>
+                                @elseif($product->sale()->active()->exists())
+                                    <span class="old-price">${{ $product->price }}</span>
+                                    <span class="new-price">${{ $product->sale->sale_price }}</span>
                                 @else
-                                    <span class="new-price">{{$product->price}}den</span>
+                                    <span class="new-price">{{ $product->price }}den</span>
                                 @endif
                             </div>
                             <input type="hidden" value="{{$product->id}}" class="prod_id">
                             @livewire('add-to-cart', ['product_id' => $product->id])
                         </div>
 
-                        <span class="products-discount">
+                        @if($product->sale()->active()->exists())
+                            <span class="products-discount">
                             <span>
-                                20% OFF
+                                Sale!
                             </span>
                         </span>
+                        @endif
                     </div>
                 </div>
             @endforeach
