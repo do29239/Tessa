@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
-
+use Illuminate\Database\Eloquent\Relations\HasMany;
 class Product extends Model
 {
     use HasFactory;
@@ -33,7 +33,7 @@ class Product extends Model
     {
         return $this->belongsToMany(Order::class)->withTimestamps();
     }
-    public function items()
+    public function items(): HasMany
     {
         return $this->hasMany(Item::class);
     }
@@ -41,11 +41,11 @@ class Product extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
-    public function wishlist()
+    public function wishlist(): HasMany
     {
         return $this->hasMany(Wishlist::class);
     }
-    public function sale()
+    public function sale(): HasOne
     {
         return $this->hasOne(Sale::class);
     }

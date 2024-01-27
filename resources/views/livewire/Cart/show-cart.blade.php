@@ -25,11 +25,7 @@
 
                     <td class="product-price">
                             <span class="unit-amount">
-                                @if(auth()->check() && auth()->user()->role == 2)
-                                    {{ number_format($cartItem->product->stylist_price, 2) }}
-                                @else
-                                    {{ number_format($cartItem->product->price, 2) }}
-                                @endif
+                                    {{ number_format($cartItem->price, 2) }}
                             </span>
                     </td>
 

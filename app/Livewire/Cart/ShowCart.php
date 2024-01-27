@@ -31,19 +31,8 @@ class ShowCart extends Component
     {
         $this->subtotal = 0;
         foreach ($this->cartItems as $cartItem) {
-            $price = $this->determinePrice($cartItem);
-            $cartItem->price = $price;
-            $cartItem->save();
             $this->subtotal += $cartItem->price * $cartItem->quantity;
         }
-    }
-
-    private function determinePrice($cartItem)
-    {
-        if (auth()->check() && auth()->user()->role == 2) {
-            return $cartItem->product->stylist_price;
-        }
-        return $cartItem->product->price;
     }
 
     public function deleteItem($cartItemId)

@@ -56,7 +56,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/stylists', [StylistController::class, 'index'])->name('show_stylists');
         Route::get('/stylist/{stylist}', [StylistController::class, 'show'])->name('show_stylist');
         Route::delete('stylists/{stylist}', [StylistController::class, 'destroy'])->name('stylist.destroy');
-        Route::resource('sales', \App\Http\Controllers\Admin\SalesController::class);
+        Route::get('/sales/create/{product}', [\App\Http\Controllers\Admin\SalesController::class, 'create'])->name('sales.create');
+        Route::resource('/sales', \App\Http\Controllers\Admin\SalesController::class)->except('create');
+
+        Route::get('/bulk-sale', [\App\Http\Controllers\Admin\BulkSaleController::class, 'createBulkSale'])->name('admin.bulkSale.create');
+
+        Route::post('/bulk-sale/store', [\App\Http\Controllers\Admin\BulkSaleController::class, 'storeBulkSale'])->name('admin.bulkSale.store');
+
+        Route::post('/bulk-sale/show-products', [\App\Http\Controllers\Admin\BulkSaleController::class, 'showProductsForBulkSale'])->name('admin.bulkSale.showProducts');
+
+
     });
     Route::resource('requests', RequestStylistController::class)->only('store');
     Route::view('/request_form', 'main/request_stylist/request_form');
@@ -65,7 +74,7 @@ Route::middleware('auth')->group(function () {
     Route::get('product/show-product/{product}', [MainController::class, 'show'])->name('showProduct');
     Route::get('course/show-course/{course}', [CoursesController::class, 'show'])->name('showCourse');
     Route::get('/course', [CoursesController::class, 'index'])->name('courses');
-    Route::get('/sales', [SalesController::class, 'index'])->name('sales');
+    Route::get('/sale', [SalesController::class, 'index'])->name('sales');
 
 
 

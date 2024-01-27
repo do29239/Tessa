@@ -112,6 +112,11 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('products.edit', $product) }}" class="btn btn-primary btn-sm">Edit</a>
+                                                <form action="{{ route('sales.create', $product) }}" class="d-inline">
+                                                    @csrf
+                                                    @method('GET')
+                                                    <button type="submit" class="btn btn-primary btn-sm">Add to Sale</button>
+                                                </form>
                                                 <form action="{{ route('products.destroy', $product) }}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
