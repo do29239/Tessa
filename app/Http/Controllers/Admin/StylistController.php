@@ -3,24 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Stylist_Profile;
+use App\Models\StylistProfile;
 use App\Models\User;
 
 class StylistController extends Controller
 {
     public function index()
     {
-        $stylists = Stylist_Profile::all();
+        $stylists = StylistProfile::all();
 
         return view('admin.stylists', compact('stylists'));
     }
 
-    public function show(Stylist_Profile $stylist)
+    public function show(StylistProfile $stylist)
     {
         return view('admin.show-stylist',compact('stylist'));
     }
 
-    public function destroy(Stylist_Profile $stylist)
+    public function destroy(StylistProfile $stylist)
     {
         $stylist->delete();
 

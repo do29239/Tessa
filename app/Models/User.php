@@ -28,6 +28,7 @@ class User extends Authenticatable
         'phone',
         'postcode',
         'password',
+        'request_submitted',
     ];
 
     /**

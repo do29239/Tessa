@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestStylistRequest;
 use App\Mail\RequestDenied;
-use App\Models\Request_Stylist;
-use App\Models\Stylist_Profile;
+use App\Models\RequestStylist;
+use App\Models\StylistProfile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +19,7 @@ class RequestStylistController extends Controller
      */
     public function index()
     {
-        $requests = Request_Stylist::with('user')->get();
+        $requests = RequestStylist::with('user')->get();
         return view('admin.stylist-request', compact('requests'));
     }
 
@@ -41,15 +41,16 @@ class RequestStylistController extends Controller
 
         // Set the user_id when creating the Request_Stylist record
         $request = auth()->user()->request()->create($validatedData);
+        $request->user()->update(['request_submitted' => true]);
 
-        return redirect()->back()->with('message', 'Request Made Successfully');
+        return redirect()->route('show_products')->with('message', 'Request Made Successfully');
     }
 
 
     /**
      * Display the specified resource.
      */
-    public function show(Request_Stylist $request)
+    public function show(RequestStylist $request)
     {
         return view('admin.show-stylist-request', compact('request'));
     }
@@ -117,7 +118,7 @@ class RequestStylistController extends Controller
 
 
 
-    public function update(Request_Stylist $request)
+    public function update(RequestStylist $request)
     {
         // Assuming there's a user associated with the request
         $user = $request->user;
@@ -129,7 +130,7 @@ class RequestStylistController extends Controller
             try {
 
             // Move data to stylist_profiles table
-            $s = Stylist_Profile::make([
+            $s = StylistProfile::make([
                 'user_id' => $user->id,
                 'saloon_name' => $request->saloon_name,
                 'saloon_city' => $request->saloon_city,
@@ -145,7 +146,6 @@ class RequestStylistController extends Controller
                 // Delete the record from request_stylist table
                 $request->delete();
                 $request->user()->update(['role' => 2]);
-
 
 
                 // Commit the transaction
@@ -182,11 +182,9 @@ class RequestStylistController extends Controller
         if ($user && $user->role === 0) {
             // Delete the record from request_stylist table
             $request->delete();
-
             // Send an email to the user
-            Mail::to($user->email)->send(new RequestDenied($user)); // Assuming you have a Mailable named RequestDenied
-            //Mail::to($request->user())->send(new OrderShipped($order));
-            // Additional logic if needed
+            //Mail::to($user->email)->send(new RequestDenied($user)); // Assuming you have a Mailable named RequestDenied
+            //// Additional logic if needed
 
             // Redirect back with a success message
             return redirect()->back()->with('success', 'Request denied successfully');

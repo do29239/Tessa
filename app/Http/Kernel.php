@@ -65,5 +65,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin' => \App\Http\Middleware\Admin::class,
         'convertToWebp' => \App\Http\Middleware\ConvertImageToWebp::class,
+        'stylist' => \App\Http\Middleware\Stylist::class,
+
     ];
 }
+

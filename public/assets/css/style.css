@@ -3889,61 +3889,61 @@ Products Details CSS
   width: 100%;
 }
 
-.products-details-image .slick-slider {
-  position: relative;
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-}
+/*.products-details-image .slick-slider {*/
+/*  position: relative;*/
+/*  padding: 0;*/
+/*  margin: 0;*/
+/*  list-style-type: none;*/
+/*}*/
 
-.products-details-image .slick-dots {
-  padding: 0;
-  text-align: center;
-  list-style-type: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-left: -5px;
-  margin-right: -5px;
-  margin-top: 0;
-  margin-bottom: 0;
-}
+/*.products-details-image .slick-dots {*/
+/*  padding: 0;*/
+/*  text-align: center;*/
+/*  list-style-type: none;*/
+/*  display: -webkit-box;*/
+/*  display: -ms-flexbox;*/
+/*  display: flex;*/
+/*  -ms-flex-wrap: wrap;*/
+/*      flex-wrap: wrap;*/
+/*  margin-left: -5px;*/
+/*  margin-right: -5px;*/
+/*  margin-top: 0;*/
+/*  margin-bottom: 0;*/
+/*}*/
 
-.products-details-image .slick-dots li {
-  display: block;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 20%;
-          flex: 0 0 20%;
-  max-width: 20%;
-  position: relative;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 10px;
-}
+/*.products-details-image .slick-dots li {*/
+/*  display: block;*/
+/*  -webkit-box-flex: 0;*/
+/*      -ms-flex: 0 0 20%;*/
+/*          flex: 0 0 20%;*/
+/*  max-width: 20%;*/
+/*  position: relative;*/
+/*  padding-left: 5px;*/
+/*  padding-right: 5px;*/
+/*  padding-top: 10px;*/
+/*}*/
 
-.products-details-image .slick-dots li button {
-  padding: 0;
-  outline: 0;
-  display: block;
-  border: none;
-  margin: 0;
-  cursor: pointer;
-}
+/*.products-details-image .slick-dots li button {*/
+/*  padding: 0;*/
+/*  outline: 0;*/
+/*  display: block;*/
+/*  border: none;*/
+/*  margin: 0;*/
+/*  cursor: pointer;*/
+/*}*/
 
-.products-details-image .slick-dots li img {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
+/*.products-details-image .slick-dots li img {*/
+/*  -webkit-transition: 0.5s;*/
+/*  transition: 0.5s;*/
+/*}*/
 
-.products-details-image .slick-dots li:hover img, .products-details-image .slick-dots li.slick-active img {
-  opacity: .4;
-}
+/*.products-details-image .slick-dots li:hover img, .products-details-image .slick-dots li.slick-active img {*/
+/*  opacity: .4;*/
+/*}*/
 
-.products-details-image .slick-thumbs {
-  display: none;
-}
+/*.products-details-image .slick-thumbs {*/
+/*  display: none;*/
+/*}*/
 
 .products-details-image .row {
   margin-left: -8px;

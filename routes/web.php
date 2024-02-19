@@ -67,8 +67,9 @@ Route::middleware('auth')->group(function () {
 
 
     });
-    Route::resource('requests', RequestStylistController::class)->only('store');
-    Route::view('/request_form', 'main/request_stylist/request_form');
+        Route::resource('requests', RequestStylistController::class)->only('store');
+        Route::view('/request_form', 'main/request_stylist/request_form')->middleware('stylist');
+
     Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
     Route::get('/shop', [MainController::class, 'showProducts'])->name('shop');
     Route::get('product/show-product/{product}', [MainController::class, 'show'])->name('showProduct');

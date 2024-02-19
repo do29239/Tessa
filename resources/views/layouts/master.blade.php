@@ -81,9 +81,11 @@
                     <!-- Displayed when the user is logged in -->
                     <ul class="header-top-menu">
                         <li><a href="#"><i class="bx bxs-user"></i> My Account</a></li>
+                        @if(!auth()->user()->request_submitted)
                         <li>
                             <a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i> Request Stylist</a>
                         </li>
+                        @endif
                         <li><a href="{{ route('my.orders') }}"><i class="bx bxs-user"></i> My orders</a></li>
                         <li><a href="{{ route('show.wishlist') }}"><i class="bx bx-heart"></i> Wishlist</a></li>
                         <li>
