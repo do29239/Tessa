@@ -8,6 +8,7 @@
                 <th scope="col">Unit Price</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Total</th>
+                <th scope="col">Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -41,7 +42,8 @@
                             <span class="subtotal-amount">
                                 {{ number_format($cartItem->price * $cartItem->quantity, 2) }}
                             </span>
-
+                    </td>
+                    <td class="product-action">
                         <div wire:loading.remove="deleteItem({{$cartItem->id}}"> <!-- Only show when deleting -->
                             <button wire:click.prevent="deleteItem({{ $cartItem->id }})" class="remove">
                                 <i class="bx bx-trash deleteCartitem"></i>
@@ -73,4 +75,16 @@
             <a href="{{route('Checkout')}}" class="default-btn">Proceed to Checkout</a>
         @endif
     </div>
+    <style>
+        @media only screen and (max-width: 768px) {
+        .table-responsive td:nth-of-type(2):before { content: "Name"; }
+        .table-responsive td:nth-of-type(3):before { content: "Unit Price"; }
+        .table-responsive td:nth-of-type(4):before { content: "Quantity"; }
+        .table-responsive td:nth-of-type(5):before { content: "Total"; }
+        .table-responsive td:nth-of-type(6):before { content: "Delete"; }
+        }
+        .bx-minus{
+            margin-left: 1.2em;
+        }
+    </style>
 </div>

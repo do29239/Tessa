@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+    @if(!isset($excludeGlobalStyles))
+    <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
+    @endif
+
     @livewireStyles
 
     <title>Tessa Academy</title>

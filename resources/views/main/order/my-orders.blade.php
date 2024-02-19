@@ -59,4 +59,13 @@
             </form>
         </div>
     </section>
+    <style>
+        @media only screen and (max-width: 768px) {
+            .table-responsive td:nth-of-type(1):before { content: "Order Number"; }
+            .table-responsive td:nth-of-type(2):before { content: "Order Date"; }
+            .table-responsive td:nth-of-type(3):before { content: "Order Total"; }
+            .table-responsive td:nth-of-type(4):before { content: "Status"; }
+            .table-responsive td:nth-of-type(5):before { content: "Action"; }
+        }
+    </style>
 @endsection

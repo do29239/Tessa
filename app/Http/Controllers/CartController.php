@@ -19,12 +19,13 @@ class CartController extends Controller
 
     public function Checkout()
     {
+        $excludeGlobalStyles = true;
         $total = 0;
         $cartItems = Cart::all()->where('user_id', auth()->id());
         foreach ($cartItems as $cartItem){
             $total += $cartItem->price *$cartItem->quantity;
         }
-        return view('main.cart.checkout', compact('cartItems', 'total'));
+        return view('main.cart.checkout', compact('cartItems', 'total','excludeGlobalStyles'));
 
     }
 

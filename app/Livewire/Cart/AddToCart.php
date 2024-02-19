@@ -39,7 +39,7 @@ class AddToCart extends Component
 
     private function checkPrice($cartItem)
     {
-        $sale = $cartItem->product->sale->active();
+        $sale = $cartItem->product->sale;
 //        dd($sale);
         // If the user is a stylist, assign stylist price unless the product is on sale
         if (auth()->user()->role == 2) {

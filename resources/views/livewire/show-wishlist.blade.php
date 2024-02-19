@@ -1,6 +1,6 @@
 <div>
     <div class="cart-table table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-bordered table-style">
             <thead>
             <tr>
                 <th scope="col">Delete</th>
@@ -42,12 +42,36 @@
 
 
                     <td class="product-price">
-                        <span class="unit-amount">{{ $item->product->price }}</span>
+                            @if(auth()->check() && auth()->user()->role == 2)
+                                <span class="new-price">{{ $item->product->stylist_price }}den</span>
+                            @elseif($item->product->sale()->active()->exists())
+                                <span class="old-price">${{ $item->product->price }}</span>
+                                <span class="new-price">${{ $item->product->sale->sale_price }}</span>
+                            @else
+                                <span class="new-price">{{ $item->product->price }}den</span>
+                            @endif
+                    </td>
+                    <td class="product-price">
+                        <input type="hidden" value="{{$item->product->id}}" class="prod_id">
+                        @livewire('add-to-cart', ['product_id' => $item->product->id])
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
+        <style>
+            @media only screen and (max-width: 768px) {
+
+                /* Custom labels for each column based on its index */
+                .table-responsive td:nth-of-type(1):before { content: "Delete"; }
+                .table-responsive td:nth-of-type(3):before { content: "Brand"; }
+                .table-responsive td:nth-of-type(4):before { content: "Category"; }
+                .table-responsive td:nth-of-type(5):before { content: "Name"; }
+                .table-responsive td:nth-of-type(6):before { content: "Unit Price"; }
+
+                /* Additional styling as needed */
+            }
+        </style>
     </div>
     <div class="cart-buttons">
         <div class="row align-items-center">
@@ -61,3 +85,4 @@
         </div>
     </div>
 </div>
+

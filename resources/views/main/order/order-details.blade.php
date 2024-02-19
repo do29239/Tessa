@@ -77,4 +77,14 @@
         </div>
     </section>
     <!-- End Cart Area -->
+    <style>
+        @media only screen and (max-width: 768px) {
+            td:nth-of-type(2):before { content: "Brand"; }
+            td:nth-of-type(3):before { content: "Category"; }
+            td:nth-of-type(4):before { content: "Name"; }
+            td:nth-of-type(5):before { content: "Unit Price"; }
+            td:nth-of-type(6):before { content: "Quantity"; }
+            td:nth-of-type(7):before { content: "Total"; }
+        }
+    </style>
 @endsection
