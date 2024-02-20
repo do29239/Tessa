@@ -2,14 +2,11 @@
 	"use strict";
 
     // Search Popup JS
-    $(".others-option .search-btn").on("click", function(){
+    $(".search-btn").on("click", function(){
         $(".search-overlay").toggleClass("search-overlay-active");
     });
     $(".search-overlay-close").on("click", function(){
         $(".search-overlay").removeClass("search-overlay-active");
-    });
-    $(".header-top-others-option .search-btn").on("click", function(){
-        $(".search-overlay").toggleClass("search-overlay-active");
     });
 
     // Mean Menu

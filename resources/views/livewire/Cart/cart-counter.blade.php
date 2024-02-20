@@ -1,4 +1,4 @@
-<div class="cart-btn"z>
+<div class="cart-btn">
     <a
         href=""
         data-bs-toggle="modal"

@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bottom-navbar.css') }}">
     @if(!isset($excludeGlobalStyles))
     <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
     @endif
@@ -85,7 +86,6 @@
                             <a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i> Request Stylist</a>
                         </li>
                         <li><a href="{{ route('my.orders') }}"><i class="bx bxs-user"></i> My orders</a></li>
-                        <li><a href="{{ route('show.wishlist') }}"><i class="bx bx-heart"></i> Wishlist</a></li>
                         <li>
                             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
                                 <i class="bx bx-log-in"></i> <span style="margin-left: 5px;">Log Out</span>
@@ -106,17 +106,6 @@
                         <li><a href="{{ route('register') }}"><i class="bx bx-log-in"></i> Register</a></li>
                     </ul>
                 @endauth
-                <ul class="header-top-others-option">
-                    <div class="option-item">
-                        <div class="search-btn-box">
-                            <i class="search-btn bx bx-search-alt"></i>
-
-                        </div>
-                    </div>
-                    <div class="option-item">
-                        <livewire:cart.cart-counter/>
-                    </div>
-                </ul>
             </div>
         </div>
     </div>
@@ -526,6 +515,34 @@
     </div>
 </footer>
 <!-- End Footer Area -->
+
+<div class="bottom-navbar">
+    <div class="container ">
+        <nav class="navbar">
+            <div class="nav-item{{ request()->is('/') ? ' active' : '' }}" data-url="{{ url('/') }}">
+                <i class="bx bx-home-alt"></i>
+                <span>Home</span>
+            </div>
+            <div class="nav-item{{ request()->is('shop') ? ' active' : '' }}" data-url="{{ route('shop') }}">
+                <i class="bx bx-store"></i>
+                <span>Shop</span>
+            </div>
+            <div class="nav-item{{ request()->is('wishlist') ? ' active' : '' }}" data-url="{{ route('show.wishlist') }}">
+                <i class="bx bx-heart"></i>
+                <span>Wishlist</span>
+            </div>
+            <div class="nav-item">
+                <livewire:cart.cart-counter/>
+                <span>Cart</span>
+            </div>
+            <div class="search-btn-box nav-item{{ request()->is('contact') ? ' active' : '' }}" data-url="#">
+                <i class="search-btn bx bx-search-alt"></i>
+                <span>Search</span>
+            </div>
+        </nav>
+    </div>
+</div>
+
 
 <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
 
