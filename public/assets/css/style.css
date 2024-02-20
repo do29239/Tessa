@@ -1190,6 +1190,32 @@ Navbar CSS
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
+.header-top-others-option .option-item .cart-btn {
+    font-size: 20px;
+    position: relative;
+    line-height: 1;
+}
+
+.header-top-others-option .option-item .cart-btn a {
+    display: inline-block;
+    position: relative;
+    color: #d0d0d0;
+}
+
+.header-top-others-option .option-item .cart-btn a span {
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    line-height: 13.9px;
+    border-radius: 50%;
+    color: #ffffff;
+    background-color: #f53f85;
+    font-size: 10px;
+    font-weight: 600;
+}
 
 .xton-nav .navbar .others-option .option-item .cart-btn {
   font-size: 25px;
@@ -1633,7 +1659,7 @@ Main Banner CSS
 }
 
 .banner-bg2 {
-  background-image: url(../../assets/img/redhair.jpg);
+  background-image: url(../../assets/img/redhairr.webp);
 }
 
 .banner-bg3 {
@@ -7037,6 +7063,60 @@ Modal CSS
 .shoppingCartModal .modal-content .modal-body .products-cart-subtotal span.subtotal {
   float: right;
 }
+.header-top-others-option .option-item .cart-btn {
+    font-size: 20px;
+    position: relative;
+    line-height: 1;
+}
+
+.header-top-others-option .option-item .cart-btn a {
+    display: inline-block;
+    position: relative;
+    color: #d0d0d0;
+}
+
+.header-top-others-option .option-item .cart-btn a span {
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    line-height: 13.9px;
+    border-radius: 50%;
+    color: #ffffff;
+    background-color: #f53f85;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.xton-nav .navbar .others-option .option-item .cart-btn {
+    font-size: 25px;
+    position: relative;
+    line-height: 1;
+}
+
+.xton-nav .navbar .others-option .option-item .cart-btn a {
+    display: inline-block;
+    position: relative;
+    color: #000000;
+}
+
+.xton-nav .navbar .others-option .option-item .cart-btn a span {
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    line-height: 13.9px;
+    border-radius: 50%;
+    color: #ffffff;
+    background-color: #f53f85;
+    font-size: 10px;
+    font-weight: 600;
+}
+
 
 .shoppingCartModal .modal-content .modal-body .products-cart-btn .default-btn {
   display: block;
@@ -7559,7 +7639,73 @@ Modal CSS
   opacity: 1;
   visibility: visible;
 }
+.header-top-others-option .option-item .cart-btn {
+    font-size: 20px;
+    position: relative;
+    line-height: 1;
+}
 
+.header-top-others-option .option-item .cart-btn a {
+    display: inline-block;
+    position: relative;
+    color: #d0d0d0;
+}
+
+.header-top-others-option .option-item .cart-btn a span {
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    line-height: 13.9px;
+    border-radius: 50%;
+    color: #ffffff;
+    background-color: #f53f85;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.xton-nav .navbar .others-option .option-item .cart-btn {
+    font-size: 25px;
+    position: relative;
+    line-height: 1;
+}
+
+.xton-nav .navbar .others-option .option-item .cart-btn a {
+    display: inline-block;
+    position: relative;
+    color: #000000;
+}
+
+.xton-nav .navbar .others-option .option-item .cart-btn a span {
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    line-height: 13.9px;
+    border-radius: 50%;
+    color: #ffffff;
+    background-color: #f53f85;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+.shoppingCartModal .modal-content .modal-body .products-cart-btn .default-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.shoppingCartModal .modal-content .modal-body .products-cart-btn .optional-btn {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+}
 .shoppingWishlistModal .modal-content .modal-body .products-cart-btn .default-btn {
   display: block;
   width: 100%;
@@ -10542,6 +10688,7 @@ Footer CSS
 /*================================================
 Go Top CSS
 =================================================*/
+
 .go-top {
   position: fixed;
   cursor: pointer;
@@ -10549,8 +10696,8 @@ Go Top CSS
   right: 15px;
   color: #ffffff;
   background-color: #f53f85;
-  z-index: 4;
-  width: 42px;
+  z-index: 10000;
+  width: 55px;
   text-align: center;
   height: 42px;
   line-height: 42px;
@@ -10559,7 +10706,26 @@ Go Top CSS
   font-size: 28px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  border-radius: 5px 5px 0 0;
+  border-radius: 50px 50px 50px 50px;
+}
+.go-top {
+    position: fixed;
+    cursor: pointer;
+    bottom: -42px;
+    right: 15px;
+    color: #ffffff;
+    background-color: #f53f85;
+    z-index: 10000;
+    width: 42px;
+    text-align: center;
+    height: 42px;
+    line-height: 42px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 28px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    border-radius: 50px 50px 50px 50px;
 }
 
 .go-top i {
@@ -10574,7 +10740,7 @@ Go Top CSS
 }
 
 .go-top.active {
-  bottom: 0;
+  bottom: 68px;
   opacity: 1;
   visibility: visible;
 }

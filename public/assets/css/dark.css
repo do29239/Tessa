@@ -5,7 +5,7 @@ Default CSS
   position: fixed;
   z-index: 1;
   left: 3%;
-  bottom: 63px;
+  bottom: 69px;
 }
 
 .switch-box .switch {
@@ -348,6 +348,9 @@ Default CSS
 
 .theme-dark .pagination-area::before {
   background-color: #2e2d2d;
+}
+.theme-dark.bottom-navbar{
+    color: #4d4949;
 }
 
 .theme-dark .pagination-area .page-numbers {
