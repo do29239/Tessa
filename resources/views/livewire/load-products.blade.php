@@ -31,7 +31,7 @@
                             <img src="{{ asset('storage/images/'.$product->image->name) }}" class="hover-image" alt="image" />
                         </a>
                         @if($product->sale()->active()->exists())
-                            <div class="sale-tag">Sale!</div>
+                            <div class="sale-tag">{{__('messages.sale')}}</div>
                         @endif
                         <div class="products-button">
                             <ul>
@@ -39,15 +39,7 @@
                                     <div class="wishlist-btn">
                                         <a href="#">
                                             <i class="bx bx-heart"></i>
-                                            <span class="tooltip-label">Add to Wishlist</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="quick-view-btn">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                                            <i class="bx bx-search-alt"></i>
-                                            <span class="tooltip-label">Quick View</span>
+                                            <span class="tooltip-label">{{__('messages.AddToWishlist')}}</span>
                                         </a>
                                     </div>
                                 </li>
@@ -60,12 +52,12 @@
                             <h3><a href="#">{{ $product->name }}</a></h3>
                             <div class="price">
                                 @if(auth()->check() && auth()->user()->role == 2)
-                                    <span class="new-price">{{ $product->stylist_price }}den</span>
+                                    <span class="new-price">{{ $product->stylist_price }}{{__('messages.den')}}</span>
                                 @elseif($product->sale()->active()->exists())
-                                    <span class="old-price">${{ $product->price }}</span>
-                                    <span class="new-price">${{ $product->sale->sale_price }}</span>
+                                    <span class="old-price">${{ $product->price }} {{__('messages.den')}}</span>
+                                    <span class="new-price">${{ $product->sale->sale_price }} {{__('messages.den')}}</span>
                                 @else
-                                    <span class="new-price">{{ $product->price }}den</span>
+                                    <span class="new-price">{{ $product->price }}{{__('messages.den')}}</span>
                                 @endif
                             </div>
                             <livewire:cart.add-to-cart :product_id="$product->id" :key="$product->id" />
@@ -81,14 +73,14 @@
     <!-- Start Products Filter Modal Area -->
     <div class="text-center">
         <div class="text-center" wire:loading>
-            <button class="default-btn">Loading...</button>
+            <button class="default-btn">{{__('messages.Loading')}}</button>
         </div>
 
         <div class="text-center" wire:loading.remove>
             @if ($noMoreProducts)
-                <span class="sub-title">No more products to be loaded!!!</span>
+                <span class="sub-title">{{__('messages.NoMoreProd')}}</span>
             @else
-                <button wire:click="load" class="default-btn">Load More</button>
+                <button wire:click="load" class="default-btn">{{__('messages.LoadMore')}}</button>
             @endif
         </div>
     </div>

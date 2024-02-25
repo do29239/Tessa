@@ -2,7 +2,7 @@
 <div class="col-lg-4 col-md-12">
     <div class="woocommerce-widget-area">
         <div class="woocommerce-widget collections-list-widget">
-            <h3 class="woocommerce-widget-title">Categories</h3>
+            <h3 class="woocommerce-widget-title">{{__('messages.Categories')}}</h3>
 
             <ul class="collections-list-row">
                 @foreach($categories as $category)
@@ -14,7 +14,7 @@
         </div>
 
         <div class="woocommerce-widget brands-list-widget">
-            <h3 class="woocommerce-widget-title">Brands</h3>
+            <h3 class="woocommerce-widget-title">{{__('messages.Brands')}}</h3>
 
             <ul class="brands-list-row">
                 @foreach($brands as $brand)

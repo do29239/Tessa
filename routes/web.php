@@ -88,7 +88,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/wishlist', [WishlistController::class, 'showWishlist'])->name('show.wishlist');
 });
 
-
+Route::get('/set-language/{lang}', [\App\Http\Controllers\LanguageController::class, 'set'])->name('set.language');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
