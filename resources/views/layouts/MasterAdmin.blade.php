@@ -175,26 +175,22 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
+                                    <form action="{{ route('search') }}" method="GET">
                                     <div class="modal-body">
-                                        <!-- Search Type Dropdown -->
-                                        <div class="form-group">
-                                            <label for="searchType">Search Type</label>
-                                            <select class="text_color" id="searchType">
+                                            <select name="searchType">
                                                 <option value="Product">Product</option>
                                                 <option value="User">Users</option>
                                                 <option value="Course">Courses</option>
                                                 <option value="Order">Orders</option>
                                             </select>
-                                        </div>
-                                        <!-- Search Input -->
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Type your search...">
-                                        </div>
+                                            <input type="text" name="query"  placeholder="Type your search...">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Search</button>
+                                        <button type="submit" class="btn btn-primary">Search</button>
                                     </div>
+                                    </form>
+
                                 </div>
                             </div>
                         </div>

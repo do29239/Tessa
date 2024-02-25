@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
         Route::delete('stylists/{stylist}', [StylistController::class, 'destroy'])->name('stylist.destroy');
         Route::get('/sales/create/{product}', [\App\Http\Controllers\Admin\SalesController::class, 'create'])->name('sales.create');
         Route::resource('/sales', \App\Http\Controllers\Admin\SalesController::class)->except('create');
+        Route::get('/search', [\App\Http\Controllers\Admin\SearchController::class, 'search'])->name('search');
 
         Route::get('/bulk-sale', [\App\Http\Controllers\Admin\BulkSaleController::class, 'createBulkSale'])->name('admin.bulkSale.create');
 
@@ -86,6 +87,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-orders', [OrderController::class, 'myOrders'])->name('my.orders');
     Route::get('/order-details/{order_id}', [OrderController::class, 'orderDetails'])->name('order.details');
     Route::get('/wishlist', [WishlistController::class, 'showWishlist'])->name('show.wishlist');
+
 });
 
 Route::get('/set-language/{lang}', [\App\Http\Controllers\LanguageController::class, 'set'])->name('set.language');

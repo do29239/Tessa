@@ -3,6 +3,7 @@
 @section('content')
 
     <div class="content">
+        @if(isset($brands) && isset($categories))
         <div class="row justify-content-center mt-4">
             <div class="col-md-6">
                 <div class="card">
@@ -75,6 +76,7 @@
                 </div>
             </div>
         </div>
+        @endif
         <hr>
         <div class="row justify-content-center">
             <div class="col-md-6">
