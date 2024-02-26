@@ -2,19 +2,18 @@
 
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RequestStylistController;
 use App\Http\Controllers\Admin\StylistController;
-use App\Http\Controllers\Admin\StylistRequestController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\CourseController;
-use App\Http\Controllers\Main\CoursesController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\Main\CoursesController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SalesController;
-use App\Http\Controllers\SearchController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 
@@ -59,6 +58,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/sales/create/{product}', [\App\Http\Controllers\Admin\SalesController::class, 'create'])->name('sales.create');
         Route::resource('/sales', \App\Http\Controllers\Admin\SalesController::class)->except('create');
 
+        Route::resource('coupons',CouponController::class)->except('create');
+        Route::post('/coupons/store', [CouponController::class, 'store'])->name('coupon.store');
+
+
         Route::get('/bulk-sale', [\App\Http\Controllers\Admin\BulkSaleController::class, 'createBulkSale'])->name('admin.bulkSale.create');
 
         Route::post('/bulk-sale/store', [\App\Http\Controllers\Admin\BulkSaleController::class, 'storeBulkSale'])->name('admin.bulkSale.store');
@@ -86,6 +89,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-orders', [OrderController::class, 'myOrders'])->name('my.orders');
     Route::get('/order-details/{order_id}', [OrderController::class, 'orderDetails'])->name('order.details');
     Route::get('/wishlist', [WishlistController::class, 'showWishlist'])->name('show.wishlist');
+
+
+    Route::post('/apply-coupon', [OrderController::class, 'applyCoupon'])->name('apply-coupon');
+
+
 });
 
 

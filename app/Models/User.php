@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -52,12 +53,18 @@ class User extends Authenticatable
 
 	public function profile(): HasOne
 	{
-		return $this->hasOne(Stylist_Profile::class);
+		return $this->hasOne(StylistProfile::class);
 	}
 
     public function request(): HasOne
     {
-        return $this->hasOne(Request_Stylist::class, 'user_id');
+        return $this->hasOne(RequestStylist::class, 'user_id');
     }
+
+    public function coupons() :BelongsToMany
+    {
+        return $this->belongsToMany(Coupon::class)->withPivot('used_at');
+    }
+
 
 }

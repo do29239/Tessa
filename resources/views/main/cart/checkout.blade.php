@@ -4,7 +4,7 @@
 
 
     <!-- Start Checkout Area -->
-<section class="checkout-area ptb-100">
+<div class="checkout-area ptb-100">
     <div class="container">
         <div class="user-actions">
             <i class="bx bx-log-in"></i>
@@ -121,33 +121,23 @@
                                     </tr>
                                 @endforeach
 
-                                <tr>
-                                    <td class="order-subtotal">
-                                        <span>Cart Subtotal</span>
-                                    </td>
+                                @if(session('applied_coupon_discount'))
+                                    <tr>
+                                        <td class="discount-price">
+                                            <span>Coupon Discount</span>
+                                        </td>
 
-                                    <td class="order-subtotal-quantity">
-                                        <span>-</span>
-                                    </td>
+                                        <td class="discount-price-quantity">
+                                            <span>-</span>
+                                        </td>
 
-                                    <td class="order-subtotal-price">
-                                        <span class="order-subtotal-amount">{{ $total}} den</span>
-                                    </td
-                                </tr>
+                                        <td class="discount-price-total">
+                                            <span>-{{ session('applied_coupon_discount') }} den</span>
+                                        </td>
+                                    </tr>
+                                @endif
 
-                                <tr>
-                                    <td class="order-shipping">
-                                        <span>Shipping</span>
-                                    </td>
-
-                                    <td class="shipping-price">
-                                        <span>-</span>
-                                    </td>
-                                    <td class="product-subtotal">
-                                        <span>150 den</span>
-                                    </td>
-                                </tr>
-
+                                {{-- Adjusted Order Total Row --}}
                                 <tr>
                                     <td class="total-price">
                                         <span>Order Total</span>
@@ -158,7 +148,13 @@
                                     </td>
 
                                     <td class="subtotal-amount">
-                                        <span class="subtotal-amount">{{ $total + 150.00 }} den</span>
+                                        @php
+                                            $finalTotal = $total + 150; // Assuming 150 is the shipping cost
+                                            if (session()->has('applied_coupon_discount')) {
+                                                $finalTotal -= session('applied_coupon_discount');
+                                            }
+                                        @endphp
+                                        <span class="subtotal-amount">{{ $finalTotal }} den</span>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -182,10 +178,19 @@
 
                             <button type="submit" class="default-btn">Place Order</button>
                         </div>
-                    </div>
                 </div>
             </div>
         </form>
+</div>
+    {{-- Coupon Application Form --}}
+    <form action="{{ route('apply-coupon') }}" method="POST">
+        @csrf
+        <div class="form-group">
+            <input type="text" name="coupon_code" class="form-control" placeholder="Enter your coupon code" required>
+        </div>
+        <button type="submit" class="default-btn">Apply Coupon</button>
+    </form>
+
     </div>
 </section>
 <!-- End Checkout Area -->
