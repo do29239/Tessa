@@ -125,7 +125,7 @@
                                 <h3>RR Hair Colors</h3>
                             </div>
 
-                            <a href="" class="link-btn"></a>
+                            <a href="{{route('hair.colors', 'RrLine')}}" class="link-btn"></a>
                         </div>
                     </div>
 
@@ -477,7 +477,7 @@
 
         <div class="brand-slides owl-carousel owl-theme">
             <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand1.jpg" alt="image"></a>
+                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/brand/shopbybrand1.jpg" alt="image"></a>
             </div>
 
             <div class="brand-item">

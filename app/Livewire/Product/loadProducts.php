@@ -14,6 +14,14 @@ class loadProducts extends Component
     public $search = '';
     protected $listeners = ['categorySelected', 'brandSelected', 'searchPerformed'];
 
+    public function mount()
+    {
+        $this->selectedBrand = session('brandId', '');
+
+        if ($this->selectedBrand) {
+            $this->brandSelected($this->selectedBrand);
+        }
+    }
     public function render()
     {
         $this->search = session('searchTerm', '');
@@ -70,6 +78,7 @@ class loadProducts extends Component
     public function resetFilters()
     {
         session()->forget('searchTerm');
+        session()->forget('brandId');
         $this->search = null;
         $this->selectedCategory = null;
         $this->selectedBrand = null;

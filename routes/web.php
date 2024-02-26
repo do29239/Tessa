@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\StylistRequestController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\HairColorController;
 use App\Http\Controllers\Main\CoursesController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
@@ -15,7 +16,9 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ShopByBrandController;
 use App\Http\Controllers\WishlistController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,7 +66,7 @@ Route::middleware('auth')->group(function () {
 
         Route::post('/bulk-sale/store', [\App\Http\Controllers\Admin\BulkSaleController::class, 'storeBulkSale'])->name('admin.bulkSale.store');
 
-        Route::post('/bulk-sale/show-products', [\App\Http\Controllers\Admin\BulkSaleController::class, 'showProductsForBulkSale'])->name('admin.bulkSale.showProducts');
+        Route::get('/bulk-sale/show-products', [\App\Http\Controllers\Admin\BulkSaleController::class, 'showProductsForBulkSale'])->name('admin.bulkSale.showProducts');
 
 
     });
@@ -86,6 +89,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-orders', [OrderController::class, 'myOrders'])->name('my.orders');
     Route::get('/order-details/{order_id}', [OrderController::class, 'orderDetails'])->name('order.details');
     Route::get('/wishlist', [WishlistController::class, 'showWishlist'])->name('show.wishlist');
+    Route::get('/shop/{brandName}', [ShopByBrandController::class,'shopByBrand'])->name('shop.brand');
+    Route::get('/hair-color/{brandName}', [HairColorController::class,'showHairColors'])->name('hair.colors');
 });
 
 Route::get('/set-language/{lang}', [\App\Http\Controllers\LanguageController::class, 'set'])->name('set.language');
