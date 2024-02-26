@@ -81,7 +81,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="categories-box">
-                    <img src="{{asset('assets/img/CategoriesBanner/orrossss1.jpg')}}" alt="image">
+                    <img src="{{asset('assets/img/webp/orrossss1.webp')}}" alt="image">
 
                     <div class="content">
                         <h3>Products on Sale!</h3>
@@ -95,7 +95,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{asset('assets/img/CategoriesBanner/Fanola color.jpg')}}" alt="image">
+                            <img src="{{asset('assets/img/webp/Fanola color.webp')}}" alt="image">
 
                             <div class="content">
                                 <h3>Fanola Hair Colors</h3>
@@ -107,7 +107,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{asset('assets/img/CategoriesBanner/OroTherapy Color.jpg')}}" alt="image">
+                            <img src="{{asset('assets/img/webp/OroTherapy Color.webp')}}" alt="image">
 
                             <div class="content">
                                 <h3>Oro Hair Colors</h3>
@@ -119,7 +119,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{asset('assets/img/CategoriesBanner/RrLine Color.jpg')}}" alt="image">
+                            <img src="{{asset('assets/img/webp/RrLine Color.webp')}}" alt="image">
 
                             <div class="content">
                                 <h3>RR Hair Colors</h3>
@@ -131,7 +131,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{asset('assets/img/CategoriesBanner/No Yellow Color.jpg')}}" alt="image">
+                            <img src="{{asset('assets/img/webp/No Yellow Color.webp')}}" alt="image">
 
                             <div class="content">
                                 <h3>No Yellow Color</h3>
@@ -477,27 +477,27 @@
 
         <div class="brand-slides owl-carousel owl-theme">
             <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand1.jpg" alt="image"></a>
+                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand1.webp" alt="image"></a>
             </div>
 
             <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand2.jpg" alt="image"></a>
+                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand2.webp" alt="image"></a>
             </div>
 
             <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand3.jpg" alt="image"></a>
+                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand3.webp" alt="image"></a>
             </div>
 
-            <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand4.jpg" alt="image"></a>
-            </div>
+{{--            <div class="brand-item">--}}
+{{--                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand4.webp" alt="image"></a>--}}
+{{--            </div>--}}
 
-            <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand5.jpg" alt="image"></a>
-            </div>
+{{--            <div class="brand-item">--}}
+{{--                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand5.webp" alt="image"></a>--}}
+{{--            </div>--}}
 
-            <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand6.jpg" alt="image"></a>
+{{--            <div class="brand-item">--}}
+{{--                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand6.webp" alt="image"></a>--}}
             </div>
         </div>
     </div>
