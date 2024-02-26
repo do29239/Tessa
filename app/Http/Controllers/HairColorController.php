@@ -11,7 +11,7 @@ class HairColorController extends Controller
     {
         // Assuming 'category' and 'brand' are direct columns in your `products` table.
         $products = Product::whereHas('category', function ($query) {
-            $query->where('name', 'Hair Color');
+            $query->where('name', 'Color');
         })->whereHas('brand', function ($query) use ($brandName) {
             $query->where('name', $brandName);
         })->get();

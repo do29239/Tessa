@@ -5,10 +5,10 @@
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h2>Sales</h2>
+                <h2>Colors</h2>
                 <ul>
                     <li><a href="{{ url('/') }}">{{__('messages.home')}}</a></li>
-                    <li>Sales</li>
+                    <li>Colors</li>
                 </ul>
             </div>
         </div>
@@ -46,14 +46,13 @@
                                 </ul>
                             </div>
 
-                            <div class="sale-tag">Sale!</div>
                         </div>
 
                         <div class="products-content">
                             <span class="category">{{$product->category->name}}</span>
                             <h3><a href="{{ route('showProduct', $product->id) }}">{{ $product->name }}</a></h3>
                             <div class="price">
-                                <span class="old-price">${{ $product->price }}</span>
+                                <span class="price">{{ $product->price }}den</span>
 {{--                                <span class="new-price">${{ $product->sale->sale_price }}</span>--}}
                             </div>
                             @livewire('add-to-cart', ['product_id' => $product->id])
