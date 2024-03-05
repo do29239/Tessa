@@ -24,7 +24,7 @@ class OrderController extends Controller
 //        $userId = auth()->id();
 //
 //        // Create the order
-//        $order = Order::create([
+//        $order = PlaceOrder::create([
 //            'user_id' => $userId,
 //            'items_id' => 0,
 //            'total' => $total, // Set it to 0 initially
@@ -70,7 +70,7 @@ class OrderController extends Controller
 //        try {
 //            $userId = auth()->id();
 //
-//            $order = Order::create([
+//            $order = PlaceOrder::create([
 //                'user_id' => $userId,
 //                'total' => 0, // This will be updated after calculating the total and applying any coupon
 //            ]);
@@ -91,7 +91,7 @@ class OrderController extends Controller
 //
 //            // Check if a coupon code was provided and apply it
 //            if ($request->has('coupon_code')) {
-//                $coupon = Coupon::where('code', $request->input('coupon_code'))->first();
+//                $coupon = ApplyCoupon::where('code', $request->input('coupon_code'))->first();
 //
 //                // Validate the coupon; you may want to implement additional checks (e.g., expiration)
 //                if ($coupon && $this->validateCouponForUser($coupon, $userId)) {
@@ -110,7 +110,7 @@ class OrderController extends Controller
 //
 //            DB::commit();
 //
-//            return redirect()->route('my.orders')->with('success', 'Order placed successfully');
+//            return redirect()->route('my.orders')->with('success', 'PlaceOrder placed successfully');
 //        } catch (Exception $e) {
 //            DB::rollBack();
 //            \Log::error($e->getMessage());
@@ -222,7 +222,7 @@ class OrderController extends Controller
 
             DB::commit();
 
-            return redirect()->back()->with('success', "Coupon applied successfully. Discount: $discount");
+            return redirect()->back()->with('success', "ApplyCoupon applied successfully. Discount: $discount");
 
 
         } catch (\Exception $e) {
@@ -261,7 +261,7 @@ class OrderController extends Controller
 
     protected function validateCouponForUser($coupon, $userId)
     {
-        // Assuming you have the Coupon model loaded with the 'users' relationship
+        // Assuming you have the ApplyCoupon model loaded with the 'users' relationship
         // Check if the coupon is expired
         if ($coupon->expiration_date && $coupon->expiration_date->isPast()) {
             return false;

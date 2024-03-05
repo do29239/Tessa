@@ -28,7 +28,7 @@ class CouponController extends Controller
             Coupon::create($validatedData);
 
             DB::commit();
-            return redirect()->back()->with('message', 'Coupon Created Successfully');
+            return redirect()->back()->with('message', 'ApplyCoupon Created Successfully');
         } catch (\Exception $e) {
             DB::rollBack();
             // Handle the exception (e.g., log it, show an error message)
@@ -59,7 +59,7 @@ class CouponController extends Controller
             $coupon->update($validatedData);
 
             DB::commit();
-            return redirect()->back()->with('message', 'Coupon Updated Successfully');
+            return redirect()->back()->with('message', 'ApplyCoupon Updated Successfully');
         } catch (\Exception $e) {
             DB::rollBack();
             // Handle the exception (e.g., log it, show an error message)
@@ -72,7 +72,7 @@ class CouponController extends Controller
 //        $couponCode = $request->input('coupon_code');
 //        $orderId = $request->input('order_id');
 //
-//        $coupon = Coupon::where('code', $couponCode)
+//        $coupon = ApplyCoupon::where('code', $couponCode)
 //            ->where('expiration_date', '>=', now()->toDateString())
 //            ->first();
 //
@@ -84,10 +84,10 @@ class CouponController extends Controller
 //            return response()->json(['message' => 'This coupon has already been used by you.'], 400);
 //        }
 //
-//        $order = Order::where('id', $orderId)->where('user_id', $user->id)->first();
+//        $order = PlaceOrder::where('id', $orderId)->where('user_id', $user->id)->first();
 //
 //        if (!$order) {
-//            return response()->json(['message' => 'Order not found.'], 404);
+//            return response()->json(['message' => 'PlaceOrder not found.'], 404);
 //        }
 //
 //        // Assuming you have logic to calculate the discount based on the coupon type and value
@@ -98,7 +98,7 @@ class CouponController extends Controller
 //        // Record the usage of the coupon for the user
 //        $user->coupons()->attach($coupon->id, ['used_at' => now()]);
 //
-//        return response()->json(['message' => 'Coupon applied successfully.']);
+//        return response()->json(['message' => 'ApplyCoupon applied successfully.']);
 //    }
 
 
