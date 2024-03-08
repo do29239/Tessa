@@ -113,7 +113,7 @@
                                 <h3>Oro Hair Colors</h3>
                             </div>
 
-                            <a href="{{route('hair.colors', 'OroTherapy')}}" class="link-btn"></a>
+                            <a href="{{route('hair.colors', 'Oro Therapy')}}" class="link-btn"></a>
                         </div>
                     </div>
 
@@ -137,7 +137,7 @@
                                 <h3>No Yellow Color</h3>
                             </div>
 
-                            <a href="{{route('hair.colors', 'NoYellow')}}" class="link-btn"></a>
+                            <a href="{{route('hair.colors', 'No Yellow')}}" class="link-btn"></a>
                         </div>
                     </div>
                 </div>
