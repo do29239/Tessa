@@ -24,7 +24,7 @@ class CourseRequest extends FormRequest
     {
         return [
             'name'=>['required','string','max:80'],
-            'description'=>['required','max:255'],
+            'description'=>['required'],
             'category'=>['required','string','max:80'],
         ];
     }
