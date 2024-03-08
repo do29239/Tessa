@@ -3,13 +3,13 @@
         <table class="table table-bordered table-style">
             <thead>
             <tr>
-                <th scope="col">Delete</th>
-                <th scope="col">Product</th>
-                <th scope="col">Brand</th>
-                <th scope="col">Category</th>
-                <th scope="col">Name</th>
+                <th scope="col">{{__('messages.Delete')}}</th>
+                <th scope="col">{{__('messages.Product')}}</th>
+                <th scope="col">{{__('messages.Brand')}}</th>
+                <th scope="col">{{__('messages.Category')}}</th>
+                <th scope="col">{{__('messages.Name')}}</th>
 
-                <th scope="col">Unit Price</th>
+                <th scope="col">{{__('messages.UnitPrice')}}</th>
             </tr>
             </thead>
 
@@ -43,12 +43,12 @@
 
                     <td class="product-price">
                             @if(auth()->check() && auth()->user()->role == 2)
-                                <span class="new-price">{{ $item->product->stylist_price }}den</span>
+                                <span class="new-price">{{ $item->product->stylist_price }}{{__('messages.den')}}</span>
                             @elseif($item->product->sale()->active()->exists())
-                                <span class="old-price">${{ $item->product->price }}</span>
-                                <span class="new-price">${{ $item->product->sale->sale_price }}</span>
+                                <span class="old-price">${{ $item->product->price }}{{__('messages.den')}}</span>
+                                <span class="new-price">${{ $item->product->sale->sale_price }}{{__('messages.den')}}</span>
                             @else
-                                <span class="new-price">{{ $item->product->price }}den</span>
+                                <span class="new-price">{{ $item->product->price }}{{__('messages.den')}}</span>
                             @endif
                     </td>
                     <td class="product-price">
@@ -63,11 +63,11 @@
             @media only screen and (max-width: 768px) {
 
                 /* Custom labels for each column based on its index */
-                .table-responsive td:nth-of-type(1):before { content: "Delete"; }
-                .table-responsive td:nth-of-type(3):before { content: "Brand"; }
-                .table-responsive td:nth-of-type(4):before { content: "Category"; }
-                .table-responsive td:nth-of-type(5):before { content: "Name"; }
-                .table-responsive td:nth-of-type(6):before { content: "Unit Price"; }
+                .table-responsive td:nth-of-type(1):before { content: "{{__('messages.Delete')}}"; }
+                .table-responsive td:nth-of-type(3):before { content: "{{__('messages.Brand')}}"; }
+                .table-responsive td:nth-of-type(4):before { content: "{{__('messages.Category')}}"; }
+                .table-responsive td:nth-of-type(5):before { content: "{{__('messages.name')}}"; }
+                .table-responsive td:nth-of-type(6):before { content: "{{__('messages.UnitPrice')}}"; }
 
                 /* Additional styling as needed */
             }
@@ -76,11 +76,11 @@
     <div class="cart-buttons">
         <div class="row align-items-center">
             <div class="col-lg-7 col-sm-7 col-md-7">
-                <a href="#" class="optional-btn">Continue Shopping</a>
+                <a href="#" class="optional-btn">{{__('messages.ContinueShopping')}}</a>
             </div>
 
             <div class="col-lg-5 col-sm-5 col-md-5 text-end">
-                <a href="#" wire:click.prevent="clearWishlist" class="default-btn">Clear Wishlist</a>
+                <a href="#" wire:click.prevent="clearWishlist" class="default-btn">{{__('messages.ClearWishlist')}}</a>
             </div>
         </div>
     </div>

@@ -3,12 +3,12 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th scope="col">Product</th>
-                <th scope="col">Name</th>
-                <th scope="col">Unit Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Total</th>
-                <th scope="col">Delete</th>
+                <th scope="col">{{__('messages.Product')}}</th>
+                <th scope="col">{{__('messages.Name')}}</th>
+                <th scope="col">{{__('messages.UnitPrice')}}</th>
+                <th scope="col">{{__('messages.Quantity')}}</th>
+                <th scope="col">{{__('messages.Total')}}</th>
+                <th scope="col">{{__('messages.Delete')}}</th>
             </tr>
             </thead>
             <tbody>
@@ -59,29 +59,29 @@
     <div class="cart-buttons">
         <div class="row align-items-center">
             <div class="col-lg-7 col-sm-7 col-md-7">
-                <a href="{{url('/shop')}}" class="optional-btn">Continue Shopping</a>
+                <a href="{{url('/shop')}}" class="optional-btn">{{__('messages.ContinueShopping')}}</a>
             </div>
         </div>
     </div>
 
     <div class="cart-totals">
-        <h3>Cart Totals</h3>
+        <h3>{{__('messages.CartTotal')}}</h3>
         <ul>
-            <li>Subtotal <span>{{number_format($subtotal) }} den</span></li>
-            <li>Shipping <span>150.00 den</span></li>
-            <li>Total <span>{{number_format($subtotal + 150, 2) }} den</span></li>
+            <li>{{__('messages.Subtotal')}} <span>{{number_format($subtotal) }} {{__('messages.den')}}</span></li>
+            <li>{{__('messages.Shipping')}} <span>150.00 {{__('messages.den')}}</span></li>
+            <li>{{__('messages.Total')}} <span>{{number_format($subtotal + 150, 2) }} {{__('messages.den')}}</span></li>
         </ul>
         @if(!$isEmpty)
-            <a href="{{route('Checkout')}}" class="default-btn">Proceed to Checkout</a>
+            <a href="{{route('Checkout')}}" class="default-btn">{{__('messages.Checkout')}}</a>
         @endif
     </div>
     <style>
         @media only screen and (max-width: 768px) {
-        .table-responsive td:nth-of-type(2):before { content: "Name"; }
-        .table-responsive td:nth-of-type(3):before { content: "Unit Price"; }
-        .table-responsive td:nth-of-type(4):before { content: "Quantity"; }
-        .table-responsive td:nth-of-type(5):before { content: "Total"; }
-        .table-responsive td:nth-of-type(6):before { content: "Delete"; }
+        .table-responsive td:nth-of-type(2):before { content: "{{__('messages.Name')}}"; }
+        .table-responsive td:nth-of-type(3):before { content: "{{__('messages.UnitPrice')}}"; }
+        .table-responsive td:nth-of-type(4):before { content: "{{__('messages.Quantity')}}"; }
+        .table-responsive td:nth-of-type(5):before { content: "{{__('messages.Total')}}"; }
+        .table-responsive td:nth-of-type(6):before { content: "{{__('messages.Delete')}}"; }
         }
         .bx-minus{
             margin-left: 1.2em;

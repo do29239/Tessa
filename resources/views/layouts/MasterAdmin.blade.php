@@ -159,10 +159,46 @@
                 <div class="collapse navbar-collapse" id="navigation">
                     <ul class="navbar-nav ml-auto">
                         <li class="search-bar input-group">
-                            <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split" ></i>
+                            <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal">
+                                <i class="tim-icons icon-zoom-split"></i>
                                 <span class="d-lg-none d-md-block">Search</span>
                             </button>
                         </li>
+
+                        <!-- Search Modal -->
+                        <div class="modal" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- Search Type Dropdown -->
+                                        <div class="form-group">
+                                            <label for="searchType">Search Type</label>
+                                            <select class="text_color" id="searchType">
+                                                <option value="Product">Product</option>
+                                                <option value="User">Users</option>
+                                                <option value="Course">Courses</option>
+                                                <option value="Order">Orders</option>
+                                            </select>
+                                        </div>
+                                        <!-- Search Input -->
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Type your search...">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <li class="dropdown nav-item">
                             <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                 <div class="notification d-none d-lg-block d-xl-block"></div>
