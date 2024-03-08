@@ -85,13 +85,13 @@ Route::middleware('auth')->group(function () {
     // The following routes are accessible to authenticated users only
     Route::get('/cart', [CartController::class, 'showCart'])->name('Cart');
     Route::get('/checkout', [CartController::class, 'Checkout'])->name('Checkout');
-    Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('place.order');
+//    Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('place.order');
     Route::get('/my-orders', [OrderController::class, 'myOrders'])->name('my.orders');
     Route::get('/order-details/{order_id}', [OrderController::class, 'orderDetails'])->name('order.details');
     Route::get('/wishlist', [WishlistController::class, 'showWishlist'])->name('show.wishlist');
 
 
-    Route::post('/apply-coupon', [OrderController::class, 'applyCoupon'])->name('apply-coupon');
+//    Route::post('/apply-coupon', [OrderController::class, 'applyCoupon'])->name('apply-coupon');
 
 
 });

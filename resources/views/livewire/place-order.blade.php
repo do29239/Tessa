@@ -1,6 +1,6 @@
-<div>
+
     <form wire:submit.prevent="placeOrder">
-        <div class="col-lg-6 col-md-12">
+        <div>
             <div class="order-details">
                 <h3 class="title">Your Order</h3>
 
@@ -16,17 +16,17 @@
                         <tbody>
                         @foreach($cartItems as $cartItem)
                             <tr>
-                                <td class="product-name">{{ $cartItem->name }}</td>
+                                <td class="product-name">{{ $cartItem->product->name }}</td>
                                 <td class="product-quantity">{{ $cartItem->quantity }}</td>
                                 <td class="product-total">{{ $cartItem->price * $cartItem->quantity }} den</td>
                             </tr>
                         @endforeach
 
                         {{-- Dynamically show the coupon discount if applied --}}
-                        @if($couponDiscount)
+                        @if($discount)
                             <tr>
-                                <td colspan="2" class="text-right">Coupon Discount:</td>
-                                <td>-{{ $couponDiscount }} den</td>
+                                <td colspan="2" class="text-right">Coupon Discount: </td>
+                                <td>-{{ $discount }} den</td>
                             </tr>
                         @endif
 
@@ -38,18 +38,21 @@
                         </tbody>
                     </table>
                 </div>
+                <div>
+                    @if(auth()->check() && auth()->user()->role == 2)
+                    @livewire('apply-coupon')
+                    @endif
+                </div>
             </div>
         </div>
 
         <div class="payment-box">
             <div class="payment-method">
                 <p>
-                    <input type="radio" id="cash-on-delivery" wire:model="paymentMethod" value="cash_on_delivery">
                     <label for="cash-on-delivery">Cash on Delivery</label>
                 </p>
             </div>
 
-            <button type="submit" class="default-btn">Place Order</button>
+            <button type="submit" wire:model="placeOrder" class="default-btn">Place Order</button>
         </div>
     </form>
-</div>

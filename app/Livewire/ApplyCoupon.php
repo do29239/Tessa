@@ -12,18 +12,38 @@ class ApplyCoupon extends Component
 {
         public $couponCode;
         public $discount = 0;
+        public $errorMessage = null;
+    public function applyCoupon()
+    {
+        $userId = Auth::id();
+        $coupon = $this->getCoupon();
+        $this->errorMessage = null;
 
-        public function applyCoupon()
-        {
-            $userId = Auth::id();
-            $coupon = $this->getCoupon();
-
-            $cartTotal = $this->getCartTotal($userId);
-            $this->discount = $this->calculateDiscount($coupon, $cartTotal);
-
-            $this->dispatch('couponApplied', $this->discount);
-
+        if (!$coupon) {
+            $this->couponError('This coupon does not exist or has expired.');
+            return;
         }
+
+        // Check if the coupon has already been used by this user
+        $couponUsed = $coupon->users()->where('user_id', $userId)->whereNotNull('used_at')->exists();
+        if ($couponUsed) {
+            $this->couponError( 'This coupon has already been used.');
+            return;
+        }
+
+        // Calculate discount and apply coupon if it's valid and hasn't been used
+        $cartTotal = $this->getCartTotal($userId);
+        $this->discount = $this->calculateDiscount($coupon, $cartTotal);
+
+        // Optionally, mark the coupon as used immediately upon application (depends on your flow)
+//         $coupon->users()->attach($userId, ['used_at' => now()]);
+
+        $this->dispatch('couponApplied', $this->discount, $coupon->id);
+    }
+    public function couponError($message)
+    {
+        $this->errorMessage = $message;
+    }
 
     public function getCoupon()
     {
@@ -60,6 +80,6 @@ class ApplyCoupon extends Component
 
     public function render()
     {
-        return view('livewire.coupon');
+        return view('livewire.apply-coupon');
     }
 }

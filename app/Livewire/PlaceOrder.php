@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Cart;
 use App\Models\Item;
+use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -11,71 +12,98 @@ use Livewire\Component;
 
 class PlaceOrder extends Component
 {
+    public $discount = 0;
+    public $cartItems = [];
+    public $finalTotal = 0;
+    public $couponId = null;
+
     protected $listeners = ['couponApplied'];
 
-    public $discount = 0;
-    protected $total = 0;
+    public function mount()
+    {
+        $this->cartItems = $this->fetchCartItems();
+        $this->finalTotal = $this->calculateTotal();
+    }
+
     public function render()
     {
-        $userId = Auth::id();
-        $cartItems = Cart::where('user_id', $userId)->get();
-        $finalTotal = $this->total - $this->discount;
-
         return view('livewire.place-order', [
-            'cartItems' => $cartItems,
-            'finalTotal' => $finalTotal,
-            'couponDiscount' => $this->discount,
+            'finalTotal' => $this->finalTotal,
         ]);
+    }
+
+    private function fetchCartItems()
+    {
+        return Cart::where('user_id', Auth::id())->get();
+    }
+
+    private function calculateTotal()
+    {
+        $total = $this->cartItems->sum(function ($cartItem) {
+            return $cartItem->price * $cartItem->quantity;
+        });
+
+        return max(0, $total - $this->discount);
     }
 
     public function placeOrder()
     {
+        if (empty($this->cartItems)) {
+            session()->flash('error', 'Your cart is empty.');
+            return redirect()->back();
+        }
+
+        // Check if final total is zero or less (could happen with discounts)
+        if ($this->finalTotal <= 0) {
+            session()->flash('error', 'The order total cannot be zero. Please review your cart and discounts.');
+            return redirect()->back();
+        }
         DB::beginTransaction();
 
         try {
-            $userId = Auth::id();
-            $order = PlaceOrder::create([
-                'user_id' => $userId,
-                'total' => 0,
+            $user = Auth::user();
+            $order = Order::create([
+                'user_id' => $user->id,
+                'total' => $this->finalTotal,
+                'coupon_id' => $this->couponId,
             ]);
 
-            $cartItems = Cart::where('user_id', $userId)->get();
-
-
-            foreach ($cartItems as $cartItem) {
-                Item::create([
+            $itemsData = [];
+            foreach ($this->cartItems as $cartItem) {
+                $itemsData[] = [
                     'product_id' => $cartItem->product_id,
                     'order_id' => $order->id,
                     'quantity' => $cartItem->quantity,
                     'price' => $cartItem->price,
-                ]);
-                    $this->total += $cartItem->price * $cartItem->quantity;
+                    'created_at' => now(), // Ensure you're setting timestamps if your table uses them
+                    'updated_at' => now(),
+                ];
             }
-            if($this->discount == 0){
-                $order->update(['total' => $this->total]);
+            if ($this->couponId) {
+                // Directly attach the coupon to the user using the existing relationship
+                $user->coupons()->attach($this->couponId, ['used_at' => now()]);
             }
-            else{
-               $newTotal = $this->total - $this->discount;
-                $order->update(['total' => $newTotal]);
-            }
+            // Perform a bulk insert
+            Item::insert($itemsData);
 
 
-            Cart::where('user_id', $userId)->delete();
+            Cart::where('user_id', $user->id)->delete();
             DB::commit();
 
-            session()->flash('success', 'PlaceOrder placed successfully');
+            session()->flash('success', 'Order placed successfully.');
             return redirect()->route('my.orders');
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error($e->getMessage());
-            session()->flash('error', 'Error placing order: ' . $e->getMessage());
+            Log::error("Order Placement Error: {$e->getMessage()}", ['userId' => $user->id]);
+            session()->flash('error', 'Error placing order.');
             return redirect()->back();
         }
     }
 
-    public function couponApplied($discount)
+    public function couponApplied($discount, $couponId)
     {
-     $this->discount = $discount;
-
+        $this->discount = $discount;
+        $this->couponId = $couponId;
+        $this->finalTotal = $this->calculateTotal();
     }
 }
