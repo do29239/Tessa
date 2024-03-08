@@ -13,7 +13,7 @@
 
                 <div class="search-overlay-form">
                     <form wire:submit.prevent="search">
-                        <input wire:model="searchTerm" type="text" class="input-search" id="search-bar" placeholder="Search here...">
+                        <input wire:model="searchTerm" type="text" class="input-search" id="search-bar" placeholder="{{__('messages.SearchHere')}}">
                         <button type="submit"><i class='bx bx-search-alt'></i></button>
                     </form>
                 </div>

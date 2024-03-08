@@ -101,7 +101,7 @@
                                 <h3>Fanola Hair Colors</h3>
                             </div>
 
-                            <a href="" class="link-btn"></a>
+                            <a href="{{route('hair.colors','Fanola')}}" class="link-btn"></a>
                         </div>
                     </div>
 
@@ -113,7 +113,7 @@
                                 <h3>Oro Hair Colors</h3>
                             </div>
 
-                            <a href="" class="link-btn"></a>
+                            <a href="{{route('hair.colors', 'OroTherapy')}}" class="link-btn"></a>
                         </div>
                     </div>
 
@@ -125,7 +125,7 @@
                                 <h3>RR Hair Colors</h3>
                             </div>
 
-                            <a href="" class="link-btn"></a>
+                            <a href="{{route('hair.colors', 'RrLine')}}" class="link-btn"></a>
                         </div>
                     </div>
 
@@ -137,7 +137,7 @@
                                 <h3>No Yellow Color</h3>
                             </div>
 
-                            <a href="" class="link-btn"></a>
+                            <a href="{{route('hair.colors', 'NoYellow')}}" class="link-btn"></a>
                         </div>
                     </div>
                 </div>
@@ -477,7 +477,11 @@
 
         <div class="brand-slides owl-carousel owl-theme">
             <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand1.webp" alt="image"></a>
+                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand1.webp" alt="image"></a>
+            </div>
+
+            <div class="brand-item">
+                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand2.jpg" alt="image"></a>
             </div>
 
             <div class="brand-item">

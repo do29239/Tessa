@@ -5,10 +5,10 @@
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h2>Sales</h2>
+                <h2>Colors</h2>
                 <ul>
                     <li><a href="{{ url('/') }}">{{__('messages.home')}}</a></li>
-                    <li>Sales</li>
+                    <li>Colors</li>
                 </ul>
             </div>
         </div>
@@ -20,19 +20,19 @@
     <section class="products-area pt-100 pb-70">
         <div class="container">
             <div class="row">
-                @foreach($sales as $sale) {{-- Loop through sales items --}}
-                <div class="col-lg-4 col-md-6 col-sm-6" wire:key="{{$sale->product->id}}">
+                @foreach($products as $product) {{-- Loop through sales items --}}
+                <div class="col-lg-4 col-md-6 col-sm-6" wire:key="{{$product->id}}">
                     <div class="products-box">
                         <div class="products-image">
-                            <a href="{{ route('showProduct', $sale->product->id) }}">
-                                <img src="{{ asset('storage/images/'.$sale->product->image->name) }}" class="main-image" alt="image">
-                                <img src="{{ asset('storage/images/'.$sale->product->image->name) }}" class="hover-image" alt="image">
+                            <a href="{{ route('showProduct', $product->id) }}">
+                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="main-image" alt="image">
+                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="hover-image" alt="image">
                             </a>
 
                             <div class="products-button">
                                 <ul>
                                     <li>
-                                        @livewire('wishlist', ['product_id' => $sale->product->id])
+                                        @livewire('wishlist', ['product_id' => $product->id])
                                     </li>
 
                                     <li>
@@ -46,17 +46,16 @@
                                 </ul>
                             </div>
 
-                            <div class="sale-tag">Sale!</div>
                         </div>
 
                         <div class="products-content">
-                            <span class="category">{{$sale->product->category->name}}</span>
-                            <h3><a href="{{ route('showProduct', $sale->product->id) }}">{{ $sale->product->name }}</a></h3>
+                            <span class="category">{{$product->category->name}}</span>
+                            <h3><a href="{{ route('showProduct', $product->id) }}">{{ $product->name }}</a></h3>
                             <div class="price">
-                                <span class="old-price">${{ $sale->product->price }}</span>
-                                <span class="new-price">${{ $sale->sale_price }}</span>
+                                <span class="price">{{ $product->price }}den</span>
+{{--                                <span class="new-price">${{ $product->sale->sale_price }}</span>--}}
                             </div>
-                            @livewire('add-to-cart', ['product_id' => $sale->product->id])
+                            @livewire('add-to-cart', ['product_id' => $product->id])
                         </div>
                     </div>
                 </div>

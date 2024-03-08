@@ -10,6 +10,8 @@ class ProductFilter extends Component
 {
     public $selectedCategory = null;
     public $selectedBrand = null;
+// In your Livewire component
+
 
     public function render()
     {

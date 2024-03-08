@@ -1,5 +1,5 @@
 <div class="modal-body">
-    <h3>My Cart ({{ count($cartItems) }})</h3>
+    <h3>{{__('messages.MyCart')}} ({{ count($cartItems) }})</h3>
 
     <div class="products-cart-content">
         @foreach($cartItems as $cartItem)
@@ -14,7 +14,7 @@
                         <span class="qnt-element">{{ $cartItem->quantity }}</span>
                         <span>x</span>
                         <span class="price">
-                                {{ number_format($cartItem->price, 2) }} den
+                                {{ number_format($cartItem->price, 2) }} {{__('messages.den')}}
                         </span>
                     </div>
                     <div class="text-center" wire:loading>
@@ -33,14 +33,14 @@
     <div class="products-cart-subtotal">
         <span>Subtotal</span>
         <span class="subtotal">
-            {{ number_format($subtotal, 2) }} den
+            {{ number_format($subtotal, 2) }} {{__('messages.den')}}
         </span>
     </div>
 
     <div class="products-cart-btn">
         @if (!$isEmpty)
-            <a href="{{ route('Checkout') }}" class="default-btn">Proceed to Checkout</a>
-            <a href="{{ route('Cart') }}" class="optional-btn">View Shopping Cart</a>
+            <a href="{{ route('Checkout') }}" class="default-btn">{{__('messages.Checkout')}}</a>
+            <a href="{{ route('Cart') }}" class="optional-btn">{{__('messages.ViewShoppingCart')}}</a>
         @endif
     </div>
 </div>

@@ -39,8 +39,8 @@
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-12">
                 <ul class="header-contact-info">
-                    <li>Welcome to Tessa</li>
-                    <li>Call: <a href="tel:+01321654214">+389 78 286 003</a></li>
+                    <li>{{__('messages.welcome')}}</li>
+                    <li>{{__('messages.call_us')}} <a href="tel:+01321654214">+389 78 286 003</a></li>
                     <li>
                         <div class="dropdown language-switcher d-inline-block">
                             <button
@@ -50,28 +50,42 @@
                                 aria-haspopup="true"
                                 aria-expanded="false"
                             >
-                                <img src="{{asset('assets/img/us-flag.jpg')}}" alt="image" />
-                                <span>EN <i class="bx bx-chevron-down"></i></span>
+                                @if(App::currentLocale()=="shq")
+                                    <img src="{{ asset('assets/img/albania-flag-01.png') }}" alt="image" />
+                                    <span>AL <i class="bx bx-chevron-down"></i></span>
+                                @elseif(App::currentLocale()=="en")
+                                    <img src="{{ asset('assets/img/us-flag.jpg') }}" alt="image" />
+                                    <span>EN <i class="bx bx-chevron-down"></i></span>
+                                @elseif(App::currentLocale()=="mk")
+                                    <img src="{{ asset('assets/img/macedonia-flag-01.png') }}" alt="image" />
+                                    <span>MK <i class="bx bx-chevron-down"></i></span>
+                                @endif
                             </button>
                             <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item d-flex align-items-center">
+                                <a href="{{ route('set.language', 'en') }}" class="dropdown-item d-flex align-items-center ">
                                     <img
-                                        src="{{asset('assets/img/albania-flag-01.png')}}"
+                                        src="{{ asset('assets/img/us-flag.jpg') }}"
+                                        class="shadow-sm"
+                                        alt="flag"
+                                    />
+                                    <span>EN</span>
+                                </a>
+                                <a href="{{ route('set.language', 'shq') }}" class="dropdown-item d-flex align-items-center">
+                                    <img
+                                        src="{{ asset('assets/img/albania-flag-01.png') }}"
                                         class="shadow-sm"
                                         alt="flag"
                                     />
                                     <span>AL</span>
                                 </a>
-                                <a href="#" class="dropdown-item d-flex align-items-center">
+                                <a href="{{ route('set.language', 'mk') }}" class="dropdown-item d-flex align-items-center">
                                     <img
-                                        src="{{asset('assets/img/macedonia-flag-01.png')}}"
+                                        src="{{ asset('assets/img/macedonia-flag-01.png') }}"
                                         class="shadow-sm"
                                         alt="flag"
                                     />
                                     <span>MK</span>
                                 </a>
-
-
                             </div>
                         </div>
                     </li>
@@ -81,16 +95,16 @@
                 @auth
                     <!-- Displayed when the user is logged in -->
                     <ul class="header-top-menu">
-                        <li><a href="#"><i class="bx bxs-user"></i> My Account</a></li>
+                        <li><a href="#"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
                         @if(!auth()->user()->request_submitted)
                         <li>
-                            <a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i> Request Stylist</a>
+                            <a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i> {{__('messages.request_stylist')}}</a>
                         </li>
                         @endif
-                        <li><a href="{{ route('my.orders') }}"><i class="bx bxs-user"></i> My orders</a></li>
+                        <li><a href="{{ route('my.orders') }}"><i class="bx bxs-user"></i>{{__('messages.my_orders')}}</a></li>
                         <li>
                             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
-                                <i class="bx bx-log-in"></i> <span style="margin-left: 5px;">Log Out</span>
+                                <i class="bx bx-log-in"></i> <span style="margin-left: 5px;">{{__('messages.log_out')}}</span>
                             </a>
 
                             <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
@@ -104,8 +118,8 @@
                 @else
                     <!-- Displayed when the user is not logged in -->
                     <ul class="header-top-menu">
-                        <li><a href="{{ route('login') }}"><i class="bx bx-log-in"></i> Login</a></li>
-                        <li><a href="{{ route('register') }}"><i class="bx bx-log-in"></i> Register</a></li>
+                        <li><a href="{{ route('login') }}"><i class="bx bx-log-in"></i>{{__('messages.login')}}</a></li>
+                        <li><a href="{{ route('register') }}"><i class="bx bx-log-in"></i>{{__('messages.register')}}</a></li>
                     </ul>
                 @endauth
             </div>
@@ -146,19 +160,19 @@
                 <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="{{ url('/') }}" class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">Home</a>
+                            <a href="{{ url('/') }}" class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">{{__('messages.home')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="{{ route('shop') }}" class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">Shop</a>
+                            <a href="{{ route('shop') }}" class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.shop')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="{{ route('courses') }}" class="nav-link{{ request()->routeIs('courses') ? ' active' : '' }}">Courses </a>
+                            <a href="{{ route('courses') }}" class="nav-link{{ request()->routeIs('courses') ? ' active' : '' }}">{{__('messages.courses')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="../about.html" class="nav-link">About Us </a>
+                            <a href="../about.html" class="nav-link">{{__('messages.about_us')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="../contact.html" class="nav-link">Contact </a>
+                            <a href="../contact.html" class="nav-link">{{__('messages.contact')}}</a>
                         </li>
                     </ul>
                 </div>
@@ -195,19 +209,19 @@
                 <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="{{ url('/') }}" class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">Home</a>
+                            <a href="{{ url('/') }}" class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">{{__('messages.home')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="{{ route('shop') }}" class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">Shop</a>
+                            <a href="{{ route('shop') }}" class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.shop')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="../blog-1.html" class="nav-link">Courses</a>
+                            <a href="../blog-1.html" class="nav-link">{{__('messages.courses')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="../about.html" class="nav-link">About Us </a>
+                            <a href="../about.html" class="nav-link">{{__('messages.about_us')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="../contact.html" class="nav-link">Contact </a>
+                            <a href="../contact.html" class="nav-link">{{__('messages.contact')}}</a>
                         </li>
                     </ul>
                     <div class="others-option">
@@ -294,7 +308,7 @@
 <div class="instagram-area">
     <div class="container-fluid">
         <div class="instagram-title">
-            <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank"><i class='bx bxl-instagram'></i> Follow us on @tessa</a>
+            <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank"><i class='bx bxl-instagram'></i>{{__('messages.follow_us')}}</a>
         </div>
 
         <div class="instagram-slides owl-carousel owl-theme">
@@ -380,21 +394,20 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                    <h3>About The Store</h3>
+                    <h3>{{__('messages.about_the_store')}}</h3>
                     <div class="about-the-store">
-                        <p>One of the most popular on the web is shopping.</p>
                         <ul class="footer-contact-info">
                             <li>
                                 <i class="bx bx-map"></i>
-                                <a href="#" target="_blank">Gostivar , North Macedonia</a>
+                                <a href="#" target="_blank">{{__('messages.gv_nmkd')}}</a>
                             </li>
                             <li>
                                 <i class="bx bx-phone-call"></i>
-                                <a href="tel:+01321654214">+389 78 286 003</a>
+                                <a href="">+389 78 286 003</a>
                             </li>
                             <li>
                                 <i class="bx bx-envelope"></i>
-                                <a href="mailto:hello@xton.com">tessa.academy@gmail.com</a>
+                                <a href="">tessa.academy@gmail.com</a>
                             </li>
                         </ul>
                     </div>
@@ -431,11 +444,11 @@
                 <div class="single-footer-widget pl-4">
                     <h3>Quick Links</h3>
                     <ul class="quick-links">
-                        <li><a href="{{url('/')}}">Home</a></li>
-                        <li><a href="../products-sidebar-fullwidth.html">Shop</a></li>
-                        <li><a href="../blog-1.html">Courses</a></li>
-                        <li><a href="../about.html">About Us</a></li>
-                        <li><a href="../contact.html">Contact</a></li>
+                        <li><a href="{{url('/')}}">{{__('messages.home')}}</a></li>
+                        <li><a href="../products-sidebar-fullwidth.html">{{__('messages.shop')}}</a></li>
+                        <li><a href="../blog-1.html">{{__('messages.courses')}}</a></li>
+                        <li><a href="../about.html">{{__('messages.about_us')}}</a></li>
+                        <li><a href="../contact.html">{{__('messages.contact')}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -443,8 +456,7 @@
                 <div class="single-footer-widget">
                     <h3>Customer Support</h3>
                     <ul class="customer-support">
-                        <li><a href="../login.html">My Account</a></li>
-                        <li><a href="../checkout.html">Checkout</a></li>
+                        <li><a href="../login.html">{{__('messages.my_account')}}</a></li>
                         <li><a href="../cart.html">Cart</a></li>
                         <li><a href="../track-order.html">Order Tracking</a></li>
                         <li><a href="../contact.html">Help & Support</a></li>
@@ -453,11 +465,11 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                    <h3>Newsletter</h3>
+                    <h3>{{__('messages.NewsLetter')}}</h3>
                     <div class="footer-newsletter-box">
-                        <p>To get the latest news and latest updates from us.</p>
+                        <p>{{__('messages.newsletter_prompt')}}</p>
                         <form class="newsletter-form" data-bs-toggle="validator">
-                            <label>Your E-mail Address:</label>
+                            <label>{{__('messages.your_email_address')}}</label>
                             <input
                                 type="email"
                                 class="input-newsletter"
@@ -466,7 +478,7 @@
                                 required
                                 autocomplete="off"
                             />
-                            <button type="submit">Subscribe</button>
+                            <button type="submit">{{__('messages.subscribe')}}</button>
                             <div id="validator-newsletter" class="form-result"></div>
                         </form>
                     </div>
@@ -523,23 +535,23 @@
         <nav class="navbar">
             <div class="nav-item{{ request()->is('/') ? ' active' : '' }}" data-url="{{ url('/') }}">
                 <i class="bx bx-home-alt"></i>
-                <span>Home</span>
+                <span>{{__('messages.home')}}</span>
             </div>
             <div class="nav-item{{ request()->is('shop') ? ' active' : '' }}" data-url="{{ route('shop') }}">
                 <i class="bx bx-store"></i>
-                <span>Shop</span>
+                <span>{{__('messages.shop')}}</span>
             </div>
             <div class="nav-item{{ request()->is('wishlist') ? ' active' : '' }}" data-url="{{ route('show.wishlist') }}">
                 <i class="bx bx-heart"></i>
-                <span>Wishlist</span>
+                <span>{{__('messages.wishlist')}}</span>
             </div>
             <div class="nav-item">
                 <livewire:cart.cart-counter/>
-                <span>Cart</span>
+                <span>{{__('messages.Cart')}}</span>
             </div>
             <div class="search-btn-box nav-item{{ request()->is('contact') ? ' active' : '' }}" data-url="#">
                 <i class="search-btn bx bx-search-alt"></i>
-                <span>Search</span>
+                <span>{{__('messages.Search')}}</span>
             </div>
         </nav>
     </div>
