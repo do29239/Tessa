@@ -1,9 +1,8 @@
 <!-- resources/views/emails/request_denied.blade.php -->
+<p>{{__('messages.hello')}} {{ $user->first_name }},</p>
 
-<p>Hello {{ $user->first_name }},</p>
+<p>{{__('messages.we_regret')}}</p>
 
-<p>We regret to inform you that your stylist request has been denied.</p>
+<p>{{__('messages.any_questions')}}</p>
 
-<p>If you have any questions or concerns, please contact us.</p>
-
-<p>Thank you.</p>
+<p>{{__('messages.thank_you')}}</p>

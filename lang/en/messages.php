@@ -37,7 +37,20 @@ return [
     'AddCart'=>'Add To Cart',
 
     //Home
+    'NewInspiration' =>'New Inspiration!!!New Look!!! ',
+    'ProductsForAllYourNeeds' =>'Products For All Your Needs',
+    'ShipAlloverMk' =>'We Ship All Over Macedonia!!!',
+    'AllInOne' =>'All You Need In One Place',
 
+    'GoShop'=>'GO TO SHOP',
+    'OurCourses'=>'OUR COURSES',
+    'ProdOnSale'=>'Products on Sale!',
+    'FColor'=>'Fanola Hair Colors',
+    'OColor'=>'Oro Hair Colors',
+    'RRColor'=>'RrLine Hair Color',
+    'NYColor'=>'No Yellow Color',
+    'SeeCollection'=>'See Our Collection',
+    'RecentProcuts'=>'Recent Products',
 
 
     //Load Procucts / shopp
@@ -58,33 +71,40 @@ return [
     'Category'=>'Category',
     'ClearWishlist'=>'Clear Wishlist',
 
+// Login
+
+    'email_address'=> 'Email Address',
+    'password'=>'Password',
+    'lost_password' => 'Lost your password?',
+    //Register
+    'first_name' => 'First Name',
+    'enter_your_first_name' => 'Enter your first name',
+    'last_name' => 'Last Name',
+    'email' => 'Email',
+    'address' => 'Address',
+    'city' => 'City',
+    'phone' => 'Phone',
+    'postcode' => 'Postcode',
+    'confirm_password' => 'Confirm Password',
+    'already_registered' => 'Already registered?',
+    'enter_your_last_name' => 'Enter your last name', // Placeholder example
+    'enter_your_email' => 'Enter your email', // Placeholder example
+    'enter_your_address' => 'Enter your address', // Placeholder example
+    'enter_your_city' => 'Enter your city', // Placeholder example
+    'enter_your_phone' => 'Enter your phone number', // Placeholder example
+    'enter_your_postcode' => 'Enter your postcode', // Placeholder example
+    'register_button' => 'Register', // Separate key if you want different text for the button
+
+
+    //Request denied
+    'hello'=>'Hello',
+    'we_regret' => 'We regret to inform you that your stylist request has been denied.'
+    'any_questions'=>'If you have any questions or concerns, please contact us.'
+    'thank_you'=>'Thank you.'
 
 
 
 
-//    'Welcome' => 'Welcome to Tessa',
-//    'Call' =>'Call',
-//    'Request' =>'Request Stylist Account ',
-//    'Login' =>'Log in',
-//    'Register' =>'Register',
-    'NewInspiration' =>'New Inspiration!!!New Look!!! ',
-    'ProductsForAllYourNeeds' =>'Products For All Your Needs',
-    'ShipAlloverMk' =>'We Ship All Over Macedonia!!!',
-    'AllInOne' =>'All You Need In One Place',
-//    'MyOrders'=>'My Orders',
-//    'LogOut'=>'Log Out',
-//    'NewInStore'=>'Popular Products',
-//
-//
-    'GoShop'=>'GO TO SHOP',
-    'OurCourses'=>'OUR COURSES',
-    'ProdOnSale'=>'Products on Sale!',
-    'FColor'=>'Fanola Hair Colors',
-    'OColor'=>'Oro Hair Colors',
-    'RRColor'=>'RrLine Hair Color',
-    'NYColor'=>'No Yellow Color',
-    'SeeCollection'=>'See Our Collection',
-    'RecentProcuts'=>'Recent Products',
 //    'StartShoping'=>'Start Shoping With Us Now!',
 //    'VisitShop'=>'Visit Our Shop',
 //    'BestDeals'=>'Get The Best Deals Now',

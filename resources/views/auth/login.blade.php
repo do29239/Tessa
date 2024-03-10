@@ -9,23 +9,23 @@
     <section class="login-area ptb-100">
 
         <div class="login-content">
-            <h2>Login</h2>
+            <h2>{{__('messages.login')}}</h2>
 
             <form method="POST" action="{{ route('login') }}" class="login-form">
                 @csrf
                 <div class="form-group">
-                    <input id="email" name="email" type="email" class="form-control" placeholder="Username or email address" :value="old('email')" required autofocus>
+                    <input id="email" name="email" type="email" class="form-control" placeholder="{{__('messages.email_address')}}" :value="old('email')" required autofocus>
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
                 <div class="form-group">
-                    <input id="password" name="password" type="password" class="form-control" placeholder="Password" required autocomplete="current-password">
+                    <input id="password" name="password" type="password" class="form-control" placeholder="{{__('messages.password')}}" required autocomplete="current-password">
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
-                <button type="submit" class="default-btn">Login</button>
+                <button type="submit" class="default-btn">{{__('messages.login')}}</button>
 
-                <a href="{{ route('password.request') }}" class="forgot-password">Lost your password?</a>
+                <a href="{{ route('password.request') }}" class="forgot-password">{{__('messages.lost_password')}}</a>
 
 
             </form>
