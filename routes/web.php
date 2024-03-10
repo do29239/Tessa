@@ -35,6 +35,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('main/home/index');
 });
+
+Route::get('/profiles', function () {
+    return view('main/profile/profile');
+});
 Route::get('/',[MainController::class, 'showProducts'])->name('main');
 Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
 Route::get('/shop', [MainController::class, 'showProducts'])->name('shop');

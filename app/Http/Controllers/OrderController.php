@@ -177,11 +177,11 @@ class OrderController extends Controller
         return view('main.order.order-details', ['order' => $order]);
     }
 
-    public function myOrders()
+    public function myOrders($page)
     {
         $orders = Order::where('user_id', auth()->id())->get();
 
-        return view('main.order.my-orders', compact('orders'));
+        return view('includes.order_history', compact('orders'));
     }
 
 }
