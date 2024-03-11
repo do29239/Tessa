@@ -25,12 +25,15 @@ class ProductFilter extends Component
     {
         $this->selectedCategory = $categoryId;
         $this->dispatch('categorySelected', $this->selectedCategory); // Changed from emit
+        $this->selectedBrand = null;
     }
 
     public function selectBrand($brandId)
     {
         $this->selectedBrand = $brandId;
         $this->dispatch('brandSelected', $this->selectedBrand); // Changed from emit
+        $this->selectedCategory = null;
+
     }
 
 }

@@ -533,18 +533,18 @@
 <div class="bottom-navbar">
     <div class="container ">
         <nav class="navbar">
-            <div class="nav-item{{ request()->is('/') ? ' active' : '' }}" data-url="{{ url('/') }}">
+            <a href="{{ url('/') }}" class="nav-item{{ request()->is('/') ? ' active' : '' }}">
                 <i class="bx bx-home-alt"></i>
                 <span>{{__('messages.home')}}</span>
-            </div>
-            <div class="nav-item{{ request()->is('shop') ? ' active' : '' }}" data-url="{{ route('shop') }}">
+            </a>
+            <a href="{{ route('shop') }}" class="nav-item{{ request()->is('shop') ? ' active' : '' }}">
                 <i class="bx bx-store"></i>
                 <span>{{__('messages.shop')}}</span>
-            </div>
-            <div class="nav-item{{ request()->is('wishlist') ? ' active' : '' }}" data-url="{{ route('show.wishlist') }}">
+            </a>
+            <a href="{{ route('show.wishlist') }}" class="nav-item{{ request()->is('wishlist') ? ' active' : '' }}">
                 <i class="bx bx-heart"></i>
                 <span>{{__('messages.wishlist')}}</span>
-            </div>
+            </a>
             <div class="nav-item">
                 <livewire:cart.cart-counter/>
                 <span>{{__('messages.Cart')}}</span>
