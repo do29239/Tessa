@@ -109,9 +109,11 @@ Default CSS
   color: #f53f85 !important;
 }
 
+/*
 .theme-dark .bg-f5f5f5 {
   background-color: #292828;
 }
+*/
 
 .theme-dark .default-btn:hover {
   background-color: #e8699a;
@@ -151,6 +153,7 @@ Default CSS
   color: #f53f85 !important;
 }
 
+/*
 .theme-dark .xton-nav .navbar .navbar-nav .nav-item .dropdown-menu {
   background: #0e0e0e;
 }
@@ -184,6 +187,7 @@ Default CSS
   color: #ffffff;
   border-bottom: 1px dashed #494848;
 }
+*/
 
 .theme-dark .xton-nav .navbar .others-option .option-item .search-btn-box .search-btn {
   color: #ffffff;
@@ -197,6 +201,7 @@ Default CSS
   background: #ffffff;
 }
 
+/*
 .theme-dark .navbar-style-two .main-nav .navbar .navbar-nav .nav-item .nav-link {
   color: #ffffff;
 }
@@ -204,6 +209,7 @@ Default CSS
 .theme-dark .navbar-style-two .main-nav .navbar .navbar-nav .nav-item .nav-link:hover, .theme-dark .navbar-style-two .main-nav .navbar .navbar-nav .nav-item .nav-link.active, .theme-dark .navbar-style-two .main-nav .navbar .navbar-nav .nav-item .nav-link:focus {
   color: #f53f85 !important;
 }
+*/
 
 .theme-dark .shoppingCartModal .modal-content .modal-body {
   background-color: #0e0e0e;
@@ -217,6 +223,7 @@ Default CSS
   color: #ffffff;
 }
 
+/*
 .theme-dark .main-banner-content .sub-title {
   color: #000000;
 }
@@ -273,6 +280,7 @@ Default CSS
 .theme-dark .hero-banner .optional-btn:hover {
   color: #ffffff;
 }
+*/
 
 .theme-dark .page-title-area {
   background-color: #262525;
@@ -282,9 +290,11 @@ Default CSS
   background: #0e0e0e;
 }
 
+/*
 .theme-dark .single-offer-products .content {
   background-color: #0e0e0e;
 }
+*/
 
 .theme-dark .single-facility-box .icon {
   background-color: #0e0e0e;
@@ -298,6 +308,7 @@ Default CSS
   background-color: #000000;
 }
 
+/*
 .theme-dark .woocommerce-widget-area .collections-list-widget .collections-list-row li a::before {
   border-color: #ffffff;
 }
@@ -325,6 +336,7 @@ Default CSS
 .theme-dark .woocommerce-widget-area .aside-trending-widget .aside-trending-products .link-btn {
   color: #ffffff;
 }
+*/
 
 .theme-dark .products-filter-options .sub-title {
   color: #ffffff;
@@ -380,6 +392,7 @@ Default CSS
   background-color: #0e0e0e;
 }
 
+/*
 .theme-dark .all-products-area .products-area {
   background-color: #000000;
 }
@@ -391,6 +404,7 @@ Default CSS
 .theme-dark .all-products-area .categories-banner-area {
   background-color: #000000;
 }
+*/
 
 .theme-dark #products-collections-filter.products-row-view .products-col-item .single-products-box {
   background-color: #0e0e0e;
@@ -413,6 +427,7 @@ Default CSS
   background-color: #0e0e0e;
 }
 
+/*
 .theme-dark .products-details-desc .products-color-switch ul li a.color-black {
   background-color: #0e0e0e;
 }
@@ -458,6 +473,7 @@ Default CSS
 .theme-dark .products-details-desc .products-details-accordion .accordion .accordion-content .products-review-form .review-form form .form-group .form-control::placeholder {
   color: #ffffff;
 }
+*/
 
 .theme-dark .products-details-desc .products-info li a {
   color: #ffffff;
@@ -491,6 +507,7 @@ Default CSS
   color: #ffffff;
 }
 
+/*
 .theme-dark .products-details-tab .tab-content .tabs-item .products-details-tab-content .products-review-form .review-form form .form-group .form-control {
   background-color: #0e0e0e;
   color: #ffffff;
@@ -527,6 +544,7 @@ Default CSS
 .theme-dark .sizing-guide-table table tr td:first-child {
   color: #ffffff;
 }
+*/
 
 .theme-dark .cart-table table thead tr th {
   color: #ffffff;
@@ -699,6 +717,7 @@ Default CSS
   color: #ffffff;
 }
 
+/*
 .theme-dark .coming-soon-content {
   background: #0e0e0e;
 }
@@ -736,6 +755,7 @@ Default CSS
 .theme-dark .coming-soon-content form .form-group .label-title i {
   color: #ffffff;
 }
+*/
 
 .theme-dark .track-order-content {
   background-color: #0e0e0e;
@@ -771,6 +791,7 @@ Default CSS
   color: #ffffff;
 }
 
+/*
 .theme-dark .single-gallery-item .gallery-content {
   background-color: #0e0e0e;
 }
@@ -941,6 +962,7 @@ Default CSS
 .theme-dark .comments-area .comment-respond .comment-form-cookies-consent label {
   color: #ffffff;
 }
+*/
 
 .theme-dark blockquote, .theme-dark .blockquote {
   background-color: #0e0e0e;
