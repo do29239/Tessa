@@ -162,26 +162,32 @@ p:last-child {
   padding-top: 100px;
 }
 
+/*
 .pb-100 {
   padding-bottom: 100px;
 }
+*/
 
 .ptb-70 {
   padding-top: 70px;
   padding-bottom: 70px;
 }
 
+/*
 .pt-70 {
   padding-top: 70px;
 }
+*/
 
 .pb-70 {
   padding-bottom: 70px;
 }
 
+/*
 .bg-f5f5f5 {
   background-color: #f5f5f5;
 }
+*/
 
 /*default-btn&optional-btn*/
 .default-btn {
@@ -244,6 +250,7 @@ p:last-child {
   font-weight: 700;
 }
 
+/*
 .section-title.text-start {
   max-width: 100%;
   position: relative;
@@ -257,6 +264,7 @@ p:last-child {
   right: 0;
   bottom: 0;
 }
+*/
 
 /*form-control*/
 .form-control {
@@ -319,6 +327,7 @@ textarea.form-control {
   height: auto !important;
 }
 
+/*
 .buy-now-btn {
   right: 20px;
   z-index: 99;
@@ -336,7 +345,9 @@ textarea.form-control {
   font-size: 13px;
   font-weight: 600;
 }
+*/
 
+/*
 .buy-now-btn img {
   top: 50%;
   left: 20px;
@@ -345,12 +356,14 @@ textarea.form-control {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
+*/
 
+/*
 .buy-now-btn:hover {
   background-color: #f53f85;
   color: #ffffff;
 }
-
+*/
 /*================================================
 Top Header CSS
 =================================================*/
@@ -520,6 +533,7 @@ Top Header CSS
           transform: scaleX(1);
 }
 
+/*
 .top-header-discount-info {
   text-align: center;
 }
@@ -557,6 +571,7 @@ Top Header CSS
 .top-header-discount-info p a:hover::before {
   width: 100%;
 }
+*/
 
 .header-top-menu {
   text-align: right;
@@ -709,21 +724,23 @@ Navbar CSS
 }
 
 .navbar-area.header-sticky.is-sticky {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .navbar-area.header-sticky.scrollUp {
-    -webkit-transform: translateY(-85px);
-    transform: translateY(-85px);
-    opacity: 0;
-    visibility:hidden;
+  -webkit-transform: translateY(-85px);
+          transform: translateY(-85px);
+  opacity: 0;
+  visibility: hidden;
 }
 
+/*
 .navbar-area.navbar-style-two .xton-nav .navbar .navbar-nav {
   margin-left: 50px;
   margin-right: auto;
 }
+*/
 
 .xton-responsive-nav {
   display: none;
@@ -735,22 +752,19 @@ Navbar CSS
 
 /* Navbar CSS */
 .xton-nav {
-    background-color: #ffffff;
-    position: relative;
-    width: 100%;
-    z-index: 999;
-
+  background-color: #ffffff;
 }
 
 
 .xton-nav .container-fluid {
-    padding-left: 40px;
-    padding-right: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .xton-nav .navbar {
-    padding-left: 0;
-    padding-right: 0;
+  position: inherit;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .xton-nav .navbar .navbar-brand {
@@ -814,6 +828,7 @@ Navbar CSS
   color: #f53f85;
 }
 
+/*
 .xton-nav .navbar .navbar-nav .nav-item .dropdown-menu {
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
@@ -1035,11 +1050,13 @@ Navbar CSS
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
 }
+*/
 
 .xton-nav .navbar .navbar-nav .nav-item.megamenu {
   position: inherit;
 }
 
+/*
 .xton-nav .navbar .navbar-nav .nav-item.megamenu .container {
   display: block;
   -ms-flex-wrap: unset;
@@ -1166,6 +1183,7 @@ Navbar CSS
   border-bottom: 1px solid #eeeeee;
   border-left: 1px solid #eeeeee;
 }
+*/
 
 .xton-nav .navbar .others-option .option-item {
   display: inline-block;
@@ -1307,6 +1325,7 @@ Navbar CSS
     -webkit-box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
             box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
   }
+  /*
   .xton-responsive-nav .xton-responsive-menu.mean-container .navbar-nav .nav-item.megamenu .dropdown-menu .nav-item {
     overflow: hidden;
   }
@@ -1448,6 +1467,7 @@ Navbar CSS
     padding: 20px !important;
     width: auto !important;
   }
+  */
   .xton-responsive-nav .xton-responsive-menu.mean-container .others-option {
     display: none;
   }
@@ -1473,11 +1493,8 @@ Navbar CSS
     padding-bottom: 15px;
   }
   .navbar-area.header-sticky {
-        display: none;
+    display: none;
   }
-
-
-
 }
 
 
@@ -1690,6 +1707,7 @@ Main Banner CSS
 /*  background-image: url(../../assets/img/main-banner2.jpg);*/
 /*}*/
 
+/*
 .banner-section {
   height: 650px;
   position: relative;
@@ -1774,6 +1792,7 @@ Main Banner CSS
 .main-banner-content.text-center .btn-box .default-btn {
   margin-right: 7px;
 }
+*/
 
 .banner-content {
   position: relative;
@@ -1866,6 +1885,7 @@ Main Banner CSS
   border-color: #000000;
 }
 
+/*
 .hero-banner {
   padding-top: 30px;
   position: relative;
@@ -1901,6 +1921,7 @@ Main Banner CSS
   width: unset !important;
   display: inline-block !important;
 }
+*/
 
 .owl-item.active .banner-content .sub-title {
   -webkit-animation-duration: 1s;
@@ -1957,6 +1978,32 @@ Main Banner CSS
           animation-delay: 0.3s;
 }
 
+/*
+.home-slides.owl-theme .owl-nav {
+  margin-top: 0;
+}
+*/
+
+/*
+.home-slides.owl-theme .owl-nav [class*=owl-] {
+  color: #000000;
+  font-size: 45px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  display: inline-block;
+  border-radius: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+or
 .home-slides.owl-theme .owl-nav [class*=owl-] {
     color: #000000;
     font-size: 45px;
@@ -1968,17 +2015,21 @@ Main Banner CSS
     transition: 0.5s;
     position: absolute;
     left: 0;
-    top: calc(100% + 50px); /* Adjusted top position */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-50%);
+    top: calc(100% + 50px); /* Adjusted top position
+opacity: 0;
+visibility: hidden;
+transform: translateY(-50%);
 }
+ */
 
+/*
 .home-slides.owl-theme .owl-nav [class*=owl-].owl-next {
   left: auto;
   right: 0;
 }
+*/
 
+/*
 .home-slides.owl-theme .owl-nav [class*=owl-]:hover {
   color: #000000;
   -webkit-transform: translateX(-10px) translateY(-50%);
@@ -2035,6 +2086,7 @@ Main Banner CSS
   left: auto;
   right: 20px;
 }
+*/
 
 .home-slides-two.owl-theme .owl-nav {
   margin-top: 0;
@@ -2121,6 +2173,7 @@ Main Banner CSS
   right: 20px;
 }
 
+/*
 .home-slides-three.owl-theme .owl-dots {
   position: absolute;
   right: 20px;
@@ -2164,6 +2217,7 @@ Main Banner CSS
 .home-slides-three.owl-theme .owl-dots .owl-dot:hover span, .home-slides-three.owl-theme .owl-dots .owl-dot.active span {
   border-color: #000000;
 }
+*/
 
 /*================================================
 About CSS
@@ -2315,6 +2369,7 @@ About CSS
 /*================================================
 Categories Banner CSS
 =================================================*/
+/*
 .single-categories-box {
   margin-bottom: 30px;
   overflow: hidden;
@@ -2410,6 +2465,7 @@ Categories Banner CSS
   -webkit-transform: translateY(-15px);
           transform: translateY(-15px);
 }
+*/
 
 .categories-box {
   margin-bottom: 30px;
@@ -2473,6 +2529,7 @@ Categories Banner CSS
 /*================================================
 Products CSS
 =================================================*/
+/*
 .all-products-area .container .container {
   max-width: 100%;
   padding-left: 30px;
@@ -2531,6 +2588,7 @@ Products CSS
 .all-products-area .pb-100 {
   padding-bottom: 30px;
 }
+*/
 
 .single-products-box {
   position: relative;
@@ -3108,6 +3166,7 @@ Products CSS
   visibility: visible;
 }
 
+/*
 .single-productsBox {
   margin-bottom: 30px;
   position: relative;
@@ -3424,6 +3483,7 @@ Products CSS
   opacity: 1;
   visibility: visible;
 }
+*/
 
 .products-slides .single-products-box .products-image a img {
   width: auto !important;
@@ -3994,6 +4054,7 @@ Products Details CSS
   margin-top: 0;
 }
 
+/*
 .products-details-image-slider.owl-theme {
   margin-bottom: 30px;
 }
@@ -4037,6 +4098,7 @@ Products Details CSS
   color: #ffffff;
   border-color: #f53f85;
 }
+*/
 
 .products-details-desc h3 {
   margin-bottom: 18px;
@@ -4057,6 +4119,7 @@ Products Details CSS
   font-weight: normal;
 }
 
+/*
 .products-details-desc .products-review {
   margin-bottom: 12px;
 }
@@ -4087,6 +4150,7 @@ Products Details CSS
   color: #f53f85;
   border-color: #f53f85;
 }
+*/
 
 .products-details-desc .products-info {
   list-style-type: none;
@@ -4119,6 +4183,7 @@ Products Details CSS
   color: #f53f85;
 }
 
+/*
 .products-details-desc .products-color-switch {
   margin-top: 10px;
 }
@@ -4275,6 +4340,7 @@ Products Details CSS
   border-color: #f53f85;
   color: #f53f85;
 }
+*/
 
 .products-details-desc .products-info-btn {
   margin-bottom: 25px;
@@ -4517,6 +4583,7 @@ Products Details CSS
   text-align: center;
 }
 
+/*
 .products-details-desc .products-details-accordion {
   margin-top: 25px;
 }
@@ -4731,6 +4798,7 @@ Products Details CSS
 .products-details-desc .products-details-accordion .accordion .accordion-content .products-review-form .review-form form .default-btn {
   margin-top: 10px;
 }
+*/
 
 .products-details-tab {
   margin-top: 50px;
@@ -4855,6 +4923,7 @@ Products Details CSS
   margin-bottom: 0;
 }
 
+/*
 .products-details-tab .tab-content .tabs-item .products-details-tab-content .table.table-striped tbody tr td {
   border-top: none;
   vertical-align: middle;
@@ -4866,6 +4935,7 @@ Products Details CSS
 .products-details-tab .tab-content .tabs-item .products-details-tab-content .table.table-striped tbody tr td:first-child {
   font-weight: 600;
 }
+*/
 
 .products-details-tab .tab-content .tabs-item .products-details-tab-content .table.table-bordered tbody tr td {
   vertical-align: middle;
@@ -4887,6 +4957,7 @@ Products Details CSS
   font-weight: 700;
 }
 
+/*
 .products-details-tab .tab-content .tabs-item .products-details-tab-content .products-review-form .review-title {
   position: relative;
 }
@@ -4977,6 +5048,7 @@ Products Details CSS
 .products-details-tab .tab-content .tabs-item .products-details-tab-content .products-review-form .review-form form .default-btn {
   margin-top: 10px;
 }
+*/
 
 .related-products {
   margin-top: 70px;
@@ -5079,6 +5151,7 @@ Offer CSS
   margin-top: 10px;
 }
 
+/*
 .single-offer-products {
   position: relative;
   border-radius: 5px;
@@ -5161,6 +5234,7 @@ Offer CSS
 .offer-products-slides.owl-theme .owl-dots .owl-dot:hover span, .offer-products-slides.owl-theme .owl-dots .owl-dot.active span {
   border-color: #ffffff;
 }
+*/
 
 /*================================================
 Facility CSS
@@ -5222,7 +5296,7 @@ Facility CSS
 .custom-banner-container {
     margin-top: 50px;
 }
-j
+
 
 .facility-slides.owl-theme .owl-nav [class*=owl-] {
   color: #87a1c1;
@@ -5528,6 +5602,7 @@ Blog CSS
   right: 0;
 }
 
+/*
 .blog-slides.owl-theme .owl-dots {
   margin-top: 20px !important;
   margin-bottom: 30px;
@@ -5580,6 +5655,7 @@ Blog CSS
 /*================================================
 Blog Details CSS
 =================================================*/
+/*
 .blog-details-desc .article-image img {
   width: 100%;
 }
@@ -5925,6 +6001,7 @@ Blog Details CSS
   background-color: #f53f85;
   color: #ffffff;
 }
+*/
 
 blockquote, .blockquote {
   overflow: hidden;
@@ -5978,6 +6055,7 @@ blockquote::after, .blockquote::after {
   margin-bottom: 20px;
 }
 
+/*
 .xton-post-navigation {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6463,6 +6541,7 @@ blockquote::after, .blockquote::after {
   color: #ffffff;
   background-color: #000000;
 }
+*/
 
 /*================================================
 Instagram CSS
@@ -6566,6 +6645,8 @@ Instagram CSS
 /*================================================
 Modal CSS
 =================================================*/
+/*TBD*/
+
 .productsQuickView .modal-dialog {
   max-width: 900px;
   margin: 0 auto;
@@ -6931,6 +7012,7 @@ Modal CSS
 .productsQuickView .modal-content .products-content .view-full-info:hover::before {
   width: 0;
 }
+
 
 .shoppingCartModal.modal.right .modal-dialog {
   position: fixed;
@@ -7376,6 +7458,7 @@ Modal CSS
   opacity: 1;
 }
 
+/*
 .sizeGuideModal .modal-dialog {
   max-width: 900px;
   margin: 0 auto;
@@ -7525,6 +7608,7 @@ Modal CSS
 .productsShippingModal .modal-content .shipping-content ul li:last-child {
   margin-bottom: 0;
 }
+*/
 
 .shoppingWishlistModal.modal.right .modal-dialog {
   position: fixed;
@@ -7871,6 +7955,7 @@ Page Title CSS
 /*================================================
 Gallery CSS
 =================================================*/
+/*
 .gallery-area .container-fluid {
   padding-left: 0;
   padding-right: 0;
@@ -7960,10 +8045,12 @@ Gallery CSS
 .gallery-items .single-gallery-item {
   margin-bottom: 30px;
 }
+*/
 
 /*================================================
 Look Book CSS
 =================================================*/
+/*
 .lookbook-items {
   margin-left: -15px;
   margin-right: -15px;
@@ -8012,10 +8099,12 @@ Look Book CSS
 .single-lookbook-box:hover .content {
   top: -10px;
 }
+*/
 
 /*================================================
 Woocommerce Widget Sidebar CSS
 =================================================*/
+
 .woocommerce-widget-area .woocommerce-widget {
   margin-bottom: 35px;
 }
@@ -8440,6 +8529,7 @@ Woocommerce Widget Sidebar CSS
 /*================================================
 Sizing Guide CSS
 =================================================*/
+/*
 .sizing-guide-table h3 {
   margin-bottom: 18px;
   font-size: 22px;
@@ -8501,6 +8591,7 @@ Sizing Guide CSS
 .sizing-guide-table:not(:first-child) {
   margin-top: 35px;
 }
+*/
 
 /*================================================
 Cart CSS
@@ -9199,6 +9290,7 @@ Customer Service CSS
 /*================================================
 Compare CSS
 =================================================*/
+/*
 .products-compare-table table {
   margin-bottom: 0;
 }
@@ -9234,7 +9326,7 @@ Compare CSS
 .products-compare-table table tr:first-child td {
   border-bottom: 1px solid #eeeeee;
 }
-
+*/
 /*================================================
 Pagination CSS
 =================================================*/
@@ -9295,6 +9387,7 @@ Pagination CSS
 /*================================================
 Widget Sidebar CSS
 =================================================*/
+/*
 .widget-area .widget {
   margin-bottom: 35px;
 }
@@ -9702,10 +9795,12 @@ Widget Sidebar CSS
   font-weight: 800;
   font-size: 25px;
 }
+*/
 
 /*================================================
 Coming Soon CSS
 =================================================*/
+/*
 .coming-soon-area {
   height: 100vh;
   position: relative;
@@ -9883,6 +9978,7 @@ Coming Soon CSS
   margin-bottom: 0;
   margin-top: 20px;
 }
+*/
 
 /*================================================
 Track Order CSS
@@ -9983,6 +10079,7 @@ Login CSS
   width: 0;
 }
 
+/*
 .new-customer-content {
   padding-left: 15px;
 }
@@ -10003,6 +10100,7 @@ Login CSS
 .new-customer-content .optional-btn {
   margin-top: 5px;
 }
+*/
 
 /*================================================
 Signup CSS
