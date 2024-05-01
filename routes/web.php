@@ -8,8 +8,6 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RequestStylistController;
 use App\Http\Controllers\Admin\StylistController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\HairColorController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Main\CoursesController;
