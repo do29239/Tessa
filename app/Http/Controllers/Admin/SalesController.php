@@ -6,70 +6,56 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SaleRequest;
 use App\Models\Product;
 use App\Models\Sale;
+use App\Services\SalesService;
 use Illuminate\Http\Request;
 
 class SalesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $salesService;
+
+    public function __construct(SalesService $salesService)
+    {
+        $this->salesService = $salesService;
+    }
+
     public function index()
     {
-        $sales = Sale::with('product')->get();
+        $sales = $this->salesService->getAllSales();
         return view('admin.sale', compact('sales'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create(Product $product)
     {
         return view('admin.create-sale', compact('product'));
     }
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(SaleRequest $request)
     {
-        Sale::create($request->validated());
+        $this->salesService->createSale($request->validated());
         return redirect()->route('sales.index')->with('success', 'Sale added successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Sale $sale)
     {
-        $sale = Sale::with('product');
+        $sale = $this->salesService->getSaleById($sale->id);
         return view('admin.sale.show', compact('sale'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Sale $sale)
     {
         return view('admin.sale.edit', compact('sale'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(SaleRequest $request, Sale $sale)
     {
-        $sale->update($request->validated());
-
+        $this->salesService->updateSale($sale, $request->validated());
         return redirect()->route('sales.index')->with('success', 'Sale updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Sale $sale)
     {
-        $sale->delete();
+        $this->salesService->deleteSale($sale);
         return redirect()->route('sales.index')->with('success', 'Sale product deleted successfully.');
     }
-
-
 }
+
