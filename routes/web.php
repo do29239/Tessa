@@ -36,9 +36,6 @@ Route::get('/', function () {
     return view('main/home/index');
 });
 
-Route::get('/profiles', function () {
-    return view('main/profile/profile');
-});
 Route::get('/',[MainController::class, 'showProducts'])->name('main');
 Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
 Route::get('/shop', [MainController::class, 'showProducts'])->name('shop');
@@ -74,8 +71,8 @@ Route::middleware('auth')->group(function () {
 
 
     });
-        Route::resource('requests', RequestStylistController::class)->only('store');
-        Route::view('/request_form', 'main/request_stylist/request_form')->middleware('stylist');
+    Route::resource('requests', RequestStylistController::class)->only('store');
+    Route::view('/request_form', 'main/request_stylist/request_form')->middleware('stylist');
 
     Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
     Route::get('/shop', [MainController::class, 'showProducts'])->name('shop');
@@ -84,6 +81,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/course', [CoursesController::class, 'index'])->name('courses');
     Route::get('/sale', [SalesController::class, 'index'])->name('sales');
 
+    Route::patch('/profile/change-address', [ProfileController::class, 'changeAddress'])->name('profile.changeAddress');
 
 
     // The following routes are accessible to authenticated users only
@@ -105,6 +103,7 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+
 Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 

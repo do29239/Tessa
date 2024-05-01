@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ChangeAddressRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,11 +18,16 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
+        $orders = Order::where('user_id', auth()->id())->get();
+        return view('main.profile.profile', compact('orders'),[
             'user' => $request->user(),
         ]);
     }
-
+    public function changeAddress(ChangeAddressRequest $request)
+    {
+        $request->user()->fill($request->validated());
+        $request->user()->update();
+    }
     /**
      * Update the user's profile information.
      */
