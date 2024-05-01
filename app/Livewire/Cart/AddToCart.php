@@ -10,13 +10,12 @@ use Livewire\Component;
 class AddToCart extends Component
 {
     public $productId;
-    protected $listeners = ['cartCheck'=>'checkCartCount'];
+    protected $listeners = ['cartCheck'=>'checkCartCount','addToCart' => 'addToCart'] ;
 
     public function mount($product_id)
     {
         $this->productId = $product_id;
     }
-
     public function addToCart($quantity)
     {
         if (!Auth::check()) {

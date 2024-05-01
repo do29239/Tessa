@@ -20,6 +20,8 @@
     <link href="{{asset('../assets/adminassets/css/black-dashboard.css?v=1.0.0')}}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('../assets/adminassets/demo/demo.css')}}" rel="stylesheet" />
+
+
 </head>
 
 <body class="">

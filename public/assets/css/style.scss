@@ -56,6 +56,13 @@ Default CSS
 @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,600i,700,700i&display=swap');
 
+@font-face {
+    font-family: 'boxicons';
+    src: url('../fonts/boxicons.woff2') format('woff2'),
+    url('../fonts/boxicons.woff') format('woff');
+    font-display: block;
+}
+
 $font-family1: 'Lato';
 $font-family2: 'Cabin';
 $main-color: #f53f85;

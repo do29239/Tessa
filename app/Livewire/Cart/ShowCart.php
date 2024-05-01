@@ -72,10 +72,11 @@ class ShowCart extends Component
 
     public function render()
     {
-        if ($this->view === 'show-cart-modal') {
-            return view('livewire.cart.show-cart-modal');
-        } elseif ($this->view === 'show-cart') {
+
+        if ($this->view === 'show-cart') {
             return view('livewire.cart.show-cart');
         }
+        else
+            return view('livewire.cart.show-cart-modal');
     }
 }

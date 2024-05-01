@@ -81,7 +81,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="categories-box">
-                    <img src="{{asset('assets/img/webp/orrossss1.webp')}}" alt="image">
+                    <img src="{{asset('assets/img/webp/orrossss1.webp')}}" alt="image" height="608.19" width="927.5">
 
                     <div class="content">
                         <h3>Products on Sale!</h3>
@@ -95,7 +95,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{asset('assets/img/webp/Fanola color.webp')}}" alt="image">
+                            <img src="{{asset('assets/img/webp/Fanola color.webp')}}" alt="image" height="289.31" width="451.75">
 
                             <div class="content">
                                 <h3>Fanola Hair Colors</h3>
@@ -107,7 +107,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{asset('assets/img/webp/OroTherapy Color.webp')}}" alt="image">
+                            <img src="{{asset('assets/img/webp/OroTherapy Color.webp')}}" alt="image" height="289.31" width="451.75">
 
                             <div class="content">
                                 <h3>Oro Hair Colors</h3>
@@ -119,7 +119,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{asset('assets/img/webp/RrLine Color.webp')}}" alt="image">
+                            <img src="{{asset('assets/img/webp/RrLine Color.webp')}}" alt="image" height="289.31" width="451.75">
 
                             <div class="content">
                                 <h3>RR Hair Colors</h3>
@@ -131,7 +131,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{asset('assets/img/webp/No Yellow Color.webp')}}" alt="image">
+                            <img src="{{asset('assets/img/webp/No Yellow Color.webp')}}" alt="image" height="289.31" width="451.75">
 
                             <div class="content">
                                 <h3>No Yellow Color</h3>
@@ -163,8 +163,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="{{ route('showProduct', $product->id) }}">
-                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="main-image" alt="image">
-                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="hover-image" alt="image">
+                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="main-image" alt="image" width="416" height="496.7">
+                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="hover-image" alt="image" width="416" height="496.7">
                             </a>
 
                             <div class="products-button">
@@ -249,8 +249,8 @@
                     <div class="products-box">
                         <div class="products-image">
                             <a href="{{ route('showProduct', $product->id) }}">
-                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="main-image" alt="image">
-                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="hover-image" alt="image">
+                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="main-image" alt="image" width="416" height="496.7">
+                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="hover-image" alt="image" width="416" height="496.7">
                             </a>
 
                             <div class="products-button">
@@ -477,19 +477,19 @@
 
         <div class="brand-slides owl-carousel owl-theme">
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand1.webp" alt="image"></a>
+                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand1.webp" alt="image" width="144.14" height="144.14"></a>
             </div>
 
             <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand2.jpg" alt="image"></a>
+                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand2.jpg" alt="image" width="144.14" height="144.14"></a>
             </div>
 
             <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand2.webp" alt="image"></a>
+                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand2.webp" alt="image" width="144.14" height="144.14"></a>
             </div>
 
             <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand3.webp" alt="image"></a>
+                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand3.webp" alt="image" width="144.14" height="144.14"></a>
             </div>
 
 {{--            <div class="brand-item">--}}
@@ -521,7 +521,7 @@
                 <div class="single-blog-post">
                     <div class="post-image">
                         <a href="../blog-1.html">
-                            <img src="assets/img/course-1.jpg" alt="image">
+                            <img src="assets/img/course-1.jpg" alt="image" width="416" height="320">
                         </a>
                         <div class="date">
                             <span>January 29, 2021</span>
@@ -540,7 +540,7 @@
                 <div class="single-blog-post">
                     <div class="post-image">
                         <a href="../blog-1.html">
-                            <img src="assets/img/course-2.jpg" alt="image">
+                            <img src="assets/img/course-2.jpg" alt="image" width="416" height="320">
                         </a>
                         <div class="date">
                             <span>January 29, 2021</span>
@@ -559,7 +559,7 @@
                 <div class="single-blog-post">
                     <div class="post-image">
                         <a href="../blog-1.html">
-                            <img src="assets/img/course-3.jpg" alt="image">
+                            <img src="assets/img/course-3.jpg" alt="image" width="416" height="320">
                         </a>
                         <div class="date">
                             <span>January 29, 2021</span>

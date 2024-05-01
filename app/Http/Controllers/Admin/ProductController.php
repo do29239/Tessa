@@ -10,119 +10,69 @@ use App\Models\Image;
 use Intervention\Image\Facades\Image as Images;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
-
+use App\Services\ProductService;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-      $brands = Brand::all();
-      $categories = Category::all();
-      $products = Product::all();
+    protected $productService;
 
-        //$products = Product::query()->with(['category','brand']);
-        return view('admin.product', compact('brands', 'categories', 'products'));
-//        return view('admin.product', 'products');
+    public function __construct(ProductService $productService)
+    {
+        $this->productService = $productService;
     }
 
+    public function index()
+    {
+        $data = $this->productService->listProducts();
+        return view('admin.product', $data);
+    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(ProductRequest $request)
     {
         $validatedData = $request->validated();
 
-        // Create a new product with validated input data
-        //$product = Product::create($validatedData);
-       $product = Product::query()->make($validatedData);
+        // Middleware updates the 'image' input to be the new webp filename.
+        if ($request->has('image')) {
+            $imageName = $request->input('image'); // Get the .webp image name updated by middleware
 
-        // Handle photo upload
-        if ($request->hasFile('image')) {
-            $imageName = $request->input('image');
-            $image = new Image();
-            $image->name = $imageName;
-
-            DB::beginTransaction();
             try {
-                $product->save();
-                $product->image()->save($image);
-                DB::commit();
+                $this->productService->storeProduct($validatedData, $imageName); // Pass imageName directly
+                return redirect()->back()->with('success', 'Product added successfully!');
             } catch (\Exception $e) {
-                DB::rollBack();
-                throw $e;
+                return redirect()->back()->with('error', 'Error adding product: ' . $e->getMessage());
             }
+        } else {
+            return redirect()->back()->with('error', 'Image file is required');
         }
+    }
+    public function update(ProductRequest $request, Product $product)
+    {
+        $validatedData = $request->validated();
+        if ($request->has('image')) {
+            $imageName = $request->input('image');
+        }
+        $this->productService->updateProduct($product, $validatedData, $imageName);
 
-        return redirect()->back()->with('message', 'Product Added Successfully');
+        return redirect()->back()->with('message', 'Product Updated Successfully');
     }
 
-
-
-    /**
-     * Display the specified resource.
-     */
     public function show(Product $product)
     {
         return view('admin.show-product', compact('product'));
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit( Product $product)
+    public function edit(Product $product)
     {
-        $brands = Brand::all();
-        $categories = Category::all();
-        return view('admin.edit-product', compact('product','brands','categories'));
+        $data = $this->productService->listProducts();
+        $data['product'] = $product;
+        return view('admin.edit-product', $data);
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(ProductRequest $request, Product $product)
-    {
-        $validatedData = $request->validated();
 
-        // Update the product with validated input data
-
-        // Handle photo upload
-        if ($request->hasFile('image')) {
-            $imageFile = $request->input('image');
-
-            // Update the associated image record in the database
-            $image = $product->image;
-            $image->name = $imageFile;
-
-            DB::beginTransaction();
-            try{
-                $product->update($validatedData);
-                $image->save();
-                DB::commit();
-
-            }
-            catch (\Exception $e){
-                DB::rollBack();
-
-                throw $e;
-            }
-        }
-
-        return redirect()->back()->with('message', 'Product Updated Successfully');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Product $product)
     {
-        $product->delete();
-
+        $this->productService->deleteProduct($product);
         return redirect()->route('products.index')->with('success', 'Product deleted successfully');
     }
 }

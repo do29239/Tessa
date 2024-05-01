@@ -87,8 +87,10 @@
 
               </div>
 
-              <div class="products-add-to-cart">
-                  @livewire('add-to-cart', ['product_id' => $product->id])
+              <div class="products-add-to-cart"wire:key="main--{{$product->id}}" >
+                  <livewire:cart.add-to-cart :product_id="$product->id" wire:key="main--{{$product->id}}" />
+
+
               </div>
 
               <div class="wishlist-compare-btn">
@@ -208,7 +210,8 @@
           </div>
         </div>
       </div>
-
+    </section>
+<section>
         <div class="related-products">
             <div class="container">
                 <div class="section-title">
@@ -218,7 +221,7 @@
 
                 <div class="products-slides owl-carousel owl-theme">
                     @foreach($relatedProducts as $relatedProduct)
-                        <div class="single-products-box">
+                        <div class="single-products-box" wire:key="related--{{$relatedProduct->id}}">
                             <div class="products-image">
                                 <a href="{{ route('showProduct', $relatedProduct->id) }}">
                                     <img src="{{ asset('storage/images/'.$relatedProduct->image->name) }}" class="main-image" alt="image">
@@ -232,7 +235,7 @@
                                         <span class="new-price">{{ $relatedProduct->price }} den</span>
                                     </div>
                                     <div class="products-add-to-cart">
-                                        @livewire('add-to-cart', ['product_id' => $relatedProduct->id], key($relatedProduct->id))
+                                        <livewire:cart.add-to-cart :product_id="$relatedProduct->id" wire:key="related--{{$relatedProduct->id}}" />
                                     </div>
                                 </div>
                             </div>

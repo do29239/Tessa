@@ -5,31 +5,51 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Links of CSS files -->
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <!-- Preloading Fonts for performance -->
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Lato:400&display=block" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Cabin:400&display=fallback" as="style" onload="this.rel='stylesheet'">
+
+    <!-- Preloading and Loading CSS files -->
+    <link rel="preload" href="{{ asset('assets/css/bootstrap.min.css') }}" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="{{ asset('assets/css/style.css') }}" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="{{ asset('assets/css/responsive.css') }}" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="{{ asset('assets/css/owl.carousel.min.css') }}" as="style" onload="this.rel='stylesheet'">
+
+    <!-- Regular style links -->
     <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/boxicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/nice-select.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/slick.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/meanmenu.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/rangeSlider.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/dark.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bottom-navbar.css') }}">
     @if(!isset($excludeGlobalStyles))
-    <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
     @endif
 
     @livewireStyles
 
     <title>Tessa Academy</title>
-
     <link rel="icon" type="image/png" href="{{asset('assets/img/tessapurplelogo-01.png')}}">
-
+    <style>
+        .navbar-area.header-sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            -webkit-box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+            box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+            background: #ffffff !important;
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+        }
+    </style>
 </head>
 <body>
 
@@ -313,61 +333,61 @@
 
         <div class="instagram-slides owl-carousel owl-theme">
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto1.jpg')}}" alt="image">
+                <img src="{{asset('assets/img/instagram/foto1.jpg')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto2.jpg')}}" alt="image">
+                <img src="{{asset('assets/img/instagram/foto2.jpg')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto3.jpg')}}" alt="image">
+                <img src="{{asset('assets/img/instagram/foto3.jpg')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto4.jpg')}}" alt="image">
+                <img src="{{asset('assets/img/instagram/foto4.jpg')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto5.jpg')}}" alt="image">
+                <img src="{{asset('assets/img/instagram/foto5.jpg')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto6.jpg')}}" alt="image">
+                <img src="{{asset('assets/img/instagram/foto6.jpg')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto7.jpg')}}" alt="image">
+                <img src="{{asset('assets/img/instagram/foto7.jpg')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto1.jpg')}}" alt="image">
+                <img src="{{asset('assets/img/instagram/foto1.jpg')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto2.jpg')}}" alt="image">
+                <img src="{{asset('assets/img/instagram/foto2.jpg')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto3.jpg')}}" alt="image">
+                <img src="{{asset('assets/img/instagram/foto3.jpg')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
@@ -562,21 +582,21 @@
 
 <!-- Links of JS files -->
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('assets/js/magnific-popup.min.js') }}"></script>
-<script src="{{ asset('assets/js/parallax.min.js') }}"></script>
-<script src="{{ asset('assets/js/rangeSlider.min.js') }}"></script>
-<script src="{{ asset('assets/js/nice-select.min.js') }}"></script>
-<script src="{{ asset('assets/js/meanmenu.min.js') }}"></script>
-<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
-<script src="{{ asset('assets/js/slick.min.js') }}"></script>
-<script src="{{ asset('assets/js/sticky-sidebar.min.js') }}"></script>
-<script src="{{ asset('assets/js/wow.min.js') }}"></script>
-<script src="{{ asset('assets/js/form-validator.min.js') }}"></script>
-<script src="{{ asset('assets/js/contact-form-script.js') }}"></script>
-<script src="{{ asset('assets/js/ajaxchimp.min.js') }}"></script>
-<script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="{{ asset('assets/js/magnific-popup.min.js') }}" defer></script>
+<script src="{{ asset('assets/js/parallax.min.js') }}" defer></script>
+<script src="{{ asset('assets/js/rangeSlider.min.js') }}" defer></script>
+{{--<script src="{{ asset('assets/js/nice-select.min.js') }}" defer></script>--}}
+<script src="{{ asset('assets/js/meanmenu.min.js') }}" defer></script>
+{{--<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}" defer></script>--}}
+<script src="{{ asset('assets/js/slick.min.js') }}" defer></script>
+<script src="{{ asset('assets/js/sticky-sidebar.min.js') }}" defer></script>
+{{--<script src="{{ asset('assets/js/wow.min.js') }}" defer></script>--}}
+<script src="{{ asset('assets/js/form-validator.min.js') }}" defer></script>
+<script src="{{ asset('assets/js/contact-form-script.js') }}" defer></script>
+<script src="{{ asset('assets/js/ajaxchimp.min.js') }}" defer></script>
+<script src="{{ asset('assets/js/main.js') }}" defer></script>
 
 @livewireScripts
 </body>

@@ -385,7 +385,7 @@
     });
 
     // Nice Select JS
-    $('select').niceSelect();
+    // $('select').niceSelect();
 
     /*
     // Blog Slides
@@ -415,50 +415,50 @@
     */
 
     // Subscribe form
-    $(".newsletter-form").validator().on("submit", function (event) {
-        if (event.isDefaultPrevented()) {
-        // handle the invalid form...
-            formErrorSub();
-            submitMSGSub(false, "Please enter your email correctly.");
-        } else {
-            // everything looks good!
-            event.preventDefault();
-        }
-    });
-    function callbackFunction (resp) {
-        if (resp.result === "success") {
-            formSuccessSub();
-        }
-        else {
-            formErrorSub();
-        }
-    }
-    function formSuccessSub(){
-        $(".newsletter-form")[0].reset();
-        submitMSGSub(true, "Thank you for subscribing!");
-        setTimeout(function() {
-            $("#validator-newsletter").addClass('hide');
-        }, 4000)
-    }
-    function formErrorSub(){
-        $(".newsletter-form").addClass("animate__animated animate__shake");
-        setTimeout(function() {
-            $(".newsletter-form").removeClass("animate__animated animate__shake");
-        }, 1000)
-    }
-    function submitMSGSub(valid, msg){
-        if(valid){
-            var msgClasses = "validation-success";
-        } else {
-            var msgClasses = "validation-danger";
-        }
-        $("#validator-newsletter").removeClass().addClass(msgClasses).text(msg);
-    }
-    // AJAX MailChimp
-    $(".newsletter-form").ajaxChimp({
-        url: "https://envytheme.us20.list-manage.com/subscribe/post?u=60e1ffe2e8a68ce1204cd39a5&amp;id=42d6d188d9", // Your url MailChimp
-        callback: callbackFunction
-    });
+    // $(".newsletter-form").validator().on("submit", function (event) {
+    //     if (event.isDefaultPrevented()) {
+    //     // handle the invalid form...
+    //         formErrorSub();
+    //         submitMSGSub(false, "Please enter your email correctly.");
+    //     } else {
+    //         // everything looks good!
+    //         event.preventDefault();
+    //     }
+    // });
+    // function callbackFunction (resp) {
+    //     if (resp.result === "success") {
+    //         formSuccessSub();
+    //     }
+    //     else {
+    //         formErrorSub();
+    //     }
+    // }
+    // function formSuccessSub(){
+    //     $(".newsletter-form")[0].reset();
+    //     submitMSGSub(true, "Thank you for subscribing!");
+    //     setTimeout(function() {
+    //         $("#validator-newsletter").addClass('hide');
+    //     }, 4000)
+    // }
+    // function formErrorSub(){
+    //     $(".newsletter-form").addClass("animate__animated animate__shake");
+    //     setTimeout(function() {
+    //         $(".newsletter-form").removeClass("animate__animated animate__shake");
+    //     }, 1000)
+    // }
+    // function submitMSGSub(valid, msg){
+    //     if(valid){
+    //         var msgClasses = "validation-success";
+    //     } else {
+    //         var msgClasses = "validation-danger";
+    //     }
+    //     $("#validator-newsletter").removeClass().addClass(msgClasses).text(msg);
+    // }
+    // // AJAX MailChimp
+    // $(".newsletter-form").ajaxChimp({
+    //     url: "https://envytheme.us20.list-manage.com/subscribe/post?u=60e1ffe2e8a68ce1204cd39a5&amp;id=42d6d188d9", // Your url MailChimp
+    //     callback: callbackFunction
+    // });
 
     /*
     // Popup Image
@@ -506,10 +506,10 @@
     */
 
     // Sidebar Sticky
-    $('.products-details-desc-sticky').stickySidebar({
-        topSpacing: 110,
-        bottomSpacing: 110
-    });
+    // $('.products-details-desc-sticky').stickySidebar({
+    //     topSpacing: 110,
+    //     bottomSpacing: 110
+    // });
 
     // Products Details Image Slides
     $('.products-details-image-slides').slick({
@@ -613,21 +613,21 @@
     });
 
 	// WoW JS
-	$(window).on ('load', function (){
-        if ($(".wow").length) {
-            var wow = new WOW ({
-                boxClass:     'wow',      // Animated element css class (default is wow)
-                animateClass: 'animated', // Animation css class (default is animated)
-                offset:       20,         // Distance to the element when triggering the animation (default is 0)
-                mobile:       true,       // Trigger animations on mobile devices (default is true)
-                live:         true,       // Act on asynchronously loaded content (default is true)
-            });
-            wow.init();
-        }
-    });
-
-    // Switch Btn
-	$('body').append("<div class='switch-box'><label id='switch' class='switch'><input type='checkbox' onchange='toggleTheme()' id='slider'><span class='slider round'></span></label></div>");
+	// $(window).on ('load', function (){
+    //     if ($(".wow").length) {
+    //         var wow = new WOW ({
+    //             boxClass:     'wow',      // Animated element css class (default is wow)
+    //             animateClass: 'animated', // Animation css class (default is animated)
+    //             offset:       20,         // Distance to the element when triggering the animation (default is 0)
+    //             mobile:       true,       // Trigger animations on mobile devices (default is true)
+    //             live:         true,       // Act on asynchronously loaded content (default is true)
+    //         });
+    //         wow.init();
+    //     }
+    // });
+    //
+    // // Switch Btn
+	// $('body').append("<div class='switch-box'><label id='switch' class='switch'><input type='checkbox' onchange='toggleTheme()' id='slider'><span class='slider round'></span></label></div>");
 
 }(jQuery));
 
@@ -645,12 +645,20 @@ function toggleTheme() {
     }
 }
 // Immediately invoked function to set the theme on initial load
-(function () {
-    if (localStorage.getItem('xton_theme') === 'theme-dark') {
-        setTheme('theme-dark');
-        document.getElementById('slider').checked = false;
-    } else {
-        setTheme('theme-light');
-    document.getElementById('slider').checked = true;
-    }
-})();
+document.addEventListener("DOMContentLoaded", function() {
+    (function () {
+        var slider = document.getElementById('slider');
+        if (localStorage.getItem('xton_theme') === 'theme-dark') {
+            setTheme('theme-dark');
+            if (slider) {
+                slider.checked = false;
+            }
+        } else {
+            setTheme('theme-light');
+            if (slider) {
+                slider.checked = true;
+            }
+        }
+    })();
+});
+
