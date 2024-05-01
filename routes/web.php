@@ -2,15 +2,17 @@
 
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RequestStylistController;
 use App\Http\Controllers\Admin\StylistController;
-use App\Http\Controllers\Admin\StylistRequestController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\HairColorController;
-use App\Http\Controllers\Main\CoursesController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\Main\CoursesController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
@@ -62,6 +64,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/sales/create/{product}', [\App\Http\Controllers\Admin\SalesController::class, 'create'])->name('sales.create');
         Route::resource('/sales', \App\Http\Controllers\Admin\SalesController::class)->except('create');
 
+        Route::resource('coupons',CouponController::class)->except('create');
+        Route::post('/coupons/store', [CouponController::class, 'store'])->name('coupon.store');
+
+
         Route::get('/bulk-sale', [\App\Http\Controllers\Admin\BulkSaleController::class, 'createBulkSale'])->name('admin.bulkSale.create');
 
         Route::post('/bulk-sale/store', [\App\Http\Controllers\Admin\BulkSaleController::class, 'storeBulkSale'])->name('admin.bulkSale.store');
@@ -85,12 +91,17 @@ Route::middleware('auth')->group(function () {
     // The following routes are accessible to authenticated users only
     Route::get('/cart', [CartController::class, 'showCart'])->name('Cart');
     Route::get('/checkout', [CartController::class, 'Checkout'])->name('Checkout');
-    Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('place.order');
+//    Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('place.order');
     Route::get('/my-orders', [OrderController::class, 'myOrders'])->name('my.orders');
     Route::get('/order-details/{order_id}', [OrderController::class, 'orderDetails'])->name('order.details');
     Route::get('/wishlist', [WishlistController::class, 'showWishlist'])->name('show.wishlist');
     Route::get('/shop/{brandName}', [ShopByBrandController::class,'shopByBrand'])->name('shop.brand');
     Route::get('/hair-color/{brandName}', [HairColorController::class,'showHairColors'])->name('hair.colors');
+
+
+//    Route::post('/apply-coupon', [OrderController::class, 'applyCoupon'])->name('apply-coupon');
+
+
 });
 
 Route::get('/set-language/{lang}', [\App\Http\Controllers\LanguageController::class, 'set'])->name('set.language');

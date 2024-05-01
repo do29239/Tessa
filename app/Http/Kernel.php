@@ -68,6 +68,8 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\Admin::class,
         'convertToWebp' => \App\Http\Middleware\ConvertImageToWebp::class,
         'stylist' => \App\Http\Middleware\Stylist::class,
+        'clearCoupon'=>\App\Http\Middleware\ClearCouponSession::class,
+
 
     ];
 }

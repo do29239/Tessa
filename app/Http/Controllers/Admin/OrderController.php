@@ -73,7 +73,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $order->status = $request->order_status;
         $order->update();
-        return redirect()->back()->with('message','Order Updated Successfully');
+        return redirect()->back()->with('message','PlaceOrder Updated Successfully');
     }
 
     /**
