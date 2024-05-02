@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Cart;
 use App\Models\Item;
 use App\Models\Order;
+use App\Services\PlaceOrderService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -45,57 +46,16 @@ class PlaceOrder extends Component
 
         return max(0, $total - $this->discount);
     }
-
     public function placeOrder()
     {
-        if (empty($this->cartItems)) {
-            session()->flash('error', 'Your cart is empty.');
-            return redirect()->back();
-        }
-
-        // Check if final total is zero or less (could happen with discounts)
-        if ($this->finalTotal <= 0) {
-            session()->flash('error', 'The order total cannot be zero. Please review your cart and discounts.');
-            return redirect()->back();
-        }
-        DB::beginTransaction();
+        $orderService = new PlaceOrderService();  // Or better yet, inject it if Livewire supports dependency injection
 
         try {
-            $user = Auth::user();
-            $order = Order::create([
-                'user_id' => $user->id,
-                'total' => $this->finalTotal,
-                'coupon_id' => $this->couponId,
-            ]);
-
-            $itemsData = [];
-            foreach ($this->cartItems as $cartItem) {
-                $itemsData[] = [
-                    'product_id' => $cartItem->product_id,
-                    'order_id' => $order->id,
-                    'quantity' => $cartItem->quantity,
-                    'price' => $cartItem->price,
-                    'created_at' => now(), // Ensure you're setting timestamps if your table uses them
-                    'updated_at' => now(),
-                ];
-            }
-            if ($this->couponId) {
-                // Directly attach the coupon to the user using the existing relationship
-                $user->coupons()->attach($this->couponId, ['used_at' => now()]);
-            }
-            // Perform a bulk insert
-            Item::insert($itemsData);
-
-
-            Cart::where('user_id', $user->id)->delete();
-            DB::commit();
-
+            $result = $orderService->placeOrder(Auth::user(), $this->cartItems, $this->finalTotal, $this->couponId);
             session()->flash('success', 'Order placed successfully.');
             return redirect()->route('my.orders');
         } catch (\Exception $e) {
-            DB::rollBack();
-            Log::error("Order Placement Error: {$e->getMessage()}", ['userId' => $user->id]);
-            session()->flash('error', 'Error placing order.');
+            session()->flash('error', $e->getMessage());
             return redirect()->back();
         }
     }
