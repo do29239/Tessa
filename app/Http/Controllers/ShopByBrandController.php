@@ -3,26 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Services\BrandService;
 use Illuminate\Http\Request;
 
 class ShopByBrandController extends Controller
 {
+    protected $brandService;
+    public function __construct(BrandService $brandService)
+    {
+        $this->brandService = $brandService;
+    }
     public function shopByBrand($brandName)
     {
-        $brand = Brand::where('name', $brandName)->first();
+            session(['brandId' => $this->brandService->getBrandByName($brandName)]);
 
-        // Check if the brand was found to avoid null reference errors.
-        if ($brand) {
-            // Store the brand's ID in the session.
-            session(['brandId' => $brand->id]);
-
-            // Redirect to the shop page (adjust the URL as needed).
             return redirect('/shop');
-        } else {
-            // Optional: Handle the case where no brand was found.
-            // You could redirect to the shop page with a session message indicating the brand was not found,
-            // or redirect back with an error message.
-            return redirect('/shop')->with('error', 'Brand not found.');
-        }
     }
 }

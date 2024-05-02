@@ -7,12 +7,19 @@ use App\Models\Cart;
 use App\Models\Coupon;
 use App\Models\Item;
 use App\Models\Order;
+use App\Services\OrderService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
+    protected $orderService;
+    public function __construct(OrderService $orderService)
+    {
+        $this->orderService = $orderService;
+    }
 //    public $test = null;
 //    public function placeOrder(Request $request)
 //    {
@@ -343,16 +350,19 @@ class OrderController extends Controller
 //
     public function orderDetails($order_id)
     {
-        $order = Order::find($order_id);
 
-        return view('main.order.order-details', ['order' => $order]);
+        return view('main.order.order-details',
+            ['order' => $this->orderService->getOrderById($order_id)['order']]
+        );
     }
-//
+
     public function myOrders()
     {
-        $orders = Order::where('user_id', auth()->id())->get();
-
-        return view('main.order.my-orders', compact('orders'));
+        $id = Auth::id();
+        return view('main.order.my-orders',
+            ['orders' =>
+                $this->orderService->getOrderByUserId($id)]
+        );
     }
 
 }

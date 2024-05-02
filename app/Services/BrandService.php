@@ -26,4 +26,9 @@ class BrandService
     {
         $brand->delete();
     }
+
+    public function getBrandByName($brandName)
+    {
+        return Brand::where('name', $brandName)->value('id');
+    }
 }

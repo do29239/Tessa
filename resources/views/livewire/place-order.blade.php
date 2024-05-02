@@ -1,5 +1,4 @@
-
-    <form wire:submit.prevent="placeOrder">
+<form wire:submit.prevent="placeOrder">
         <div>
             <div class="order-details">
                 <h3 class="title">Your Order</h3>

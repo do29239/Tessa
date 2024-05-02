@@ -24,6 +24,10 @@ class OrderService
         return ['order' => $order];
     }
 
+    public function getOrderByUserId($id)
+    {
+        return Order::where('user_id',$id)->get();
+    }
 
     public function updateOrderStatus($id, $status)
     {

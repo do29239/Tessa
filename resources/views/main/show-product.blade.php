@@ -87,8 +87,8 @@
 
               </div>
 
-              <div class="products-add-to-cart"wire:key="main--{{$product->id}}" >
-                  <livewire:cart.add-to-cart :product_id="$product->id" wire:key="main--{{$product->id}}" />
+              <div class="products-add-to-cart"wire:key="{{$product->id}}" >
+                  <livewire:cart.add-to-cart :product_id="$product->id" />
 
 
               </div>
@@ -233,9 +233,6 @@
                                     <h3><a href="{{ route('showProduct', $relatedProduct->id) }}">{{ $relatedProduct->name }}</a></h3>
                                     <div class="price">
                                         <span class="new-price">{{ $relatedProduct->price }} den</span>
-                                    </div>
-                                    <div class="products-add-to-cart">
-                                        <livewire:cart.add-to-cart :product_id="$relatedProduct->id" wire:key="related--{{$relatedProduct->id}}" />
                                     </div>
                                 </div>
                             </div>

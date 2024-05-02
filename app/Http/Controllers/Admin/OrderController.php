@@ -30,9 +30,9 @@ class OrderController extends Controller
     }
     public function show(string $id)
     {
-        $result = $this->orderService->getOrderById($id);
-        $order = $result['order'];
-        return view('admin.show-order', compact('order'));
+        return view('admin.show-order',
+            ['order'=>$this->orderService->getOrderById($id)['order']]
+        );
     }
 
 

@@ -37,7 +37,7 @@ Route::get('/', function () {
 });
 Route::get('/',[MainController::class, 'showProducts'])->name('main');
 Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
-Route::get('/shop', [MainController::class, 'showProducts'])->name('shop');
+Route::get('/shop', [MainController::class, 'shop'])->name('shop');
 Route::get('product/show-product/{product}', [MainController::class, 'show'])->name('showProduct');
 
 Route::middleware('auth')->group(function () {
@@ -78,7 +78,7 @@ Route::middleware('auth')->group(function () {
         Route::view('/request_form', 'main/request_stylist/request_form')->middleware('stylist');
 
     Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
-    Route::get('/shop', [MainController::class, 'showProducts'])->name('shop');
+    Route::get('/shop', [MainController::class, 'shop'])->name('shop');
     Route::get('product/show-product/{product}', [MainController::class, 'show'])->name('showProduct');
     Route::get('course/show-course/{course}', [CoursesController::class, 'show'])->name('showCourse');
     Route::get('/course', [CoursesController::class, 'index'])->name('courses');
