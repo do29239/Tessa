@@ -9,20 +9,26 @@ use App\Models\Image;
 use App\Models\Sale;
 use Intervention\Image\Facades\Image as Images;
 use Illuminate\Support\Facades\DB;
+use Exception;
 
 class ProductService
 {
-    public function listProducts()
+    public function getAllProducts()
+    {
+        return Product::all();
+    }
+
+    public function getAllBrandsAndCategories()
     {
         return [
             'brands' => Brand::all(),
-            'categories' => Category::all(),
-            'products' => Product::all()
+            'categories' => Category::all()
         ];
     }
 
-    public function storeProduct($data, $imageName)
+    public function createProduct($data, $imageName)
     {
+
         $product = Product::query()->make($data);
 
         if ($imageName) {
@@ -44,35 +50,7 @@ class ProductService
         }
     }
 
-//    public function store(ProductRequest $request)
-//    {
-//        $validatedData = $request->validated();
-//
-//        // Create a new product with validated input data
-//        //$product = Product::create($validatedData);
-//        $product = Product::query()->make($validatedData);
-//
-//        // Handle photo upload
-//        if ($request->hasFile('image')) {
-//            $imageName = $request->input('image');
-//            $image = new Image();
-//            $image->name = $imageName;
-//
-//            DB::beginTransaction();
-//            try {
-//                $product->save();
-//                $product->image()->save($image);
-//                DB::commit();
-//            } catch (\Exception $e) {
-//                DB::rollBack();
-//                throw $e;
-//            }
-//        }
-//
-//        return redirect()->back()->with('message', 'Product Added Successfully');
-//    }
-
-    public function updateProduct(Product $product, $data, $imageName = null)
+    public function updateProduct(Product $product, $data, $imageName)
     {
         DB::beginTransaction();
         try {
@@ -126,3 +104,4 @@ class ProductService
 
     }
 }
+
