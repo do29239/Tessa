@@ -1806,6 +1806,7 @@ Main Banner CSS
   position: absolute;
   display: inline-block;
   border: 9px solid #000000;
+
   -webkit-clip-path: polygon(0 0, 60% 0, 36% 100%, 0 100%);
           clip-path: polygon(0 0, 60% 0, 36% 100%, 0 100%);
 }
@@ -10839,13 +10840,29 @@ Go Top CSS
 .go-top:hover i {
   margin-top: -3px;
 }
-@media (max-width:400px){
+@media (min-width: 300px) and (max-width: 600px) {
+    /* CSS rules here will only apply to screens between 400px and 600px wide */
+    .login-content .login-form {
+        width: 90%; /* Example: Adjust width to 90% of the viewport */
+        margin: 10px auto; /* Center the form with margin auto and add some vertical space */
+        padding: 20px; /* Example: Add padding for better spacing */
+    }
 
-  .login-content .login-form{
-    margin: auto;
-    width: 300px;
-  }
+    .login-content .login-form input,
+    .login-content .login-form button {
+        width: 100%; /* Make inputs and buttons fill the form */
+        font-size: 14px; /* Adjust font size to be appropriate for mid-sized devices */
+    }
 }
+
+/*@media (max-width:400px){*/
+
+/*    .login-content .login-form{*/
+/*        margin: auto;*/
+/*        width: 300px;*/
+/*    }*/
+/*}*/
+
 
 /*# sourceMappingURL=style.css.map */
 

@@ -13,6 +13,7 @@ class PlaceOrderService
 {
     public function placeOrder($user, $cartItems, $finalTotal, $couponId)
     {
+        $cartService=new CartService();
         if (empty($cartItems)) {
             throw new \Exception('Your cart is empty.');
         }
@@ -48,7 +49,7 @@ class PlaceOrderService
 
             Item::insert($itemsData);  // Perform a bulk insert
 
-            Cart::where('user_id', $user->id)->delete();
+            $cartService->deleteCart($user);
             DB::commit();
 
             return true;

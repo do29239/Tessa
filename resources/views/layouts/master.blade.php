@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/rangeSlider.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bottom-navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/menu.css') }}">
     @if(!isset($excludeGlobalStyles))
         <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
     @endif
@@ -177,21 +178,22 @@
                         alt="logo"
                     />
                 </a>
-                <div class="collapse navbar-collapse mean-menu">
+                <div class="collapse navbar-collapse ">
+
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a href="{{ url('/') }}" class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">{{__('messages.home')}}</a>
                         </li>
-                        <li class="nav-item megamenu">
+                        <li class="nav-item ">
                             <a href="{{ route('shop') }}" class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.shop')}}</a>
                         </li>
-                        <li class="nav-item megamenu">
+                        <li class="nav-item ">
                             <a href="{{ route('courses') }}" class="nav-link{{ request()->routeIs('courses') ? ' active' : '' }}">{{__('messages.courses')}}</a>
                         </li>
-                        <li class="nav-item megamenu">
+                        <li class="nav-item ">
                             <a href="../about.html" class="nav-link">{{__('messages.about_us')}}</a>
                         </li>
-                        <li class="nav-item megamenu">
+                        <li class="nav-item ">
                             <a href="../contact.html" class="nav-link">{{__('messages.contact')}}</a>
                         </li>
                     </ul>
@@ -207,7 +209,6 @@
                             <livewire:cart.cart-counter/>
                         </div>
                     </div>
-                </div>
             </nav>
         </div>
     </div>
@@ -226,7 +227,7 @@
                         alt="logo"
                     />
                 </a>
-                <div class="collapse navbar-collapse mean-menu">
+                <div class="collapse navbar-collapse">x
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a href="{{ url('/') }}" class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">{{__('messages.home')}}</a>
@@ -587,16 +588,17 @@
 <script src="{{ asset('assets/js/magnific-popup.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/parallax.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/rangeSlider.min.js') }}" defer></script>
-{{--<script src="{{ asset('assets/js/nice-select.min.js') }}" defer></script>--}}
+<script src="{{ asset('assets/js/nice-select.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/meanmenu.min.js') }}" defer></script>
-{{--<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}" defer></script>--}}
+<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/slick.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/sticky-sidebar.min.js') }}" defer></script>
-{{--<script src="{{ asset('assets/js/wow.min.js') }}" defer></script>--}}
+<script src="{{ asset('assets/js/wow.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/form-validator.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/contact-form-script.js') }}" defer></script>
 <script src="{{ asset('assets/js/ajaxchimp.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/main.js') }}" defer></script>
+<script src="{{ asset('assets/js/menu.js') }}"></script>
 
 @livewireScripts
 </body>
