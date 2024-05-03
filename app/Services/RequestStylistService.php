@@ -26,11 +26,14 @@ class RequestStylistService
     public function approveRequest(RequestStylist $request)
     {
         $user = $request->user;
+        $cartService = new CartService();
 
         if ($user && $user->role === 0) {
             DB::beginTransaction();
             try {
-                $profile = StylistProfile::create([
+
+
+                StylistProfile::create([
                     'user_id' => $user->id,
                     'saloon_name' => $request->saloon_name,
                     'saloon_city' => $request->saloon_city,
@@ -39,7 +42,8 @@ class RequestStylistService
                 ]);
 
                 $request->delete();
-                $user->update(['role' => 2]);
+                $request->user()->update(['role' => 2]);
+                $cartService->deleteCart($user);
                 DB::commit();
                 return true;
             } catch (\Exception $e) {
