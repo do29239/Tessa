@@ -7,7 +7,7 @@
             <div class="page-title-content">
                 <h2>Sales</h2>
                 <ul>
-                    <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ url('/') }}">{{__('messages.home')}}</a></li>
                     <li>Sales</li>
                 </ul>
             </div>

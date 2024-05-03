@@ -14,6 +14,14 @@ class loadProducts extends Component
     public $search = '';
     protected $listeners = ['categorySelected', 'brandSelected', 'searchPerformed'];
 
+    public function mount()
+    {
+        $this->selectedBrand = session('brandId', '');
+
+        if ($this->selectedBrand) {
+            $this->brandSelected($this->selectedBrand);
+        }
+    }
     public function render()
     {
         $this->search = session('searchTerm', '');
@@ -40,14 +48,22 @@ class loadProducts extends Component
 
         // Optimize search by avoiding splitting into multiple terms
         if (!empty($this->search)) {
-            $searchTerm = '%' . $this->search . '%';
-            $query->where('name', 'like', $searchTerm)
-                ->orWhereHas('category', function ($query) use ($searchTerm) {
-                    $query->where('name', 'like', $searchTerm);
-                })
-                ->orWhereHas('brand', function ($query) use ($searchTerm) {
-                    $query->where('name', 'like', $searchTerm);
+            // Split the search term into individual keywords.
+            $keywords = explode(' ', $this->search);
+
+            // Apply each keyword as a condition across the relevant fields.
+            foreach ($keywords as $keyword) {
+                $query->where(function ($subQuery) use ($keyword) {
+                    $likeKeyword = '%' . $keyword . '%';
+                    $subQuery->where('name', 'like', $likeKeyword)
+                        ->orWhereHas('category', function ($query) use ($likeKeyword) {
+                            $query->where('name', 'like', $likeKeyword);
+                        })
+                        ->orWhereHas('brand', function ($query) use ($likeKeyword) {
+                            $query->where('name', 'like', $likeKeyword);
+                        });
                 });
+            }
         }
 
         // Apply filters for category and brand if they are set
@@ -70,6 +86,7 @@ class loadProducts extends Component
     public function resetFilters()
     {
         session()->forget('searchTerm');
+        session()->forget('brandId');
         $this->search = null;
         $this->selectedCategory = null;
         $this->selectedBrand = null;

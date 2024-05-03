@@ -65,7 +65,6 @@
                                     <thead class="text-primary">
                                     <tr>
                                         <th>Name</th>
-                                        <th>Description</th>
                                         <th>Category</th>
                                         <th>Images</th>
                                     </tr>
@@ -74,7 +73,6 @@
                                     @foreach($course as $courses)
                                         <tr onclick="window.location='{{ route('courses.show', $courses) }}';" style="cursor: pointer;">
                                             <td>{{ $courses->name }}</td>
-                                            <td>{{ $courses->description }}</td>
                                             <td>{{ $courses->category }}</td>
                                             <td>
                                                 <div class="image-grid">

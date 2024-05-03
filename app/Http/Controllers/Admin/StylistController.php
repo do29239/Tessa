@@ -4,26 +4,33 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\StylistProfile;
-use App\Models\User;
+use App\Services\StylistService;
 
 class StylistController extends Controller
 {
+    protected $stylistService;
+
+    public function __construct(StylistService $stylistService)
+    {
+        $this->stylistService = $stylistService;
+    }
+
     public function index()
     {
-        $stylists = StylistProfile::all();
-
-        return view('admin.stylists', compact('stylists'));
+        $stylists = $this->stylistService->getAllStylists();
+        return view('admin.stylists', ['stylists'=> $this->stylistService->getAllStylists()]);
     }
 
     public function show(StylistProfile $stylist)
     {
-        return view('admin.show-stylist',compact('stylist'));
+        // Since $stylist is already resolved through route model binding, we don't need to fetch it again.
+        return view('admin.show-stylist', compact('stylist'));
     }
 
     public function destroy(StylistProfile $stylist)
     {
-        $stylist->delete();
-
+        $this->stylistService->deleteStylist($stylist);
         return redirect()->back()->with('success', 'Stylist deleted successfully');
     }
 }
+

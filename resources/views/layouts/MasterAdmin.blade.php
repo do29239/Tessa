@@ -20,6 +20,8 @@
     <link href="{{asset('../assets/adminassets/css/black-dashboard.css?v=1.0.0')}}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('../assets/adminassets/demo/demo.css')}}" rel="stylesheet" />
+
+
 </head>
 
 <body class="">
@@ -95,7 +97,25 @@
                 <li>
                     <a href={{ route('courses.index') }}>
                         <i class="tim-icons icon-pin"></i>
-                        <p>Maps</p>
+                        <p>Courses</p>
+                    </a>
+                </li>
+                <li>
+                    <a href={{ route('show_users') }}>
+                        <i class="tim-icons icon-single-02"></i>
+                        <p>Users</p>
+                    </a>
+                </li>
+                <li>
+                    <a href={{ route('coupons.index') }}>
+                        <i class="tim-icons icon-pin"></i>
+                        <p>Coupons</p>
+                    </a>
+                </li>
+                <li>
+                    <a href={{ route('admin.bulkSale.create') }}>
+                        <i class="tim-icons icon-pin"></i>
+                        <p>Sales</p>
                     </a>
                 </li>
                 <li>
@@ -126,12 +146,6 @@
                     <a href="./rtl.html">
                         <i class="tim-icons icon-world"></i>
                         <p>RTL Support</p>
-                    </a>
-                </li>
-                <li class="active-pro">
-                    <a href="./upgrade.html">
-                        <i class="tim-icons icon-spaceship"></i>
-                        <p>Upgrade to PRO</p>
                     </a>
                 </li>
             </ul>

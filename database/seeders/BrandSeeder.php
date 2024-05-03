@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Brand;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,7 +13,13 @@ class BrandSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Brand::factory(5)->create();
+        $brandNames = ['Fanola', 'RrLine', 'Oro Therapy', 'No Yellow'];
 
+        foreach ($brandNames as $brandName) {
+            Brand::create([
+                'name' => $brandName,
+            ]);
+        }
     }
+
 }

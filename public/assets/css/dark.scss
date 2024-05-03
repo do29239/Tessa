@@ -103,9 +103,12 @@ $black-color: #ffffff;
             }
         }
     }
+
+    /*
     .bg-f5f5f5 {
         background-color: #292828;
     }
+    */
 
     .default-btn {
         &:hover {
@@ -146,6 +149,7 @@ $black-color: #ffffff;
                             color: $main-color !important;
                         }
                     }
+                    /*
                     .dropdown-menu {
                         background: #0e0e0e;
 
@@ -209,6 +213,7 @@ $black-color: #ffffff;
 
                         }
                     }
+                    */
                 }
             }
             .others-option {
@@ -232,6 +237,7 @@ $black-color: #ffffff;
             }
         }
     }
+    /*
     .navbar-style-two {
         .main-nav {
             .navbar {
@@ -248,6 +254,7 @@ $black-color: #ffffff;
             }
         }
     }
+    */
 
     //Modal
     .shoppingCartModal {
@@ -269,6 +276,7 @@ $black-color: #ffffff;
     }
 
     //Banner
+    /*
     .main-banner-content {
         .sub-title {
           color: #000000;
@@ -318,6 +326,7 @@ $black-color: #ffffff;
             }
         }
     }
+    */
 
     //Page Title
     .page-title-area {
@@ -330,11 +339,13 @@ $black-color: #ffffff;
             background: #0e0e0e;
         }
     }
+    /*
     .single-offer-products {
         .content {
             background-color: #0e0e0e;
         }
     }
+    */
 
     //Facility
     .single-facility-box {
@@ -349,6 +360,7 @@ $black-color: #ffffff;
         }
     }
 
+    /*
     //wowcommerse
     .woocommerce-widget-area {
         .collections-list-widget {
@@ -405,6 +417,7 @@ $black-color: #ffffff;
             }
         }
     }
+    */
     .products-filter-options{
         .sub-title {
             color: $black-color;
@@ -466,6 +479,7 @@ $black-color: #ffffff;
     }
 
     //Product area
+    /*
     .all-products-area {
         .products-area {
             background-color: #000000;
@@ -477,6 +491,8 @@ $black-color: #ffffff;
             background-color: #000000;
         }
     }
+    */
+
     #products-collections-filter {
         &.products-row-view {
             .products-col-item {
@@ -486,9 +502,11 @@ $black-color: #ffffff;
                 .products-box {
                     background-color: #0e0e0e;
                 }
+                /*
                 .single-productsBox {
                     background-color: #0e0e0e;
                 }
+                */
             }
         }
     }
@@ -504,6 +522,7 @@ $black-color: #ffffff;
                 background-color: #0e0e0e;
             }
         }
+        /*
         .products-color-switch {
             ul {
                 li {
@@ -556,6 +575,7 @@ $black-color: #ffffff;
                 }
             }
         }
+        */
         .products-info {
             li {
                 a {
@@ -585,6 +605,7 @@ $black-color: #ffffff;
                         color: $black-color;
                     }
                     .table {
+                        /*
                         &.table-striped {
                             tbody {
                                 tr {
@@ -594,6 +615,7 @@ $black-color: #ffffff;
                                 }
                             }
                         }
+                        */
                         &.table-bordered {
                             tbody {
                                 tr {
@@ -607,6 +629,7 @@ $black-color: #ffffff;
                             }
                         }
                     }
+                    /*
                     .products-review-form {
                         .review-form form {
                             .form-group {
@@ -620,10 +643,12 @@ $black-color: #ffffff;
                             }
                         }
                     }
+                    */
                 }
             }
         }
     }
+    /*
     .products-compare-table {
         table {
             tr {
@@ -648,6 +673,7 @@ $black-color: #ffffff;
             }
         }
     }
+    */
 
     //Cart
     .cart-table {
@@ -824,6 +850,7 @@ $black-color: #ffffff;
     }
 
     //Faq
+    /*TBD*/
     .faq-accordion {
         .accordion {
             .accordion-title {
@@ -843,6 +870,7 @@ $black-color: #ffffff;
     }
 
     //Comming Soon
+    /*
     .coming-soon-content {
         background: #0e0e0e;
         .logo {
@@ -871,8 +899,10 @@ $black-color: #ffffff;
             }
         }
     }
+    */
 
     //Order
+    /*TBD*/
     .track-order-content {
         background-color: #0e0e0e;
         form {
@@ -904,6 +934,7 @@ $black-color: #ffffff;
     }
 
     //GAllery
+    /*
     .single-gallery-item {
         .gallery-content {
             background-color: #0e0e0e;
@@ -1051,6 +1082,7 @@ $black-color: #ffffff;
             }
         }
     }
+    */
     blockquote, .blockquote {
         background-color: #0e0e0e;
     }

@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Order extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id', 'total'];
+    protected $fillable = ['user_id', 'total', 'coupon_id'];
 
     public function user()
     {
@@ -21,4 +21,8 @@ class Order extends Model
         return $this->hasMany(Item::class);
     }
 
+    public function coupon()
+    {
+        return $this->belongsTo(Coupon::class, 'coupon_id');
+    }
 }

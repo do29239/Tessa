@@ -27,8 +27,8 @@
                 <div class="single-products-box">
                     <div class="products-image">
                         <a href="{{ route('showProduct', $product->id) }}">
-                            <img src="{{ asset('storage/images/'.$product->image->name) }}" class="main-image" alt="image" />
-                            <img src="{{ asset('storage/images/'.$product->image->name) }}" class="hover-image" alt="image" />
+                            <img src="{{ asset('storage/images/'.$product->image->name) }}" loading="lazy" class="main-image" alt="image" />
+                            <img src="{{ asset('storage/images/'.$product->image->name) }}" loading="lazy" class="hover-image" alt="image" />
                         </a>
                         @if($product->sale()->active()->exists())
                             <div class="sale-tag">{{__('messages.sale')}}</div>
@@ -67,7 +67,13 @@
             </div>
         @endforeach
     </div>
-
+<style>
+    .products-image img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 670 / 800;
+    }
+</style>
 
 
     <!-- Start Products Filter Modal Area -->

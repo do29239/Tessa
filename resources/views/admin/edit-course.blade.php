@@ -19,11 +19,11 @@
                             @method('PUT')
                             <div class="form-group">
                                 <label for="name">Course Name</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Enter product name" value="{{ $course->name }}" required>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Enter course name" value="{{ $course->name }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="description">Course Description</label>
-                                <textarea name="description" id="description" class="form-control" placeholder="Enter product description" required>{{ $course->description }}</textarea>
+                                <textarea name="description" id="description" class="form-control" placeholder="Enter course description" required>{{ $course->description }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="category">Course Category</label>
