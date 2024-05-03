@@ -22,7 +22,7 @@ class ProductController extends Controller
         return view('admin.product', [
             'brands' => $this->productService->getAllBrandsAndCategories()['brands'],
             'categories' => $this->productService->getAllBrandsAndCategories()['categories'],
-            'products' => $this->productService->getAllProducts()
+            'products' => $this->productService->getProducts()->get()
         ]);
     }
 

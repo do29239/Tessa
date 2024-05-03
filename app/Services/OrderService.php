@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Item;
 
@@ -35,5 +36,37 @@ class OrderService
         $order->status = $status;
         $order->save();
     }
+    public function createOrder($userId, $finalTotal = null)
+    {
+        $order = Order::make([
+            'user_id' => $userId,
+            'total' => $finalTotal,
+        ]);
+        $order->save();
+        return $order;
+    }
+
+    public function insertOrderItems($order, $cartItems)
+    {
+        $itemsData = [];
+        foreach ($cartItems as $cartItem) {
+            $itemsData[] = [
+                'product_id' => $cartItem->product_id,
+                'order_id' => $order->id,
+                'quantity' => $cartItem->quantity,
+                'price' => $cartItem->price,
+                'total' => $cartItem->quantity * $cartItem->price,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+        Item::insert($itemsData);
+    }
+
+    public function clearUserCart($userId)
+    {
+        Cart::where('user_id', $userId)->delete();
+    }
+
 }
 

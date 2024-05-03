@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/rangeSlider.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bottom-navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/carousel.css') }}">
+
     @if(!isset($excludeGlobalStyles))
         <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
     @endif
@@ -581,13 +583,13 @@
 <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
 
 <!-- Links of JS files -->
-<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+{{--<script src="{{ asset('assets/js/jquery.min.js') }}"></script>--}}
 <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
-<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+{{--<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>--}}
 <script src="{{ asset('assets/js/magnific-popup.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/parallax.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/rangeSlider.min.js') }}" defer></script>
-{{--<script src="{{ asset('assets/js/nice-select.min.js') }}" defer></script>--}}
+<script src="{{ asset('assets/js/nice-select.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/meanmenu.min.js') }}" defer></script>
 {{--<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}" defer></script>--}}
 <script src="{{ asset('assets/js/slick.min.js') }}" defer></script>
@@ -597,6 +599,7 @@
 <script src="{{ asset('assets/js/contact-form-script.js') }}" defer></script>
 <script src="{{ asset('assets/js/ajaxchimp.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/main.js') }}" defer></script>
+<script src="{{ asset('assets/js/carousel.js') }}" defer></script>
 
 @livewireScripts
 </body>

@@ -3,77 +3,140 @@
 @section('content')
 
 <!-- Start Main Banner Area -->
-<div class="home-slides-two owl-carousel owl-theme">
-    <div class="main-banner banner-bg2">
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12">
-                            <div class="banner-content text-white">
-                                <div class="line"></div>
-                                <span class="sub-title">Products For All Your Needs</span>
-                                <h1>New Inspiration!!! New Look!!!</h1>
-                                <p>We ship All over Macedonia!!!</p>
-                                <div class="btn-box">
-                                    <a href="/shop" class="default-btn">Go To Shop</a>
-                                    <a href="/courses" class="optional-btn">Our Courses</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--<div class="home-slides-two owl-carousel owl-theme">--}}
+{{--    <div class="main-banner banner-bg2">--}}
+{{--        <div class="d-table">--}}
+{{--            <div class="d-table-cell">--}}
+{{--                <div class="container-fluid">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-lg-6 col-md-12">--}}
+{{--                            <div class="banner-content text-white">--}}
+{{--                                <div class="line"></div>--}}
+{{--                                <span class="sub-title">Products For All Your Needs</span>--}}
+{{--                                <h1>New Inspiration!!! New Look!!!</h1>--}}
+{{--                                <p>We ship All over Macedonia!!!</p>--}}
+{{--                                <div class="btn-box">--}}
+{{--                                    <a href="/shop" class="default-btn">Go To Shop</a>--}}
+{{--                                    <a href="/courses" class="optional-btn">Our Courses</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
-    <div class="main-banner banner-bg4">
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12">
-                            <div class="banner-content text-white">
-                                <div class="line"></div>
-                                <span class="sub-title">New Inspiration!!! New Look!!!</span>
-                                <h1>Products For All Your Needs</h1>
-                                <p>We ship All over Macedonia!!!</p>
-                                <div class="btn-box">
-                                    <a href="/shop" class="default-btn">Go To Shop</a>
-                                    <a href="/courses" class="optional-btn">Our Courses</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div class="main-banner banner-bg4">--}}
+{{--        <div class="d-table">--}}
+{{--            <div class="d-table-cell">--}}
+{{--                <div class="container-fluid">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-lg-6 col-md-12">--}}
+{{--                            <div class="banner-content text-white">--}}
+{{--                                <div class="line"></div>--}}
+{{--                                <span class="sub-title">New Inspiration!!! New Look!!!</span>--}}
+{{--                                <h1>Products For All Your Needs</h1>--}}
+{{--                                <p>We ship All over Macedonia!!!</p>--}}
+{{--                                <div class="btn-box">--}}
+{{--                                    <a href="/shop" class="default-btn">Go To Shop</a>--}}
+{{--                                    <a href="/courses" class="optional-btn">Our Courses</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
-    <div class="main-banner banner-bg5">
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12">
-                            <div class="banner-content text-white">
-                                <div class="line"></div>
-                                <span class="sub-title">We ship All over Macedonia!!!</span>
-                                <h1>All You Need in One Place</h1>
-                                <p>New Inspiration!!! New Look!!!</p>
-                                <div class="btn-box">
-                                    <a href="/shop" class="default-btn">Go To Shop</a>
-                                    <a href="/courses" class="optional-btn">Our Courses</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{--    <div class="main-banner banner-bg5">--}}
+{{--        <div class="d-table">--}}
+{{--            <div class="d-table-cell">--}}
+{{--                <div class="container-fluid">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-lg-6 col-md-12">--}}
+{{--                            <div class="banner-content text-white">--}}
+{{--                                <div class="line"></div>--}}
+{{--                                <span class="sub-title">We ship All over Macedonia!!!</span>--}}
+{{--                                <h1>All You Need in One Place</h1>--}}
+{{--                                <p>New Inspiration!!! New Look!!!</p>--}}
+{{--                                <div class="btn-box">--}}
+{{--                                    <a href="/shop" class="default-btn">Go To Shop</a>--}}
+{{--                                    <a href="/courses" class="optional-btn">Our Courses</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!-- End Main Banner Area -->
+{{--<div class="main-banner">--}}
+{{--    <div class="split-slideshow">--}}
+{{--        <div class="slideshow">--}}
+{{--            <div class="slider">--}}
+{{--                <div class="item">--}}
+{{--                    <img src="{{url('../../assets/img/redhairr.webp')}}" />--}}
+{{--                </div>--}}
+{{--                <div class="item">--}}
+{{--                    <img src="{{url('../../assets/img/webp/blackandwhite.webp')}}" />--}}
+{{--                </div>--}}
+{{--                <div class="item">--}}
+{{--                    <img src="{{url('../../assets/img/webp/brownhair.webp')}}" />--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="slideshow-text">--}}
+{{--            <div class="item">Canyon</div>--}}
+{{--            <div class="item">Desert</div>--}}
+{{--            <div class="item">Erosion</div>--}}
+{{--            <div class="item">Shape</div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
+<div class="carousel">
+    <div class="carousel-background">
+
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{{url('../../assets/img/webp/blackandwhite.webp')}}" alt="Item 1">
+            <div class="banner-content text-white">
+                <div class="line"></div>
+                <span class="sub-title">We ship All over Macedonia!!!</span>
+                <h1>All You Need in One Place</h1>
+                <p>New Inspiration!!! New Look!!!</p>
+                <div class="btn-box">
+                    <a href="/shop" class="default-btn">Go To Shop</a>
+                    <a href="/courses" class="optional-btn">Our Courses</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{{url('../../assets/img/redhairr.webp')}}" alt="Item 2">
+            <div class="banner-content text-white">
+                <div class="line"></div>
+                <span class="sub-title">We ship All over Macedonia!!!</span>
+                <h1>All You Need in One Place</h1>
+                <p>New Inspiration!!! New Look!!!</p>
+                <div class="btn-box">
+                    <a href="/shop" class="default-btn">Go To Shop</a>
+                    <a href="/courses" class="optional-btn">Our Courses</a>
+                </div>
+            </div>
+        </div>
+        <!-- Add more items here -->
+    </div>
+    <a class="carousel-control prev" onclick="moveToPrevSlide()">&#10094;</a>
+    <a class="carousel-control next" onclick="moveToNextSlide()">&#10095;</a>
+</div>
+
+
+
+
 
 <!-- Start Categories Banner Area -->
 <section class="categories-banner-area pt-100 pb-70">
@@ -469,28 +532,28 @@
 {{--<!-- End Products Area -->--}}
 
 <!-- Start Brand Area -->
-<div class="brand-area ptb-70">
-    <div class="container">
-        <div class="section-title">
-            <h2>Shop By Brand</h2>
-        </div>
+{{--<div class="brand-area ptb-70">--}}
+{{--    <div class="container">--}}
+{{--        <div class="section-title">--}}
+{{--            <h2>Shop By Brand</h2>--}}
+{{--        </div>--}}
 
-        <div class="brand-slides owl-carousel owl-theme">
-            <div class="brand-item">
-                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand1.webp" alt="image" width="144.14" height="144.14"></a>
-            </div>
+{{--        <div class="brand-slides owl-carousel owl-theme">--}}
+{{--            <div class="brand-item">--}}
+{{--                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand1.webp" alt="image" width="144.14" height="144.14"></a>--}}
+{{--            </div>--}}
 
-            <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand2.jpg" alt="image" width="144.14" height="144.14"></a>
-            </div>
+{{--            <div class="brand-item">--}}
+{{--                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand2.jpg" alt="image" width="144.14" height="144.14"></a>--}}
+{{--            </div>--}}
 
-            <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand2.webp" alt="image" width="144.14" height="144.14"></a>
-            </div>
+{{--            <div class="brand-item">--}}
+{{--                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand2.webp" alt="image" width="144.14" height="144.14"></a>--}}
+{{--            </div>--}}
 
-            <div class="brand-item">
-                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand3.webp" alt="image" width="144.14" height="144.14"></a>
-            </div>
+{{--            <div class="brand-item">--}}
+{{--                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand3.webp" alt="image" width="144.14" height="144.14"></a>--}}
+{{--            </div>--}}
 
 {{--            <div class="brand-item">--}}
 {{--                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand4.webp" alt="image"></a>--}}
@@ -502,11 +565,37 @@
 
 {{--            <div class="brand-item">--}}
 {{--                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand6.webp" alt="image"></a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
+<!-- End Brand Area -->
+
+<div class="brand-area ptb-70">
+    <div class="container">
+        <div class="section-title">
+            <h2>Shop By Brand</h2>
+        </div>
+
+        <div class="brand-slides">
+            <div class="brand-item active">
+                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand1.webp" alt="image"></a>
+            </div>
+            <div class="brand-item">
+                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand2.jpg" alt="image"></a>
+            </div>
+            <div class="brand-item">
+                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand2.webp" alt="image"></a>
+            </div>
+            <div class="brand-item">
+                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand3.webp" alt="image"></a>
+            </div>
+            <div class="brand-item">
+                <a href="../products-sidebar-fullwidth.html"><img src="assets/img/webp/shopbybrand3.webp" alt="image"></a>
             </div>
         </div>
     </div>
 </div>
-<!-- End Brand Area -->
 
 <!-- Start Blog Area -->
 <section class="blog-area pt-100 pb-70">

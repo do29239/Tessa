@@ -13,9 +13,9 @@ use Exception;
 
 class ProductService
 {
-    public function getAllProducts()
+    public function getProducts()
     {
-        return Product::all();
+        return Product::query();
     }
 
     public function getAllBrandsAndCategories()
@@ -74,25 +74,25 @@ class ProductService
         $product->delete();
     }
 
-    public function show()
+    public function show(Product $product)
     {
-
+       return $this->getProducts()->with('image')
+            ->where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->get();
     }
     public function showHairColors($brandName)
     {
-        // Assuming 'category' and 'brand' are direct columns in your `products` table.
-        $products = Product::whereHas('category', function ($query) {
+       return $this->getProducts()->whereHas('category', function ($query) {
             $query->where('name', 'Hair Color');
         })->whereHas('brand', function ($query) use ($brandName) {
             $query->where('name', $brandName);
         })->get();
-
-        return ['products'=>$products];
     }
 
     public function latestProducts()
     {
-        return Product::latest()->paginate(3);
+        return $this->getProducts()->latest()->paginate(3);
     }
 
     public function getProductsOnSale()

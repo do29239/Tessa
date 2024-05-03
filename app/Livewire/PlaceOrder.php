@@ -53,39 +53,40 @@ class PlaceOrder extends Component
             return redirect()->back();
         }
 
-        // Check if final total is zero or less (could happen with discounts)
         if ($this->finalTotal <= 0) {
             session()->flash('error', 'The order total cannot be zero. Please review your cart and discounts.');
             return redirect()->back();
         }
+
         DB::beginTransaction();
 
         try {
             $user = Auth::user();
-            $order = Order::create([
+            $order = Order::make([
                 'user_id' => $user->id,
                 'total' => $this->finalTotal,
                 'coupon_id' => $this->couponId,
             ]);
 
+            $order->save();  // Crucial to save the order before processing items to ensure order_id is generated
+
             $itemsData = [];
             foreach ($this->cartItems as $cartItem) {
                 $itemsData[] = [
                     'product_id' => $cartItem->product_id,
-                    'order_id' => $order->id,
+                    'order_id' => $order->id,  // Now this id is valid because $order->save() was called
                     'quantity' => $cartItem->quantity,
                     'price' => $cartItem->price,
-                    'created_at' => now(), // Ensure you're setting timestamps if your table uses them
+                    'created_at' => now(),
                     'updated_at' => now(),
                 ];
             }
+
             if ($this->couponId) {
-                // Directly attach the coupon to the user using the existing relationship
                 $user->coupons()->attach($this->couponId, ['used_at' => now()]);
             }
-            // Perform a bulk insert
-            Item::insert($itemsData);
 
+            Item::insert($itemsData);  // Perform a bulk insert
 
             Cart::where('user_id', $user->id)->delete();
             DB::commit();
@@ -99,7 +100,6 @@ class PlaceOrder extends Component
             return redirect()->back();
         }
     }
-
     public function couponApplied($discount, $couponId)
     {
         $this->discount = $discount;
