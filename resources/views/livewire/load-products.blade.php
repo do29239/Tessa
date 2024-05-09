@@ -39,7 +39,7 @@
                                     <div class="wishlist-btn">
                                         <a href="#">
                                             <i class="bx bx-heart"></i>
-                                            <span class="tooltip-label">{{__('messages.AddToWishlist')}}</span>
+                                            <span class="tooltip-label">{{__('messages.add_to_wishlist')}}</span>
                                         </a>
                                     </div>
                                 </li>

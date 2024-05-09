@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/nice-select.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/slick.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/meanmenu.min.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('assets/css/meanmenu.min.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('assets/css/rangeSlider.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bottom-navbar.css') }}">
@@ -120,7 +120,7 @@
                         <li><a href="#"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
                         @if(!auth()->user()->request_submitted)
                         <li>
-                            <a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i> {{__('messages.request_stylist')}}</a>
+                            <a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i>{{__('messages.request_stylist')}}</a>
                         </li>
                         @endif
                         <li><a href="{{ route('my.orders') }}"><i class="bx bxs-user"></i>{{__('messages.my_orders')}}</a></li>
@@ -277,49 +277,49 @@
                 <div class="icon">
                     <i class='flaticon-tracking'></i>
                 </div>
-                <h3>Free Shipping Worldwide</h3>
+                <h3>{{__('messages.free_shipping_worldwide')}}</h3>
             </div>
 
             <div class="single-facility-box">
                 <div class="icon">
                     <i class='flaticon-return'></i>
                 </div>
-                <h3>Easy Return Policy</h3>
+                <h3>{{__('messages.easy_return_policy')}}</h3>
             </div>
 
             <div class="single-facility-box">
                 <div class="icon">
                     <i class='flaticon-shuffle'></i>
                 </div>
-                <h3>7 Day Exchange Policy</h3>
+                <h3>{{__('messages.seven_day_exchange_policy')}}</h3>
             </div>
 
             <div class="single-facility-box">
                 <div class="icon">
                     <i class='flaticon-sale'></i>
                 </div>
-                <h3>Weekend Discount Coupon</h3>
+                <h3>{{__('messages.weekend_discount_coupon')}}</h3>
             </div>
 
             <div class="single-facility-box">
                 <div class="icon">
                     <i class='flaticon-credit-card'></i>
                 </div>
-                <h3>Secure Payment Methods</h3>
+                <h3>{{__('messages.secure_payment_methods')}}</h3>
             </div>
 
             <div class="single-facility-box">
                 <div class="icon">
                     <i class='flaticon-location'></i>
                 </div>
-                <h3>Track Your Package</h3>
+                <h3>{{__('messages.track_your_package')}}</h3>
             </div>
 
             <div class="single-facility-box">
                 <div class="icon">
                     <i class='flaticon-customer-service'></i>
                 </div>
-                <h3>24/7 Customer Support</h3>
+                <h3>{{__('messages.customer_support_24_7')}}</h3>
             </div>
         </div>
     </div>
@@ -464,7 +464,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget pl-4">
-                    <h3>Quick Links</h3>
+                    <h3>{{__('messages.quick_links')}}</h3>
                     <ul class="quick-links">
                         <li><a href="{{url('/')}}">{{__('messages.home')}}</a></li>
                         <li><a href="../products-sidebar-fullwidth.html">{{__('messages.shop')}}</a></li>
@@ -476,12 +476,11 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                    <h3>Customer Support</h3>
+                    <h3>{{__('messages.customer_support')}}</h3>
                     <ul class="customer-support">
                         <li><a href="../login.html">{{__('messages.my_account')}}</a></li>
-                        <li><a href="../cart.html">Cart</a></li>
-                        <li><a href="../track-order.html">Order Tracking</a></li>
-                        <li><a href="../contact.html">Help & Support</a></li>
+                        <li><a href="../cart.html">{{__('messages.Cart')}}</a></li>
+                        <li><a href="../contact.html">{{__('messages.Help')}}</a></li>
                     </ul>
                 </div>
             </div>

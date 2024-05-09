@@ -8,8 +8,8 @@
         <div class="page-title-content">
           <h2>{{$product->name}}</h2>
           <ul>
-            <li><a href="{{ url('/') }}">Home</a></li>
-            <li>Products Details</li>
+            <li><a href="{{ url('/') }}">{{__('messages.home')}}</a></li>
+            <li>{{__('messages.product_details')}}</li>
           </ul>
         </div>
       </div>
@@ -75,12 +75,12 @@
                             href="#"
                             data-bs-toggle="modal"
                             data-bs-target="#productsShippingModal"
-                        ><i class="bx bxs-truck"></i> Shipping</a
+                        ><i class="bx bxs-truck"></i>{{__('messages.Shipping')}}</a
                         >
                     </li>
                     <li>
                         <a href="contact.html"
-                        ><i class="bx bx-envelope"></i> Ask about this products</a
+                        ><i class="bx bx-envelope"></i>{{__('messages.ask_about_product')}}</a
                         >
                     </li>
                 </ul>
@@ -95,7 +95,7 @@
 
               <div class="wishlist-compare-btn">
                 <a href="#" class="optional-btn"
-                  ><i class="bx bx-heart"></i> Add to Wishlist</a
+                  ><i class="bx bx-heart"></i>{{__('messages.add_to_wishlist')}}</a
                 >
               </div>
 
@@ -113,7 +113,7 @@
                 </div>
 
                 <div class="item">
-                  <a href="#" class="default-btn">Buy it now!</a>
+                  <a href="#" class="default-btn">{{__('messages.buy_now')}}</a>
                 </div>
               </div>
             </div>

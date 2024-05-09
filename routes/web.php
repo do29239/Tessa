@@ -96,6 +96,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/shop/{brandName}', [ShopByBrandController::class,'shopByBrand'])->name('shop.brand');
     Route::get('/hair-color/{brandName}', [HairColorController::class,'showHairColors'])->name('hair.colors');
 
+    Route::view('/about', 'main/about/about');
+    Route::view('/contact', 'main/contact/contact');
+
 
 //    Route::post('/apply-coupon', [OrderController::class, 'applyCoupon'])->name('apply-coupon');
 

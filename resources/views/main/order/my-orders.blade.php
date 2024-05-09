@@ -5,10 +5,10 @@
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h2>My Orders</h2>
+                <h2>{{__('messages.my_orders')}}</h2>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li>My Orders</li>
+                    <li><a href="index.html">{{__('messages.home')}}</a></li>
+                    <li>{{__('messages.my_orders')}}</li>
                 </ul>
             </div>
         </div>
@@ -20,11 +20,11 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th scope="col" class="text-center">Order Number</th>
-                            <th scope="col" class="text-center">Order Date</th>
-                            <th scope="col" class="text-center">Order Total</th>
-                            <th scope="col" class="text-center">Status</th>
-                            <th scope="col" class="text-center">Action</th>
+                            <th scope="col" class="text-center">{{__('messages.order_number')}}</th>
+                            <th scope="col" class="text-center">{{__('messages.order_date')}}</th>
+                            <th scope="col" class="text-center">{{__('messages.order_total')}}</th>
+                            <th scope="col" class="text-center">{{__('messages.status')}}</th>
+                            <th scope="col" class="text-center">{{__('messages.action')}}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -41,15 +41,15 @@
                                 </td>
                                 @if($order->status == 1)
                                     <td class="product-subtotal text-center">
-                                        <span class="subtotal-amount">Completed</span>
+                                        <span class="subtotal-amount">{{__('messages.completed')}}</span>
                                     </td>
                                 @elseif($order->status == 0)
                                     <td class="product-subtotal text-center">
-                                        <span class="subtotal-amount">Pending...</span>
+                                        <span class="subtotal-amount">{{__('messages.pending')}}</span>
                                     </td>
                                 @endif
                                 <td class="product-subtotal text-center">
-                                    <a href="{{ route('order.details', ['order_id' => $order->id]) }}" class="default-btn">View Order</a>
+                                    <a href="{{ route('order.details', ['order_id' => $order->id]) }}" class="default-btn">{{__('messages.view_order')}}</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -61,11 +61,11 @@
     </section>
     <style>
         @media only screen and (max-width: 768px) {
-            .table-responsive td:nth-of-type(1):before { content: "Order Number"; }
-            .table-responsive td:nth-of-type(2):before { content: "Order Date"; }
-            .table-responsive td:nth-of-type(3):before { content: "Order Total"; }
-            .table-responsive td:nth-of-type(4):before { content: "Status"; }
-            .table-responsive td:nth-of-type(5):before { content: "Action"; }
+            .table-responsive td:nth-of-type(1):before { content: "{{__('messages.order_number')}}"; }
+            .table-responsive td:nth-of-type(2):before { content: "{{__('messages.order_date')}}"; }
+            .table-responsive td:nth-of-type(3):before { content: "{{__('messages.order_total')}}"; }
+            .table-responsive td:nth-of-type(4):before { content: "{{__('messages.status')}}"; }
+            .table-responsive td:nth-of-type(5):before { content: "{{__('messages.action')}}"; }
         }
     </style>
 @endsection

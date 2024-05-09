@@ -13,24 +13,24 @@
         </div>
     @endif
     <div class="login-content">
-        <h2>Request stylist account:</h2>
+        <h2>{{__('messages.request_stylist')}}</h2>
 
         <form class="login-form" action="{{route('requests.store')}}" method="POST">
             @csrf
             <div class="form-group">
-                <input type="text" name="saloon_name" class="form-control" placeholder="Enter your saloon name" required>
+                <input type="text" name="saloon_name" class="form-control" placeholder="{{__('messages.saloon_name')}}" required>
             </div>
             <div class="form-group">
-                <input type="text" name="saloon_city" class="form-control" placeholder="Enter your saloon city" required>
+                <input type="text" name="saloon_city" class="form-control" placeholder="{{__('messages.saloon_city')}}" required>
             </div>
             <div class="form-group">
-                <input type="text" name="saloon_address" class="form-control" placeholder="Enter your saloon address" required>
+                <input type="text" name="saloon_address" class="form-control" placeholder="{{__('messages.saloon_address')}}" required>
             </div>
             <div class="form-group">
-                <input type="text" name="saloon_phone" class="form-control" placeholder="Enter your saloon phone number" required>
+                <input type="text" name="saloon_phone" class="form-control" placeholder="{{__('messages.saloon_number')}}" required>
             </div>
 
-            <button type="submit" class="default-btn">Submit request</button>
+            <button type="submit" class="default-btn">{{__('messages.submit_req')}}</button>
 
         </form>
     </div>

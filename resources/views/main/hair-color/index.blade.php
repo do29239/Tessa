@@ -8,7 +8,7 @@
                 <h2>Colors</h2>
                 <ul>
                     <li><a href="{{ url('/') }}">{{__('messages.home')}}</a></li>
-                    <li>Colors</li>
+                    <li>{{__('messages.colors')}}</li>
                 </ul>
             </div>
         </div>
@@ -39,7 +39,7 @@
                                         <div class="quick-view-btn">
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
                                                 <i class='bx bx-search-alt'></i>
-                                                <span class="tooltip-label">Quick View</span>
+                                                <span class="tooltip-label">{{__('messages.quick_view')}}</span>
                                             </a>
                                         </div>
                                     </li>

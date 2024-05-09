@@ -1,15 +1,15 @@
 <form wire:submit.prevent="placeOrder">
         <div>
             <div class="order-details">
-                <h3 class="title">Your Order</h3>
+                <h3 class="title">{{__('messages.your_order')}}</h3>
 
                 <div class="order-table table-responsive">
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th scope="col">Product Name</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Total</th>
+                            <th scope="col">{{__('messages.product_name')}}</th>
+                            <th scope="col">{{__('messages.Quantity')}}</th>
+                            <th scope="col">{{__('messages.Total')}}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -24,14 +24,14 @@
                         {{-- Dynamically show the coupon discount if applied --}}
                         @if($discount)
                             <tr>
-                                <td colspan="2" class="text-right">Coupon Discount: </td>
+                                <td colspan="2" class="text-right">{{__('messages.coupon_discount')}}</td>
                                 <td>-{{ $discount }} den</td>
                             </tr>
                         @endif
 
                         {{-- Dynamically calculate and show the order total --}}
                         <tr>
-                            <td colspan="2" class="text-right"><strong>Order Total:</strong></td>
+                            <td colspan="2" class="text-right"><strong>{{__('messages.order_total_')}}</strong></td>
                             <td>{{ $finalTotal }} den</td>
                         </tr>
                         </tbody>
@@ -48,10 +48,10 @@
         <div class="payment-box">
             <div class="payment-method">
                 <p>
-                    <label for="cash-on-delivery">Cash on Delivery</label>
+                    <label for="cash-on-delivery">{{__('messages.cash_on_delivery')}}</label>
                 </p>
             </div>
 
-            <button type="submit" wire:model="placeOrder" class="default-btn">Place Order</button>
+            <button type="submit" wire:model="placeOrder" class="default-btn">{{__('messages.place_order')}}</button>
         </div>
     </form>

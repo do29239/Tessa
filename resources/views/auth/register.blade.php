@@ -129,6 +129,7 @@
                         class="form-control"
                         type="password"
                         name="password"
+                        :placeholder="__('messages.enter_your_password')"
                         required
                         autocomplete="new-password"
                     />
@@ -144,6 +145,7 @@
                         class="form-control"
                         type="password"
                         name="password_confirmation"
+                        :placeholder="__('messages.enter_your_confirm_password')"
                         required
                         autocomplete="new-password"
                     />
