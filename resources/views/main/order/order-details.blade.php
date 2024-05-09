@@ -78,7 +78,7 @@
                         <li>Total <span>{{ number_format($order->total + 150 - (!empty($order->coupon) ? ($order->coupon->type == 'percentage' ? ($order->total * $order->coupon->value / 100) : $order->coupon->value) : 0), 2) }} den</span></li>
                     </ul>
 
-                    <a href="../checkout.html" class="default-btn">Continue Shopping</a>
+                    <a href="{{route('shop')}}" class="default-btn">Continue Shopping</a>
                 </div>
             </form>
         </div>

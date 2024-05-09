@@ -13,17 +13,16 @@
     <link rel="preload" href="{{ asset('assets/css/bootstrap.min.css') }}" as="style" onload="this.rel='stylesheet'">
     <link rel="preload" href="{{ asset('assets/css/style.css') }}" as="style" onload="this.rel='stylesheet'">
     <link rel="preload" href="{{ asset('assets/css/responsive.css') }}" as="style" onload="this.rel='stylesheet'">
-    <link rel="preload" href="{{ asset('assets/css/owl.carousel.min.css') }}" as="style" onload="this.rel='stylesheet'">
+{{--    <link rel="preload" href="{{ asset('assets/css/owl.carousel.min.css') }}" as="style" onload="this.rel='stylesheet'">--}}
 
     <!-- Regular style links -->
-    <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('assets/css/boxicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/nice-select.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/slick.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/meanmenu.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/rangeSlider.min.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">--}}
+{{--    <link rel="stylesheet" href="{{ asset('assets/css/nice-select.min.css') }}">--}}
+{{--    <link rel="stylesheet" href="{{ asset('assets/css/slick.min.css') }}">--}}
+{{--    <link rel="stylesheet" href="{{ asset('assets/css/rangeSlider.min.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('assets/css/dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bottom-navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/carousel.css') }}">
@@ -36,25 +35,15 @@
 
     <title>Tessa Academy</title>
     <link rel="icon" type="image/png" href="{{asset('assets/img/tessapurplelogo-01.png')}}">
-    <style>
-        .navbar-area.header-sticky {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 999;
-            -webkit-box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
-            box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
-            background: #ffffff !important;
-            opacity: 0;
-            visibility: hidden;
-            -webkit-transition: 0.5s;
-            transition: 0.5s;
-        }
-    </style>
+
 </head>
 <body>
-
+<div class="switch-box">
+    <label class="switch">
+        <input type="checkbox" id="darkModeSwitch">
+        <span class="slider round"></span>
+    </label>
+</div>
 <!-- Start Top Header Area -->
 <div class="top-header">
     <div class="container">
@@ -62,50 +51,31 @@
             <div class="col-lg-6 col-md-12">
                 <ul class="header-contact-info">
                     <li>{{__('messages.welcome')}}</li>
-                    <li>{{__('messages.call_us')}} <a href="tel:+01321654214">+389 78 286 003</a></li>
                     <li>
                         <div class="dropdown language-switcher d-inline-block">
-                            <button
-                                class="dropdown-toggle"
-                                type="button"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                            >
-                                @if(App::currentLocale()=="shq")
+                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @if(App::currentLocale() == "shq")
                                     <img src="{{ asset('assets/img/albania-flag-01.png') }}" alt="image" />
                                     <span>AL <i class="bx bx-chevron-down"></i></span>
-                                @elseif(App::currentLocale()=="en")
+                                @elseif(App::currentLocale() == "en")
                                     <img src="{{ asset('assets/img/us-flag.jpg') }}" alt="image" />
                                     <span>EN <i class="bx bx-chevron-down"></i></span>
-                                @elseif(App::currentLocale()=="mk")
+                                @elseif(App::currentLocale() == "mk")
                                     <img src="{{ asset('assets/img/macedonia-flag-01.png') }}" alt="image" />
                                     <span>MK <i class="bx bx-chevron-down"></i></span>
                                 @endif
                             </button>
                             <div class="dropdown-menu">
-                                <a href="{{ route('set.language', 'en') }}" class="dropdown-item d-flex align-items-center ">
-                                    <img
-                                        src="{{ asset('assets/img/us-flag.jpg') }}"
-                                        class="shadow-sm"
-                                        alt="flag"
-                                    />
+                                <a href="{{ route('set.language', 'en') }}" class="dropdown-item d-flex align-items-center">
+                                    <img src="{{ asset('assets/img/us-flag.jpg') }}" class="shadow-sm" alt="flag" />
                                     <span>EN</span>
                                 </a>
                                 <a href="{{ route('set.language', 'shq') }}" class="dropdown-item d-flex align-items-center">
-                                    <img
-                                        src="{{ asset('assets/img/albania-flag-01.png') }}"
-                                        class="shadow-sm"
-                                        alt="flag"
-                                    />
+                                    <img src="{{ asset('assets/img/albania-flag-01.png') }}" class="shadow-sm" alt="flag" />
                                     <span>AL</span>
                                 </a>
                                 <a href="{{ route('set.language', 'mk') }}" class="dropdown-item d-flex align-items-center">
-                                    <img
-                                        src="{{ asset('assets/img/macedonia-flag-01.png') }}"
-                                        class="shadow-sm"
-                                        alt="flag"
-                                    />
+                                    <img src="{{ asset('assets/img/macedonia-flag-01.png') }}" class="shadow-sm" alt="flag" />
                                     <span>MK</span>
                                 </a>
                             </div>
@@ -113,33 +83,63 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-6 col-md-12">
-                @auth
-                    <!-- Displayed when the user is logged in -->
-                    <ul class="header-top-menu">
-                        <li><a href="#"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
+            <div class="col-lg-6 col-md-12 d-flex justify-content-end">
+                <div class="d-none d-lg-block">
+                    @auth
+                        <ul class="header-top-menu">
+                            <li><a href="#"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
+                            @if(!auth()->user()->request_submitted)
+                                <li><a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i>{{__('messages.request_stylist')}}</a></li>
+                            @endif
+                            <li><a href="{{ route('my.orders') }}"><i class="bx bxs-user"></i>{{__('messages.my_orders')}}</a></li>
+                            <li>
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+                                    <i class="bx bx-log-in"></i> <span style="margin-left: 5px;">{{__('messages.log_out')}}</span>
+                                </a>
+                                <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    @else
+                        <ul class="header-top-menu">
+                            <li><a href="{{ route('login') }}"><i class="bx bx-log-in"></i>{{__('messages.login')}}</a></li>
+                            <li><a href="{{ route('register') }}"><i class="bx bx-log-in"></i>{{__('messages.register')}}</a></li>
+                        </ul>
+                    @endauth
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Top Header Area -->
+<!-- Start Phone Sidebar-->
+<div class="modal right fade sidebarModal" id="sidebarModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class='bx bx-x'></i></span>
+            </button>
+            <div class="modal-body">
+                <ul class="nav-menu-list">
+                    <li><a href="{{ route('courses') }}"><i class="bx bx-book {{ request()->routeIs('courses') ? ' active' : '' }}"></i>{{__('messages.courses')}}</a></li>
+                    <li><a href="about-us.html"><i class="bx bx-info-circle"></i>{{__('messages.about_us')}}</a></li>
+                    <li><a href="contact.html"><i class="bx bx-phone"></i>{{__('messages.contact')}}</a></li>
+                    @auth()
+                        <li><a href="my-account.html"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
                         @if(!auth()->user()->request_submitted)
-                        <li>
-                            <a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i> {{__('messages.request_stylist')}}</a>
-                        </li>
+                            <li><a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i>{{__('messages.request_stylist')}}</a></li>
                         @endif
-                        <li><a href="{{ route('my.orders') }}"><i class="bx bxs-user"></i>{{__('messages.my_orders')}}</a></li>
-                        <li>
-                            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
-                                <i class="bx bx-log-in"></i> <span style="margin-left: 5px;">{{__('messages.log_out')}}</span>
-                            </a>
+                        <li><a href="{{ route('my.orders') }}"><i class="bx bx-package"></i>{{__('messages.my_orders')}}</a></li>
+                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form-sidebar').submit();">
+                                <i class="bx bx-log-out"></i> Logout</a></li>
+                </ul>
+                <form id="logout-form-sidebar" method="POST" action="{{ route('logout') }}" style="display: none;">
 
-                            <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
-                                @csrf
-                            </form>
-                        </li>
-
-
-
-                    </ul>
+                    @csrf
+                </form>
                 @else
-                    <!-- Displayed when the user is not logged in -->
-                    <ul class="header-top-menu">
+                    <ul class="nav-menu-list">
                         <li><a href="{{ route('login') }}"><i class="bx bx-log-in"></i>{{__('messages.login')}}</a></li>
                         <li><a href="{{ route('register') }}"><i class="bx bx-log-in"></i>{{__('messages.register')}}</a></li>
                     </ul>
@@ -148,7 +148,7 @@
         </div>
     </div>
 </div>
-<!-- End Top Header Area -->
+<!-- End Phone Sidebar-->
 
 <!-- Start Navbar Area -->
 <div class="navbar-area">
@@ -158,12 +158,14 @@
                 <div class="logo">
                     <a href="/">
                         <img src="{{asset('assets/img/tessablack3.png')}}" class="main-logo" alt="logo" />
-                        <img
-                            src="{{asset('assets/img/tesawhitelogo.png')}}"
-                            class="white-logo"
-                            alt="logo"
-                        />
+                        <img src="{{asset('assets/img/tesawhitelogo.png')}}" class="white-logo" alt="logo" />
                     </a>
+                </div>
+                <!-- Burger Menu -->
+                <div class="burger-menu" data-bs-toggle="modal" data-bs-target="#sidebarModal">
+                    <span class="top-bar"></span>
+                    <span class="middle-bar"></span>
+                    <span class="bottom-bar"></span>
                 </div>
             </div>
         </div>
@@ -173,11 +175,7 @@
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="{{url('/')}}">
                     <img src="{{asset('assets/img/tessalogo2.png')}}" class="main-logo" alt="logo" />
-                    <img
-                        src="{{asset('assets/img/tesawhitelogo.png')}}"
-                        class="white-logo"
-                        alt="logo"
-                    />
+                    <img src="{{asset('assets/img/tesawhitelogo.png')}}" class="white-logo" alt="logo" />
                 </a>
                 <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav">
@@ -228,21 +226,21 @@
                         alt="logo"
                     />
                 </a>
-                <div class="collapse navbar-collapse mean-menu">
+                <div class="collapse navbar-collapse">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a href="{{ url('/') }}" class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">{{__('messages.home')}}</a>
                         </li>
-                        <li class="nav-item megamenu">
+                        <li class="nav-item ">
                             <a href="{{ route('shop') }}" class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.shop')}}</a>
                         </li>
-                        <li class="nav-item megamenu">
+                        <li class="nav-item ">
                             <a href="../blog-1.html" class="nav-link">{{__('messages.courses')}}</a>
                         </li>
-                        <li class="nav-item megamenu">
+                        <li class="nav-item ">
                             <a href="../about.html" class="nav-link">{{__('messages.about_us')}}</a>
                         </li>
-                        <li class="nav-item megamenu">
+                        <li class="nav-item ">
                             <a href="../contact.html" class="nav-link">{{__('messages.contact')}}</a>
                         </li>
                     </ul>
@@ -255,6 +253,13 @@
                         </div>
                         <div class="option-item">
                             <livewire:cart.cart-counter/>
+                        </div>
+                        <div class="option-item">
+                            <div class="burger-menu" data-bs-toggle="modal" data-bs-target="#sidebarModal">
+                                <span class="top-bar"></span>
+                                <span class="middle-bar"></span>
+                                <span class="bottom-bar"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -269,63 +274,6 @@
 
 @yield('content')
 
-<!-- Start Facility Area -->
-<section class="facility-area pb-70">
-    <div class="container">
-        <div class="facility-slides owl-carousel owl-theme">
-            <div class="single-facility-box">
-                <div class="icon">
-                    <i class='flaticon-tracking'></i>
-                </div>
-                <h3>Free Shipping Worldwide</h3>
-            </div>
-
-            <div class="single-facility-box">
-                <div class="icon">
-                    <i class='flaticon-return'></i>
-                </div>
-                <h3>Easy Return Policy</h3>
-            </div>
-
-            <div class="single-facility-box">
-                <div class="icon">
-                    <i class='flaticon-shuffle'></i>
-                </div>
-                <h3>7 Day Exchange Policy</h3>
-            </div>
-
-            <div class="single-facility-box">
-                <div class="icon">
-                    <i class='flaticon-sale'></i>
-                </div>
-                <h3>Weekend Discount Coupon</h3>
-            </div>
-
-            <div class="single-facility-box">
-                <div class="icon">
-                    <i class='flaticon-credit-card'></i>
-                </div>
-                <h3>Secure Payment Methods</h3>
-            </div>
-
-            <div class="single-facility-box">
-                <div class="icon">
-                    <i class='flaticon-location'></i>
-                </div>
-                <h3>Track Your Package</h3>
-            </div>
-
-            <div class="single-facility-box">
-                <div class="icon">
-                    <i class='flaticon-customer-service'></i>
-                </div>
-                <h3>24/7 Customer Support</h3>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Facility Area -->
-
 <!-- Start Instagram Area -->
 <div class="instagram-area">
     <div class="container-fluid">
@@ -333,7 +281,7 @@
             <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank"><i class='bx bxl-instagram'></i>{{__('messages.follow_us')}}</a>
         </div>
 
-        <div class="instagram-slides owl-carousel owl-theme">
+        <div class="instagram-slides">
             <div class="single-instagram-post">
                 <img src="{{asset('assets/img/instagram/foto1.jpg')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
@@ -396,6 +344,9 @@
         </div>
     </div>
 </div>
+<style>
+
+</style>
 <!-- End Instagram Area -->
 <!-- Start Shopping Cart Modal -->
 <div class="modal right fade shoppingCartModal" id="shoppingCartModal" tabindex="-1" role="dialog">
@@ -580,26 +531,29 @@
 </div>
 
 
+
+
 <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
 
 <!-- Links of JS files -->
-<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+{{--<script src="{{ asset('assets/js/jquery.min.js') }}"></script>--}}
 <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
-<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('assets/js/magnific-popup.min.js') }}" defer></script>
-<script src="{{ asset('assets/js/parallax.min.js') }}" defer></script>
-<script src="{{ asset('assets/js/rangeSlider.min.js') }}" defer></script>
-<script src="{{ asset('assets/js/nice-select.min.js') }}" defer></script>
-<script src="{{ asset('assets/js/meanmenu.min.js') }}" defer></script>
-<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}" defer></script>
-<script src="{{ asset('assets/js/slick.min.js') }}" defer></script>
+{{--<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>--}}
+{{--<script src="{{ asset('assets/js/magnific-popup.min.js') }}" defer></script>--}}
+{{--<script src="{{ asset('assets/js/parallax.min.js') }}" defer></script>--}}
+{{--<script src="{{ asset('assets/js/rangeSlider.min.js') }}" defer></script>--}}
+{{--<script src="{{ asset('assets/js/nice-select.min.js') }}" defer></script>--}}
+{{--<script src="{{ asset('assets/js/meanmenu.min.js') }}" defer></script>--}}
+{{--<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}" defer></script>--}}
+{{--<script src="{{ asset('assets/js/slick.min.js') }}" defer></script>--}}
 <script src="{{ asset('assets/js/sticky-sidebar.min.js') }}" defer></script>
-<script src="{{ asset('assets/js/wow.min.js') }}" defer></script>
-<script src="{{ asset('assets/js/form-validator.min.js') }}" defer></script>
-<script src="{{ asset('assets/js/contact-form-script.js') }}" defer></script>
-<script src="{{ asset('assets/js/ajaxchimp.min.js') }}" defer></script>
+{{--<script src="{{ asset('assets/js/wow.min.js') }}" defer></script>--}}
+{{--<script src="{{ asset('assets/js/form-validator.min.js') }}" defer></script>--}}
+{{--<script src="{{ asset('assets/js/contact-form-script.js') }}" defer></script>--}}
+{{--<script src="{{ asset('assets/js/ajaxchimp.min.js') }}" defer></script>--}}
 <script src="{{ asset('assets/js/main.js') }}" defer></script>
-<script src="{{ asset('assets/js/carousel.js') }}" defer></script>
+@yield('scripts')
+
 
 @livewireScripts
 </body>

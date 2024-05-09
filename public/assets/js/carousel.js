@@ -1,154 +1,68 @@
-// JavaScript Code
-let currentSlideIndex = 0;
-const slides = document.querySelectorAll('.carousel-item');
-const totalSlides = slides.length;
+// Carousel
 document.addEventListener('DOMContentLoaded', function() {
-    let currentSlideIndex = 0;
     const slides = document.querySelectorAll('.carousel-item');
     const totalSlides = slides.length;
     const carouselBackground = document.querySelector('.carousel-background');
     const animationClasses = ['animate-up', 'animate-right', 'animate-down', 'animate-left'];
+    let currentSlideIndex = 0;
     let lastAnimationIndex = -1;
 
-    function showSlide(index, animation) {
+    function getNextAnimation() {
+        lastAnimationIndex = (lastAnimationIndex + 1) % animationClasses.length;
+        return animationClasses[lastAnimationIndex];
+    }
+
+    function showSlide(index) {
         const currentSlide = slides[currentSlideIndex];
         const nextSlide = slides[index];
 
-        // Set the current slide as a background
+        // Update the background with the current slide's image
         carouselBackground.style.backgroundImage = `url('${currentSlide.querySelector('img').src}')`;
 
+        // Reset all slides before showing the next one
         slides.forEach(slide => {
-            slide.classList.remove('active');
+            slide.classList.remove('active', ...animationClasses);
             slide.style.opacity = '0';
-            animationClasses.forEach(animClass => slide.classList.remove(animClass));
         });
 
-        // Add the new animation class to the next slide
-        nextSlide.classList.add(animation);
+        // Add animation and make the next slide active
+        nextSlide.classList.add(getNextAnimation());
         nextSlide.classList.add('active');
         nextSlide.style.opacity = '1';
 
         currentSlideIndex = index;
     }
 
-    function getNextAnimation() {
-        lastAnimationIndex = (lastAnimationIndex + 1) % animationClasses.length;
-        return animationClasses[lastAnimationIndex];
+    function changeSlide(direction) {
+        let nextIndex = currentSlideIndex;
+        if (direction === 'next') {
+            nextIndex = currentSlideIndex < totalSlides - 1 ? currentSlideIndex + 1 : 0;
+        } else if (direction === 'prev') {
+            nextIndex = currentSlideIndex > 0 ? currentSlideIndex - 1 : totalSlides - 1;
+        }
+        showSlide(nextIndex);
     }
 
-    // Function to go to the next slide
-    function toNextSlide() {
-        const nextSlideIndex = (currentSlideIndex < totalSlides - 1) ? currentSlideIndex + 1 : 0;
-        showSlide(nextSlideIndex, getNextAnimation());
-    }
+    // Set up event listeners for carousel controls
+    document.querySelector('.carousel-control.prev').addEventListener('click', () => changeSlide('prev'));
+    document.querySelector('.carousel-control.next').addEventListener('click', () => changeSlide('next'));
 
-    // Controls click event listeners
-    document.querySelector('.carousel-control.prev').addEventListener('click', toNextSlide);
-    document.querySelector('.carousel-control.next').addEventListener('click', toNextSlide);
-
-    // Initialize the carousel
-    showSlide(currentSlideIndex, getNextAnimation());
-
-    // Set interval for automatic slide change every 1 second
-    setInterval(toNextSlide, 4000);
-});
-document.addEventListener('DOMContentLoaded', function() {
-    let currentSlideIndex = 0;
-    const slides = document.querySelectorAll('.carousel-item');
-    const totalSlides = slides.length;
-    const animationClasses = ['animate-up', 'animate-right', 'animate-down', 'animate-left'];
-    let lastAnimationIndex = -1; // To track the last used animation
-
-    function showSlide(index, animation) {
-        slides.forEach(slide => {
-            slide.classList.remove('active');
-            slide.style.opacity = '0';
-            // Remove all animation classes
-            animationClasses.forEach(animClass => slide.classList.remove(animClass));
-        });
-
-        // Add a new animation class
-        slides[index].classList.add(animation);
-        slides[index].classList.add('active');
-        slides[index].style.opacity = '1';
-    }
-
-    function getNextAnimation() {
-        lastAnimationIndex = (lastAnimationIndex + 1) % animationClasses.length;
-        return animationClasses[lastAnimationIndex];
-    }
-
-    document.querySelector('.carousel-control.prev').addEventListener('click', () => {
-        currentSlideIndex = currentSlideIndex > 0 ? currentSlideIndex - 1 : totalSlides - 1;
-        showSlide(currentSlideIndex, getNextAnimation());
-    });
-
-    document.querySelector('.carousel-control.next').addEventListener('click', () => {
-        currentSlideIndex = currentSlideIndex < totalSlides - 1 ? currentSlideIndex + 1 : 0;
-        showSlide(currentSlideIndex, getNextAnimation());
-    });
-
-    // Initialize the first slide without animation
-    slides[currentSlideIndex].classList.add('active');
-    slides[currentSlideIndex].style.opacity = '1';
-});
-
-function showSlide(index) {
-    slides.forEach(slide => {
-        slide.classList.remove('active');
-        slide.style.opacity = '0';
-    });
-
-    slides[index].classList.add('active');
-    slides[index].style.opacity = '1';
-}
-
-document.querySelector('.carousel-control.prev').addEventListener('click', () => {
-    currentSlideIndex = currentSlideIndex > 0 ? currentSlideIndex - 1 : totalSlides - 1;
+    // Initialize the carousel by showing the first slide
     showSlide(currentSlideIndex);
+
+    // Set interval for automatic slide change every 4 seconds
+    setInterval(() => changeSlide('next'), 4000);
 });
+//Carousel --End--
 
-document.querySelector('.carousel-control.next').addEventListener('click', () => {
-    currentSlideIndex = currentSlideIndex < totalSlides - 1 ? currentSlideIndex + 1 : 0;
-    showSlide(currentSlideIndex);
-});
-
-// Initialize the first slide.
-showSlide(currentSlideIndex);
-
+//BRAND SLIDES
 document.addEventListener('DOMContentLoaded', function() {
     const slider = document.querySelector('.brand-slides');
     const slides = Array.from(document.querySelectorAll('.brand-item'));
     const slideWidth = slides[0].clientWidth;  // Width of one slide
 
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    slider.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
-
-    slider.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
-
-    slider.addEventListener('mouseup', () => {
-        isDown = false;
-    });
-
-    slider.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 3;  // Adjust sensitivity as needed
-        slider.scrollLeft = scrollLeft - walk;
-    });
-
-    // Auto-scroll functionality adjusted to continuously move one slide at a time and recycle old slides
-    let autoScroll = setInterval(() => {
+    // Define the auto-scroll function
+    function autoScroll() {
         slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
 
         // Check if the first slide is out of view, then move it to the end
@@ -159,5 +73,150 @@ document.addEventListener('DOMContentLoaded', function() {
             slides.shift();  // Remove the first element from the array
             slider.scrollLeft -= slideWidth;  // Adjust scrollLeft to keep the flow seamless
         }
-    }, 3000);
+    }
+
+    // Set the initial auto-scroll interval
+    let autoScrollInterval = setInterval(autoScroll, 1500);
+
+    // Setup event listeners for mouse enter and mouse leave
+    slider.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+    slider.addEventListener('mouseleave', () => autoScrollInterval = setInterval(autoScroll, 1500));
+    slider.addEventListener('touchstart', () => clearInterval(autoScrollInterval), {passive: true});
+    slider.addEventListener('touchend', () => autoScrollInterval = setInterval(autoScroll, 1500), {passive: true});
+});
+//BRAND SLIDES --END--
+
+//INSTAGRAM SLIDES
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.instagram-slides');
+    let scrollAmount = 0;
+
+    // Define the autoScroll function
+    function autoScroll() {
+        if (scrollAmount < slider.scrollWidth - slider.clientWidth) {
+            scrollAmount += 317.16;  // Move by the width of one post
+        } else {
+            scrollAmount = 0;  // Reset the scroll
+        }
+        slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    }
+
+    // Initialize the auto-scroll interval
+    let interval = setInterval(autoScroll, 1500);  // Change slide every 2 seconds
+
+    // Set up event listeners for mouse and touch events to pause/resume auto-scroll
+    slider.addEventListener('mouseenter', () => clearInterval(interval));
+    slider.addEventListener('mouseleave', () => interval = setInterval(autoScroll, 1500));
+    slider.addEventListener('touchstart', () => clearInterval(interval), {passive: true});
+    slider.addEventListener('touchend', () => interval = setInterval(autoScroll, 1500), {passive: true});
+});
+// INSTAGRAM SLIDES --END--
+
+//STICKY NAVBAR
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.header-sticky');
+    let lastScrollTop = 0;
+
+    function handleScroll() {
+        const currentScrollTop = window.scrollY;
+        if (currentScrollTop < lastScrollTop && currentScrollTop > 50) {
+            // Check if the class needs to be added
+            if (!navbar.classList.contains('is-sticky')) {
+                navbar.classList.add('is-sticky');
+                navbar.classList.remove('is-hidden');
+            }
+        } else if (navbar.classList.contains('is-sticky')) {
+            // Check if the class needs to be removed
+            navbar.classList.remove('is-sticky');
+            navbar.classList.add('is-hidden');
+        }
+        lastScrollTop = currentScrollTop; // Update lastScrollTop to the new scroll position for the next move
+    }
+
+    window.addEventListener('scroll', handleScroll);
+});
+
+//GO TO TOP BUTTON
+document.addEventListener('DOMContentLoaded', function () {
+    let goTopButton = document.querySelector('.go-top'); // Get the go-top button
+    let arrowIcon = goTopButton.querySelector('i');
+    // Scroll event listener
+    window.addEventListener('scroll', function() {
+        let scrolled = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrolled > 300) {
+            goTopButton.classList.add('active');
+        } else {
+            goTopButton.classList.remove('active');
+            arrowIcon.classList.remove('hovered');
+        }
+    });
+
+    // Click event listener for go-top button
+    goTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const darkModeSwitch = document.getElementById('darkModeSwitch');
+
+    // Function to set the theme
+    function setTheme(theme) {
+        if (theme === 'theme-dark') {
+            document.body.classList.add('theme-dark');
+            document.body.classList.remove('theme-light');
+            localStorage.setItem('xton_theme', 'theme-dark');
+        } else {
+            document.body.classList.add('theme-light');
+            document.body.classList.remove('theme-dark');
+            localStorage.setItem('xton_theme', 'theme-light');
+        }
+    }
+
+    // Initialize theme from local storage or default to light theme
+    if (localStorage.getItem('xton_theme') === 'theme-dark') {
+        setTheme('theme-dark');
+        darkModeSwitch.checked = true; // Assuming checked means dark mode
+    } else {
+        setTheme('theme-light');
+        darkModeSwitch.checked = false; // Assuming unchecked means light mode
+    }
+
+    // Event listener for changes on the dark mode switch
+    darkModeSwitch.addEventListener('change', function() {
+        if (this.checked) {
+            setTheme('theme-dark');
+        } else {
+            setTheme('theme-light');
+        }
+    });
+});
+
+
+
+// Function to toggle the search overlay
+function toggleSearchOverlay() {
+    let searchOverlay = document.querySelector('.search-overlay');
+    searchOverlay.classList.toggle('search-overlay-active');
+}
+
+// Attach event listeners to all elements with the class 'search-btn'
+let searchButtons = document.querySelectorAll('.search-btn');
+searchButtons.forEach(function(button) {
+    button.addEventListener('click', toggleSearchOverlay);
+});
+
+// Function to close the search overlay
+function closeSearchOverlay() {
+    let searchOverlay = document.querySelector('.search-overlay');
+    searchOverlay.classList.remove('search-overlay-active');
+}
+
+// Attach event listeners to all elements with the class 'search-overlay-close'
+let closeButtons = document.querySelectorAll('.search-overlay-close');
+closeButtons.forEach(function(button) {
+    button.addEventListener('click', closeSearchOverlay);
 });

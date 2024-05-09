@@ -16,7 +16,12 @@
     }
 
     /* Force table to not be like tables anymore */
-    table, thead, tbody, th, td, tr {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
         display: block;
     }
 
@@ -62,12 +67,12 @@
     }
 
     /* Style for the content of each td */
-    td .unit-amount, td .subtotal-amount {
+    td .unit-amount,
+    td .subtotal-amount {
         text-align: right; /* Align the content to the right */
         flex-grow: 1; /* Allow the content to grow and take up available space */
     }
-    .table>:not(:first-child) {
+    .table > :not(:first-child) {
         border-top: none;
     }
 }
-

@@ -7,8 +7,7 @@
             <ul class="collections-list-row">
                 @foreach($categories as $category)
                     <li class="{{ $selectedCategory == $category->id ? 'active' : '' }}">
-                        <a href="#" wire:click.prevent="selectCategory({{ $category->id }})"
-                           onclick="bootstrap.Modal.getInstance(document.getElementById('mobileFilterModal')).hide();"><span></span> {{ $category->name }}</a>
+                        <a href="#" wire:click.prevent="selectCategory({{ $category->id }})"><span></span> {{ $category->name }}</a>
 
                     </li>
                 @endforeach
@@ -22,7 +21,6 @@
                 @foreach($brands as $brand)
                     <li class="{{ $selectedBrand == $brand->id ? 'active' : '' }}">
                         <a href="#" wire:click.prevent="selectBrand({{ $brand->id }})"
-                           onclick="bootstrap.Modal.getInstance(document.getElementById('mobileFilterModal')).hide();"
                         ><span></span> {{ $brand->name }}</a>
                     </li>
                 @endforeach

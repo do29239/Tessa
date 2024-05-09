@@ -78,8 +78,7 @@ class ProductService
     {
        return $this->getProducts()->with('image')
             ->where('category_id', $product->category_id)
-            ->where('id', '!=', $product->id)
-            ->get();
+            ->where('id', '!=', $product->id)->paginate(3);
     }
     public function showHairColors($brandName)
     {
