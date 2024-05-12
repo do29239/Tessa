@@ -8,17 +8,16 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RequestStylistController;
 use App\Http\Controllers\Admin\StylistController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\HairColorController;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\Main\CartController;
 use App\Http\Controllers\Main\CoursesController;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Main\HairColorController;
+use App\Http\Controllers\Main\MainController;
+use App\Http\Controllers\Main\OrderController;
+use App\Http\Controllers\Main\SalesController;
+use App\Http\Controllers\Main\ShopByBrandController;
+use App\Http\Controllers\Main\WishlistController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SalesController;
 use App\Http\Controllers\SearchController;
-use App\Http\Controllers\ShopByBrandController;
-use App\Http\Controllers\WishlistController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,11 +36,11 @@ Route::get('/', function () {
 });
 Route::get('/',[MainController::class, 'showProducts'])->name('main');
 Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
-Route::get('/shop', [MainController::class, 'showProducts'])->name('shop');
+Route::get('/shop', [MainController::class, 'shop'])->name('shop');
 Route::get('product/show-product/{product}', [MainController::class, 'show'])->name('showProduct');
 
 Route::middleware('auth')->group(function () {
-    Route::middleware(['admin'])->group(function () {
+    Route::middleware(\App\Http\Middleware\Admin::class)->group(function () {
         Route::get('/admin/dashboard', function () {
             return view('admin.dashboard');
         });
@@ -74,11 +73,11 @@ Route::middleware('auth')->group(function () {
 
 
     });
-        Route::resource('requests', RequestStylistController::class)->only('store');
-        Route::view('/request_form', 'main/request_stylist/request_form')->middleware('stylist');
+    Route::resource('requests', RequestStylistController::class)->only('store');
+    Route::view('/request_form', 'main/request_stylist/request_form')->middleware('stylist');
 
     Route::get('/', [MainController::class, 'showProducts'])->name('show_products');
-    Route::get('/shop', [MainController::class, 'showProducts'])->name('shop');
+    Route::get('/shop', [MainController::class, 'shop'])->name('shop');
     Route::get('product/show-product/{product}', [MainController::class, 'show'])->name('showProduct');
     Route::get('course/show-course/{course}', [CoursesController::class, 'show'])->name('showCourse');
     Route::get('/course', [CoursesController::class, 'index'])->name('courses');
@@ -102,7 +101,7 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::get('/set-language/{lang}', [\App\Http\Controllers\LanguageController::class, 'set'])->name('set.language');
+Route::get('/set-language/{lang}', [\App\Http\Controllers\Main\LanguageController::class, 'set'])->name('set.language');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

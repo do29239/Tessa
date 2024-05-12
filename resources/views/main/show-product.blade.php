@@ -24,7 +24,8 @@
             <div class="products-details-image">
               <ul class="products-details-image-slides">
                 <li>
-                    <img src="{{ asset('storage/images/'.$product->image->name) }}" alt="image" /></li>
+                    <img src="{{ asset('storage/images/'.$product->image->name) }}" alt="image" />
+                </li>
               </ul>
             </div>
           </div>
@@ -87,8 +88,8 @@
 
               </div>
 
-              <div class="products-add-to-cart"wire:key="main--{{$product->id}}" >
-                  <livewire:cart.add-to-cart :product_id="$product->id" wire:key="main--{{$product->id}}" />
+              <div class="products-add-to-cart"wire:key="{{$product->id}}" >
+                  <livewire:cart.add-to-cart :product_id="$product->id" />
 
 
               </div>
@@ -103,12 +104,6 @@
                 <div class="item">
                   <input class="inp-cbx" id="cbx" type="checkbox" />
                   <label class="cbx" for="cbx">
-                    <span>
-                      <svg width="12px" height="10px" viewbox="0 0 12 10">
-                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                      </svg>
-                    </span>
-                    <span>I agree with the terms and conditions</span>
                   </label>
                 </div>
 
@@ -211,37 +206,67 @@
         </div>
       </div>
     </section>
-<section>
-        <div class="related-products">
-            <div class="container">
-                <div class="section-title">
-                    <span class="sub-title">Our Shop</span>
-                    <h2>Related Products</h2>
-                </div>
+    <section class="products-area pt-100 pb-70">
+        <div class="container">
+            <div class="section-title">
+                <span class="sub-title">Our Shop</span>
+                <h2>Related Products</h2>
+            </div>
 
-                <div class="products-slides owl-carousel owl-theme">
-                    @foreach($relatedProducts as $relatedProduct)
-                        <div class="single-products-box" wire:key="related--{{$relatedProduct->id}}">
+            <div class="row">
+                @foreach($relatedProducts as $relatedProduct)
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="products-box">
                             <div class="products-image">
                                 <a href="{{ route('showProduct', $relatedProduct->id) }}">
-                                    <img src="{{ asset('storage/images/'.$relatedProduct->image->name) }}" class="main-image" alt="image">
-                                    <img src="{{ asset('storage/images/'.$relatedProduct->image->name) }}" class="hover-image" alt="image">
+                                    <img src="{{ asset('storage/images/'.$relatedProduct->image->name) }}" class="main-image" alt="image" width="416" height="496.7">
+                                    <img src="{{ asset('storage/images/'.$relatedProduct->image->name) }}" class="hover-image" alt="image" width="416" height="496.7">
                                 </a>
 
-                                <div class="products-content">
-                                    <span class="category">{{$relatedProduct->category->name}}</span>
-                                    <h3><a href="{{ route('showProduct', $relatedProduct->id) }}">{{ $relatedProduct->name }}</a></h3>
-                                    <div class="price">
-                                        <span class="new-price">{{ $relatedProduct->price }} den</span>
-                                    </div>
-                                    <div class="products-add-to-cart">
-                                        <livewire:cart.add-to-cart :product_id="$relatedProduct->id" wire:key="related--{{$relatedProduct->id}}" />
-                                    </div>
+                                <div class="products-button">
+                                    <ul>
+                                        <li>
+                                            @livewire('wishlist', ['product_id' => $relatedProduct->id])
+                                        </li>
+
+                                        <li>
+                                            <div class="quick-view-btn">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
+                                                    <i class='bx bx-search-alt'></i>
+                                                    <span class="tooltip-label">Quick View</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
+
+                            <div class="products-content">
+                                <span class="category">{{$relatedProduct->category->name}}</span>
+                                <h3><a href="{{ route('showProduct', $relatedProduct->id) }}">{{$relatedProduct->brand->name. '   ' .$relatedProduct->name}}</a></h3>
+                                <div class="price">
+                                    @if(auth()->check() && auth()->user()->role == 2)
+                                        <span class="new-price">{{ $relatedProduct->stylist_price }}den</span>
+                                    @elseif($relatedProduct->sale()->active()->exists())
+                                        <span class="old-price">${{ $relatedProduct->price }}</span>
+                                        <span class="new-price">${{ $relatedProduct->sale->sale_price }}</span>
+                                    @else
+                                        <span class="new-price">{{ $relatedProduct->price }}den</span>
+                                    @endif
+                                </div>
+                                <input type="hidden" value="{{$relatedProduct->id}}" class="prod_id">
+                                @livewire('add-to-cart', ['product_id' => $relatedProduct->id])
+                            </div>
+                            @if($relatedProduct->sale()->active()->exists())
+                                <span class="products-discount">
+                            <span>
+                                Sale!
+                            </span>
+                        </span>
+                            @endif
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

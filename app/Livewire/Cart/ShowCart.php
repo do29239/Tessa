@@ -18,6 +18,19 @@ class ShowCart extends Component
         $this->loadCart();
     }
 
+    public function render()
+    {
+
+        if ($this->view === 'show-cart') {
+
+
+            return view('livewire.cart.show-cart');
+        }
+        else
+            $this->loadCart();
+        return view('livewire.cart.show-cart-modal');
+    }
+
     public function loadCart()
     {
         $this->cartItems = Cart::with('product')
@@ -70,13 +83,5 @@ class ShowCart extends Component
         }
     }
 
-    public function render()
-    {
 
-        if ($this->view === 'show-cart') {
-            return view('livewire.cart.show-cart');
-        }
-        else
-            return view('livewire.cart.show-cart-modal');
-    }
 }

@@ -2,12 +2,7 @@
 
 namespace App\Providers;
 
-use App\Livewire\Cart\AddToCart;
-use App\Livewire\Product\LoadProducts;
-use App\Livewire\Product\ProductFilter;
 use Illuminate\Support\ServiceProvider;
-use Livewire\Livewire;
-
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,13 +17,8 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-
-    public function boot()
+    public function boot(): void
     {
-
-        Livewire::component('product-filter', ProductFilter::class);
-        Livewire::component('load-products', LoadProducts::class);
-        Livewire::component('add-to-cart', AddToCart::class);
-
+        //
     }
 }

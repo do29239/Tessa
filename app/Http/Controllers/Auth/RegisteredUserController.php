@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Profile;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -32,32 +30,21 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'address' => ['required', 'string'],
-            'city' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
-            'postcode'=>['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
+            'name' => $request->name,
             'email' => $request->email,
-            'address'=>$request->address,
-            'city'=>$request->city,
-            'phone'=>$request->phone,
-            'postcode'=>$request->postcode,
             'password' => Hash::make($request->password),
-            'role' => 0,
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(route('dashboard', absolute: false));
     }
 }

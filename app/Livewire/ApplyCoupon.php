@@ -10,9 +10,9 @@ use Livewire\Component;
 
 class ApplyCoupon extends Component
 {
-        public $couponCode;
-        public $discount = 0;
-        public $errorMessage = null;
+    public $couponCode;
+    public $discount = 0;
+    public $errorMessage = null;
     public function applyCoupon()
     {
         $userId = Auth::id();
@@ -55,7 +55,7 @@ class ApplyCoupon extends Component
             return $coupon;
         }
         else{
-        return $coupon;
+            return $coupon;
         }
     }
     private function getCartTotal($userId)

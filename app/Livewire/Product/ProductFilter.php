@@ -18,7 +18,7 @@ class ProductFilter extends Component
         $categories = Category::all();
         $brands = Brand::all();
 
-        return view('livewire.product-filter', compact('categories', 'brands'));
+        return view('livewire.product.product-filter', compact('categories', 'brands'));
     }
 
     public function selectCategory($categoryId)

@@ -14,7 +14,6 @@ class Product extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'description',
         'brand_id',
         'category_id',
         'quantity',
@@ -41,12 +40,22 @@ class Product extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
-    public function wishlist(): HasMany
-    {
-        return $this->hasMany(Wishlist::class);
-    }
     public function sale(): HasOne
     {
         return $this->hasOne(Sale::class);
+    }
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'product_user');
+    }
+    public function translations()
+    {
+        return $this->hasMany(ProductTranslation::class);
+    }
+
+    public function getDescriptionAttribute()
+    {
+        $locale = app()->getLocale(); // get current locale
+        return $this->translations()->where('locale', $locale)->first()->description ?? 'No description available';
     }
 }

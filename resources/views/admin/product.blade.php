@@ -4,7 +4,7 @@
 
     <div class="content">
         <div class="row justify-content-center mt-4">
-            <div class="col-md-6">
+            <div class="col-md-8"> <!-- Adjusted for better layout with more fields -->
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Add Product</h4>
@@ -26,10 +26,21 @@
                                 <label for="name">Product Name</label>
                                 <input type="text" name="name" id="name" class="form-control" placeholder="Enter product name" required>
                             </div>
+
+                            <!-- Description fields for each language -->
                             <div class="form-group">
-                                <label for="description">Product Description</label>
-                                <textarea name="description" id="description" class="form-control" placeholder="Enter product description" required></textarea>
+                                <label for="description_en">Product Description (English)</label>
+                                <textarea name="description[en]" id="description_en" class="form-control" placeholder="Enter product description in English" required></textarea>
                             </div>
+                            <div class="form-group">
+                                <label for="description_mk">Product Description (Macedonian)</label>
+                                <textarea name="description[mk]" id="description_mk" class="form-control" placeholder="Enter product description in Macedonian" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="description_shq">Product Description (Albanian)</label>
+                                <textarea name="description[shq]" id="description_shq" class="form-control" placeholder="Enter product description in Albanian" required></textarea>
+                            </div>
+
                             <div class="form-group">
                                 <label for="quantity">Product Quantity</label>
                                 <input type="number" name="quantity" id="quantity" class="form-control" placeholder="Enter product quantity" required>
@@ -40,14 +51,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="stylist_price">Stylist Price</label>
-                                <input type="number" name="stylist_price" id="price" class="form-control" placeholder="Enter stylist price" required>
+                                <input type="number" name="stylist_price" id="stylist_price" class="form-control" placeholder="Enter stylist price" required>
                             </div>
                             <div class="form-group">
                                 <label for="photo" class="file-input">
                                     <input type="file" name="image" id="photo" class="form-control-file" onchange="previewImages();" required>
                                     <span class="btn btn-sm btn-primary">Add Photo</span>
                                 </label>
-
                             </div>
                             <div id="imagePreviewContainer"></div>
                             <div class="form-group">
@@ -75,7 +85,8 @@
                 </div>
             </div>
         </div>
-        <hr>
+    </div>
+    <hr>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">

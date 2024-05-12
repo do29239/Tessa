@@ -77,11 +77,11 @@
     </div>
     <style>
         @media only screen and (max-width: 768px) {
-        .table-responsive td:nth-of-type(2):before { content: "{{__('messages.Name')}}"; }
-        .table-responsive td:nth-of-type(3):before { content: "{{__('messages.UnitPrice')}}"; }
-        .table-responsive td:nth-of-type(4):before { content: "{{__('messages.Quantity')}}"; }
-        .table-responsive td:nth-of-type(5):before { content: "{{__('messages.Total')}}"; }
-        .table-responsive td:nth-of-type(6):before { content: "{{__('messages.Delete')}}"; }
+            .table-responsive td:nth-of-type(2):before { content: "{{__('messages.Name')}}"; }
+            .table-responsive td:nth-of-type(3):before { content: "{{__('messages.UnitPrice')}}"; }
+            .table-responsive td:nth-of-type(4):before { content: "{{__('messages.Quantity')}}"; }
+            .table-responsive td:nth-of-type(5):before { content: "{{__('messages.Total')}}"; }
+            .table-responsive td:nth-of-type(6):before { content: "{{__('messages.Delete')}}"; }
         }
         .bx-minus{
             margin-left: 1.2em;

@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -13,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use  HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -64,6 +65,15 @@ class User extends Authenticatable
     public function coupons() :BelongsToMany
     {
         return $this->belongsToMany(Coupon::class)->withPivot('used_at');
+    }
+
+    public function cart() :HasMany
+    {
+        return $this->hasMany(Cart::class);
+    }
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'product_user');
     }
 
 

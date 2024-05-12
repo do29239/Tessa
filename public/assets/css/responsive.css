@@ -1144,14 +1144,6 @@
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-  .xton-responsive-nav .xton-responsive-menu.mean-container .navbar-nav .nav-item.megamenu .dropdown-menu .submenu-title {
-    margin-left: 25px;
-    margin-right: 25px;
-  }
-  .xton-responsive-nav .xton-responsive-menu.mean-container .navbar-nav .nav-item.megamenu .dropdown-menu .megamenu-submenu {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
   .header-top-menu {
     display: inline-block;
   }
@@ -1228,14 +1220,6 @@
     top: 3px;
     margin-top: 0;
     margin-left: 15px;
-  }
-  .xton-responsive-nav .xton-responsive-menu.mean-container .navbar-nav .nav-item.megamenu .dropdown-menu .submenu-title {
-    margin-left: 35px;
-    margin-right: 35px;
-  }
-  .xton-responsive-nav .xton-responsive-menu.mean-container .navbar-nav .nav-item.megamenu .dropdown-menu .megamenu-submenu {
-    padding-left: 35px;
-    padding-right: 35px;
   }
   .home-slides.owl-theme .owl-nav {
     display: none;
@@ -1354,11 +1338,11 @@
   .main-banner {
     height: 700px;
   }
-  /*
+
   .main-banner-content h1 {
     font-size: 50px;
   }
-  */
+
   .banner-content {
     padding: 30px;
     max-width: 425px;

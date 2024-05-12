@@ -35,7 +35,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($orderItems as $orderItem)
+                                    @foreach($order->item as $orderItem)
                                         <tr class="text-center">
                                             <td class="text-center-custom">
                                                 <a href="#">

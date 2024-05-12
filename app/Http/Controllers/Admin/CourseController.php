@@ -6,143 +6,72 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CourseRequest;
 use App\Models\Course;
 use App\Models\Image;
-use Illuminate\Support\Facades\DB;
+use App\Services\CourseService;
+use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    protected $courseService;
+
+    public function __construct(CourseService $courseService)
     {
-        $course = Course::all();
-        return view('admin.course',compact('course'));
+        $this->courseService = $courseService;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    public function index()
+    {
+        $courses = $this->courseService->getAllCourses();
+        return view('admin.course', compact('courses'));
+    }
 
     public function store(CourseRequest $request)
     {
-        $validatedData = $request->validated();
-
-        DB::beginTransaction();
-
         try {
-            $course = Course::create($validatedData);
-
-            if ($request->has('images')) {
-                $imageNames = $request->input('images');
-                $imageRecords = collect($imageNames)->map(function ($imageName) use ($course) {
-                    return [
-                        'name' => $imageName,
-                        'imageable_id' => $course->id,
-                        'imageable_type' => get_class($course),
-                    ];
-                });
-
-                // Batch insert images associated with the course
-                $course->image()->createMany($imageRecords->all());
-            }
-
-            DB::commit();
-            return redirect()->back()->with('message', 'Course Added Successfully');
+            $this->courseService->createCourse($request->validated(), $request->input('images'));
+            return redirect()->back()->with('message', 'Course added successfully.');
         } catch (\Exception $e) {
-            DB::rollBack();
-            // Handle the exception (e.g., log it, show an error message)
-            return redirect()->back()->with('error', 'Error adding course');
+            return redirect()->back()->with('error', 'Error adding course: ' . $e->getMessage());
         }
     }
 
-
-
-
-    /**
-     * Display the specified resource.
-     */
     public function show(Course $course)
     {
         return view('admin.show-courses', compact('course'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Course $course)
     {
         return view('admin.edit-course', compact('course'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-
     public function update(CourseRequest $request, Course $course)
     {
-        $validatedData = $request->validated();
-
-        DB::beginTransaction();
-
         try {
-            $course->update($validatedData);
-
-            if ($request->has('images')) {
-                // Get the processed image names from the request
-                $imageNames = $request->input('images');
-
-                // Create new image records for each image name
-                $imageRecords = collect($imageNames)->map(function ($imageName) use ($course) {
-                    return [
-                        'name' => $imageName,
-                        'imageable_id' => $course->id,
-                        'imageable_type' => get_class($course),
-                    ];
-                });
-
-                // Remove old image records if necessary
-                // $course->image()->delete(); // Uncomment if you want to delete old images
-
-                // Batch insert new image records associated with the course
-                $course->image()->createMany($imageRecords->all());
-            }
-
-            DB::commit();
-            return redirect()->back()->with('message', 'Course Updated Successfully');
+            $this->courseService->updateCourse($course, $request->validated(), $request->input('images'));
+            return redirect()->back()->with('message', 'Course updated successfully.');
         } catch (\Exception $e) {
-            DB::rollBack();
-            // Handle the exception (e.g., log it, show an error message)
-            return redirect()->back()->with('error', 'Error updating course');
+            return redirect()->back()->with('error', 'Error updating course: ' . $e->getMessage());
         }
     }
 
-
-
-
-
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Course $course)
     {
-        $course->delete();
-
-        $course->image()->delete();
-
-        return redirect()->back()->with('success', 'Course deleted successfully');
+        try {
+            $this->courseService->deleteCourse($course);
+            return redirect()->back()->with('success', 'Course deleted successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Failed to delete course: ' . $e->getMessage());
+        }
     }
 
     public function destroyImage(Course $course, Image $image)
     {
-        // Delete the image record from the database
-        $image->delete();
-
-        // Optionally, delete the image file from storage if needed
-        // Storage::delete('public/images/' . $image->name);
-
-        return redirect()->back()->with('message', 'Image deleted successfully');
+        try {
+            $this->courseService->deleteImage($image);
+            return redirect()->back()->with('message', 'Image deleted successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Failed to delete image: ' . $e->getMessage());
+        }
     }
-
-
 }
+

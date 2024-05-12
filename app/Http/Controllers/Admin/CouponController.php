@@ -5,67 +5,58 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CouponRequest;
 use App\Models\Coupon;
-use Illuminate\Support\Facades\DB;
+use App\Services\CouponService;
+use Illuminate\Http\Request;
 
 class CouponController extends Controller
 {
+    protected $couponService;
+
+    public function __construct(CouponService $couponService)
+    {
+        $this->couponService = $couponService;
+    }
 
     public function index()
     {
-        $coupons=Coupon::all();
-
+        $coupons = $this->couponService->getAllCoupons();
         return view('admin.coupon', compact('coupons'));
     }
 
     public function store(CouponRequest $request)
     {
-
-        $validatedData = $request->validated();
-
-        DB::beginTransaction();
-
         try {
-            Coupon::create($validatedData);
-
-            DB::commit();
-            return redirect()->back()->with('message', 'ApplyCoupon Created Successfully');
+            $this->couponService->createCoupon($request->validated());
+            return redirect()->back()->with('message', 'Coupon created successfully.');
         } catch (\Exception $e) {
-            DB::rollBack();
-            // Handle the exception (e.g., log it, show an error message)
-            return redirect()->back()->with('error', 'Error creating coupon');
+            return redirect()->back()->with('error', 'Error creating coupon: ' . $e->getMessage());
         }
     }
 
     public function show(Coupon $coupon)
     {
+        $coupon = $this->couponService->getCoupon($coupon);
         return view('admin.show-coupon', compact('coupon'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Coupon $coupon)
     {
+        $coupon = $this->couponService->getCoupon($coupon);
         return view('admin.edit-coupon', compact('coupon'));
     }
 
     public function update(CouponRequest $request, Coupon $coupon)
     {
-        $validatedData = $request->validated();
-
-        DB::beginTransaction();
-
         try {
-            $coupon->update($validatedData);
-
-            DB::commit();
-            return redirect()->back()->with('message', 'ApplyCoupon Updated Successfully');
+            $this->couponService->updateCoupon($coupon, $request->validated());
+            return redirect()->back()->with('message', 'Coupon updated successfully.');
         } catch (\Exception $e) {
-            DB::rollBack();
-            // Handle the exception (e.g., log it, show an error message)
-            return redirect()->back()->with('error', 'Error updating coupon');
+            return redirect()->back()->with('error', 'Error updating coupon: ' . $e->getMessage());
         }
     }
+}
+
+
 //    public function applyCoupon(Request $request)
 //    {
 //        $user = Auth::user();
@@ -102,4 +93,3 @@ class CouponController extends Controller
 //    }
 
 
-}
