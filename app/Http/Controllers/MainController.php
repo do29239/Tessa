@@ -19,7 +19,8 @@ class MainController extends Controller
     public function showProducts(Request $request)
     {
             return view('main.home.index',
-                ['products'=>$this->productService->latestProducts()]
+                ['products'=>$this->productService->latestProducts()],
+                ['popularProducts' => $this->productService->getProducts()->inRandomOrder()->paginate(3)]
             );
     }
 

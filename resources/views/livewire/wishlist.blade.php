@@ -1,6 +1,6 @@
 <div class="wishlist-btn">
-    <a href="#" wire:click.prevent="addToWishlist">
-        <i class='bx bx-heart'></i>
-        <span class="tooltip-label">{{__('messages.add_to_wishlist')}}</span>
+    <a href="#" wire:click.prevent="toggleWishlist">
+        <i class='bx {{ $isWishlisted ? 'bxs-heart' : 'bx-heart' }}' style="color: {{ $isWishlisted ? '#ff4081' : 'gray' }};"></i>
     </a>
 </div>
+

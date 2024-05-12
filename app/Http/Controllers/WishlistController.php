@@ -9,7 +9,9 @@ class WishlistController extends Controller
 {
     public function showWishlist()
     {
-        return view('main.wishlist.show-wishlist');
+        $wishlistedProducts = auth()->user()->products()->get(); // Assuming 'wishlistedProducts' returns the products in the wishlist
+
+        return view('main.wishlist.show-wishlist', compact('wishlistedProducts'));
     }
 
 }

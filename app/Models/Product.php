@@ -49,4 +49,8 @@ class Product extends Model
     {
         return $this->hasOne(Sale::class);
     }
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'product_user');
+    }
 }

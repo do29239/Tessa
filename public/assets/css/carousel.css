@@ -299,7 +299,6 @@
     border: none;
     outline: none;
 }
-
 /* Ensure images within brand items are responsive and centered */
 .brand-item img {
     width: 100%;
@@ -324,4 +323,188 @@
     .brand-item {
         width: calc(100% / 2); /* Two items for mobile phones */
     }
+}
+ .navbar-area.header-sticky {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     z-index: 999;
+     -webkit-box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+     box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+     background: #ffffff !important;
+     opacity: 0;
+     visibility: hidden;
+     -webkit-transition: 0.5s;
+     transition: 0.5s;
+ }
+.header-sticky {
+    transition: transform 0.3s ease; /* Smooth transition for transform */
+    transform: translateY(0); /* Start fully visible */
+}
+
+.header-sticky.is-sticky {
+    transform: translateY(0); /* Ensures it's visible when sticky */
+}
+
+.header-sticky.is-hidden {
+    transform: translateY(-100%); /* Moves it up out of view */
+}
+.navbar-area.header-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    -webkit-box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+    background: #ffffff !important;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.navbar-area.header-sticky.is-sticky {
+    opacity: 1;
+    visibility: visible;
+}
+
+.navbar-area.header-sticky.scrollUp {
+    -webkit-transform: translateY(-85px);
+    transform: translateY(-85px);
+    opacity: 0;
+    visibility: hidden;
+}
+
+/*NAVBAR*/
+.navbar-area .xton-responsive-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjust alignment to space-between */
+}
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px; /* Width of the burger icon */
+    height: 25px; /* Total height of the burger icon */
+    cursor: pointer;
+}
+
+
+.burger-menu span {
+    height: 3px;
+    background-color: #333; /* Color of the burger bars */
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+/* Sidebar Styles */
+.sidebarModal .modal-dialog {
+    width: 80%;
+    max-width: 300px; /* Adjusted max width for responsiveness */
+}
+
+.sidebarModal .modal-content {
+    background-color: #2a2a2a; /* Dark grey background for better contrast */
+    color: #fff; /* Ensures high readability */
+    border: none; /* Clean look without borders */
+}
+
+/* Close Button Customization */
+.sidebarModal .close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    z-index: 1000; /* Ensures visibility over other elements */
+    color: #ccc; /* Subtle color, easy on the eyes */
+    font-size: 24px; /* Clear visibility for usability */
+    cursor: pointer; /* Indicates clickable item */
+}
+
+/* Navigation Menu List Styles */
+.nav-menu-list {
+    list-style: none; /* Simplifies list appearance */
+    margin: 20px 0; /* Provides adequate spacing from container edges */
+    padding: 0; /* Removes default padding */
+}
+
+.nav-menu-list li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    color: #d0d0d0; /* Soft grey color for normal state */
+    text-decoration: none; /* Focus on cleanliness */
+    font-weight: bold; /* Emphasizes navigational elements */
+    position: relative; /* Setup for pseudo-elements */
+    transition: color 0.5s, background-color 0.3s; /* Smooth transitions for interactions */
+    border-bottom: 1px solid #333; /* Subtle separation between items */
+}
+
+.nav-menu-list li:last-child a {
+    border-bottom: none; /* Ensures the last item is not unduly highlighted */
+}
+
+.nav-menu-list li a i {
+    margin-right: 10px; /* Adequate spacing for icons */
+    font-size: 16px; /* Proportional icon sizing */
+}
+
+/* Hover effects for color change and underline */
+.nav-menu-list li a:hover, .nav-menu-list li a:focus {
+    color: #f53f85; /* Bright color for hover state */
+    background-color: #333; /* Deeper background on hover for contrast */
+}
+
+.nav-menu-list li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #f53f85; /* Pink underline to match hover text color */
+    transition: width 0.5s; /* Ensures a smooth transition */
+}
+
+.nav-menu-list li a:hover::before, .nav-menu-list li a:focus::before {
+    width: 100%; /* Full width on hover/focus for emphasis */
+}
+
+
+
+
+
+.instagram-slides {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;  // Hides the scrollbar in Firefox
+}
+
+.instagram-slides::-webkit-scrollbar {
+    display: none;  // Hides the scrollbar in WebKit browsers
+}
+
+.single-instagram-post {
+    flex: 0 0 auto;
+    width: 317.16px;
+    height: 317.16px;
+    margin-right: 0px;  // Set to 0 to eliminate space between slides
+position: relative;
+    scroll-snap-align: start;
+}
+
+.single-instagram-post img {
+    width: 100%;
+    height: auto;
+}
+
+.single-instagram-post .link-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }

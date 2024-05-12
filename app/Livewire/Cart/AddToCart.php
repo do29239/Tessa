@@ -45,6 +45,7 @@ class AddToCart extends Component
     {
         return view('livewire.cart.add-to-cart');
     }
+
 }
 
 
