@@ -279,24 +279,24 @@
         </footer>
     </div>
 </div>
-        <!--   Core JS Files   -->
-        <script src="../assets/adminassets/js/core/jquery.min.js"></script>
-        <script src="../assets/adminassets/js/core/popper.min.js"></script>
-        <script src="../assets/adminassets/js/core/bootstrap.min.js"></script>
-        <script src="../assets/adminassets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-        <!--  Google Maps Plugin    -->
-        <!-- Place this tag in your head or just before your close body tag. -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-        <!-- Chart JS -->
-        <script src="../assets/adminassets/js/plugins/chartjs.min.js"></script>
-        <!--  Notifications Plugin    -->
-        <script src="../assets/adminassets/js/plugins/bootstrap-notify.js"></script>
-        <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-        <script src="../assets/adminassets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
-        <script src="../assets/adminassets/demo/demo.js"></script>
+<!--   Core JS Files   -->
+<script src="../assets/adminassets/js/core/jquery.min.js"></script>
+<script src="../assets/adminassets/js/core/popper.min.js"></script>
+<script src="../assets/adminassets/js/core/bootstrap.min.js"></script>
+<script src="../assets/adminassets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!--  Google Maps Plugin    -->
+<!-- Place this tag in your head or just before your close body tag. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chart JS -->
+<script src="../assets/adminassets/js/plugins/chartjs.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="../assets/adminassets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="../assets/adminassets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/adminassets/demo/demo.js"></script>
 
 
 
-    </body>
+</body>
 
 </html>

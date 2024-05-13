@@ -9,8 +9,8 @@
             <div class="page-title-content">
                 <h2>{{$course->name}}</h2>
                 <ul>
-                    <li><a href={{ url('/') }}>Home</a></li>
-                    <li>Course Details</li>
+                    <li><a href={{ url('/') }}>{{__('messages.home')}}</a></li>
+                    <li>{{__('messages.course_details')}}</li>
                 </ul>
             </div>
         </div>
@@ -32,7 +32,7 @@
             <div class="tab products-details-tab">
                 <ul class="tabs">
                     <li><a href="#">
-                            <div class="dot"></div> Description
+                            <div class="dot"></div>{{__('messages.description')}}
                         </a></li>
                 </ul>
 

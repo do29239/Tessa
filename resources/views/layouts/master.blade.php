@@ -127,8 +127,8 @@
                     <li  class="hide-on-mobile"><a href="{{ route('shop') }}"><i class="bx bx-store"></i>{{__('messages.shop')}}</a></li>
                     <li  class="hide-on-mobile"><a href="{{ route('show.wishlist') }}"><i class="bx bx-heart"></i>{{__('messages.wishlist')}}</a></li>
                     <li><a href="{{ route('courses') }}"><i class="bx bx-book {{ request()->routeIs('courses') ? ' active' : '' }}"></i>{{__('messages.courses')}}</a></li>
-                    <li><a href="about-us.html"><i class="bx bx-info-circle"></i>{{__('messages.about_us')}}</a></li>
-                    <li><a href="contact.html"><i class="bx bx-phone"></i>{{__('messages.contact')}}</a></li>
+                    <li><a href="{{url('/about')}}"><i class="bx bx-info-circle"></i>{{__('messages.about_us')}}</a></li>
+                    <li><a href="{{url('/contact')}}"><i class="bx bx-phone"></i>{{__('messages.contact')}}</a></li>
                     @auth()
                         <li><a href="my-account.html"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
                         @if(!auth()->user()->request_submitted)
@@ -206,10 +206,10 @@
                             <a href="{{ route('courses') }}" class="nav-link{{ request()->routeIs('courses') ? ' active' : '' }}">{{__('messages.courses')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="../about.html" class="nav-link">{{__('messages.about_us')}}</a>
+                            <a href="{{(url('/about'))}}" class="nav-link">{{__('messages.about_us')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="../contact.html" class="nav-link">{{__('messages.contact')}}</a>
+                            <a href="{{url('/contact')}}" class="nav-link">{{__('messages.contact')}}</a>
                         </li>
                     </ul>
                 </div>
@@ -249,10 +249,10 @@
                             <a href="../blog-1.html" class="nav-link">{{__('messages.courses')}}</a>
                         </li>
                         <li class="nav-item ">
-                            <a href="../about.html" class="nav-link">{{__('messages.about_us')}}</a>
+                            <a href="{{(url('/about'))}}" class="nav-link">{{__('messages.about_us')}}</a>
                         </li>
                         <li class="nav-item ">
-                            <a href="../contact.html" class="nav-link">{{__('messages.contact')}}</a>
+                            <a href="{{url('/contact')}}" class="nav-link">{{__('messages.contact')}}</a>
                         </li>
                     </ul>
                     <div class="others-option">
@@ -426,10 +426,10 @@
                     <h3>{{__('messages.quick_links')}}</h3>
                     <ul class="quick-links">
                         <li><a href="{{url('/')}}">{{__('messages.home')}}</a></li>
-                        <li><a href="../products-sidebar-fullwidth.html">{{__('messages.shop')}}</a></li>
-                        <li><a href="../blog-1.html">{{__('messages.courses')}}</a></li>
-                        <li><a href="../about.html">{{__('messages.about_us')}}</a></li>
-                        <li><a href="../contact.html">{{__('messages.contact')}}</a></li>
+                        <li><a href="{{route('shop')}}">{{__('messages.shop')}}</a></li>
+                        <li><a href="{{route('courses')}}">{{__('messages.courses')}}</a></li>
+                        <li><a href="{{url('/about')}}">{{__('messages.about_us')}}</a></li>
+                        <li><a href="{{url('/contact')}}">{{__('messages.contact')}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -439,7 +439,7 @@
                     <ul class="customer-support">
                         <li><a href="../login.html">{{__('messages.my_account')}}</a></li>
                         <li><a href="../cart.html">{{__('messages.Cart')}}</a></li>
-                        <li><a href="../contact.html">{{__('messages.Help')}}</a></li>
+                        <li><a href="{{url('/contact')}}">{{__('messages.Help')}}</a></li>
                     </ul>
                 </div>
             </div>

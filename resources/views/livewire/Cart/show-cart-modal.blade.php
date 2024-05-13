@@ -18,7 +18,7 @@
                         </span>
                     </div>
                     <div class="text-center" wire:loading>
-                        <a class="remove-btn">Deleting...</a>
+                        <a class="remove-btn">{{__('messages.deleting')}}</a>
                     </div>
                     <div wire:loading.remove>
                         <a href="#" wire:click.prevent="deleteItem({{ $cartItem->id }})" class="remove-btn">
@@ -31,7 +31,7 @@
     </div>
 
     <div class="products-cart-subtotal">
-        <span>Subtotal</span>
+        <span>{{__('messages.Subtotal')}}</span>
         <span class="subtotal">
             {{ number_format($subtotal, 2) }} {{__('messages.den')}}
         </span>

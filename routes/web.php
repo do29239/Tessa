@@ -97,6 +97,8 @@ Route::middleware('auth')->group(function () {
 
 
 //    Route::post('/apply-coupon', [OrderController::class, 'applyCoupon'])->name('apply-coupon');
+    Route::view('/about', 'main/about/about');
+    Route::view('/contact', 'main/contact/contact');
 
 
 });

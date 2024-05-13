@@ -10,7 +10,7 @@ return [
     'about_us' => 'About Us',
     'contact' => 'Contact',
     'my_account' => 'My Account',
-    'request_stylist' => 'Request Stylist',
+    'request_stylist_nav' => 'Request Stylist Account',
     'my_orders' => 'My Orders',
     'log_out' => 'Log Out',
     'login' => 'Login',
@@ -24,6 +24,7 @@ return [
     'customer_support_24_7' => '24/7 Customer Support',
     'about_the_store' => 'About The Store',
     'quick_links' => 'Quick Links',
+    'Help' => 'Help & Support',
     'gv_nmkd'=>'Gostivar , North Macedonia',
     'customer_support' => 'Customer Support',
     'NewsLetter'=>'NewsLetter',
@@ -33,49 +34,25 @@ return [
     'follow_us' => 'Follow us on @tessa', // Example for Instagram follow prompt
     'wishlist'=>'Wishlist',
     'Cart'=>'Cart',
+    'my_cart'=>'My Cart',
     'Search'=>'Search',
     'AddCart'=>'Add To Cart',
 
+
     //Home
-
-
-
-    //Load Procucts / shopp
-    'sale'=>'Sale!',
-    'AddToWishlist' => 'Add to Wishlist',
-    'LoadMore' => 'Load More',
-    'Loading' => 'Loading...',
-    'NoMoreProd' => 'No more products to be loaded!!!',
-
-    //product-filter/ shop
-    'Categories'=>'Categories',
-    'Brands'=>'Brands',
-    //Search
-    'SearchHere'=>'Search here...',
-
-    //Show-wishlist
-    'Brand'=>'Brand',
-    'Category'=>'Category',
-    'ClearWishlist'=>'Clear Wishlist',
-
-
-
-
-
-//    'Welcome' => 'Welcome to Tessa',
-//    'Call' =>'Call',
-//    'Request' =>'Request Stylist Account ',
-//    'Login' =>'Log in',
-//    'Register' =>'Register',
     'NewInspiration' =>'New Inspiration!!!New Look!!! ',
     'ProductsForAllYourNeeds' =>'Products For All Your Needs',
     'ShipAlloverMk' =>'We Ship All Over Macedonia!!!',
     'AllInOne' =>'All You Need In One Place',
-//    'MyOrders'=>'My Orders',
-//    'LogOut'=>'Log Out',
-//    'NewInStore'=>'Popular Products',
-//
-//
+
+    'limited_time_offer'=>'Limited Time Offer!',
+    'products_in_sale'=>'Shop our products in Sale!!!',
+    'best_deals'=>'Get The Best Deals Now',
+    'go_to_sale'=>'Go to Sales',
+
+    'most_popular'=>'See Our Most Popular',
+    'popular_products'=>'Popular Products',
+
     'GoShop'=>'GO TO SHOP',
     'OurCourses'=>'OUR COURSES',
     'ProdOnSale'=>'Products on Sale!',
@@ -84,12 +61,146 @@ return [
     'RRColor'=>'RrLine Hair Color',
     'NYColor'=>'No Yellow Color',
     'SeeCollection'=>'See Our Collection',
-    'RecentProcuts'=>'Recent Products',
+    'RecentProducts'=>'Recent Products',
+    'recent_story'=>'Recent Stories',
+    'from_our_courses'=>'From our Courses',
+
+
+    //Load Procucts / shopp
+    // 'sale'=>'Sale!',
+
+
+
+
+    //product-filter/ shop
+    'Categories'=>'Categories',
+    'Brands'=>'Brands',
+    //Search
+
+
+    //Show-wishlist
+    'Brand'=>'Brand',
+    'Category'=>'Category',
+
+
+// Login
+
+    'email_address'=> 'Email Address',
+    'password'=>'Password',
+    'lost_password' => 'Lost your password?',
+    //Register
+    'first_name' => 'First Name',
+    'enter_your_first_name' => 'Enter your first name',
+    'last_name' => 'Last Name',
+    'email' => 'Email',
+    'address' => 'Address',
+    'city' => 'City',
+    'phone' => 'Phone Number',
+    'postcode' => 'Postcode',
+    'confirm_password' => 'Confirm Password',
+    'already_registered' => 'Already registered?',
+    'enter_your_last_name' => 'Enter your last name', // Placeholder example
+    'enter_your_email' => 'Enter your email', // Placeholder example
+    'enter_your_address' => 'Enter your address', // Placeholder example
+    'enter_your_city' => 'Enter your city', // Placeholder example
+    'enter_your_phone' => 'Enter your phone number', // Placeholder example
+    'enter_your_password' => 'Enter your password', // Placeholder example
+    'enter_your_confirm_password' => 'Confirm your password', // Placeholder example
+    'write_message' => 'Write your message...', // Placeholder example
+    'enter_your_name' => 'Enter your name', // Placeholder example
+    'register_button' => 'Register', // Separate key if you want different text for the button
+    'billing_details' => 'Billing Details', // Separate key if you want different text for the button
+    'SendMessage' => 'Send Message', // Separate key if you want different text for the button
+
+
+
+
+    //Request denied
+    'hello'=>'Hello',
+    'we_regret' => 'We regret to inform you that your stylist request has been denied.',
+    'any_questions'=>'If you have any questions or concerns, please contact us.',
+    'thank_you'=>'Thank you.',
+
+
+
+    //COURSES
+    'read_story'=>'Read Story',
+    'course_details'=>'Course Details',
+    'description'=>'Description',
+
+    //COLORS
+    'colors'=>'Colors',
+    'quick_view'=>'Quick View',
+
+    //ORDERS
+    'order_number'=>'Order Number',
+    'order_date'=>'Order Date',
+    'order_total'=>'Order Total',
+    'status'=>'Status',
+    'action'=>'Action',
+    'completed'=>'Completed',
+    'pending'=>'Pending...',
+    'view_order'=>'View Order',
+    'order_details'=>'Order Details',
+    'coupon_applied'=>'Coupon Applied',
+    'cash_on_delivery'=>'Cash on Delivery',
+
+    'enter_coupon'=>'Enter your coupon code',
+
+
+    //Request Stylist
+    'request_stylist'=>'Request stylist account:',
+    'submit_req'=>'Submit Request',
+    'saloon_name'=>'Enter your saloon name',
+    'saloon_city'=>'Enter your saloon city',
+    'saloon_address'=>'Enter your saloon address',
+    'saloon_number'=>'Enter your saloon phone number',
+
+    //Sales
+    'sales'=>'Sales',
+    'sale'=>'Sale!',
+
+    //Shop
+    'filter'=>'Filter',
+    'product_details'=>'Product Details',
+    'filter_products'=>'Filter Products',
+    'ask_about_product'=>'Ask about this product',
+    'add_to_wishlist' => 'Add to Wishlist',
+
+    //Wishlist
+    'my_wishlist'=>'My Wishlist',
+    'deleting'=>'Deleting...',
+    'apply_coupon'=>'Apply Coupon',
+    'buy_now'=>'Buy it now!',
+    'NoMoreProd' => 'No more products to be loaded!!!',
+    'LoadMore' => 'Load More',
+    'Loading' => 'Loading...',
+    'your_order'=>'Your Order',
+    'product_name'=>'Product Name',
+    'coupon_discount'=>'Coupon Discount:',
+    'order_total_'=>'Order Total:',
+    'place_order'=>'Place Order',
+    'SearchHere'=>'Search here...',
+    'ClearWishlist'=>'Clear Wishlist',
+
+    //Contact
+    'drop_line'=>'Drop Us A Line',
+    'questions_you_may_have'=>'We\'re happy to answer any questions you have. Just send us a message in the form below with any
+                        questions you may have.',
+    'your_message'=>'Your Message',
+
+
+
+
+
+
+
+
 //    'StartShoping'=>'Start Shoping With Us Now!',
 //    'VisitShop'=>'Visit Our Shop',
 //    'BestDeals'=>'Get The Best Deals Now',
 //    'ShopNow'=>'SHOP NOW',
-//    'ShopBrand'=>'Shop By Brand',
+    'ShopBrand'=>'Shop By Brand',
 //    'PopProducts'=>'Popular Products',
 //
 //    'FollowTessa'=>'Follow us on @TessaBeauty.Institute',
@@ -134,7 +245,7 @@ return [
 //    'Sunday'=>'Sunday: Closed',
 //    'FollowUs'=>'Follow Us:',
 //    'Message'=>'Leave us a Message',
-//    'Name'=>'Name',
+    // 'Name'=>'Name',
 //    'Emailg'=>'Email',
 //    'PhNumber'=>'Phone Number',
 //    'YourMessage'=>'Your Message',
@@ -182,7 +293,7 @@ return [
 //    'SaloonAddress'=>'Enter you saloon address',
 //    'NameAccount'=>'Enter your name',
 //    'PhoneNo'=>'Enter your phone number',
-//    'SubmitReq'=>'Submit Request',
+
 
 
 

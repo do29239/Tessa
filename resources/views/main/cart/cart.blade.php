@@ -5,10 +5,10 @@
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h2>My Cart</h2>
+                <h2>{{__('messages.my_cart')}}</h2>
                 <ul>
-                    <li><a href="{{url('/')}}">Home</a></li>
-                    <li>My Cart</li>
+                    <li><a href="{{url('/')}}">{{__('messages.home')}}</a></li>
+                    <li>{{__('messages.my_cart')}}</li>
                 </ul>
             </div>
         </div>

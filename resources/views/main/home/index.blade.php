@@ -106,12 +106,12 @@
             <img src="{{url('../../assets/img/webp/blackandwhite.webp')}}" alt="Item 1">
             <div class="banner-content text-white">
                 <div class="line"></div>
-                <span class="sub-title">We ship All over Macedonia!!!</span>
-                <h1>All You Need in One Place</h1>
-                <p>New Inspiration!!! New Look!!!</p>
+                <span class="sub-title">{{__('messages.ShipAlloverMk')}}</span>
+                <h1>{{__('messages.AllInOne')}}</h1>
+                <p>{{__('messages.NewInspiration')}}</p>
                 <div class="btn-box">
-                    <a href="/shop" class="default-btn">Go To Shop</a>
-                    <a href="/courses" class="optional-btn">Our Courses</a>
+                    <a href="/shop" class="default-btn">{{__('messages.GoShop')}}</a>
+                    <a href="/courses" class="optional-btn">{{__('messages.OurCourses')}}</a>
                 </div>
             </div>
         </div>
@@ -119,12 +119,12 @@
             <img src="{{url('../../assets/img/redhairr.webp')}}" alt="Item 2">
             <div class="banner-content text-white">
                 <div class="line"></div>
-                <span class="sub-title">We ship All over Macedonia!!!</span>
-                <h1>All You Need in One Place</h1>
-                <p>New Inspiration!!! New Look!!!</p>
+                <span class="sub-title">{{__('messages.ShipAlloverMk')}}</span>
+                <h1>{{__('messages.AllInOne')}}</h1>
+                <p>{{__('messages.NewInspiration')}}</p>
                 <div class="btn-box">
-                    <a href="/shop" class="default-btn">Go To Shop</a>
-                    <a href="/courses" class="optional-btn">Our Courses</a>
+                    <a href="/shop" class="default-btn">{{__('messages.GoShop')}}</a>
+                    <a href="/courses" class="optional-btn">{{__('messages.OurCourses')}}</a>
                 </div>
             </div>
         </div>
@@ -157,9 +157,9 @@
                     <div class="categories-box">
                         <img src="{{asset('assets/img/webp/orrossss1.webp')}}" alt="image" height="608.19" width="927.5">
 
-                        <div class="content">
-                            <h3>Products on Sale!</h3>
-                        </div>
+                    <div class="content">
+                        <h3>{{__('messages.ProdOnSale')}}</h3>
+                    </div>
 
                         <a href="{{route('sales')}}" class="link-btn"></a>
                     </div>
@@ -174,7 +174,7 @@
                             <img src="{{asset('assets/img/webp/Fanola color.webp')}}" alt="image" height="289.31" width="451.75">
 
                             <div class="content">
-                                <h3>Fanola Hair Colors</h3>
+                                <h3>{{__('messages.FColor')}}</h3>
                             </div>
 
                             <a href="{{route('hair.colors','Fanola')}}" class="link-btn"></a>
@@ -186,7 +186,7 @@
                             <img src="{{asset('assets/img/webp/OroTherapy Color.webp')}}" alt="image" height="289.31" width="451.75">
 
                             <div class="content">
-                                <h3>Oro Hair Colors</h3>
+                                <h3>{{__('messages.OColor')}}</h3>
                             </div>
 
                             <a href="{{route('hair.colors', 'Oro Therapy')}}" class="link-btn"></a>
@@ -198,7 +198,7 @@
                             <img src="{{asset('assets/img/webp/RrLine Color.webp')}}" alt="image" height="289.31" width="451.75">
 
                             <div class="content">
-                                <h3>RR Hair Colors</h3>
+                                <h3>{{__('messages.RRColor')}}</h3>
                             </div>
 
                             <a href="{{route('hair.colors', 'RrLine')}}" class="link-btn"></a>
@@ -210,7 +210,7 @@
                             <img src="{{asset('assets/img/webp/No Yellow Color.webp')}}" alt="image" height="289.31" width="451.75">
 
                             <div class="content">
-                                <h3>No Yellow Color</h3>
+                                <h3>{{__('messages.NYColor')}}</h3>
                             </div>
 
                             <a href="{{route('hair.colors', 'No Yellow')}}" class="link-btn"></a>
@@ -229,8 +229,8 @@
 <section class="products-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <span class="sub-title">See Our Collection</span>
-            <h2>Recent Products</h2>
+            <span class="sub-title">{{__('messages.SeeCollection')}}</span>
+            <h2>{{__('messages.RecentProducts')}}</h2>
         </div>
 
         <div class="row">
@@ -268,7 +268,7 @@
                         @if($product->sale()->active()->exists())
                         <span class="products-discount">
                             <span>
-                                Sale!
+                                {{__('messages.sale')}}
                             </span>
                         </span>
                         @endif
@@ -288,10 +288,10 @@
         <div class="row">
             <div class="col-lg-5 col-md-6 offset-lg-7 offset-md-6">
                 <div class="offer-content-box">
-                    <span class="sub-title">Limited Time Offer!</span>
-                    <h2>-40% OFF</h2>
-                    <p>Get The Best Deals Now</p>
-                    <a href="../products-sidebar-fullwidth.html" class="default-btn">Discover Now</a>
+                    <span class="sub-title">{{__('messages.limited_time_offer')}}</span>
+                    <h2>{{__('messages.products_in_sale')}}</h2>
+                    <p>{{__('messages.best_deals')}}</p>
+                    <a href="/sale" class="default-btn">{{__('messages.go_to_sale')}}</a>
                 </div>
             </div>
         </div>
@@ -303,8 +303,8 @@
 <section class="products-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <span class="sub-title">See Our Collection</span>
-            <h2>Popular Products</h2>
+            <span class="sub-title">{{__('messages.most_popular')}}</span>
+            <h2>{{__('messages.popular_products')}}</h2>
         </div>
 
         <div class="row">
@@ -411,7 +411,7 @@
 <div class="brand-area ptb-70">
     <div class="container">
         <div class="section-title">
-            <h2>Shop By Brand</h2>
+            <h2>{{__('messages.ShopBrand')}}</h2>
         </div>
 
         <div class="brand-slides">
@@ -438,8 +438,8 @@
 <section class="blog-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <span class="sub-title">Recent Story</span>
-            <h2>From Our Courses</h2>
+            <span class="sub-title">{{__('messages.recent_story')}}</span>
+            <h2>{{__('messages.from_our_courses')}}</h2>
         </div>
 
         <div class="row">

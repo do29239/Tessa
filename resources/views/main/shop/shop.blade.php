@@ -8,8 +8,8 @@
             <div class="page-title-content">
                 <h2>Shop</h2>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li>Shop</li>
+                    <li><a href="index.html">{{__('messages.home')}}</a></li>
+                    <li>{{__('messages.shop')}}</li>
                 </ul>
                 @if(Session('message'))
                     <div>{{session('message')}}</div>
@@ -25,15 +25,15 @@
             <div class="row">
                 <span class="sub-title d-lg-none">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#mobileFilterModal">
-                        <i class="bx bx-filter-alt"></i> Filter
+                        <i class="bx bx-filter-alt"></i>{{__('messages.filter')}}
                     </a>
                 </span>
                 <livewire:Product.ProductFilter/>
                 <div class="col-lg-8 col-md-12">
                     <livewire:Product.loadProducts/>
-                    </div>
                 </div>
             </div>
+        </div>
         </div>
         </div>
     </section>
@@ -43,13 +43,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="mobileFilterModalLabel">Filter Products</h5>
+                    <h5 class="modal-title" id="mobileFilterModalLabel">{{__('messages.filter_products')}}</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <livewire:Product.ProductFilter/>
+
                 </div>
             </div>
         </div>

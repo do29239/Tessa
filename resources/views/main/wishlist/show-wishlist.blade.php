@@ -1,13 +1,14 @@
-@extends('layouts.master') {{-- Make sure this refers to your actual layout file --}}
+@extends('layouts.master')
 
 @section('content')
+
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h2>Wishlist</h2>
+                <h2>{{__('messages.my_wishlist')}}</h2>
                 <ul>
                     <li><a href="{{ url('/') }}">{{__('messages.home')}}</a></li>
-                    <li>Wishlist</li>
+                    <li>{{__('messages.my_wishlist')}}</li>
                 </ul>
             </div>
         </div>

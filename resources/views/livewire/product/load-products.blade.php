@@ -39,7 +39,7 @@
                                     <div class="wishlist-btn">
                                         <a href="#">
                                             <i class="bx bx-heart"></i>
-                                            <span class="tooltip-label">{{__('messages.AddToWishlist')}}</span>
+                                            <span class="tooltip-label">{{__('messages.add_to_wishlist')}}</span>
                                         </a>
                                     </div>
                                 </li>
@@ -67,13 +67,13 @@
             </div>
         @endforeach
     </div>
-    <style>
-        .products-image img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 670 / 800;
-        }
-    </style>
+<style>
+    .products-image img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 670 / 800;
+    }
+</style>
 
 
     <!-- Start Products Filter Modal Area -->
