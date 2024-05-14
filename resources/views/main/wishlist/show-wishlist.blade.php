@@ -46,7 +46,7 @@
                                     @endif
                                 </div>
                                 <input type="hidden" value="{{$product->id}}" class="prod_id">
-                                <livewire:wishlist :product_id="$product->id" />
+                                <livewire:cart.add-to-cart :product_id="$product->id" :key="$product->id" />
                             </div>
                             @if($product->sale()->active()->exists())
                                 <span class="products-discount">

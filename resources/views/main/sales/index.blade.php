@@ -56,7 +56,7 @@
                                 <span class="old-price">${{ $sale->product->price }}</span>
                                 <span class="new-price">${{ $sale->sale_price }}</span>
                             </div>
-                            <livewire:wishlist :product_id="$product->id" />
+                            <livewire:cart.add-to-cart :product_id="$product->id" :key="$product->id" />
                         </div>
                     </div>
                 </div>

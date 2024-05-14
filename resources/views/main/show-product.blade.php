@@ -226,7 +226,7 @@
                                 <div class="products-button">
                                     <ul>
                                         <li>
-                                            @livewire('wishlist', ['product_id' => $relatedProduct->id])
+                                            <livewire:wishlist :product_id="$product->id" />
                                         </li>
 
                                         <li>
@@ -255,7 +255,7 @@
                                     @endif
                                 </div>
                                 <input type="hidden" value="{{$relatedProduct->id}}" class="prod_id">
-                                @livewire('add-to-cart', ['product_id' => $relatedProduct->id])
+                                <livewire:cart.add-to-cart :product_id="$product->id" :key="$product->id" />
                             </div>
                             @if($relatedProduct->sale()->active()->exists())
                                 <span class="products-discount">
