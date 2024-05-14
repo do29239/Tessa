@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zxx">
 <head>
-    <!-- Required meta tags -->
+    <!-- (Changes )Required meta tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -174,7 +174,7 @@
                         </div>
                     </div>
                     <div class="option-item">
-                        <livewire:cart.cart-counter/>
+                        <livewire:Cart.CartCounter/>
                     </div>
                 </div>
 
@@ -220,7 +220,7 @@
                         </div>
                     </div>
                     <div class="option-item">
-                        <livewire:cart.cart-counter/>
+                        <livewire:Cart.CartCounter/>
                     </div>
                 </div>
             </nav>
@@ -263,7 +263,7 @@
                             </div>
                         </div>
                         <div class="option-item">
-                            <livewire:cart.cart-counter/>
+                            <livewire:Cart.CartCounter/>
                         </div>
                         <div class="option-item">
                             <div class="burger-menu" data-bs-toggle="modal" data-bs-target="#sidebarModal">
@@ -526,7 +526,7 @@
                 <span>{{__('messages.wishlist')}}</span>
             </a>
             <div class="nav-item">
-                <livewire:cart.cart-counter/>
+                <livewire:Cart.CartCounter/>
                 <span>{{__('messages.Cart')}}</span>
             </div>
             <div class="search-btn-box nav-item{{ request()->is('contact') ? ' active' : '' }}" data-url="#">
