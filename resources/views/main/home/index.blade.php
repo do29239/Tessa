@@ -171,7 +171,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{asset('assets/img/webp/Fanola color.webp')}}" alt="image" height="289.31" width="451.75">
+                            <img src="{{asset('assets/img/webp/fanola color.webp')}}" alt="image" height="289.31" width="451.75">
 
                             <div class="content">
                                 <h3>{{__('messages.FColor')}}</h3>
