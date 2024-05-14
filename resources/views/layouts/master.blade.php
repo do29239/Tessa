@@ -363,7 +363,7 @@
             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true"><i class='bx bx-x'></i></span>
             </button>
-            <livewire:cart.show-cart :view="'show-cart-modal'" />
+            <livewire:Cart.ShowCart :view="'show-cart-modal'" />
         </div>
     </div>
     </div>

@@ -248,7 +248,7 @@
                             <div class="header-content">
                                 <span class="category">{{$product->category->name}}</span>
                                 <div class="wishlist products-button">
-                                    @livewire('wishlist', ['product_id' => $product->id])
+                                    <livewire:wishlist :product_id="$product->id" />
                                 </div>
                             </div>
                             <h3><a href="#">{{$product->name}}</a></h3>
@@ -323,7 +323,7 @@
                             <div class="header-content">
                                 <span class="category">{{$product->category->name}}</span>
                                 <div class="wishlist products-button">
-                                    @livewire('wishlist', ['product_id' => $product->id])
+                                    <livewire:wishlist :product_id="$product->id" />
                                 </div>
                             </div>
                             <h3><a href="#">{{$product->name}}</a></h3>

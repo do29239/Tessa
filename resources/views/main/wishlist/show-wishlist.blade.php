@@ -31,7 +31,7 @@
                                 <div class="header-content">
                                     <span class="category">{{$product->category->name}}</span>
                                     <div class="wishlist products-button">
-                                        @livewire('wishlist', ['product_id' => $product->id])
+                                        <livewire:wishlist :product_id="$product->id" />
                                     </div>
                                 </div>
                                 <h3><a href="#">{{$product->name}}</a></h3>
@@ -46,7 +46,7 @@
                                     @endif
                                 </div>
                                 <input type="hidden" value="{{$product->id}}" class="prod_id">
-                                @livewire('add-to-cart', ['product_id' => $product->id])
+                                <livewire:wishlist :product_id="$product->id" />
                             </div>
                             @if($product->sale()->active()->exists())
                                 <span class="products-discount">

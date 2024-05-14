@@ -32,7 +32,7 @@
                             <div class="products-button">
                                 <ul>
                                     <li>
-                                        @livewire('wishlist', ['product_id' => $sale->product->id])
+                                        <livewire:wishlist :product_id="$product->id" />
                                     </li>
 
                                     <li>
@@ -56,7 +56,7 @@
                                 <span class="old-price">${{ $sale->product->price }}</span>
                                 <span class="new-price">${{ $sale->sale_price }}</span>
                             </div>
-                            @livewire('add-to-cart', ['product_id' => $sale->product->id])
+                            <livewire:wishlist :product_id="$product->id" />
                         </div>
                     </div>
                 </div>
