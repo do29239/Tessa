@@ -24,11 +24,11 @@ class ShowCart extends Component
         if ($this->view === 'show-cart') {
 
 
-            return view('livewire.cart.show-cart');
+            return view('livewire.Cart.show-cart');
         }
         else
             $this->loadCart();
-        return view('livewire.cart.show-cart-modal');
+        return view('livewire.Cart.show-cart-modal');
     }
 
     public function loadCart()
