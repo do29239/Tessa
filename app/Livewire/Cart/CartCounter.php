@@ -22,7 +22,7 @@ class CartCounter extends Component
     {
         $this->updateCartCount();
 
-        return view('livewire.cart.cart-counter');
+        return view('livewire/cart/cart-counter');
     }
 }
 
