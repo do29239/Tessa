@@ -125,7 +125,9 @@
                 <ul class="nav-menu-list">
                     <li class="hide-on-mobile"><a href="{{ url('/') }}"><i class="bx bx-home"></i>{{__('messages.home')}}</a></li>
                     <li  class="hide-on-mobile"><a href="{{ route('shop') }}"><i class="bx bx-store"></i>{{__('messages.shop')}}</a></li>
+                    @auth()
                     <li  class="hide-on-mobile"><a href="{{ route('show.wishlist') }}"><i class="bx bx-heart"></i>{{__('messages.wishlist')}}</a></li>
+                    @endauth
                     <li><a href="{{ route('courses') }}"><i class="bx bx-book {{ request()->routeIs('courses') ? ' active' : '' }}"></i>{{__('messages.courses')}}</a></li>
                     <li><a href="{{url('/about')}}"><i class="bx bx-info-circle"></i>{{__('messages.about_us')}}</a></li>
                     <li><a href="{{url('/contact')}}"><i class="bx bx-phone"></i>{{__('messages.contact')}}</a></li>
@@ -515,24 +517,25 @@
         <nav class="navbar">
             <a href="{{ url('/') }}" class="nav-item{{ request()->is('/') ? ' active' : '' }}">
                 <i class="bx bx-home-alt"></i>
-                <span>{{__('messages.home')}}</span>
             </a>
             <a href="{{ route('shop') }}" class="nav-item{{ request()->is('shop') ? ' active' : '' }}">
                 <i class="bx bx-store"></i>
-                <span>{{__('messages.shop')}}</span>
             </a>
-            <a href="{{ route('show.wishlist') }}" class="nav-item{{ request()->is('wishlist') ? ' active' : '' }}">
-                <i class="bx bx-heart"></i>
-                <span>{{__('messages.wishlist')}}</span>
-            </a>
-            <div class="nav-item">
-                <livewire:Cart.CartCounter/>
-                <span>{{__('messages.Cart')}}</span>
-            </div>
+
             <div class="search-btn-box nav-item{{ request()->is('contact') ? ' active' : '' }}" data-url="#">
                 <i class="search-btn bx bx-search-alt"></i>
-                <span>{{__('messages.Search')}}</span>
             </div>
+
+            <div class="nav-item">
+                <livewire:Cart.CartCounter/>
+            </div>
+
+
+            @auth
+                <a href="{{ route('show.wishlist') }}" class="nav-item{{ request()->is('wishlist') ? ' active' : '' }}">
+                    <i class="bx bx-heart"></i>
+                </a>
+            @endauth
         </nav>
     </div>
 </div>

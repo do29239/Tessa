@@ -20,8 +20,6 @@
     <link href="{{asset('../assets/adminassets/css/black-dashboard.css?v=1.0.0')}}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('../assets/adminassets/demo/demo.css')}}" rel="stylesheet" />
-
-
 </head>
 
 <body class="">
@@ -97,25 +95,7 @@
                 <li>
                     <a href={{ route('courses.index') }}>
                         <i class="tim-icons icon-pin"></i>
-                        <p>Courses</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('show_users') }}>
-                        <i class="tim-icons icon-single-02"></i>
-                        <p>Users</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('coupons.index') }}>
-                        <i class="tim-icons icon-pin"></i>
-                        <p>Coupons</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('admin.bulkSale.create') }}>
-                        <i class="tim-icons icon-pin"></i>
-                        <p>Sales</p>
+                        <p>Maps</p>
                     </a>
                 </li>
                 <li>
@@ -146,6 +126,12 @@
                     <a href="./rtl.html">
                         <i class="tim-icons icon-world"></i>
                         <p>RTL Support</p>
+                    </a>
+                </li>
+                <li class="active-pro">
+                    <a href="./upgrade.html">
+                        <i class="tim-icons icon-spaceship"></i>
+                        <p>Upgrade to PRO</p>
                     </a>
                 </li>
             </ul>
@@ -189,26 +175,22 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">
-                                        <!-- Search Type Dropdown -->
-                                        <div class="form-group">
-                                            <label for="searchType">Search Type</label>
-                                            <select class="text_color" id="searchType">
+                                    <form action="{{ route('search') }}" method="GET">
+                                        <div class="modal-body">
+                                            <select name="searchType">
                                                 <option value="Product">Product</option>
                                                 <option value="User">Users</option>
                                                 <option value="Course">Courses</option>
                                                 <option value="Order">Orders</option>
                                             </select>
+                                            <input type="text" name="query"  placeholder="Type your search...">
                                         </div>
-                                        <!-- Search Input -->
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Type your search...">
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Search</button>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Search</button>
-                                    </div>
+                                    </form>
+
                                 </div>
                             </div>
                         </div>

@@ -30,7 +30,7 @@
                 </span>
                 <livewire:Product.ProductFilter/>
                 <div class="col-lg-8 col-md-12">
-                    <livewire:Product.LoadProducts/>
+                    <livewire:LoadProducts/>
                 </div>
             </div>
         </div>

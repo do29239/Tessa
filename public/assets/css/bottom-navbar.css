@@ -1,5 +1,4 @@
 :root {
-    /* Keep your original color scheme */
     --main-color: #ffffff; /* Main background color */
     --secondary-color: #f2f2f2; /* Secondary background color */
     --active-color: #f53f85; /* Active link color */
@@ -7,21 +6,22 @@
     --shadow-color: rgba(0, 0, 0, 2); /* Shadow color */
     --active-indicator-color: #000000; /* Active tab indicator color */
 }
+
 .theme-dark {
     --main-color: #333333; /* Darker background for dark theme */
     --inactive-color: #aaaaaa; /* Lighter text for dark theme */
     --active-color: #ff69b4; /* Active link color for dark theme */
     --shadow-color: rgba(255, 255, 255, 0.1); /* Shadow color for dark theme */
-    /* Define other dark theme variables as needed */
 }
+
 .bottom-navbar {
     position: fixed;
-    bottom: 0px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     max-width: 600px;
-    height:8% ;
+    height: 10%;
     background: var(--main-color);
     box-shadow: 0 4px 8px var(--shadow-color);
     border-radius: 25px 25px 0 0;
@@ -34,7 +34,6 @@
 
 .bottom-navbar .nav-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
     color: var(--inactive-color);
     text-decoration: none;
@@ -47,19 +46,11 @@
 }
 
 .bottom-navbar .nav-item i {
-    font-size: 20px;
+    font-size: 24px; /* Adjust icon size as needed */
     margin-top: 3px;
     margin-bottom: 3px;
 }
 
-.bottom-navbar .nav-item span {
-    font-size: 14px;
-}
-
-.bottom-navbar .nav-item.active::after {
-    width: 100%; /* Full width for active item */
-    background: var(--active-indicator-color); /* Color for active item */
-}
 .cart-btn {
     font-size: 18px;
     position: relative;
@@ -69,7 +60,7 @@
 .cart-btn a {
     display: inline-block;
     position: relative;
-    color: var(--inactive-color); /* Use the CSS variable for color consistency */
+    color: var(--inactive-color);
 }
 
 .cart-btn a span {
@@ -82,7 +73,7 @@
     line-height: 13.9px;
     border-radius: 50%;
     color: #ffffff;
-    background-color: var(--active-color); /* Use the CSS variable for background color */
+    background-color: var(--active-color);
     font-weight: 500;
     font-size: 11px !important;
 }
@@ -93,3 +84,12 @@
     }
 }
 
+@media (orientation: landscape) {
+    .bottom-navbar {
+        height: 15%; /* Adjust height for landscape mode */
+    }
+
+    .bottom-navbar .nav-item i {
+        font-size: 20px; /* Adjust icon size for landscape mode */
+    }
+}

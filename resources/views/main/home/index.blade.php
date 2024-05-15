@@ -103,7 +103,7 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="{{url('../../assets/img/webp/blackandwhite.webp')}}" alt="Item 1">
+            <img src="{{url('../../assets/img/webp/blackandwhite.webp')}}" loading="lazy" alt="Item 1">
             <div class="banner-content text-white">
                 <div class="line"></div>
                 <span class="sub-title">{{__('messages.ShipAlloverMk')}}</span>
@@ -116,7 +116,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="{{url('../../assets/img/redhairr.webp')}}" alt="Item 2">
+            <img src="{{url('../../assets/img/redhairr.webp')}}" alt="Item 2" loading="lazy">
             <div class="banner-content text-white">
                 <div class="line"></div>
                 <span class="sub-title">{{__('messages.ShipAlloverMk')}}</span>
@@ -143,6 +143,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 col-md-12">
+                @auth
+
                 @if(auth()->user()->role == 2)
                 <div class="categories-box">
                     <img src="{{asset('assets/img/webp/orrossss1.webp')}}" alt="image" height="608.19" width="927.5">
@@ -153,6 +155,8 @@
 
                     <a href="{{route('Shop')}}" class="link-btn"></a>
                 </div>
+
+                    @endauth
                 @else
                     <div class="categories-box">
                         <img src="{{asset('assets/img/webp/orrossss1.webp')}}" alt="image" height="608.19" width="927.5">
@@ -163,9 +167,9 @@
 
                         <a href="{{route('sales')}}" class="link-btn"></a>
                     </div>
-                @endif
-            </div>
 
+            </div>
+            @endif
 
             <div class="col-lg-6 col-md-12">
                 <div class="row">
@@ -201,7 +205,7 @@
                                 <h3>{{__('messages.RRColor')}}</h3>
                             </div>
 
-                            <a href="{{route('hair.colors', 'RrLine')}}" class="link-btn"></a>
+                            <a href="{{route('hair.colors', 'Rr Line')}}" class="link-btn"></a>
                         </div>
                     </div>
 
@@ -248,7 +252,9 @@
                             <div class="header-content">
                                 <span class="category">{{$product->category->name}}</span>
                                 <div class="wishlist products-button">
+                                    @auth()
                                     <livewire:wishlist :product_id="$product->id" />
+                                    @endauth
                                 </div>
                             </div>
                             <h3><a href="#">{{$product->name}}</a></h3>
@@ -323,7 +329,9 @@
                             <div class="header-content">
                                 <span class="category">{{$product->category->name}}</span>
                                 <div class="wishlist products-button">
+                                    @auth
                                     <livewire:wishlist :product_id="$product->id" />
+                                    @endauth
                                 </div>
                             </div>
                             <h3><a href="#">{{$product->name}}</a></h3>

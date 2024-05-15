@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire\Product;
+namespace App\Livewire;
 
 use App\Models\Product;
 use Livewire\Component;
 
-class loadProducts extends Component
+class LoadProducts extends Component
 {
     public $amount = 9;
     public $selectedCategory = null;
@@ -24,10 +24,10 @@ class loadProducts extends Component
     }
     public function render()
     {
+
         $this->search = session('searchTerm', '');
         $products = $this->queryProducts();
-
-
+        $this->resetFilters();
         return view('livewire.product.load-products', compact('products'));
     }
 
