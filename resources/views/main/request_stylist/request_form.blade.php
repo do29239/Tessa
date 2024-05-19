@@ -39,7 +39,6 @@
             <div class="form-group">
                 <h4>Redeem Stylist Code</h4>
                 <input type="text" name="stylist_code" class="form-control" placeholder="Enter your stylist code">
-                <input type="text" name="saloon_phone" class="form-control" placeholder="{{__('messages.saloon_number')}}" required>
             </div>
 
             <button type="submit" class="default-btn">{{__('messages.submit_req')}}</button>
