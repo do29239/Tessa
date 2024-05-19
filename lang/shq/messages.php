@@ -139,6 +139,11 @@ return [
     'filter_products'=>'Filtro Produktet',
     'ask_about_product'=>'Pyesni për këtë produkt',
     'add_to_wishlist' => 'Shto në listën e dëshirave',
+    'availability' => 'Në magazinë:',
+    'brand'=>'Brend:',
+    'product_type'=>'Tipi i produktit:',
+    'shipping'=>'Transporti:',
+
 
     //Wishlist
     'my_wishlist'=>'Lista e Dëshirave',

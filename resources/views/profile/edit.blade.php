@@ -2,6 +2,20 @@
 
 @section('content')
 
+    <div class="page-title-area">
+        <div class="container">
+            <div class="page-title-content">
+                <h2>{{__('messages.my_account')}}</h2>
+                <ul>
+                    <li><a href="{{ url('/') }}">{{__('messages.home')}}</a></li>
+                    <li>{{__('messages.my_account')}}</li>
+                </ul>
+                @if(Session('message'))
+                    <div>{{session('message')}}</div>
+                @endif
+            </div>
+        </div>
+    </div>
     <!-- Start Profile Area -->
     <section class="profile-area ptb-100">
         <div class="container">

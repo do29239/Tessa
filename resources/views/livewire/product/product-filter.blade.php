@@ -27,16 +27,5 @@
             </ul>
         </div>
 
-        <div class="woocommerce-widget aside-trending-widget">
-            <div class="aside-trending-products">
-                <img src="assets/img/offer-bg.jpg" alt="image" />
-
-                <div class="category">
-                    <h3>Courses here</h3>
-                    <span>Spring/Summer 2021 Collection</span>
-                </div>
-                <a href="#" class="link-btn"></a>
-            </div>
-        </div>
     </div>
 </div>

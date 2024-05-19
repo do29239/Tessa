@@ -31,8 +31,17 @@
 
                         {{-- Dynamically calculate and show the order total --}}
                         <tr>
+                            <td colspan="2" class="text-right"><strong>{{__('messages.Subtotal')}}</strong></td>
+                            <td>{{ $finalTotal}} den</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-right"><strong>{{__('messages.Shipping')}}</strong></td>
+                            <td>150 den</td>
+                        </tr>
+
+                        <tr>
                             <td colspan="2" class="text-right"><strong>{{__('messages.order_total_')}}</strong></td>
-                            <td>{{ $finalTotal }} den</td>
+                            <td>{{ $finalTotal + 150 }} den</td>
                         </tr>
                         </tbody>
                     </table>

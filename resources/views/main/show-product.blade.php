@@ -40,11 +40,12 @@
 
               <ul class="products-info">
                 <li>
-                    <span>Brand:</span> <a href="#">{{$product->brand->name}}</a></li>
+                    <span>{{__('messages.brand')}}</span> <a href="#">{{$product->brand->name}}</a></li>
                 <li>
-                  <span>Availability:</span> <a href="#">{{$product->quantity}}</a>
+                  <span>{{__('messages.availability')}}</span> <a href="#">{{$product->quantity}}</a>
                 </li>
-                <li><span>Products Type:</span> <a href="#">{{$product->category->name}}</a></li>
+                  <li><span>{{__('messages.shipping')}}</span> <a href="#">150 den</a></li>
+                  <li><span>{{__('messages.product_type')}}</span> <a href="#">{{$product->category->name}}</a></li>
               </ul>
 
               <!--

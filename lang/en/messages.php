@@ -166,6 +166,10 @@ return [
     'filter_products'=>'Filter Products',
     'ask_about_product'=>'Ask about this product',
     'add_to_wishlist' => 'Add to Wishlist',
+    'availability' => 'Availability:',
+    'brand'=>'Brand:',
+    'product_type'=>'Product Type:',
+    'shipping'=>'Shipping:',
 
     //Wishlist
     'my_wishlist'=>'My Wishlist',
