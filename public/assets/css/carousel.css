@@ -551,7 +551,9 @@ position: relative;
     .xton-responsive-nav .search-btn-box .search-btn {
         font-size: 25px; /* Adjust the font size to scale up the search icon */
     }
-
+    .xton-responsive-nav .search-btn-box .bx-heart {
+        font-size: 25px;
+    }
     .xton-responsive-nav .option-item .cart-btn {
         font-size: 25px; /* Adjust the font size for the cart icon */
     }

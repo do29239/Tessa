@@ -41,7 +41,8 @@ class ProductController extends Controller
     {
         return view('admin.edit-product', [
             'brands' => $this->productService->getAllBrandsAndCategories()['brands'],
-            'categories' => $this->productService->getAllBrandsAndCategories()['categories']
+            'categories' => $this->productService->getAllBrandsAndCategories()['categories'],
+            'product'=> $product
         ]);
     }
 

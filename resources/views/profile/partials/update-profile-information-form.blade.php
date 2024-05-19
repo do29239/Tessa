@@ -18,9 +18,39 @@
         @method('patch')
 
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            <x-input-label for="first_name" :value="__('First Name')" />
+            <x-text-input id="first_name" name="first_name" type="text" class="mt-1 block w-full" :value="old('first_name', $user->first_name)" required autofocus autocomplete="first_name" />
+            <x-input-error class="mt-2" :messages="$errors->get('first_name')" />
+        </div>
+
+        <div>
+            <x-input-label for="last_name" :value="__('Last Name')" />
+            <x-text-input id="last_name" name="last_name" type="text" class="mt-1 block w-full" :value="old('last_name', $user->last_name)" required autofocus autocomplete="last_name" />
+            <x-input-error class="mt-2" :messages="$errors->get('last_name')" />
+        </div>
+
+        <div>
+            <x-input-label for="phone" :value="__('Phone')" />
+            <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" :value="old('phone', $user->phone)" required autofocus autocomplete="phone" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone')" />
+        </div>
+
+        <div>
+            <x-input-label for="city" :value="__('City')" />
+            <x-text-input id="city" name="city" type="text" class="mt-1 block w-full" :value="old('city', $user->city)" required autofocus autocomplete="city" />
+            <x-input-error class="mt-2" :messages="$errors->get('city')" />
+        </div>
+
+        <div>
+            <x-input-label for="address" :value="__('Address')" />
+            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)" required autofocus autocomplete="address" />
+            <x-input-error class="mt-2" :messages="$errors->get('address')" />
+        </div>
+
+        <div>
+            <x-input-label for="postcode" :value="__('Postcode')" />
+            <x-text-input id="postcode" name="postcode" type="text" class="mt-1 block w-full" :value="old('postcode', $user->postcode)" required autofocus autocomplete="postcode" />
+            <x-input-error class="mt-2" :messages="$errors->get('postcode')" />
         </div>
 
         <div>
@@ -46,6 +76,32 @@
                 </div>
             @endif
         </div>
+
+        @if ($user->role == 2) {{-- Assuming 3 is the role for stylists --}}
+        <div>
+            <x-input-label for="saloon_name" :value="__('Saloon Name')" />
+            <x-text-input id="saloon_name" name="saloon_name" type="text" class="mt-1 block w-full" :value="old('saloon_name', $user->stylistProfile->saloon_name ?? '')" required autofocus autocomplete="saloon_name" />
+            <x-input-error class="mt-2" :messages="$errors->get('saloon_name')" />
+        </div>
+
+        <div>
+            <x-input-label for="saloon_address" :value="__('Saloon Address')" />
+            <x-text-input id="saloon_address" name="saloon_address" type="text" class="mt-1 block w-full" :value="old('saloon_address', $user->stylistProfile->saloon_address ?? '')" required autofocus autocomplete="saloon_address" />
+            <x-input-error class="mt-2" :messages="$errors->get('saloon_address')" />
+        </div>
+
+        <div>
+            <x-input-label for="saloon_city" :value="__('Saloon City')" />
+            <x-text-input id="saloon_city" name="saloon_city" type="text" class="mt-1 block w-full" :value="old('saloon_city', $user->stylistProfile->saloon_city ?? '')" required autofocus autocomplete="saloon_city" />
+            <x-input-error class="mt-2" :messages="$errors->get('saloon_city')" />
+        </div>
+
+        <div>
+            <x-input-label for="saloon_phone" :value="__('Saloon Phone')" />
+            <x-text-input id="saloon_phone" name="saloon_phone" type="text" class="mt-1 block w-full" :value="old('saloon_phone', $user->stylistProfile->saloon_phone ?? '')" required autofocus autocomplete="saloon_phone" />
+            <x-input-error class="mt-2" :messages="$errors->get('saloon_phone')" />
+        </div>
+        @endif
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>

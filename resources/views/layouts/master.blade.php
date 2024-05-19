@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zxx">
 <head>
-    <!-- Required meta tags -->
+    <!-- (Changes )Required meta tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,7 +27,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bottom-navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/carousel.css') }}">
 
-    @if(!isset($excludeGlobalStyles))
+
+@if(!isset($excludeGlobalStyles))
         <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
     @endif
 
@@ -87,7 +88,8 @@
                 <div class="d-none d-lg-block">
                     @auth
                         <ul class="header-top-menu">
-                            <li><a href="#"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
+
+                            <li><a href="{{url('/profile')}}"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
                             @if(!auth()->user()->request_submitted)
                                 <li><a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i>{{__('messages.request_stylist')}}</a></li>
                             @endif
@@ -114,7 +116,7 @@
 </div>
 <!-- End Top Header Area -->
 <!-- Start Phone Sidebar-->
-<!-- Start Phone Sidebar-->
+<!-- Start Phone Sidebar/ Burger menu-->
 <div class="modal right fade sidebarModal" id="sidebarModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -125,10 +127,12 @@
                 <ul class="nav-menu-list">
                     <li class="hide-on-mobile"><a href="{{ url('/') }}"><i class="bx bx-home"></i>{{__('messages.home')}}</a></li>
                     <li  class="hide-on-mobile"><a href="{{ route('shop') }}"><i class="bx bx-store"></i>{{__('messages.shop')}}</a></li>
+                    @auth()
                     <li  class="hide-on-mobile"><a href="{{ route('show.wishlist') }}"><i class="bx bx-heart"></i>{{__('messages.wishlist')}}</a></li>
+                    @endauth
                     <li><a href="{{ route('courses') }}"><i class="bx bx-book {{ request()->routeIs('courses') ? ' active' : '' }}"></i>{{__('messages.courses')}}</a></li>
-                    <li><a href="about-us.html"><i class="bx bx-info-circle"></i>{{__('messages.about_us')}}</a></li>
-                    <li><a href="contact.html"><i class="bx bx-phone"></i>{{__('messages.contact')}}</a></li>
+                    <li><a href="{{url('/about')}}"><i class="bx bx-info-circle"></i>{{__('messages.about_us')}}</a></li>
+                    <li><a href="{{url('/contact')}}"><i class="bx bx-phone"></i>{{__('messages.contact')}}</a></li>
                     @auth()
                         <li><a href="my-account.html"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
                         @if(!auth()->user()->request_submitted)
@@ -174,7 +178,12 @@
                         </div>
                     </div>
                     <div class="option-item">
-                        <livewire:cart.cart-counter/>
+                        <a href="{{ route('show.wishlist') }}" class="nav-item{{ request()->is('wishlist') ? ' active' : '' }}">
+                            <i class="bx bx-heart"></i>
+                        </a>
+                    </div>
+                    <div class="option-item">
+                        <livewire:Cart.CartCounter/>
                     </div>
                 </div>
 
@@ -206,10 +215,10 @@
                             <a href="{{ route('courses') }}" class="nav-link{{ request()->routeIs('courses') ? ' active' : '' }}">{{__('messages.courses')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="../about.html" class="nav-link">{{__('messages.about_us')}}</a>
+                            <a href="{{(url('/about'))}}" class="nav-link">{{__('messages.about_us')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="../contact.html" class="nav-link">{{__('messages.contact')}}</a>
+                            <a href="{{url('/contact')}}" class="nav-link">{{__('messages.contact')}}</a>
                         </li>
                     </ul>
                 </div>
@@ -220,7 +229,7 @@
                         </div>
                     </div>
                     <div class="option-item">
-                        <livewire:cart.cart-counter/>
+                        <livewire:Cart.CartCounter/>
                     </div>
                 </div>
             </nav>
@@ -249,10 +258,10 @@
                             <a href="../blog-1.html" class="nav-link">{{__('messages.courses')}}</a>
                         </li>
                         <li class="nav-item ">
-                            <a href="../about.html" class="nav-link">{{__('messages.about_us')}}</a>
+                            <a href="{{(url('/about'))}}" class="nav-link">{{__('messages.about_us')}}</a>
                         </li>
                         <li class="nav-item ">
-                            <a href="../contact.html" class="nav-link">{{__('messages.contact')}}</a>
+                            <a href="{{url('/contact')}}" class="nav-link">{{__('messages.contact')}}</a>
                         </li>
                     </ul>
                     <div class="others-option">
@@ -263,7 +272,7 @@
                             </div>
                         </div>
                         <div class="option-item">
-                            <livewire:cart.cart-counter/>
+                            <livewire:Cart.CartCounter/>
                         </div>
                         <div class="option-item">
                             <div class="burger-menu" data-bs-toggle="modal" data-bs-target="#sidebarModal">
@@ -363,7 +372,7 @@
             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true"><i class='bx bx-x'></i></span>
             </button>
-            <livewire:cart.show-cart :view="'show-cart-modal'" />
+            <livewire:Cart.ShowCart :view="'show-cart-modal'" />
         </div>
     </div>
     </div>
@@ -426,10 +435,10 @@
                     <h3>{{__('messages.quick_links')}}</h3>
                     <ul class="quick-links">
                         <li><a href="{{url('/')}}">{{__('messages.home')}}</a></li>
-                        <li><a href="../products-sidebar-fullwidth.html">{{__('messages.shop')}}</a></li>
-                        <li><a href="../blog-1.html">{{__('messages.courses')}}</a></li>
-                        <li><a href="../about.html">{{__('messages.about_us')}}</a></li>
-                        <li><a href="../contact.html">{{__('messages.contact')}}</a></li>
+                        <li><a href="{{route('shop')}}">{{__('messages.shop')}}</a></li>
+                        <li><a href="{{route('courses')}}">{{__('messages.courses')}}</a></li>
+                        <li><a href="{{url('/about')}}">{{__('messages.about_us')}}</a></li>
+                        <li><a href="{{url('/contact')}}">{{__('messages.contact')}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -439,7 +448,7 @@
                     <ul class="customer-support">
                         <li><a href="../login.html">{{__('messages.my_account')}}</a></li>
                         <li><a href="../cart.html">{{__('messages.Cart')}}</a></li>
-                        <li><a href="../contact.html">{{__('messages.Help')}}</a></li>
+                        <li><a href="{{url('/contact')}}">{{__('messages.Help')}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -515,24 +524,25 @@
         <nav class="navbar">
             <a href="{{ url('/') }}" class="nav-item{{ request()->is('/') ? ' active' : '' }}">
                 <i class="bx bx-home-alt"></i>
-                <span>{{__('messages.home')}}</span>
             </a>
             <a href="{{ route('shop') }}" class="nav-item{{ request()->is('shop') ? ' active' : '' }}">
                 <i class="bx bx-store"></i>
-                <span>{{__('messages.shop')}}</span>
             </a>
-            <a href="{{ route('show.wishlist') }}" class="nav-item{{ request()->is('wishlist') ? ' active' : '' }}">
-                <i class="bx bx-heart"></i>
-                <span>{{__('messages.wishlist')}}</span>
-            </a>
-            <div class="nav-item">
-                <livewire:cart.cart-counter/>
-                <span>{{__('messages.Cart')}}</span>
-            </div>
+
             <div class="search-btn-box nav-item{{ request()->is('contact') ? ' active' : '' }}" data-url="#">
                 <i class="search-btn bx bx-search-alt"></i>
-                <span>{{__('messages.Search')}}</span>
             </div>
+
+            <div class="nav-item">
+                <livewire:Cart.CartCounter/>
+            </div>
+
+
+            @auth
+                <a href="{{ route('show.wishlist') }}" class="nav-item{{ request()->is('wishlist') ? ' active' : '' }}">
+                    <i class="bx bx-heart"></i>
+                </a>
+            @endauth
         </nav>
     </div>
 </div>

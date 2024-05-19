@@ -1,13 +1,14 @@
-@extends('layouts.master') {{-- Make sure this refers to your actual layout file --}}
+@extends('layouts.master')
 
 @section('content')
+
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h2>Wishlist</h2>
+                <h2>{{__('messages.my_wishlist')}}</h2>
                 <ul>
                     <li><a href="{{ url('/') }}">{{__('messages.home')}}</a></li>
-                    <li>Wishlist</li>
+                    <li>{{__('messages.my_wishlist')}}</li>
                 </ul>
             </div>
         </div>
@@ -30,7 +31,7 @@
                                 <div class="header-content">
                                     <span class="category">{{$product->category->name}}</span>
                                     <div class="wishlist products-button">
-                                        @livewire('wishlist', ['product_id' => $product->id])
+                                        <livewire:wishlist :product_id="$product->id" />
                                     </div>
                                 </div>
                                 <h3><a href="#">{{$product->name}}</a></h3>
@@ -45,7 +46,7 @@
                                     @endif
                                 </div>
                                 <input type="hidden" value="{{$product->id}}" class="prod_id">
-                                @livewire('add-to-cart', ['product_id' => $product->id])
+                                <livewire:cart.add-to-cart :product_id="$product->id" :key="$product->id" />
                             </div>
                             @if($product->sale()->active()->exists())
                                 <span class="products-discount">

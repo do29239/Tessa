@@ -20,8 +20,6 @@
     <link href="{{asset('../assets/adminassets/css/black-dashboard.css?v=1.0.0')}}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('../assets/adminassets/demo/demo.css')}}" rel="stylesheet" />
-
-
 </head>
 
 <body class="">
@@ -97,25 +95,7 @@
                 <li>
                     <a href={{ route('courses.index') }}>
                         <i class="tim-icons icon-pin"></i>
-                        <p>Courses</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('show_users') }}>
-                        <i class="tim-icons icon-single-02"></i>
-                        <p>Users</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('coupons.index') }}>
-                        <i class="tim-icons icon-pin"></i>
-                        <p>Coupons</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('admin.bulkSale.create') }}>
-                        <i class="tim-icons icon-pin"></i>
-                        <p>Sales</p>
+                        <p>Maps</p>
                     </a>
                 </li>
                 <li>
@@ -146,6 +126,12 @@
                     <a href="./rtl.html">
                         <i class="tim-icons icon-world"></i>
                         <p>RTL Support</p>
+                    </a>
+                </li>
+                <li class="active-pro">
+                    <a href="./upgrade.html">
+                        <i class="tim-icons icon-spaceship"></i>
+                        <p>Upgrade to PRO</p>
                     </a>
                 </li>
             </ul>
@@ -189,26 +175,22 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">
-                                        <!-- Search Type Dropdown -->
-                                        <div class="form-group">
-                                            <label for="searchType">Search Type</label>
-                                            <select class="text_color" id="searchType">
+                                    <form action="{{ route('search') }}" method="GET">
+                                        <div class="modal-body">
+                                            <select name="searchType">
                                                 <option value="Product">Product</option>
                                                 <option value="User">Users</option>
                                                 <option value="Course">Courses</option>
                                                 <option value="Order">Orders</option>
                                             </select>
+                                            <input type="text" name="query"  placeholder="Type your search...">
                                         </div>
-                                        <!-- Search Input -->
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Type your search...">
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Search</button>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Search</button>
-                                    </div>
+                                    </form>
+
                                 </div>
                             </div>
                         </div>
@@ -279,24 +261,24 @@
         </footer>
     </div>
 </div>
-        <!--   Core JS Files   -->
-        <script src="../assets/adminassets/js/core/jquery.min.js"></script>
-        <script src="../assets/adminassets/js/core/popper.min.js"></script>
-        <script src="../assets/adminassets/js/core/bootstrap.min.js"></script>
-        <script src="../assets/adminassets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-        <!--  Google Maps Plugin    -->
-        <!-- Place this tag in your head or just before your close body tag. -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-        <!-- Chart JS -->
-        <script src="../assets/adminassets/js/plugins/chartjs.min.js"></script>
-        <!--  Notifications Plugin    -->
-        <script src="../assets/adminassets/js/plugins/bootstrap-notify.js"></script>
-        <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-        <script src="../assets/adminassets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
-        <script src="../assets/adminassets/demo/demo.js"></script>
+<!--   Core JS Files   -->
+<script src="../assets/adminassets/js/core/jquery.min.js"></script>
+<script src="../assets/adminassets/js/core/popper.min.js"></script>
+<script src="../assets/adminassets/js/core/bootstrap.min.js"></script>
+<script src="../assets/adminassets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!--  Google Maps Plugin    -->
+<!-- Place this tag in your head or just before your close body tag. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chart JS -->
+<script src="../assets/adminassets/js/plugins/chartjs.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="../assets/adminassets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="../assets/adminassets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/adminassets/demo/demo.js"></script>
 
 
 
-    </body>
+</body>
 
 </html>

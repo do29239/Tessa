@@ -52,6 +52,7 @@ Route::middleware(DistributorAccess::class)->group(function () {
     Route::view('/contact', 'main/contact/contact');
 });
 
+
 // Authenticated routes
 Route::middleware('auth')->group(function () {
     Route::middleware(\App\Http\Middleware\Admin::class)->group(function () {
@@ -65,7 +66,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('brands', BrandController::class)->except('show');
         Route::resource('orders', \App\Http\Controllers\Admin\OrderController::class);
         Route::get('order-history', [\App\Http\Controllers\Admin\OrderController::class, 'history'])->name('history');
-        Route::resource('request', RequestStylistController::class)->except(['create', 'store']);
+        Route::resource('request', RequestStylistController::class)->except(['create','store']);
         Route::get('/users', [UserController::class, 'index'])->name('show_users');
         Route::get('/user/{user}', [UserController::class, 'show'])->name('show_user');
         Route::delete('users/{user}', [UserController::class, 'destroy'])->name('user.destroy');
@@ -76,8 +77,12 @@ Route::middleware('auth')->group(function () {
         Route::resource('/sales', \App\Http\Controllers\Admin\SalesController::class)->except('create');
         Route::resource('coupons', CouponController::class)->except('create');
         Route::post('/coupons/store', [CouponController::class, 'store'])->name('coupon.store');
+
+
         Route::get('/bulk-sale', [\App\Http\Controllers\Admin\BulkSaleController::class, 'createBulkSale'])->name('admin.bulkSale.create');
+
         Route::post('/bulk-sale/store', [\App\Http\Controllers\Admin\BulkSaleController::class, 'storeBulkSale'])->name('admin.bulkSale.store');
+
         Route::get('/bulk-sale/show-products', [\App\Http\Controllers\Admin\BulkSaleController::class, 'showProductsForBulkSale'])->name('admin.bulkSale.showProducts');
         Route::get('/search', [\App\Http\Controllers\Admin\SearchController::class, 'search'])->name('search');
         Route::resource('codes',InvitationCodeController::class)->except('create','edit','update');

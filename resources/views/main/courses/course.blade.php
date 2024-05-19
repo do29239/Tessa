@@ -6,10 +6,10 @@
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h2>Courses</h2>
+                <h2>{{__('messages.courses')}}</h2>
                 <ul>
-                    <li><a href="index-2.html">Home</a></li>
-                    <li>Courses</li>
+                    <li><a href="index-2.html">{{__('messages.home')}}</a></li>
+                    <li>{{__('messages.courses')}}</li>
                 </ul>
             </div>
         </div>
@@ -37,7 +37,7 @@
                                     <a href="">{{$course->name}}</a>
                                 </h3>
                                 <p>{{$course->description}}</p>
-                                <a href="{{ route('showCourse', ['course' => $course]) }}" class="details-btn">Read Story</a>
+                                <a href="{{ route('showCourse', ['course' => $course]) }}" class="details-btn">{{__('messages.read_story')}}</a>
                             </div>
                         </div>
                     </div>

@@ -103,28 +103,28 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="{{url('../../assets/img/webp/blackandwhite.webp')}}" alt="Item 1">
+            <img src="{{url('../../assets/img/webp/blackandwhite.webp')}}" loading="lazy" alt="Item 1">
             <div class="banner-content text-white">
                 <div class="line"></div>
-                <span class="sub-title">We ship All over Macedonia!!!</span>
-                <h1>All You Need in One Place</h1>
-                <p>New Inspiration!!! New Look!!!</p>
+                <span class="sub-title">{{__('messages.ShipAlloverMk')}}</span>
+                <h1>{{__('messages.AllInOne')}}</h1>
+                <p>{{__('messages.NewInspiration')}}</p>
                 <div class="btn-box">
-                    <a href="/shop" class="default-btn">Go To Shop</a>
-                    <a href="/courses" class="optional-btn">Our Courses</a>
+                    <a href="/shop" class="default-btn">{{__('messages.GoShop')}}</a>
+                    <a href="/courses" class="optional-btn">{{__('messages.OurCourses')}}</a>
                 </div>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="{{url('../../assets/img/redhairr.webp')}}" alt="Item 2">
+            <img src="{{url('../../assets/img/redhairr.webp')}}" alt="Item 2" loading="lazy">
             <div class="banner-content text-white">
                 <div class="line"></div>
-                <span class="sub-title">We ship All over Macedonia!!!</span>
-                <h1>All You Need in One Place</h1>
-                <p>New Inspiration!!! New Look!!!</p>
+                <span class="sub-title">{{__('messages.ShipAlloverMk')}}</span>
+                <h1>{{__('messages.AllInOne')}}</h1>
+                <p>{{__('messages.NewInspiration')}}</p>
                 <div class="btn-box">
-                    <a href="/shop" class="default-btn">Go To Shop</a>
-                    <a href="/courses" class="optional-btn">Our Courses</a>
+                    <a href="/shop" class="default-btn">{{__('messages.GoShop')}}</a>
+                    <a href="/courses" class="optional-btn">{{__('messages.OurCourses')}}</a>
                 </div>
             </div>
         </div>
@@ -224,64 +224,24 @@
         </div>
     </div>
 </section>
+
+
+
 <!-- End Categories Banner Area -->
 
 <!-- Start Products Area -->
 
-
 <section class="products-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <span class="sub-title">See Our Collection</span>
-            <h2>Recent Products</h2>
+            <span class="sub-title">{{__('messages.SeeCollection')}}</span>
+            <h2>{{__('messages.RecentProducts')}}</h2>
         </div>
-
         <div class="row">
-            @foreach($products as $product)
-                <div class="col-lg-4 col-md-6 col-sm-6" wire:key="{{$product->id}}">
-                    <div class="products-box">
-                        <div class="products-image">
-                            <a href="{{ route('showProduct', $product->id) }}">
-                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="main-image" alt="image" width="416" height="496.7">
-                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="hover-image" alt="image" width="416" height="496.7">
-                            </a>
-                        </div>
-
-                        <div class="products-content">
-                            <div class="header-content">
-                                <span class="category">{{$product->category->name}}</span>
-                                <div class="wishlist products-button">
-                                    @livewire('wishlist', ['product_id' => $product->id])
-                                </div>
-                            </div>
-                            <h3><a href="#">{{$product->name}}</a></h3>
-                            <div class="price">
-                                @if(auth()->check() && auth()->user()->role == 2)
-                                    <span class="new-price">{{ $product->stylist_price }}den</span>
-                                @elseif($product->sale()->active()->exists())
-                                    <span class="old-price">${{ $product->price }}</span>
-                                    <span class="new-price">${{ $product->sale->sale_price }}</span>
-                                @else
-                                    <span class="new-price">{{ $product->price }}den</span>
-                                @endif
-                            </div>
-                            <input type="hidden" value="{{$product->id}}" class="prod_id">
-                            <livewire:cart.add-to-cart :product_id="$product->id" :key="$product->id" />
-                        </div>
-                        @if($product->sale()->active()->exists())
-                        <span class="products-discount">
-                            <span>
-                                Sale!
-                            </span>
-                        </span>
-                        @endif
-                    </div>
-                </div>
-            @endforeach
+            @include('main.display-products')
         </div>
     </div>
 </section>
-
 
 <!-- End Products Area -->
 
@@ -291,10 +251,10 @@
         <div class="row">
             <div class="col-lg-5 col-md-6 offset-lg-7 offset-md-6">
                 <div class="offer-content-box">
-                    <span class="sub-title">Limited Time Offer!</span>
-                    <h2>-40% OFF</h2>
-                    <p>Get The Best Deals Now</p>
-                    <a href="../products-sidebar-fullwidth.html" class="default-btn">Discover Now</a>
+                    <span class="sub-title">{{__('messages.limited_time_offer')}}</span>
+                    <h2>{{__('messages.products_in_sale')}}</h2>
+                    <p>{{__('messages.best_deals')}}</p>
+                    <a href="/sale" class="default-btn">{{__('messages.go_to_sale')}}</a>
                 </div>
             </div>
         </div>
@@ -306,54 +266,12 @@
 <section class="products-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <span class="sub-title">See Our Collection</span>
-            <h2>Popular Products</h2>
+            <span class="sub-title">{{__('messages.most_popular')}}</span>
+            <h2>{{__('messages.popular_products')}}</h2>
         </div>
-
         <div class="row">
-            @foreach($popularProducts as $product)
-                <div class="col-lg-4 col-md-6 col-sm-6" wire:key="{{$product->id}}">
-                    <div class="products-box">
-                        <div class="products-image">
-                            <a href="{{ route('showProduct', $product->id) }}">
-                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="main-image" alt="image" width="416" height="496.7">
-                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="hover-image" alt="image" width="416" height="496.7">
-                            </a>
+            @include('main.display-products', ['products' =>$popularProducts])
 
-                        </div>
-
-                        <div class="products-content">
-                            <div class="header-content">
-                                <span class="category">{{$product->category->name}}</span>
-                                <div class="wishlist products-button">
-                                    @livewire('wishlist', ['product_id' => $product->id])
-                                </div>
-                            </div>
-                            <h3><a href="#">{{$product->name}}</a></h3>
-                            <div class="price">
-                                @if(auth()->check() && auth()->user()->role == 2)
-                                    <span class="new-price">{{ $product->stylist_price }}den</span>
-                                @elseif($product->sale()->active()->exists())
-                                    <span class="old-price">${{ $product->price }}</span>
-                                    <span class="new-price">${{ $product->sale->sale_price }}</span>
-                                @else
-                                    <span class="new-price">{{ $product->price }}den</span>
-                                @endif
-                            </div>
-                            <input type="hidden" value="{{$product->id}}" class="prod_id">
-                            <livewire:cart.add-to-cart :product_id="$product->id" :key="$product->id" />
-                        </div>
-
-                        @if($product->sale()->active()->exists())
-                            <span class="products-discount">
-                            <span>
-                                Sale!
-                            </span>
-                        </span>
-                        @endif
-                    </div>
-                </div>
-            @endforeach
         </div>
     </div>
 </section>
@@ -414,7 +332,7 @@
 <div class="brand-area ptb-70">
     <div class="container">
         <div class="section-title">
-            <h2>Shop By Brand</h2>
+            <h2>{{__('messages.ShopBrand')}}</h2>
         </div>
 
         <div class="brand-slides">
@@ -441,8 +359,8 @@
 <section class="blog-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <span class="sub-title">Recent Story</span>
-            <h2>From Our Courses</h2>
+            <span class="sub-title">{{__('messages.recent_story')}}</span>
+            <h2>{{__('messages.from_our_courses')}}</h2>
         </div>
 
         <div class="row">

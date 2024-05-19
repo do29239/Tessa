@@ -43,7 +43,7 @@ class AddToCart extends Component
 
     public function render()
     {
-        return view('livewire.cart.add-to-cart');
+        return view('livewire.Cart.add-to-cart');
     }
 
 }

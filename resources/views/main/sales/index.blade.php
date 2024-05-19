@@ -5,10 +5,10 @@
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h2>Sales</h2>
+                <h2>{{__('messages.sales')}}</h2>
                 <ul>
                     <li><a href="{{ url('/') }}">{{__('messages.home')}}</a></li>
-                    <li>Sales</li>
+                    <li>{{__('messages.sales')}}</li>
                 </ul>
             </div>
         </div>
@@ -32,21 +32,21 @@
                             <div class="products-button">
                                 <ul>
                                     <li>
-                                        @livewire('wishlist', ['product_id' => $sale->product->id])
+                                        <livewire:wishlist :product_id="$product->id" />
                                     </li>
 
                                     <li>
                                         <div class="quick-view-btn">
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
                                                 <i class='bx bx-search-alt'></i>
-                                                <span class="tooltip-label">Quick View</span>
+                                                <span class="tooltip-label">{{__('messages.quick_view')}}</span>
                                             </a>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
 
-                            <div class="sale-tag">Sale!</div>
+                            <div class="sale-tag">{{__('messages.sale')}}</div>
                         </div>
 
                         <div class="products-content">
@@ -56,7 +56,7 @@
                                 <span class="old-price">${{ $sale->product->price }}</span>
                                 <span class="new-price">${{ $sale->sale_price }}</span>
                             </div>
-                            @livewire('add-to-cart', ['product_id' => $sale->product->id])
+                            <livewire:cart.add-to-cart :product_id="$product->id" :key="$product->id" />
                         </div>
                     </div>
                 </div>
