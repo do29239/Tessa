@@ -89,7 +89,7 @@
                     @auth
                         <ul class="header-top-menu">
 
-                            <li><a href="{{url('/profile')}}"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
+                            <li><a href="{{route('profile.edit')}}"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
                             @if(!auth()->user()->request_submitted)
                                 <li><a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i>{{__('messages.request_stylist')}}</a></li>
                             @endif
@@ -403,28 +403,13 @@
                     </div>
                     <ul class="social-link">
                         <li>
-                            <a href="#" class="d-block" target="_blank"
+                            <a href="https://www.facebook.com/profile.php?id=362511444362431&_rdr" class="d-block" target="_blank"
                             ><i class="bx bxl-facebook"></i
                                 ></a>
                         </li>
                         <li>
-                            <a href="#" class="d-block" target="_blank"
-                            ><i class="bx bxl-twitter"></i
-                                ></a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-block" target="_blank"
+                            <a href="https://www.instagram.com/tessabeauty.institute/" class="d-block" target="_blank"
                             ><i class="bx bxl-instagram"></i
-                                ></a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-block" target="_blank"
-                            ><i class="bx bxl-linkedin"></i
-                                ></a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-block" target="_blank"
-                            ><i class="bx bxl-pinterest-alt"></i
                                 ></a>
                         </li>
                     </ul>
@@ -446,7 +431,7 @@
                 <div class="single-footer-widget">
                     <h3>{{__('messages.customer_support')}}</h3>
                     <ul class="customer-support">
-                        <li><a href="../login.html">{{__('messages.my_account')}}</a></li>
+                        <li><a href="{{route('profile.edit')}}">{{__('messages.my_account')}}</a></li>
                         <li><a href="{{url('/contact')}}">{{__('messages.Help')}}</a></li>
                     </ul>
                 </div>

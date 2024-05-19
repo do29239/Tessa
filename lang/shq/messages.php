@@ -57,7 +57,7 @@ return [
     'Location'=>'Gositvar, Maqedonia e veriut',
     'Email'=>'Tessa.academy@gmail.com',
     'customer_support'=>'Mbështetje për Klientet',
-    'my_account'=>'Logarija Ime',
+    'my_account'=>'Llogarija Ime',
     'Help'=>'Ndihmë & Mbështetje',
     'quick_links'=>'Linqe',
 

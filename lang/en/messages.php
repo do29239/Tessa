@@ -9,7 +9,7 @@ return [
     'courses' => 'Courses',
     'about_us' => 'About Us',
     'contact' => 'Contact',
-    'my_account' => 'My Account',
+    'my_account' => 'My Profile',
     'request_stylist_nav' => 'Request Stylist Account',
     'my_orders' => 'My Orders',
     'log_out' => 'Log Out',
