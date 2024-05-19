@@ -96,12 +96,6 @@ class ProductService
         $product->delete();
     }
 
-    public function show(Product $product)
-    {
-       return $this->getProducts()->with('image')
-            ->where('category_id', $product->category_id)
-            ->where('id', '!=', $product->id)->paginate(3);
-    }
     public function showHairColors($brandName)
     {
        return $this->getProducts()->whereHas('category', function ($query) {

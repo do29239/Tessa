@@ -26,6 +26,7 @@ class RequestStylistRequest extends FormRequest
             'saloon_city'=>['required','max:255'],
             'saloon_address'=>['required','max:255'],
             'saloon_phone'=>['required','max:255'],
+
             //'user_id' => 'required|exists:users,id',
         ];
     }

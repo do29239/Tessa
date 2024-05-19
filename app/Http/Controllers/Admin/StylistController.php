@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\StylistProfile;
+use App\Models\User;
 use App\Services\StylistService;
+use Illuminate\Support\Facades\Auth;
 
 class StylistController extends Controller
 {
@@ -23,8 +25,9 @@ class StylistController extends Controller
 
     public function show(StylistProfile $stylist)
     {
+        $user=$stylist->user;
         // Since $stylist is already resolved through route model binding, we don't need to fetch it again.
-        return view('admin.show-stylist', compact('stylist'));
+        return view('admin.show-stylist', compact('user'));
     }
 
     public function destroy(StylistProfile $stylist)

@@ -22,6 +22,8 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin' => \App\Http\Middleware\Admin::class,
             'convertToWebp' => \App\Http\Middleware\ConvertImageToWebp::class,
             'stylist' => \App\Http\Middleware\Stylist::class,
+            'distributor'=>\App\Http\Middleware\Distributor::class,
+            'distributorAccess'=>\App\Http\Middleware\DistributorAccess::class,
 
         ]);
     })

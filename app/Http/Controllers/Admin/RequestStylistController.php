@@ -7,6 +7,7 @@ use App\Http\Requests\RequestStylistRequest;
 use App\Models\RequestStylist;
 use App\Services\RequestStylistService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class RequestStylistController extends Controller
 {
@@ -23,12 +24,40 @@ class RequestStylistController extends Controller
         return view('admin.stylist-request', compact('requests'));
     }
 
+//    public function store(RequestStylistRequest $request)
+//    {
+//        $validatedData = $request->validated();
+//        $this->requestStylistService->createRequest(auth()->user(), $validatedData);
+//        return redirect()->route('show_products')->with('message', 'Request Made Successfully');
+//    }
+
     public function store(RequestStylistRequest $request)
     {
+        // Validate the stylist code separately or add it to existing validated data
         $validatedData = $request->validated();
+        $stylistCodeValidation = Validator::make($request->all(), [
+            'stylist_code' => 'nullable|string'
+        ])->validate();
+
+        // Merge stylist code validation results with existing validated data
+        $validatedData = array_merge($validatedData, $stylistCodeValidation);
+
+        if (!empty($validatedData['stylist_code'])) {
+            try {
+                if ($this->requestStylistService->redeemStylistCode($validatedData['stylist_code'], $validatedData)) {
+                    return redirect()->route('main')->with('success', 'You have successfully registered as a stylist.');
+                }
+            } catch (\Exception $e) {
+                // If the code is invalid, inform the user and optionally continue the regular request process
+                return redirect()->back()->with('error', 'Invalid or expired code.');
+            }
+        }
+
+        // Proceed with creating a stylist request if no code is provided or if the code redemption fails
         $this->requestStylistService->createRequest(auth()->user(), $validatedData);
-        return redirect()->route('show_products')->with('message', 'Request Made Successfully');
+        return redirect()->route('main')->with('message', 'Your request has been submitted for review.');
     }
+
 
     public function show(RequestStylist $request)
     {
@@ -54,6 +83,43 @@ class RequestStylistController extends Controller
             return redirect()->back()->with('error', 'Unable to deny request: ' . $e->getMessage());
         }
     }
+
+//    public function registerStylist(RequestStylistRequest $request)
+//    {
+//        $validatedData = $request->validated();
+//
+//        if (!empty($validatedData['stylist_code'])) {
+//            // Attempt to redeem the stylist code
+//            try {
+//                $stylistService = new RequestStylistService();
+//                if ($stylistService->redeemStylistCode($validatedData['stylist_code'], $request->user()->id)) {
+//                    // Directly create the stylist profile and assign the stylist role
+//                    return redirect()->route('dashboard')->with('success', 'You have successfully registered as a stylist.');
+//                }
+//            } catch (\Exception $e) {
+//                // If code is invalid, continue to normal request submission
+//                return redirect()->back()->with('error', 'Invalid or expired code. Your request is submitted for review.');
+//            }
+//        }
+//
+//        // Code not provided or redeem failed, submit for admin approval
+//        $this->requestStylistService->createRequest($request->user(), $validatedData);
+//
+//        return redirect()->route('dashboard')->with('message', 'Your request has been submitted for review.');
+//    }
+
+
+    public function createCode($distributorId)
+    {
+        try {
+            $code = $this->requestStylistService->generateStylistCode($distributorId);
+            return redirect()->back()->with('code', $code);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Failed to generate code: ' . $e->getMessage());
+        }
+    }
+
+
 }
 
 

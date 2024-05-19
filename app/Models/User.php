@@ -31,6 +31,7 @@ class User extends Authenticatable
         'postcode',
         'password',
         'request_submitted',
+        'role',
     ];
 
     /**
@@ -76,5 +77,17 @@ class User extends Authenticatable
         return $this->belongsToMany(Product::class, 'product_user');
     }
 
+    public function createdCodes() :HasMany
+    {
+        return $this->hasMany(StylistInvitationCode::class, 'created_by');
+    }
+
+    /**
+     * Get all invitation codes used by the user to become a stylist.
+     */
+    public function usedCodes(): HasOne
+    {
+        return $this->hasOne(StylistInvitationCode::class, 'used_by');
+    }
 
 }

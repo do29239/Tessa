@@ -142,78 +142,81 @@
 <section class="categories-banner-area pt-100 pb-70">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6 col-md-12">
+            @auth
                 @if(auth()->user()->role == 2)
-                <div class="categories-box">
-                    <img src="{{asset('assets/img/webp/orrossss1.webp')}}" alt="image" height="608.19" width="927.5">
-
-                    <div class="content">
-                        <h3>Go To Shop!</h3>
-                    </div>
-
-                    <a href="{{route('Shop')}}" class="link-btn"></a>
-                </div>
-                @else
-                    <div class="categories-box">
-                        <img src="{{asset('assets/img/webp/orrossss1.webp')}}" alt="image" height="608.19" width="927.5">
-
-                        <div class="content">
-                            <h3>Products on Sale!</h3>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="categories-box">
+                            <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" alt="image" height="608.19" width="927.5">
+                            <div class="content">
+                                <h3>Go To Shop!</h3>
+                            </div>
+                            <a href="{{ route('shop') }}" class="link-btn"></a>
                         </div>
-
-                        <a href="{{route('sales')}}" class="link-btn"></a>
+                    </div>
+                @else
+                    <div class="col-lg-6 col-md-12">
+                        <div class="categories-box">
+                            <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" alt="image" height="608.19" width="927.5">
+                            <div class="content">
+                                <h3>{{ __('messages.ProdOnSale') }}</h3>
+                            </div>
+                            <a href="{{ route('sales') }}" class="link-btn"></a>
+                        </div>
                     </div>
                 @endif
-            </div>
+            @endauth
 
+            @guest
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>{{ __('messages.ProdOnSale') }}</h3>
+                        </div>
+                        <a href="{{ route('sales') }}" class="link-btn"></a>
+                    </div>
+                </div>
+            @endguest
 
             <div class="col-lg-6 col-md-12">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{asset('assets/img/webp/Fanola color.webp')}}" alt="image" height="289.31" width="451.75">
-
+                            <img src="{{ asset('assets/img/webp/fanola color.webp') }}" alt="image" height="289.31" width="451.75">
                             <div class="content">
-                                <h3>Fanola Hair Colors</h3>
+                                <h3>{{ __('messages.FColor') }}</h3>
                             </div>
-
-                            <a href="{{route('hair.colors','Fanola')}}" class="link-btn"></a>
+                            <a href="{{ route('hair.colors', 'Fanola') }}" class="link-btn"></a>
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{asset('assets/img/webp/OroTherapy Color.webp')}}" alt="image" height="289.31" width="451.75">
-
+                            <img src="{{ asset('assets/img/webp/OroTherapy Color.webp') }}" alt="image" height="289.31" width="451.75">
                             <div class="content">
-                                <h3>Oro Hair Colors</h3>
+                                <h3>{{ __('messages.OColor') }}</h3>
                             </div>
-
-                            <a href="{{route('hair.colors', 'Oro Therapy')}}" class="link-btn"></a>
+                            <a href="{{ route('hair.colors', 'Oro Therapy') }}" class="link-btn"></a>
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{asset('assets/img/webp/RrLine Color.webp')}}" alt="image" height="289.31" width="451.75">
-
+                            <img src="{{ asset('assets/img/webp/RrLine Color.webp') }}" alt="image" height="289.31" width="451.75">
                             <div class="content">
-                                <h3>RR Hair Colors</h3>
+                                <h3>{{ __('messages.RRColor') }}</h3>
                             </div>
-
-                            <a href="{{route('hair.colors', 'RrLine')}}" class="link-btn"></a>
+                            <a href="{{ route('hair.colors', 'Rr Line') }}" class="link-btn"></a>
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{asset('assets/img/webp/No Yellow Color.webp')}}" alt="image" height="289.31" width="451.75">
-
+                            <img src="{{ asset('assets/img/webp/No Yellow Color.webp') }}" alt="image" height="289.31" width="451.75">
                             <div class="content">
-                                <h3>No Yellow Color</h3>
+                                <h3>{{ __('messages.NYColor') }}</h3>
                             </div>
-
-                            <a href="{{route('hair.colors', 'No Yellow')}}" class="link-btn"></a>
+                            <a href="{{ route('hair.colors', 'No Yellow') }}" class="link-btn"></a>
                         </div>
                     </div>
                 </div>
