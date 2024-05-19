@@ -447,7 +447,6 @@
                     <h3>{{__('messages.customer_support')}}</h3>
                     <ul class="customer-support">
                         <li><a href="../login.html">{{__('messages.my_account')}}</a></li>
-                        <li><a href="../cart.html">{{__('messages.Cart')}}</a></li>
                         <li><a href="{{url('/contact')}}">{{__('messages.Help')}}</a></li>
                     </ul>
                 </div>
