@@ -69,24 +69,7 @@
               </div>
 -->
 
-              <div class="products-info-btn">
-                <ul class="products-info">
-                    <li>
-                        <a
-                            href="#"
-                            data-bs-toggle="modal"
-                            data-bs-target="#productsShippingModal"
-                        ><i class="bx bxs-truck"></i>{{__('messages.Shipping')}}</a
-                        >
-                    </li>
-                    <li>
-                        <a href="contact.html"
-                        ><i class="bx bx-envelope"></i>{{__('messages.ask_about_product')}}</a
-                        >
-                    </li>
-                </ul>
 
-              </div>
 
               <div class="products-add-to-cart"wire:key="{{$product->id}}" >
                   <livewire:cart.add-to-cart :product_id="$product->id" />
@@ -123,19 +106,7 @@
                 Description
               </a>
             </li>
-            <li>
-              <a href="#">
-                <div class="dot"></div>
-                Shipping
-              </a>
-            </li>
 
-            <li>
-              <a href="#">
-                <div class="dot"></div>
-                Why Buy From Us
-              </a>
-            </li>
           </ul>
 
           <div class="tab-content">
