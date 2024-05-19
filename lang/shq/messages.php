@@ -84,10 +84,10 @@ return [
 
 
     //HOME
-    'limited_time_offer'=>'Ofertë me kohë të kufizuar!',
-    'products_in_sale'=>'Blini produktet tona në shitje!!!',
-    'best_deals'=>'Merrni ofertat më të mira tani',
-    'go_to_sale'=>'Shkoni te Ofertat',
+    'limited_time_offer' => 'Nuk jeni të sigurt se çfarë ju duhet?',
+    'products_in_sale' => 'Kërkoni një rekomandim nga ne...',
+    'best_deals' => 'Merrni ofertat më të mira tani',
+    'go_to_sale' => 'Na shkruani !',
     'log_out' => 'Shkyçu',
 
     'most_popular'=>'Shikoni më të njohurat tona',
@@ -196,6 +196,7 @@ return [
     'Friday'=>'E Premte: 09:00-17:00',
     'Sunday'=>'E diel: Mbyllur',
     'FollowUs'=>'Na Ndiqni:',
+    'follow_us' => 'Na Ndiqni në @TessaBeauty.Institute',
     'Message'=>'Dërgo Një Mesazh',
     'Name'=>'Emri',
     'Emailg'=>'Email',

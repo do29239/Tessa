@@ -31,7 +31,7 @@ return [
     'newsletter_prompt' => 'To get the latest news and latest updates from us.',
     'your_email_address' => 'Your E-mail Address:',
     'subscribe' => 'Subscribe',
-    'follow_us' => 'Follow us on @tessa', // Example for Instagram follow prompt
+    'follow_us' => 'Follow us on @TessaBeauty.Institute', // Example for Instagram follow prompt
     'wishlist'=>'Wishlist',
     'Cart'=>'Cart',
     'my_cart'=>'My Cart',
@@ -45,10 +45,10 @@ return [
     'ShipAlloverMk' =>'We Ship All Over Macedonia!!!',
     'AllInOne' =>'All You Need In One Place',
 
-    'limited_time_offer'=>'Limited Time Offer!',
-    'products_in_sale'=>'Shop our products in Sale!!!',
+    'limited_time_offer'=>'Not sure what you need?',
+    'products_in_sale'=>'Ask us for a recommendation...',
     'best_deals'=>'Get The Best Deals Now',
-    'go_to_sale'=>'Go to Sales',
+    'go_to_sale'=>'Write us !',
 
     'most_popular'=>'See Our Most Popular',
     'popular_products'=>'Popular Products',

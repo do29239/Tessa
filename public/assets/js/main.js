@@ -172,3 +172,11 @@ let closeButtons = document.querySelectorAll('.search-overlay-close');
 closeButtons.forEach(function(button) {
     button.addEventListener('click', closeSearchOverlay);
 });
+function togglePasswordVisibility() {
+    const passwordField = document.getElementById('password');
+    const togglePasswordIcon = document.getElementById('togglePasswordIcon');
+    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+    togglePasswordIcon.classList.toggle('bx-show');
+    togglePasswordIcon.classList.toggle('bx-hide');
+}

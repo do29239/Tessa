@@ -27,7 +27,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bottom-navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/carousel.css') }}">
 
-    @if(!isset($excludeGlobalStyles))
+
+@if(!isset($excludeGlobalStyles))
         <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
     @endif
 
@@ -87,7 +88,8 @@
                 <div class="d-none d-lg-block">
                     @auth
                         <ul class="header-top-menu">
-                            <li><a href="#"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
+
+                            <li><a href="{{url('/profile')}}"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
                             @if(!auth()->user()->request_submitted)
                                 <li><a href="{{ url('request_form') }}"><i class="bx bx-log-in"></i>{{__('messages.request_stylist')}}</a></li>
                             @endif
@@ -114,7 +116,7 @@
 </div>
 <!-- End Top Header Area -->
 <!-- Start Phone Sidebar-->
-<!-- Start Phone Sidebar-->
+<!-- Start Phone Sidebar/ Burger menu-->
 <div class="modal right fade sidebarModal" id="sidebarModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -174,6 +176,11 @@
                         <div class="search-btn-box">
                             <i class="search-btn bx bx-search-alt"></i>
                         </div>
+                    </div>
+                    <div class="option-item">
+                        <a href="{{ route('show.wishlist') }}" class="nav-item{{ request()->is('wishlist') ? ' active' : '' }}">
+                            <i class="bx bx-heart"></i>
+                        </a>
                     </div>
                     <div class="option-item">
                         <livewire:Cart.CartCounter/>

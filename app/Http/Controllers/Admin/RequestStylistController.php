@@ -27,7 +27,7 @@ class RequestStylistController extends Controller
     {
         $validatedData = $request->validated();
         $this->requestStylistService->createRequest(auth()->user(), $validatedData);
-        return redirect()->route('show_products')->with('message', 'Request Made Successfully');
+        return redirect()->route('main')->with('message', 'Request Made Successfully');
     }
 
     public function show(RequestStylist $request)

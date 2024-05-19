@@ -20,7 +20,6 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->word,
-            'description' => $this->faker->streetName,
             'brand_id' => Brand::inRandomOrder()->first()->id,
             'category_id' => Category::inRandomOrder()->first()->id,
             'quantity' =>$this->faker->numberBetween(1,200),

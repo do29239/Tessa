@@ -5658,6 +5658,9 @@ Login CSS
     font-weight: 700;
     text-align: center;
 }
+.cursor-pointerrr {
+    cursor: pointer;
+}
 .login-content{
     text-align: center;
 }
@@ -6640,4 +6643,35 @@ Go Top CSS
 
 .bx-heart, .bxs-heart {
     font-size: 24px;  // Ensures both icons are the same size.
+}
+/*PROFILE*/
+.profile-section {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.profile-section h3 {
+    margin-bottom: 20px;
+}
+
+
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
 }

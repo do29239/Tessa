@@ -27,7 +27,6 @@ class LoadProducts extends Component
 
         $this->search = session('searchTerm', '');
         $products = $this->queryProducts();
-        $this->resetFilters();
         return view('livewire.product.load-products', compact('products'));
     }
 
@@ -64,6 +63,8 @@ class LoadProducts extends Component
                         });
                 });
             }
+            $this->resetFilters();
+            $this->noMoreProducts = true;
         }
 
         // Apply filters for category and brand if they are set
