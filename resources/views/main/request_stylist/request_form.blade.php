@@ -19,17 +19,14 @@
             @csrf
             <div class="form-group">
                 <label>Saloon Name</label>
-                <input type="text" name="saloon_name" class="form-control" placeholder="Enter your saloon name" required>
                 <input type="text" name="saloon_name" class="form-control" placeholder="{{__('messages.saloon_name')}}" required>
             </div>
             <div class="form-group">
                 <label>Saloon City</label>
-                <input type="text" name="saloon_city" class="form-control" placeholder="Enter your saloon city" required>
                 <input type="text" name="saloon_city" class="form-control" placeholder="{{__('messages.saloon_city')}}" required>
             </div>
             <div class="form-group">
                 <label>Saloon Address</label>
-                <input type="text" name="saloon_address" class="form-control" placeholder="Enter your saloon address" required>
                 <input type="text" name="saloon_address" class="form-control" placeholder="{{__('messages.saloon_address')}}" required>
             </div>
             <div class="form-group">

@@ -17,15 +17,16 @@ class LoadProducts extends Component
     public function mount()
     {
         $this->selectedBrand = session('brandId', '');
+        $this->search = session('searchTerm', '');
+        session()->forget('searchTerm'); // Clear the search term from the session after loading
 
         if ($this->selectedBrand) {
             $this->brandSelected($this->selectedBrand);
         }
     }
+
     public function render()
     {
-
-        $this->search = session('searchTerm', '');
         $products = $this->queryProducts();
         return view('livewire.product.load-products', compact('products'));
     }
@@ -63,8 +64,6 @@ class LoadProducts extends Component
                         });
                 });
             }
-            $this->resetFilters();
-            $this->noMoreProducts = true;
         }
 
         // Apply filters for category and brand if they are set
@@ -97,7 +96,6 @@ class LoadProducts extends Component
     public function categorySelected($categoryId)
     {
         $this->resetPage();
-        $this->resetFilters();
         $this->resetNoMoreProducts();
         $this->selectedCategory = $categoryId;
 
@@ -107,7 +105,6 @@ class LoadProducts extends Component
     public function brandSelected($brandId)
     {
         $this->resetPage();
-        $this->resetFilters();
         $this->resetNoMoreProducts();
         $this->selectedBrand = $brandId;
 

@@ -153,8 +153,8 @@ Default CSS
   color: #ffffff;
 }
 
-.theme-dark .xton-nav .navbar .others-option .option-item .burger-menu span {
-  background: #ffffff;
+.theme-dark .navbar-area .xton-responsive-nav .container .xton-responsive-menu .burger-menu span {
+    background-color: #ffffff;
 }
 
 .theme-dark .page-title-area {
@@ -532,10 +532,17 @@ p, h1, h2, h3, h4, h5, h6,span, section, article {
 
 /* You can also add more specific styles if needed for dark mode */
 .theme-dark a, .theme-dark p a {
-    color: #f53f85;  /* Example: Specific color for links in dark mode */
+    color: #fff;  /* Example: Specific color for links in dark mode */
 }
 .theme-dark .default-btn {
     background-color: #f53f85; /* Darker background for better contrast */
     color: #fff; /* White text for visibility */
     border: 1px solid #444; /* Slightly lighter border for visibility */
 }
+.theme-dark .navbar-area .others-option .option-item .bx.bx-heart {
+    color: #fff;
+}
+.theme-dark .navbar-area .others-option .option-item .nav-item.active .bx.bx-heart {
+    color: #f53f85 !important;
+}
+

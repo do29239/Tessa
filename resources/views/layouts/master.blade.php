@@ -178,7 +178,7 @@
                         </div>
                     </div>
                     <div class="option-item">
-                        <a href="{{ route('show.wishlist') }}" class="nav-item{{ request()->is('wishlist') ? ' active' : '' }}">
+                        <a href="{{ route('show.wishlist') }}" class="nav-item{{ request()->routeIs('wishlist') ? ' active' : '' }}">
                             <i class="bx bx-heart"></i>
                         </a>
                     </div>
@@ -206,7 +206,7 @@
                 <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="{{ url('/') }}" class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">{{__('messages.home')}}</a>
+                            <a href="{{ url('/') }}" class="nav-link{{ request()->routeIs('main') ? ' active' : '' }}">{{__('messages.home')}}</a>
                         </li>
                         <li class="nav-item megamenu">
                             <a href="{{ route('shop') }}" class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.shop')}}</a>

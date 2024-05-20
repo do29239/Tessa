@@ -14,10 +14,12 @@
                                 <span class="category">{{$product->category->name}}</span>
                                 <div class="wishlist products-button">
                                     @auth()
-                                        <livewire:wishlist :product_id="$product->id" />
+                                        <livewire:wishlist :product_id="$product->id" :wire:key="'wishlist-'.$product->id" />
+
                                     @endauth
                                 </div>
                             </div>
+                            <span class="category">{{$product->brand->name}}</span>
                             <h3><a href="#">{{$product->name}}</a></h3>
                             <div class="price">
                                 @if(auth()->check() && auth()->user()->role == 2)
