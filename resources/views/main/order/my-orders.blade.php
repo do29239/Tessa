@@ -7,7 +7,7 @@
             <div class="page-title-content">
                 <h2>{{__('messages.my_orders')}}</h2>
                 <ul>
-                    <li><a href="index.html">{{__('messages.home')}}</a></li>
+                    <li><a href="{{ url('/') }}">{{__('messages.home')}}</a></li>
                     <li>{{__('messages.my_orders')}}</li>
                 </ul>
             </div>

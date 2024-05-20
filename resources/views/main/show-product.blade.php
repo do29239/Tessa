@@ -40,11 +40,12 @@
 
               <ul class="products-info">
                 <li>
-                    <span>Brand:</span> <a href="#">{{$product->brand->name}}</a></li>
+                    <span>{{__('messages.brand')}}</span> <a href="#">{{$product->brand->name}}</a></li>
                 <li>
-                  <span>Availability:</span> <a href="#">{{$product->quantity}}</a>
+                  <span>{{__('messages.availability')}}</span> <a href="#">{{$product->quantity}}</a>
                 </li>
-                <li><span>Products Type:</span> <a href="#">{{$product->category->name}}</a></li>
+                  <li><span>{{__('messages.shipping')}}</span> <a href="#">150 den</a></li>
+                  <li><span>{{__('messages.product_type')}}</span> <a href="#">{{$product->category->name}}</a></li>
               </ul>
 
               <!--
@@ -69,24 +70,7 @@
               </div>
 -->
 
-              <div class="products-info-btn">
-                <ul class="products-info">
-                    <li>
-                        <a
-                            href="#"
-                            data-bs-toggle="modal"
-                            data-bs-target="#productsShippingModal"
-                        ><i class="bx bxs-truck"></i>{{__('messages.Shipping')}}</a
-                        >
-                    </li>
-                    <li>
-                        <a href="contact.html"
-                        ><i class="bx bx-envelope"></i>{{__('messages.ask_about_product')}}</a
-                        >
-                    </li>
-                </ul>
 
-              </div>
 
               <div class="products-add-to-cart"wire:key="{{$product->id}}" >
                   <livewire:cart.add-to-cart :product_id="$product->id" />
@@ -123,19 +107,7 @@
                 Description
               </a>
             </li>
-            <li>
-              <a href="#">
-                <div class="dot"></div>
-                Shipping
-              </a>
-            </li>
 
-            <li>
-              <a href="#">
-                <div class="dot"></div>
-                Why Buy From Us
-              </a>
-            </li>
           </ul>
 
           <div class="tab-content">

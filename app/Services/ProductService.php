@@ -91,6 +91,13 @@ class ProductService
         }
     }
 
+    public function show(Product $product)
+    {
+        return $this->getProducts()->with('image')
+            ->where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)->paginate(3);
+    }
+
     public function deleteProduct(Product $product)
     {
         $product->delete();

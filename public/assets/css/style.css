@@ -3745,8 +3745,8 @@ Modal CSS
     transform: translateY(-50%);
     display: inline-block;
     color: #777777;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
     -webkit-transition: 0.5s;
     transition: 0.5s;
 }

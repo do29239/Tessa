@@ -9,7 +9,7 @@ return [
     'courses' => 'Courses',
     'about_us' => 'About Us',
     'contact' => 'Contact',
-    'my_account' => 'My Account',
+    'my_account' => 'My Profile',
     'request_stylist_nav' => 'Request Stylist Account',
     'my_orders' => 'My Orders',
     'log_out' => 'Log Out',
@@ -166,6 +166,10 @@ return [
     'filter_products'=>'Filter Products',
     'ask_about_product'=>'Ask about this product',
     'add_to_wishlist' => 'Add to Wishlist',
+    'availability' => 'Availability:',
+    'brand'=>'Brand:',
+    'product_type'=>'Product Type:',
+    'shipping'=>'Shipping:',
 
     //Wishlist
     'my_wishlist'=>'My Wishlist',

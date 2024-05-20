@@ -356,73 +356,73 @@
 </div>
 
 <!-- Start Blog Area -->
-<section class="blog-area pt-100 pb-70">
-    <div class="container">
-        <div class="section-title">
-            <span class="sub-title">{{__('messages.recent_story')}}</span>
-            <h2>{{__('messages.from_our_courses')}}</h2>
-        </div>
+{{--<section class="blog-area pt-100 pb-70">--}}
+{{--    <div class="container">--}}
+{{--        <div class="section-title">--}}
+{{--            <span class="sub-title">{{__('messages.recent_story')}}</span>--}}
+{{--            <h2>{{__('messages.from_our_courses')}}</h2>--}}
+{{--        </div>--}}
 
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="single-blog-post">
-                    <div class="post-image">
-                        <a href="../blog-1.html">
-                            <img src="assets/img/course-1.jpg" alt="image" width="416" height="320">
-                        </a>
-                        <div class="date">
-                            <span>January 29, 2021</span>
-                        </div>
-                    </div>
+{{--        <div class="row">--}}
+{{--            <div class="col-lg-4 col-md-6">--}}
+{{--                <div class="single-blog-post">--}}
+{{--                    <div class="post-image">--}}
+{{--                        <a href="../blog-1.html">--}}
+{{--                            <img src="assets/img/course-1.jpg" alt="image" width="416" height="320">--}}
+{{--                        </a>--}}
+{{--                        <div class="date">--}}
+{{--                            <span>January 29, 2021</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="post-content">
-                        <span class="category">Ideas</span>
-                        <h3><a href="../blog-1.html">The new hairstyles to grow your business</a></h3>
-                        <a href="../blog-1.html" class="details-btn">Read Story</a>
-                    </div>
-                </div>
-            </div>
+{{--                    <div class="post-content">--}}
+{{--                        <span class="category">Ideas</span>--}}
+{{--                        <h3><a href="../blog-1.html">The new hairstyles to grow your business</a></h3>--}}
+{{--                        <a href="../blog-1.html" class="details-btn">Read Story</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <div class="col-lg-4 col-md-6">
-                <div class="single-blog-post">
-                    <div class="post-image">
-                        <a href="../blog-1.html">
-                            <img src="assets/img/course-2.jpg" alt="image" width="416" height="320">
-                        </a>
-                        <div class="date">
-                            <span>January 29, 2021</span>
-                        </div>
-                    </div>
+{{--            <div class="col-lg-4 col-md-6">--}}
+{{--                <div class="single-blog-post">--}}
+{{--                    <div class="post-image">--}}
+{{--                        <a href="../blog-1.html">--}}
+{{--                            <img src="assets/img/course-2.jpg" alt="image" width="416" height="320">--}}
+{{--                        </a>--}}
+{{--                        <div class="date">--}}
+{{--                            <span>January 29, 2021</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="post-content">
-                        <span class="category">Advice</span>
-                        <h3><a href="../blog-1.html">Latest trends</a></h3>
-                        <a href="../blog-1.html" class="details-btn">Read Story</a>
-                    </div>
-                </div>
-            </div>
+{{--                    <div class="post-content">--}}
+{{--                        <span class="category">Advice</span>--}}
+{{--                        <h3><a href="../blog-1.html">Latest trends</a></h3>--}}
+{{--                        <a href="../blog-1.html" class="details-btn">Read Story</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <div class="col-lg-4 col-md-6">
-                <div class="single-blog-post">
-                    <div class="post-image">
-                        <a href="../blog-1.html">
-                            <img src="assets/img/course-3.jpg" alt="image" width="416" height="320">
-                        </a>
-                        <div class="date">
-                            <span>January 29, 2021</span>
-                        </div>
-                    </div>
+{{--            <div class="col-lg-4 col-md-6">--}}
+{{--                <div class="single-blog-post">--}}
+{{--                    <div class="post-image">--}}
+{{--                        <a href="../blog-1.html">--}}
+{{--                            <img src="assets/img/course-3.jpg" alt="image" width="416" height="320">--}}
+{{--                        </a>--}}
+{{--                        <div class="date">--}}
+{{--                            <span>January 29, 2021</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="post-content">
-                        <span class="category">Social</span>
-                        <h3><a href="../blog-1.html">Advanced hairstylist's</a></h3>
-                        <a href="../blog-1.html" class="details-btn">Read Story</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+{{--                    <div class="post-content">--}}
+{{--                        <span class="category">Social</span>--}}
+{{--                        <h3><a href="../blog-1.html">Advanced hairstylist's</a></h3>--}}
+{{--                        <a href="../blog-1.html" class="details-btn">Read Story</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</section>--}}
 <!-- End Blog Area -->
 @endsection
 @section('scripts')

@@ -57,7 +57,7 @@ return [
     'Location'=>'Gositvar, Maqedonia e veriut',
     'Email'=>'Tessa.academy@gmail.com',
     'customer_support'=>'Mbështetje për Klientet',
-    'my_account'=>'Logarija Ime',
+    'my_account'=>'Llogarija Ime',
     'Help'=>'Ndihmë & Mbështetje',
     'quick_links'=>'Linqe',
 
@@ -139,6 +139,11 @@ return [
     'filter_products'=>'Filtro Produktet',
     'ask_about_product'=>'Pyesni për këtë produkt',
     'add_to_wishlist' => 'Shto në listën e dëshirave',
+    'availability' => 'Në magazinë:',
+    'brand'=>'Brend:',
+    'product_type'=>'Tipi i produktit:',
+    'shipping'=>'Transporti:',
+
 
     //Wishlist
     'my_wishlist'=>'Lista e Dëshirave',

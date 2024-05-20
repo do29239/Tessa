@@ -139,6 +139,11 @@ return [
     'filter_products'=>'Филтрирај производи',
     'ask_about_product'=>'Прашајте за овој производ',
     'add_to_wishlist' => 'Додај во листата на желби',
+    'availability' => 'На залиха:',
+    'brand'=>'Бренд:',
+    'product_type'=>'Тип на производ:',
+    'shipping'=>'Достава:',
+
 
     //Wishlist
     'my_wishlist'=>'Листа на желби',
