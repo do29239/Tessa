@@ -17,7 +17,7 @@
                             <tr>
                                 <td class="product-name">{{ $cartItem->product->name }}</td>
                                 <td class="product-quantity">{{ $cartItem->quantity }}</td>
-                                <td class="product-total">{{ $cartItem->price * $cartItem->quantity }} den</td>
+                                <td class="product-total">{{ number_format($cartItem->price * $cartItem->quantity, 2) }} den</td>
                             </tr>
                         @endforeach
 
@@ -25,23 +25,23 @@
                         @if($discount)
                             <tr>
                                 <td colspan="2" class="text-right">{{__('messages.coupon_discount')}}</td>
-                                <td>-{{ $discount }} den</td>
+                                <td>-{{ number_format($discount, 2) }} den</td>
                             </tr>
                         @endif
 
                         {{-- Dynamically calculate and show the order total --}}
                         <tr>
                             <td colspan="2" class="text-right"><strong>{{__('messages.Subtotal')}}</strong></td>
-                            <td>{{ $finalTotal}} den</td>
+                            <td>{{ number_format($finalTotal, 2)}} den</td>
                         </tr>
                         <tr>
                             <td colspan="2" class="text-right"><strong>{{__('messages.Shipping')}}</strong></td>
-                            <td>150 den</td>
+                            <td>{{number_format(150,2)}} den</td>
                         </tr>
 
                         <tr>
                             <td colspan="2" class="text-right"><strong>{{__('messages.order_total_')}}</strong></td>
-                            <td>{{ $finalTotal + 150 }} den</td>
+                            <td>{{ number_format($finalTotal + 150, 2) }} den</td>
                         </tr>
                         </tbody>
                     </table>

@@ -13,22 +13,22 @@
     <link rel="preload" href="{{ asset('assets/css/bootstrap.min.css') }}" as="style" onload="this.rel='stylesheet'">
     <link rel="preload" href="{{ asset('assets/css/style.css') }}" as="style" onload="this.rel='stylesheet'">
     <link rel="preload" href="{{ asset('assets/css/responsive.css') }}" as="style" onload="this.rel='stylesheet'">
-{{--    <link rel="preload" href="{{ asset('assets/css/owl.carousel.min.css') }}" as="style" onload="this.rel='stylesheet'">--}}
+    {{--    <link rel="preload" href="{{ asset('assets/css/owl.carousel.min.css') }}" as="style" onload="this.rel='stylesheet'">--}}
 
     <!-- Regular style links -->
-{{--    <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">--}}
+    {{--    <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('assets/css/boxicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/flaticon.css') }}">
-{{--    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('assets/css/nice-select.min.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('assets/css/slick.min.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('assets/css/rangeSlider.min.css') }}">--}}
+    {{--    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">--}}
+    {{--    <link rel="stylesheet" href="{{ asset('assets/css/nice-select.min.css') }}">--}}
+    {{--    <link rel="stylesheet" href="{{ asset('assets/css/slick.min.css') }}">--}}
+    {{--    <link rel="stylesheet" href="{{ asset('assets/css/rangeSlider.min.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('assets/css/dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bottom-navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/carousel.css') }}">
 
 
-@if(!isset($excludeGlobalStyles))
+    @if(!isset($excludeGlobalStyles))
         <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
     @endif
 
@@ -128,7 +128,7 @@
                     <li class="hide-on-mobile"><a href="{{ url('/') }}"><i class="bx bx-home"></i>{{__('messages.home')}}</a></li>
                     <li  class="hide-on-mobile"><a href="{{ route('shop') }}"><i class="bx bx-store"></i>{{__('messages.shop')}}</a></li>
                     @auth()
-                    <li  class="hide-on-mobile"><a href="{{ route('show.wishlist') }}"><i class="bx bx-heart"></i>{{__('messages.wishlist')}}</a></li>
+                        <li  class="hide-on-mobile"><a href="{{ route('show.wishlist') }}"><i class="bx bx-heart"></i>{{__('messages.wishlist')}}</a></li>
                     @endauth
                     <li><a href="{{ route('courses') }}"><i class="bx bx-book {{ request()->routeIs('courses') ? ' active' : '' }}"></i>{{__('messages.courses')}}</a></li>
                     <li><a href="{{url('/about')}}"><i class="bx bx-info-circle"></i>{{__('messages.about_us')}}</a></li>
@@ -229,6 +229,11 @@
                         </div>
                     </div>
                     <div class="option-item">
+                        <a href="{{ route('show.wishlist') }}" class="nav-item{{ request()->routeIs('wishlist') ? ' active' : '' }}">
+                            <i class="bx bx-heart"></i>
+                        </a>
+                    </div>
+                    <div class="option-item">
                         <livewire:Cart.CartCounter/>
                     </div>
                 </div>
@@ -251,16 +256,16 @@
                         <li class="nav-item">
                             <a href="{{ url('/') }}" class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">{{__('messages.home')}}</a>
                         </li>
-                        <li class="nav-item ">
+                        <li class="nav-item">
                             <a href="{{ route('shop') }}" class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.shop')}}</a>
                         </li>
-                        <li class="nav-item ">
-                            <a href="../blog-1.html" class="nav-link">{{__('messages.courses')}}</a>
+                        <li class="nav-item">
+                            <a href="{{ route('courses') }}" class="nav-link{{ request()->routeIs('courses') ? ' active' : '' }}">{{__('messages.courses')}}</a>
                         </li>
-                        <li class="nav-item ">
+                        <li class="nav-item">
                             <a href="{{(url('/about'))}}" class="nav-link">{{__('messages.about_us')}}</a>
                         </li>
-                        <li class="nav-item ">
+                        <li class="nav-item">
                             <a href="{{url('/contact')}}" class="nav-link">{{__('messages.contact')}}</a>
                         </li>
                     </ul>
@@ -268,8 +273,12 @@
                         <div class="option-item">
                             <div class="search-btn-box">
                                 <i class="search-btn bx bx-search-alt"></i>
-
                             </div>
+                        </div>
+                        <div class="option-item">
+                            <a href="{{ route('show.wishlist') }}" class="nav-item{{ request()->routeIs('wishlist') ? ' active' : '' }}">
+                                <i class="bx bx-heart"></i>
+                            </a>
                         </div>
                         <div class="option-item">
                             <livewire:Cart.CartCounter/>
@@ -375,7 +384,7 @@
             <livewire:Cart.ShowCart :view="'show-cart-modal'" />
         </div>
     </div>
-    </div>
+</div>
 </div>
 <!-- End Shopping Cart Modal -->
 <!-- Start Footer Area -->
@@ -559,4 +568,3 @@
 @livewireScripts
 </body>
 </html>
-

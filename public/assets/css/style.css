@@ -5072,6 +5072,7 @@ Checkout CSS
     border-top: 3px solid #f53f85;
     position: relative;
     margin-bottom: 40px;
+
 }
 
 .user-actions i {
@@ -5086,7 +5087,8 @@ Checkout CSS
     display: inline-block;
     color: #f53f85;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 20px;
+    font-family: inherit;
 }
 
 .user-actions span a {

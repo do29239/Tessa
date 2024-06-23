@@ -26,6 +26,8 @@
 //         }
 //     })();
 // });
+
+
 //INSTAGRAM SLIDES
 document.addEventListener('DOMContentLoaded', function() {
     const slider = document.querySelector('.instagram-slides');
