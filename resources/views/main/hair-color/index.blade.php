@@ -32,7 +32,9 @@
                             <div class="products-button">
                                 <ul>
                                     <li>
-                                        <livewire:wishlist :product_id="$product->id" />
+                                        @auth()
+                                            <livewire:wishlist :product_id="$product->id" />
+                                        @endauth
                                     </li>
 
                                     <li>

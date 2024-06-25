@@ -17,7 +17,7 @@
                             @endauth
                         </div>
                     </div>
-                    <span class="category">{{$product->brand->name}}</span>
+                    <span class="category brand">{{$product->brand->name}}</span>
                     <h3><a href="#">{{$product->name}}</a></h3>
                     <div class="price">
                         @if(auth()->check() && auth()->user()->role == 2)

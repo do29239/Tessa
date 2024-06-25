@@ -11,9 +11,9 @@
                         <h4 class="card-title">Add Product</h4>
                     </div>
                     <div class="card-body">
-                        @if(session('success'))
+                        @if(session('message'))
                             <div class="alert alert-success">
-                                {{ session('success') }}
+                                {{ session('message') }}
                             </div>
                         @endif
                         @if(session('error'))
@@ -101,7 +101,6 @@
                                     <thead class="text-primary">
                                     <tr>
                                         <th>Name</th>
-                                        <th>Description</th>
                                         <th>Quantity</th>
                                         <th>Price</th>
                                         <th>Stylist Price</th>
@@ -113,7 +112,6 @@
                                     @foreach($products as $product)
                                         <tr onclick="window.location='{{ route('products.show', $product) }}';" style="cursor: pointer;">
                                             <td>{{ $product->name }}</td>
-                                            <td>{{ $product->description }}</td>
                                             <td>{{ $product->quantity }}</td>
                                             <td>{{ $product->price }}</td>
                                             <td>{{ $product->stylist_price }}</td>
