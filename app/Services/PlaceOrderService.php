@@ -2,12 +2,16 @@
 
 namespace App\Services;
 
+use App\Jobs\SendAdminOrderNotification;
+use App\Jobs\SendOrderConfirmationEmail;
+use App\Mail\OrderConfirmation;
 use App\Models\Order;
 use App\Models\Item;
 use App\Models\Cart;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class PlaceOrderService
 {
@@ -51,7 +55,9 @@ class PlaceOrderService
 
             $cartService->deleteCart($user);
             DB::commit();
-
+//            Mail::to($user->email)->send(new OrderConfirmation($order->id, $order->total));
+//            SendOrderConfirmationEmail::dispatch($order->id, $finalTotal, $user->email, $user->address);
+            SendAdminOrderNotification::dispatch($order);
             return true;
         } catch (\Exception $e) {
             DB::rollBack();

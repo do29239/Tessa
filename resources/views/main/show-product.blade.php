@@ -79,11 +79,10 @@
               </div>
 
               <div class="wishlist-compare-btn">
-                <a href="#" class="optional-btn"
-                  ><i class="bx bx-heart"></i>{{__('messages.add_to_wishlist')}}</a
-                >
+                  @auth()
+                      <livewire:wishlist :product_id="$product->id" :wire:key="'wishlist-'.$product->id" />
+                  @endauth
               </div>
-
               <div class="buy-checkbox-btn">
                 <div class="item">
                   <input class="inp-cbx" id="cbx" type="checkbox" />

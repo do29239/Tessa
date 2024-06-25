@@ -1,9 +1,7 @@
 <?php
-
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Product;
 
 class Wishlist extends Component
 {
@@ -19,6 +17,13 @@ class Wishlist extends Component
     public function toggleWishlist()
     {
         $user = auth()->user();
+
+        if (!$user) {
+            // Handle the case where the user is not authenticated
+            session()->flash('error', 'You need to be logged in to manage your wishlist.');
+            return;
+        }
+
         if ($this->isWishlisted) {
             // Detach the product from the user's wishlist
             $user->products()->detach($this->productId);
@@ -26,12 +31,19 @@ class Wishlist extends Component
             // Attach the product to the user's wishlist
             $user->products()->attach($this->productId);
         }
+
         $this->isWishlisted = !$this->isWishlisted;
     }
 
     private function checkWishlist()
     {
-        return auth()->user()->products()->find($this->productId) !== null;
+        $user = auth()->user();
+
+        if (!$user) {
+            return false;
+        }
+
+        return $user->products()->find($this->productId) !== null;
     }
 
     public function render()

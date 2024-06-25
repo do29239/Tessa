@@ -17,9 +17,7 @@ class SalesController extends Controller
     }
     public function index()
     {
-        // Get current sales with product information
-
-
-        return view('main.sales.index', ['sales'=>$this->productService->getProductsOnSale()]);
+        $productsOnSale = $this->productService->getProductsOnSale();
+        return view('main.sales.index', ['products' => $productsOnSale]);
     }
 }

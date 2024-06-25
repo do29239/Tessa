@@ -122,8 +122,8 @@ class ProductService
         return Sale::with('product')
             ->where('start_date', '<=', now())
             ->where('end_date', '>=', now())
-            ->get();
-
+            ->get()
+            ->pluck('product'); // Assuming you want only the product models
     }
 }
 

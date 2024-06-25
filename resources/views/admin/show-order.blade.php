@@ -10,13 +10,18 @@
             max-height: 100px; /* Set the maximum height as per your design */
         }
     </style>
-
+    @if (session('job_failure'))
+        <div class="alert alert-danger">
+            {{ session('job_failure') }}
+        </div>
+    @endif
     <div class="content">
         <div class="row justify-content-center mt-4">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title text-center-custom">Order Details</h2>
+                        <h3 class="card-title text-center-custom"> Order Total: {{$order->total}}</h3>
                         <div>
                             <a href="{{ route('orders.index') }}" class="btn btn-primary">Orders</a>
                         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Jobs\SendOrderConfirmationEmail;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Item;
@@ -35,6 +36,11 @@ class OrderService
         $order = Order::find($id);
         $order->status = $status;
         $order->save();
+        // Send email only if the status is updated to 1 (completed)
+        if ($status == 1) {
+            SendOrderConfirmationEmail::dispatch($order->id, $order->total, $order->user->email, $order->user->address);
+        }
+
     }
     public function createOrder($userId, $finalTotal = null)
     {
@@ -67,6 +73,8 @@ class OrderService
     {
         Cart::where('user_id', $userId)->delete();
     }
+
+
 
 }
 

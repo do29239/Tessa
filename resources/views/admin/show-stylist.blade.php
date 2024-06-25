@@ -74,10 +74,24 @@
                             </div>
 
                         </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title text-center-custom">View users orders</h3>
+                                <div>
+                                    <a href="{{ route('user.orders', ['user' => $user->id]) }}" class="btn btn-primary">Orders</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
-    </div>
+
+
+
 @endsection

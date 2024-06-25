@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -28,16 +27,34 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // Check if there's a redirect_to parameter and store it in the session
+        if ($request->has('redirect_to')) {
+            $request->session()->put('redirect_to', $request->input('redirect_to'));
+        }
+
+        return $this->redirectToIntendedOrRoleBased();
+    }
+
+    /**
+     * Redirect to intended URL or role-based URL if no intended URL exists.
+     */
+    protected function redirectToIntendedOrRoleBased(): RedirectResponse
+    {
+        // Check if there is a redirect_to URL in the session and use it if present
+        $redirectTo = session()->pull('redirect_to');
+
         $user = auth()->user();
 
-        if (auth()->user()->role === 1) {
+        if ($redirectTo) {
+            return redirect()->intended($redirectTo);
+        }
+
+        // Role-based redirection logic
+        if ($user->role === 1) {
             return redirect()->route('adminDashboard');
-        }
-        elseif (auth()->user()->role===3)
-        {
+        } elseif ($user->role === 3) {
             return redirect()->route('distributor.code');
-        }
-        else {
+        } else {
             return redirect()->route('main');
         }
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Services\OrderService;
 use Illuminate\Http\Request;
 
@@ -40,6 +41,11 @@ class OrderController extends Controller
     {
         $this->orderService->updateOrderStatus($id, $request->order_status);
         return redirect()->back()->with('message', 'Order updated successfully');
+    }
+    public function userOrders(User $user)
+    {
+        $orders = $this->orderService->getOrderByUserId($user->id);
+        return view('admin.order', compact('orders'));
     }
 }
 

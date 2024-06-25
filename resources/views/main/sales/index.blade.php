@@ -20,47 +20,7 @@
     <section class="products-area pt-100 pb-70">
         <div class="container">
             <div class="row">
-                @foreach($sales as $sale) {{-- Loop through sales items --}}
-                <div class="col-lg-4 col-md-6 col-sm-6" wire:key="{{$sale->product->id}}">
-                    <div class="products-box">
-                        <div class="products-image">
-                            <a href="{{ route('showProduct', $sale->product->id) }}">
-                                <img src="{{ asset('storage/images/'.$sale->product->image->name) }}" class="main-image" alt="image">
-                                <img src="{{ asset('storage/images/'.$sale->product->image->name) }}" class="hover-image" alt="image">
-                            </a>
-
-                            <div class="products-button">
-                                <ul>
-                                    <li>
-                                        <livewire:wishlist :product_id="$product->id" />
-                                    </li>
-
-                                    <li>
-                                        <div class="quick-view-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                                                <i class='bx bx-search-alt'></i>
-                                                <span class="tooltip-label">{{__('messages.quick_view')}}</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="sale-tag">{{__('messages.sale')}}</div>
-                        </div>
-
-                        <div class="products-content">
-                            <span class="category">{{$sale->product->category->name}}</span>
-                            <h3><a href="{{ route('showProduct', $sale->product->id) }}">{{ $sale->product->name }}</a></h3>
-                            <div class="price">
-                                <span class="old-price">${{ $sale->product->price }}</span>
-                                <span class="new-price">${{ $sale->sale_price }}</span>
-                            </div>
-                            <livewire:cart.add-to-cart :product_id="$product->id" :key="$product->id" />
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+                @include('main.display-products', ['products' => $products])
             </div>
         </div>
     </section>

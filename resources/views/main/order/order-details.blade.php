@@ -49,7 +49,7 @@
                                 </td>
 
                                 <td class="product-price">
-                                    <span class="unit-amount">{{ number_format($orderItems->product->price, 2) }}</span>
+                                    <span class="unit-amount">{{ number_format($orderItems->price, 2) }}</span>
                                 </td>
                                 <td class="product-subtotal">
                                     <span class="subtotal-amount">{{number_format($orderItems->quantity, 2) }}</span>
@@ -66,7 +66,7 @@
                     <h3>{{__('messages.order_total')}}</h3>
 
                     <ul>
-                        <li>{{__('messages.Subtotal')}} <span>{{ number_format($order->total, 2) }} den</span></li>
+                        <li>{{__('messages.Subtotal')}} <span>{{ number_format($order->total - 150, 2) }} den</span></li>
                         <li>{{__('messages.Shipping')}} <span>150.00 den</span></li>
                         @if($order->coupon)
                             @if($order->coupon->type == 'percentage')
@@ -75,7 +75,7 @@
                                 <li>{{__('messages.coupon_applied')}} <span>-{{ number_format($order->coupon->value, 2) }} den</span></li>
                             @endif
                         @endif
-                        <li>{{__('messages.Total')}} <span>{{ number_format($order->total + 150 - (!empty($order->coupon) ? ($order->coupon->type == 'percentage' ? ($order->total * $order->coupon->value / 100) : $order->coupon->value) : 0), 2) }} den</span></li>
+                        <li>{{__('messages.Total')}} <span>{{ number_format($order->total- (!empty($order->coupon) ? ($order->coupon->type == 'percentage' ? ($order->total * $order->coupon->value / 100) : $order->coupon->value) : 0), 2) }} den</span></li>
                     </ul>
 
                     <a href="/shop" class="default-btn">{{__('messages.ContinueShopping')}}</a>

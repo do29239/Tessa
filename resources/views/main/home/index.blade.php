@@ -271,7 +271,6 @@
         </div>
         <div class="row">
             @include('main.display-products', ['products' =>$popularProducts])
-
         </div>
     </div>
 </section>

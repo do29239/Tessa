@@ -22,6 +22,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Http\Middleware\Distributor;
 use App\Http\Middleware\DistributorAccess;
+use App\Mail\OrderConfirmation;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -77,6 +79,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('/sales', \App\Http\Controllers\Admin\SalesController::class)->except('create');
         Route::resource('coupons', CouponController::class)->except('create');
         Route::post('/coupons/store', [CouponController::class, 'store'])->name('coupon.store');
+        Route::get('/user/{user}/orders', [\App\Http\Controllers\Admin\OrderController::class, 'userOrders'])->name('user.orders');
+
 
 
         Route::get('/bulk-sale', [\App\Http\Controllers\Admin\BulkSaleController::class, 'createBulkSale'])->name('admin.bulkSale.create');

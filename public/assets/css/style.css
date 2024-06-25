@@ -6445,7 +6445,7 @@ Go Top CSS
 }
 
 .go-top.active {
-    bottom: 68px;
+    bottom: 90px;
     opacity: 1;
     visibility: visible;
 }

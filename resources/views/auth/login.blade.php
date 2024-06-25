@@ -22,7 +22,9 @@
                         <i id="togglePasswordIcon" class="bx bx-show"></i>
                     </a>
                 </div>
-
+                @if(request()->has('redirect_to'))
+                    <input type="hidden" name="redirect_to" value="{{ request()->input('redirect_to') }}">
+                @endif
                 <button type="submit" class="default-btn">{{ __('messages.login') }}</button>
                 <a href="{{ route('password.request') }}" class="forgot-password">{{ __('messages.lost_password') }}</a>
             </form>

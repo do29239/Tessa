@@ -23,7 +23,7 @@ class PlaceOrder extends Component
     public function mount()
     {
         $this->cartItems = $this->fetchCartItems();
-        $this->finalTotal = $this->calculateTotal();
+        $this->finalTotal = $this->calculateTotal() + 150;
     }
 
     public function render()

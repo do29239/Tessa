@@ -24,4 +24,5 @@ class UserController extends Controller
     {
         return view('admin.show-stylist', compact('user'));
     }
+
 }
