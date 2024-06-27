@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Main;
+namespace App\Http\Controllers\Admin\Main;
 
-use App\Http\Controllers\Controller; // Correct the namespace
+use App\Http\Controllers\Admin\Controller; // Correct the namespace
 
 use Illuminate\Http\Request;
 

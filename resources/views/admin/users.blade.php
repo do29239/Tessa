@@ -20,6 +20,10 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <form method="GET" action="{{ route('excel')}}">
+                                @csrf
+                                <button type="submit" class="btn btn-primary btn-sm">Export all Users</button>
+                            </form>
                             @foreach($users as $user)
                                 <tr onclick="window.location='{{ route('show_users', $user) }}';" style="cursor: pointer;">
                                     <td>{{ $user->first_name }}</td>
@@ -37,6 +41,9 @@
                                             @csrf
                                             <button type="submit" class="btn btn-primary btn-sm">View</button>
                                         </form>
+                                    </td>
+                                    <td>
+
                                     </td>
 
                                 </tr>

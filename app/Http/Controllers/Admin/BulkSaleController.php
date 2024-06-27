@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\Controller;
 use App\Http\Requests\BulkSaleRequest; // Assuming you create a specific request for bulk sales
 use App\Services\BulkSaleService;
 use Illuminate\Http\Request;
