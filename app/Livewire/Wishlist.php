@@ -27,9 +27,11 @@ class Wishlist extends Component
         if ($this->isWishlisted) {
             // Detach the product from the user's wishlist
             $user->products()->detach($this->productId);
+            $this->dispatch('removed_wishlist',['type' => 'danger']);
         } else {
             // Attach the product to the user's wishlist
             $user->products()->attach($this->productId);
+            $this->dispatch('added_wishlist',['type' => 'success']);
         }
 
         $this->isWishlisted = !$this->isWishlisted;

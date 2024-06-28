@@ -52,8 +52,9 @@ class PlaceOrder extends Component
 
         try {
             $result = $orderService->placeOrder(Auth::user(), $this->cartItems, $this->finalTotal, $this->couponId);
-            session()->flash('success', 'Order placed successfully.');
+            session()->flash('order_placed');
             return redirect()->route('my.orders');
+
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
             return redirect()->back();

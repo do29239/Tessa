@@ -22,7 +22,7 @@ class RequestStylistService
     public function createRequest($user, $data)
     {
         $request = $user->request()->create($data);
-        $user->update(['request_submitted' => true]);
+//        $user->update(['request_submitted' => true]);
         return $request;
     }
 
