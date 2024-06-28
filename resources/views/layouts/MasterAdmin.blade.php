@@ -87,55 +87,68 @@
                     </a>
                 </li>
                 <li>
+                    <a href={{ route('orders.index') }}>
+                        <i class="tim-icons icon-book-bookmark"></i>
+                        <p>Orders</p>
+                    </a>
+                </li>
+                <li>
+                    <a href={{ route('sales.index') }}>
+                        <i class="tim-icons icon-book-bookmark"></i>
+                        <p>Sales</p>
+                    </a>
+                </li>
+                <li>
+                    <a href={{ route('codes.index') }}>
+                        <i class="tim-icons icon-book-bookmark"></i>
+                        <p>Stylist Codes</p>
+                    </a>
+                </li>
+                <li>
+                    <a href={{ route('distributors.index') }}>
+                        <i class="tim-icons icon-book-bookmark"></i>
+                        <p>Distributors</p>
+                    </a>
+                </li>
+                <li>
+                    <a href={{ route('coupons.index') }}>
+                        <i class="tim-icons icon-book-bookmark"></i>
+                        <p>Coupons</p>
+                    </a>
+                </li>
+                <li>
+                    <a href={{ route('admin.bulkSale.create') }}>
+                        <i class="tim-icons icon-book-bookmark"></i>
+                        <p>Bulk Sale</p>
+                    </a>
+                </li>
+                <li>
+                    <a href={{ route('courses.index') }}>
+                        <i class="tim-icons icon-book-bookmark"></i>
+                        <p>Courses</p>
+                    </a>
+                </li>
+                <li>
                     <a href="{{url('/admin/icons')}}">
                         <i class="tim-icons icon-atom"></i>
                         <p>Icons</p>
                     </a>
                 </li>
                 <li>
-                    <a href={{ route('courses.index') }}>
-                        <i class="tim-icons icon-pin"></i>
-                        <p>Maps</p>
+                    <a href="{{url('/admin/icons')}}">
+                        <i class="tim-icons icon-atom"></i>
+                        <p>Icons</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./notifications.html">
-                        <i class="tim-icons icon-bell-55"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="./user.html">
-                        <i class="tim-icons icon-single-02"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="./tables.html">
-                        <i class="tim-icons icon-puzzle-10"></i>
-                        <p>Table List</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="./typography.html">
-                        <i class="tim-icons icon-align-center"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="./rtl.html">
-                        <i class="tim-icons icon-world"></i>
-                        <p>RTL Support</p>
-                    </a>
-                </li>
-                <li class="active-pro">
-                    <a href="./upgrade.html">
-                        <i class="tim-icons icon-spaceship"></i>
-                        <p>Upgrade to PRO</p>
+                    <a href="{{url('/admin/icons')}}">
+                        <i class="tim-icons icon-atom"></i>
+                        <p>Icons</p>
                     </a>
                 </li>
             </ul>
         </div>
+
     </div>
     <div class="main-panel">
         <!-- Navbar -->
