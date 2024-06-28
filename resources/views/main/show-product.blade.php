@@ -112,10 +112,7 @@
           <div class="tab-content">
             <div class="tabs-item">
               <div class="products-details-tab-content">
-                <p>
-                    {{$product->description}}
-                </p>
-
+                    {!! nl2br(e($product->description)) !!}
                 <div class="row">
 
                 </div>

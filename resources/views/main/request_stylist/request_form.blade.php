@@ -34,6 +34,10 @@
                 <input type="tel" name="saloon_phone" class="form-control" placeholder="Enter your saloon phone number" required>
             </div>
             <div class="form-group">
+                <label>Message</label>
+                <textarea type="text" name="message" class="form-control" cols="30" rows="5" placeholder="Write us a Message (Optional)"></textarea>
+            </div>
+            <div class="form-group">
                 <h4>Redeem Stylist Code</h4>
                 <input type="text" name="stylist_code" class="form-control" placeholder="Enter your stylist code">
             </div>
