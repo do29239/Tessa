@@ -1,4 +1,4 @@
-@extends('layouts.Masteradmin')
+@extends('layouts.MasterAdmin')
 
 @section('content')
     <style>
@@ -27,32 +27,31 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <div style="overflow-x: auto;">
-                                <table class="table table-bordered mx-auto">
-                                    <thead class="text-center">
+                            <div class="card-body">
+                                <h2>Stylist Details</h2>
+                                <table class="table table-bordered">
                                     <tr>
-                                        <th class="text-center-custom">Saloon Name</th>
-                                        <th class="text-center-custom">Saloon City</th>
-                                        <th class="text-center-custom">Saloon Address</th>
-                                        <th class="text-center-custom">Saloon Phone</th>
+                                        <td><strong>Saloon Name:</strong></td>
+                                        <td>{{ $request->saloon_name }}</td>
                                     </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="text-center">
-                                            <td class="text-center-custom">
-                                                <span class="unit-amount">{{ $request->saloon_name }}</span>
-                                            </td>
-                                            <td class="text-center-custom">
-                                                <span class="unit-amount">{{ $request->saloon_city }}</span>
-                                            </td>
-                                            <td class="text-center-custom">
-                                                <span class="unit-amount">{{ $request->saloon_address }}</span>
-                                            </td>
-                                            <td class="text-center-custom">
-                                                <span class="unit-amount">{{ $request->saloon_phone }}</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <tr>
+                                        <td><strong>Saloon City:</strong></td>
+                                        <td>{{ $request->saloon_city }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Saloon Address:</strong></td>
+                                        <td>{{ $request->saloon_address }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Saloon Phone</strong></td>
+                                        <td>{{ $request->saloon_phone }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Message</strong></td>
+                                        <td>{!! nl2br(e($request->message)) !!}</td>
+                                    </tr>
                                 </table>
+
                             </div>
                         </div>
                     </div>
@@ -85,7 +84,7 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Postcode / Zip:</strong></td>
-                                        <td>{{ $request->user->zip }}</td>
+                                        <td>{{ $request->user->postcode }}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Phone:</strong></td>

@@ -18,6 +18,7 @@ class RequestStylist extends Model
         'saloon_city',
         'saloon_address',
         'saloon_phone',
+        'message',
     ];
 
     public function user(): BelongsTo

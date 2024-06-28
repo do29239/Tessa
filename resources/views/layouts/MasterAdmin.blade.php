@@ -256,6 +256,7 @@
         <!-- End Navbar -->
         @yield('content')
 
+        @stack('scripts') <!-- This will include the pushed scripts -->
         <footer class="footer">
 
         </footer>
