@@ -80,7 +80,8 @@
                         {{__('messages.questions_you_may_have')}}
                     </p>
 
-                    <form id="contactForm">
+                    <form id="contactForm" action="{{ route('contact.submit') }}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-lg-12 col-md-6">
                                 <div class="form-group">

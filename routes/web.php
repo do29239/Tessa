@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RequestStylistController;
 use App\Http\Controllers\Admin\StylistController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Main\CartController;
 use App\Http\Controllers\Main\CoursesController;
 use App\Http\Controllers\Main\HairColorController;
@@ -52,6 +53,7 @@ Route::middleware(DistributorAccess::class)->group(function () {
     Route::get('/course', [CoursesController::class, 'index'])->name('courses');
     Route::view('/about', 'main/about/about');
     Route::view('/contact', 'main/contact/contact');
+    Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 });
 
 
