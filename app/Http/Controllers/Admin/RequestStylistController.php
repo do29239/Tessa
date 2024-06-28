@@ -55,6 +55,7 @@ class RequestStylistController extends Controller
 
         // Proceed with creating a stylist request if no code is provided or if the code redemption fails
         $this->requestStylistService->createRequest(auth()->user(), $validatedData);
+        session()->flash('request_submitted');
         return redirect()->route('main')->with('message', 'Your request has been submitted for review.');
     }
 

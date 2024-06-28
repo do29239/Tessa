@@ -24,11 +24,13 @@ class AddToCart extends Component
         $cartService= new CartService();
         if (!Auth::check()) {
             return redirect()->route('login'); // Redirect if not authenticated
+
         }
 
         try {
             $cartService->addToCart(Auth::id(), $this->productId, $quantity);
             $this->checkCartCount(); // Update the cart count
+            $this->dispatch('addedToCart', ['type' => 'success']);
         } catch (\Exception $e) {
             // Handle errors (e.g., log them, display messages)
             session()->flash('error', 'Failed to add to cart: ' . $e->getMessage());
