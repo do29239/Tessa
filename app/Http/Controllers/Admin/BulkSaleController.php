@@ -24,7 +24,7 @@ class BulkSaleController extends Controller
 
     public function storeBulkSale(Request $request)
     {
-        $products = $this->bulkSaleService->getProductsByBrandAndCategory($request->brand_id, 'Elise Robel');
+        $products = $this->bulkSaleService->getProductsByBrandAndCategory($request->brand_id, 'Hair Color');
 
         try {
             $this->bulkSaleService->createBulkSale($products, $request->all());

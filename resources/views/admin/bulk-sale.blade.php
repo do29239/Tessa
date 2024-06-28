@@ -32,7 +32,7 @@
                                 <label for="end_date">End Date</label>
                                 <input type="date" name="end_date" id="end_date" class="form-control" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Add to Sale</button>
+                            <button type="submit" class="btn btn-primary">Add Hair Color to Sale</button>
                         </form>
 
                         @if(isset($products))
