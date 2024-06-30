@@ -6,20 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Preloading Fonts for performance -->
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Lato:400&display=block" as="style"
-          onload="this.rel='stylesheet'">
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Cabin:400&display=fallback" as="style"
-          onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Lato:400&display=swap" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400&display=swap"></noscript>
+
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Cabin:400&display=swap" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:400&display=swap"></noscript>
+
 
     <!-- Preloading and Loading CSS files -->
-    <link rel="preload" href="{{ asset('assets/css/bootstrap.min.css') }}" as="style" onload="this.rel='stylesheet'">
-    <link rel="preload" href="{{ asset('assets/css/style.css') }}" as="style" onload="this.rel='stylesheet'">
-    <link rel="preload" href="{{ asset('assets/css/responsive.css') }}" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="{{ asset('assets/css/bootstrap.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"></noscript>
+
+    <link rel="preload" href="{{ asset('assets/css/style.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"></noscript>
+
+    <link rel="preload" href="{{ asset('assets/css/responsive.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}"></noscript>
     {{--    <link rel="preload" href="{{ asset('assets/css/owl.carousel.min.css') }}" as="style" onload="this.rel='stylesheet'">--}}
 
     <!-- Regular style links -->
     {{--    <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">--}}
-    <link rel="stylesheet" href="{{ asset('assets/css/boxicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/boxicons.min.css') }}" media="print" onload="this.onload=null;this.media='all'">
+    <noscript><link rel="stylesheet" href="{{ asset('assets/css/boxicons.min.css') }}"></noscript>
     <link rel="stylesheet" href="{{ asset('assets/css/flaticon.css') }}">
     {{--    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">--}}
     {{--    <link rel="stylesheet" href="{{ asset('assets/css/nice-select.min.css') }}">--}}
