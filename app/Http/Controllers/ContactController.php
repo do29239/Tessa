@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequest;
+use App\Jobs\SendContactEmail;
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -11,8 +15,7 @@ class ContactController extends Controller
         // Handle the validated request data
         $data = $request->validated();
 
-        // Send email (optional)
-        Mail::to(config('mail.from.address'))->send(new ContactMail($data));
+        SendContactEmail::dispatch($data);
 
         // Return a response
         return redirect()->back()->with('success', 'Your message has been sent successfully!');
