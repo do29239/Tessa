@@ -9,7 +9,6 @@
         <div class="carousel-item active">
             <img src="{{url('../../assets/img/webp/blackandwhite.webp')}}" fetchpriority="high" loading="lazy" alt="Item 1">
             <div class="banner-content text-white">
-                <div class="line"></div>
                 <span class="sub-title">{{__('messages.ShipAlloverMk')}}</span>
                 <h1>{{__('messages.AllInOne')}}</h1>
                 <p>{{__('messages.NewInspiration')}}</p>
@@ -22,7 +21,6 @@
         <div class="carousel-item">
             <img src="{{url('../../assets/img/redhairr.webp')}}" fetchpriority="high" alt="Item 2" loading="lazy">
             <div class="banner-content text-white">
-                <div class="line"></div>
                 <span class="sub-title">{{__('messages.ShipAlloverMk')}}</span>
                 <h1>{{__('messages.AllInOne')}}</h1>
                 <p>{{__('messages.NewInspiration')}}</p>
