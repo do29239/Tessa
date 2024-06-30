@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use App\Jobs\SendAdminNewRequestEmail;
+use App\Jobs\SendApprovedRequestEmail;
+use App\Jobs\SendDisapprovedRequestEmail;
 use App\Models\RequestStylist;
 use App\Models\StylistInvitationCode;
 use App\Models\StylistProfile;
@@ -9,7 +12,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\RequestDenied;
 use Illuminate\Support\Str;
 
 class RequestStylistService
@@ -23,6 +25,7 @@ class RequestStylistService
     {
         $request = $user->request()->create($data);
 //        $user->update(['request_submitted' => true]);
+        SendAdminNewRequestEmail::dispatch($request->id);
         return $request;
     }
 
@@ -41,6 +44,7 @@ class RequestStylistService
                 $request->delete();
                 $this->changeRole($request->user(),2);
                 $cartService->deleteCart($user);
+                SendApprovedRequestEmail::dispatch($user->email);
                 DB::commit();
                 return true;
             } catch (\Exception $e) {
@@ -70,7 +74,7 @@ class RequestStylistService
 
         if ($user && $user->role === 0) {
             $request->delete();
-            Mail::to($user->email)->send(new RequestDenied($user));
+            SendDisapprovedRequestEmail::dispatch($user->email);
             return true;
         }
 

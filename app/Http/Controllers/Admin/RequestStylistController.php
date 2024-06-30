@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestStylistRequest;
+use App\Jobs\SendAdminNewRequestEmail;
 use App\Models\RequestStylist;
 use App\Services\RequestStylistService;
 use Illuminate\Http\Request;

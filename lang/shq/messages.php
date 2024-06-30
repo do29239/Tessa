@@ -164,7 +164,7 @@ return [
     'Delete'=>'Fshij',
 
     //Contact
-    'drop_line'=>'Na shkruani diçka',
+    'drop_line'=>'Na Kntaktoni',
     'questions_you_may_have'=>'Jemi të lumtur tju përgjigjemi çdo pyetjeje që keni. Thjesht na dërgoni një mesazh në formularin e mëposhtëm me ndonjë
                          pyetjet që mund të keni.',
     'your_message'=>'Mesazhi juaj',
