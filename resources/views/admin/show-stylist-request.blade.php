@@ -15,13 +15,26 @@
         <div class="row justify-content-center mt-4">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title text-center-custom">Request Details</h2>
 
-                        <form action="{{ route('request.index') }}">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <form action="{{ route('request.index') }}" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-primary btn-sm">Stylist Requests</button>
                         </form>
+                        <h2 class="card-title text-center-custom">Request Details</h2>
+                        <div>
+
+                            <form action="{{ route('request.update', $request) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-primary btn-sm">Approve</button>
+                            </form>
+                            <form action="{{ route('request.destroy', $request) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-primary btn-sm">Disapprove</button>
+                            </form>
+                        </div>
                     </div>
 
                     <div class="card-body">
@@ -57,6 +70,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-md-12">
@@ -95,7 +109,6 @@
                                         <td>{{ $request->user->email }}</td>
                                     </tr>
                                 </table>
-
                             </div>
 
                         </div>
@@ -103,6 +116,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
