@@ -47,7 +47,7 @@ Default CSS
   transition: 0.4s;
   -webkit-box-shadow: 0 0px 15px #2020203d;
           box-shadow: 0 0px 15px #2020203d;
-  background: url(../../assets/img/night.png);
+  background: url(../../assets/img/night.webp);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -63,7 +63,7 @@ Default CSS
 .switch-box input:checked + .slider:before {
   -webkit-transform: translateX(24px);
           transform: translateX(24px);
-  background: url(../../assets/img/sunny.png);
+  background: url(../../assets/img/sunny.webp);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -164,56 +164,8 @@ Default CSS
 .theme-dark .offer-content::before {
   background: #0e0e0e;
 }
-.theme-dark .single-facility-box .icon {
-  background-color: #0e0e0e;
-}
-
-.theme-dark .single-facility-box .icon:hover {
-  background-color: #f53f85;
-}
-
-.theme-dark .single-facility-box h3 {
-  background-color: #000000;
-}
-.theme-dark .products-filter-options .sub-title {
-  color: #ffffff;
-}
-
-.theme-dark .products-filter-options .products-ordering-list .nice-select .current {
-  color: #ffffff;
-}
-
-.theme-dark .products-filter-options .products-ordering-list .nice-select .list {
-  background-color: #0e0e0e;
-}
-
-.theme-dark .products-filter-options .products-ordering-list .nice-select .list .option {
-  color: #ffffff;
-}
-
-.theme-dark .products-filter-options .products-ordering-list .nice-select .list .option:hover, .theme-dark .products-filter-options .products-ordering-list .nice-select .list .option:focus {
-  color: #f53f85;
-}
-
-.theme-dark .pagination-area::before {
-  background-color: #2e2d2d;
-}
 .theme-dark.bottom-navbar{
     color: #4d4949;
-}
-
-.theme-dark .pagination-area .page-numbers {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-.theme-dark .pagination-area .page-numbers .prev, .theme-dark .pagination-area .page-numbers .next {
-  background: #000000;
-  color: #ffffff;
-}
-
-.theme-dark .pagination-area .page-numbers.current {
-  color: #f53f85;
 }
 
 .theme-dark .partner-area {
@@ -229,18 +181,6 @@ Default CSS
 }
 
 .theme-dark .brand-area {
-  background-color: #0e0e0e;
-}
-
-.theme-dark #products-collections-filter.products-row-view .products-col-item .single-products-box {
-  background-color: #0e0e0e;
-}
-
-.theme-dark #products-collections-filter.products-row-view .products-col-item .products-box {
-  background-color: #0e0e0e;
-}
-
-.theme-dark #products-collections-filter.products-row-view .products-col-item .single-productsBox {
   background-color: #0e0e0e;
 }
 
@@ -350,19 +290,11 @@ Default CSS
   color: #ffffff;
 }
 
-.theme-dark .billing-details .form-check .form-check-label {
-  color: #ffffff;
-}
-
 .theme-dark .order-details .order-table table thead tr th {
   color: #ffffff;
 }
 
 .theme-dark .order-details .order-table table tbody tr td {
-  color: #ffffff;
-}
-
-.theme-dark .order-details .order-table table tbody tr td.order-subtotal span, .theme-dark .order-details .order-table table tbody tr td.order-shipping span, .theme-dark .order-details .order-table table tbody tr td.total-price span {
   color: #ffffff;
 }
 
@@ -374,28 +306,8 @@ Default CSS
   color: #ffffff !important;
 }
 
-.theme-dark .user-actions {
-  background: #0e0e0e;
-}
-
-.theme-dark .user-actions span a {
-  color: #ffffff;
-}
-
-.theme-dark .user-actions span a:hover {
-  color: #f53f85;
-}
-
 .theme-dark .about-text .features-list li {
   color: #ffffff;
-}
-
-.theme-dark .customer-service-content ul li {
-  color: #ffffff;
-}
-
-.theme-dark .customer-service-content ul li a {
-  color: #f53f85;
 }
 
 .theme-dark .login-content .login-form .form-group .form-control {
@@ -419,54 +331,6 @@ Default CSS
   color: #ffffff;
 }
 
-.theme-dark .signup-content .signup-form .form-group .form-control {
-  background-color: #0e0e0e;
-  color: #ffffff;
-}
-
-.theme-dark .signup-content .signup-form .form-group .form-control::-webkit-input-placeholder {
-  color: #ffffff;
-}
-
-.theme-dark .signup-content .signup-form .form-group .form-control:-ms-input-placeholder {
-  color: #ffffff;
-}
-
-.theme-dark .signup-content .signup-form .form-group .form-control::-ms-input-placeholder {
-  color: #ffffff;
-}
-
-.theme-dark .signup-content .signup-form .form-group .form-control::placeholder {
-  color: #ffffff;
-}
-
-.theme-dark .faq-accordion .accordion .accordion-title {
-  background-color: #0e0e0e;
-  color: #ffffff;
-}
-
-.theme-dark .faq-accordion .accordion .accordion-content {
-  background-color: #242424;
-  color: #ffffff;
-}
-
-.theme-dark .faq-accordion .accordion .accordion-content ul li {
-  color: #ffffff;
-}
-
-.theme-dark .track-order-content {
-  background-color: #0e0e0e;
-}
-
-.theme-dark .track-order-content form .form-group label {
-  color: #ffffff;
-}
-
-.theme-dark .track-order-content form .form-group .form-control {
-  background-color: #000000;
-  color: #ffffff;
-}
-
 .theme-dark .contact-form form .form-group .form-control {
   background-color: #0e0e0e;
   color: #ffffff;
@@ -487,21 +351,8 @@ Default CSS
 .theme-dark .contact-form form .form-group .form-control::placeholder {
   color: #ffffff;
 }
-.theme-dark blockquote, .theme-dark .blockquote {
-  background-color: #0e0e0e;
-}
 
 @media only screen and (max-width: 991px) {
-  .theme-dark .mean-container .mean-bar {
-    background-color: #000000;
-    padding: 0;
-  }
-  .theme-dark .mean-container .mean-nav ul li {
-    background: #000000;
-  }
-  .theme-dark .mean-container .mean-nav ul li a {
-    color: #ffffff;
-  }
   .theme-dark .xton-responsive-nav .logo .main-logo {
     display: none;
   }
@@ -509,7 +360,6 @@ Default CSS
     display: block;
   }
 }
-/*# sourceMappingURL=dark.css.map */
 :root {
     --text-color: #000;  /* Black text for light mode */
     --bg-color: #fff;    /* White background for light mode */
@@ -521,7 +371,7 @@ body {
 }
 
 /* Ensure all text and container elements inherit or use these variables */
-p, h1, h2, h3, h4, h5, h6,span, section, article {
+p, h1, h2, h3, h4, h5, h6,span, section {
     color: inherit;  /* Ensures text elements use the text color */
     background-color: inherit;  /* Use this only if you want containers to have the same background as body */
 }

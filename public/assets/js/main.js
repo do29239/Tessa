@@ -27,6 +27,25 @@
 //     })();
 // });
 
+// loading
+// GSAP animation
+document.addEventListener('DOMContentLoaded', () => {
+    // GSAP animation
+    gsap.from("#shape1", {duration: 1, x: -100, opacity: 0, ease: "bounce", repeat: -1, yoyo: true});
+    gsap.from("#shape2", {duration: 1, x: 100, opacity: 0, ease: "bounce", repeat: -1, yoyo: true});
+    gsap.from("#shape3", {duration: 1, y: -100, opacity: 0, ease: "elastic", repeat: -1, yoyo: true});
+    gsap.from("#shape4", {duration: 1, y: 100, opacity: 0, ease: "elastic", repeat: -1, yoyo: true});
+    gsap.from("#shape5", {duration: 1, scale: 0, opacity: 0, ease: "back", repeat: -1, yoyo: true});
+    gsap.from("#shape6", {duration: 1, rotation: 360, transformOrigin: "center", opacity: 0, ease: "power2", repeat: -1, yoyo: true});
+    gsap.from("#shape7", {duration: 1, rotation: -360, transformOrigin: "center", opacity: 0, ease: "power2", repeat: -1, yoyo: true});
+});
+
+// Hide loading screen after content is loaded with a delay
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loading-screen').style.display = 'none';
+    }, 1000); // 2000ms = 2 seconds delay
+});
 
 //INSTAGRAM SLIDES
 document.addEventListener('DOMContentLoaded', function() {

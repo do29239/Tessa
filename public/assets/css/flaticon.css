@@ -19,17 +19,10 @@ Flaticon icon font: Flaticon
 	}
 }
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
 	font-family: Flaticon;
 	font-style: normal;
 }
 
 .flaticon-right-arrow:before { content: "\f100"; }
 .flaticon-left:before { content: "\f101"; }
-.flaticon-tracking:before { content: "\f102"; }
-.flaticon-return:before { content: "\f103"; }
-.flaticon-shuffle:before { content: "\f104"; }
-.flaticon-sale:before { content: "\f105"; }
-.flaticon-credit-card:before { content: "\f106"; }
-.flaticon-location:before { content: "\f107"; }
-.flaticon-customer-service:before { content: "\f108"; }

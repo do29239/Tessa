@@ -1,109 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
-
-<!-- Start Main Banner Area -->
-{{--<div class="home-slides-two owl-carousel owl-theme">--}}
-{{--    <div class="main-banner banner-bg2">--}}
-{{--        <div class="d-table">--}}
-{{--            <div class="d-table-cell">--}}
-{{--                <div class="container-fluid">--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col-lg-6 col-md-12">--}}
-{{--                            <div class="banner-content text-white">--}}
-{{--                                <div class="line"></div>--}}
-{{--                                <span class="sub-title">Products For All Your Needs</span>--}}
-{{--                                <h1>New Inspiration!!! New Look!!!</h1>--}}
-{{--                                <p>We ship All over Macedonia!!!</p>--}}
-{{--                                <div class="btn-box">--}}
-{{--                                    <a href="/shop" class="default-btn">Go To Shop</a>--}}
-{{--                                    <a href="/courses" class="optional-btn">Our Courses</a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-{{--    <div class="main-banner banner-bg4">--}}
-{{--        <div class="d-table">--}}
-{{--            <div class="d-table-cell">--}}
-{{--                <div class="container-fluid">--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col-lg-6 col-md-12">--}}
-{{--                            <div class="banner-content text-white">--}}
-{{--                                <div class="line"></div>--}}
-{{--                                <span class="sub-title">New Inspiration!!! New Look!!!</span>--}}
-{{--                                <h1>Products For All Your Needs</h1>--}}
-{{--                                <p>We ship All over Macedonia!!!</p>--}}
-{{--                                <div class="btn-box">--}}
-{{--                                    <a href="/shop" class="default-btn">Go To Shop</a>--}}
-{{--                                    <a href="/courses" class="optional-btn">Our Courses</a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-{{--    <div class="main-banner banner-bg5">--}}
-{{--        <div class="d-table">--}}
-{{--            <div class="d-table-cell">--}}
-{{--                <div class="container-fluid">--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col-lg-6 col-md-12">--}}
-{{--                            <div class="banner-content text-white">--}}
-{{--                                <div class="line"></div>--}}
-{{--                                <span class="sub-title">We ship All over Macedonia!!!</span>--}}
-{{--                                <h1>All You Need in One Place</h1>--}}
-{{--                                <p>New Inspiration!!! New Look!!!</p>--}}
-{{--                                <div class="btn-box">--}}
-{{--                                    <a href="/shop" class="default-btn">Go To Shop</a>--}}
-{{--                                    <a href="/courses" class="optional-btn">Our Courses</a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-<!-- End Main Banner Area -->
-{{--<div class="main-banner">--}}
-{{--    <div class="split-slideshow">--}}
-{{--        <div class="slideshow">--}}
-{{--            <div class="slider">--}}
-{{--                <div class="item">--}}
-{{--                    <img src="{{url('../../assets/img/redhairr.webp')}}" />--}}
-{{--                </div>--}}
-{{--                <div class="item">--}}
-{{--                    <img src="{{url('../../assets/img/webp/blackandwhite.webp')}}" />--}}
-{{--                </div>--}}
-{{--                <div class="item">--}}
-{{--                    <img src="{{url('../../assets/img/webp/brownhair.webp')}}" />--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="slideshow-text">--}}
-{{--            <div class="item">Canyon</div>--}}
-{{--            <div class="item">Desert</div>--}}
-{{--            <div class="item">Erosion</div>--}}
-{{--            <div class="item">Shape</div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
 <div class="carousel">
     <div class="carousel-background">
 
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="{{url('../../assets/img/webp/blackandwhite.webp')}}" loading="lazy" alt="Item 1">
+            <img src="{{url('../../assets/img/webp/blackandwhite.webp')}}" fetchpriority="high" loading="lazy" alt="Item 1">
             <div class="banner-content text-white">
                 <div class="line"></div>
                 <span class="sub-title">{{__('messages.ShipAlloverMk')}}</span>
@@ -116,7 +20,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="{{url('../../assets/img/redhairr.webp')}}" alt="Item 2" loading="lazy">
+            <img src="{{url('../../assets/img/redhairr.webp')}}" fetchpriority="high" alt="Item 2" loading="lazy">
             <div class="banner-content text-white">
                 <div class="line"></div>
                 <span class="sub-title">{{__('messages.ShipAlloverMk')}}</span>
@@ -146,7 +50,7 @@
                 @if(auth()->user()->role == 2)
                     <div class="col-lg-6 col-md-12">
                         <div class="categories-box">
-                            <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" alt="image" height="608.19" width="927.5">
+                            <img src="{{ asset('assets/img/webp/orrossss1.webp') }}"  fetchpriority="high" alt="image" height="608.19" width="927.5">
                             <div class="content">
                                 <h3>Go To Shop!</h3>
                             </div>
@@ -156,7 +60,7 @@
                 @else
                     <div class="col-lg-6 col-md-12">
                         <div class="categories-box">
-                            <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" alt="image" height="608.19" width="927.5">
+                            <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
                             <div class="content">
                                 <h3>{{ __('messages.ProdOnSale') }}</h3>
                             </div>
@@ -169,7 +73,7 @@
             @guest
                 <div class="col-lg-6 col-md-12">
                     <div class="categories-box">
-                        <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" alt="image" height="608.19" width="927.5">
+                        <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
                         <div class="content">
                             <h3>{{ __('messages.ProdOnSale') }}</h3>
                         </div>
@@ -182,7 +86,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{ asset('assets/img/webp/fanola color.webp') }}" alt="image" height="289.31" width="451.75">
+                            <img src="{{ asset('assets/img/webp/fanola color.webp') }}" fetchpriority="high" alt="image" height="289.31" width="451.75">
                             <div class="content">
                                 <h3>{{ __('messages.FColor') }}</h3>
                             </div>
@@ -192,7 +96,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{ asset('assets/img/webp/OroTherapy Color.webp') }}" alt="image" height="289.31" width="451.75">
+                            <img src="{{ asset('assets/img/webp/OroTherapy Color.webp') }}" fetchpriority="high" alt="image" height="289.31" width="451.75">
                             <div class="content">
                                 <h3>{{ __('messages.OColor') }}</h3>
                             </div>
@@ -202,7 +106,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{ asset('assets/img/webp/RrLine Color.webp') }}" alt="image" height="289.31" width="451.75">
+                            <img src="{{ asset('assets/img/webp/RrLine Color.webp') }}" fetchpriority="high" alt="image" height="289.31" width="451.75">
                             <div class="content">
                                 <h3>{{ __('messages.RRColor') }}</h3>
                             </div>
@@ -212,7 +116,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="categories-box">
-                            <img src="{{ asset('assets/img/webp/No Yellow Color.webp') }}" alt="image" height="289.31" width="451.75">
+                            <img src="{{ asset('assets/img/webp/No Yellow Color.webp') }}" fetchpriority="high" alt="image" height="289.31" width="451.75">
                             <div class="content">
                                 <h3>{{ __('messages.NYColor') }}</h3>
                             </div>
@@ -254,7 +158,7 @@
                     <span class="sub-title">{{__('messages.limited_time_offer')}}</span>
                     <h2>{{__('messages.products_in_sale')}}</h2>
                     <p>{{__('messages.best_deals')}}</p>
-                    <a href="/sale" class="default-btn">{{__('messages.go_to_sale')}}</a>
+                    <a href="/contact" class="default-btn">{{__('messages.go_to_sale')}}</a>
                 </div>
             </div>
         </div>
@@ -336,19 +240,19 @@
 
         <div class="brand-slides">
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand1.webp" alt="image"></a>
+                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand1.webp" height="150" width="150" alt="image"></a>
             </div>
             <div class="brand-item">
                 <a href="{{route('shop.brand', 'Fanola')}}"><img src="assets/img/brand/shopbybrand2.jpg" alt="image"></a>
             </div>
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'No Yellow')}}"><img src="assets/img/webp/shopbybrand2.webp" alt="image"></a>
+                <a href="{{route('shop.brand', 'No Yellow')}}"><img src="assets/img/webp/shopbybrand2.webp" height="150" width="150" alt="image"></a>
             </div>
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'Oro Therapy')}}"><img src="assets/img/webp/shopbybrand3.webp" alt="image"></a>
+                <a href="{{route('shop.brand', 'Oro Therapy')}}"><img src="assets/img/webp/shopbybrand3.webp" height="150" width="150" alt="image"></a>
             </div>
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand3.webp" alt="image"></a>
+                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand3.webp" height="150" width="150" alt="image"></a>
             </div>
         </div>
     </div>
