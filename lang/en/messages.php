@@ -6,7 +6,7 @@ return [
     'call_us' => 'Call:',
     'home' => 'Home',
     'shop' => 'Shop',
-    'courses' => 'Courses',
+    'courses' => 'Education',
     'about_us' => 'About Us',
     'contact' => 'Contact',
     'my_account' => 'My Profile',

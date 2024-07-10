@@ -4,7 +4,7 @@ return [
     //NAVBAR
     'home'=>'Kreu',
     'shop'=>'Produktet',
-    'courses'=>'Kurset',
+    'courses'=>'Edukim',
     'about_us'=>'Rreth Nesh',
     'contact'=>'Kontakt',
 
