@@ -17,7 +17,9 @@
     <!-- Nucleo Icons -->
     @vite('resources/css/admincss/nucleo-icons.css')
     <!-- CSS Files -->
-    @vite('resources/css/admincss/black-dashboard.css?v=1.0.0')
+    @vite('resources/css/admincss/black-dashboard.css')
+    @vite('resources/css/admincss/demo.css')
+
 </head>
 
 <body class="">
@@ -273,15 +275,15 @@
 @vite('resources/js/adminjs/core/bootstrap.min.js')
 @vite('resources/js/adminjs/plugins/perfect-scrollbar.jquery.min.js')
 @vite('resources/js/adminjs/plugins/chartjs.min.js')
-@vite('resources/js/adminjs/black-dashboard.min.js?v=1.0.0')
-@vite('resources/js/adminjs/demo.js')
+@vite('resources/js/adminjs/black-dashboard.js')
+@vite('resources/js/adminjs/plugins/bootstrap-notify.js')
+@vite('resources/js/adminjs/plugins/perfect-scrollbar.jquery.min.js')
 <!--  Google Maps Plugin    -->
 <!-- Place this tag in your head or just before your close body tag. -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Chart JS -->
 <!--  Notifications Plugin    -->
 <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../assets/adminassets/demo/demo.js"></script>
 
 
 
