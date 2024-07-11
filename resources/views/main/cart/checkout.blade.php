@@ -77,6 +77,12 @@
                                         <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}" readonly/>
                                     </div>
                                 </div>
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="form-group">
+                                        <label>{{__('messages.message')}}<span class="required">*</span></label>
+                                        <textarea type="text" name="message" class="form-control" cols="30" rows="5" placeholder="Write us a Message (Optional)"></textarea>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

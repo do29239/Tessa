@@ -37,6 +37,7 @@
                                             <td class="text-center-custom">{{ $order->created_at }}</td>
                                             <td class="text-center-custom">{{ number_format($order->total, 2) }}</td>
                                             <td class="text-center-custom">{{ $order->status }}</td>
+                                            <td class="text-center-custom">{{ $order->message }}</td>
                                             <td class="text-center-custom">
                                                 <a href="{{ route('orders.show', $order) }}" class="btn btn-primary btn-sm">View Order</a>
                                             </td>

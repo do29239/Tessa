@@ -106,6 +106,10 @@
                                         <td>{{ $order->user->email }}</td>
                                     </tr>
                                     <tr>
+                                        <td><strong>Message:</strong></td>
+                                        <td>{{ $order->message }}</td>
+                                    </tr>
+                                    <tr>
                                         <td><strong>Order Status: </strong></td>
                                         <td>
                                             <form action="{{ route('orders.update', $order->id) }} " method="POST">
