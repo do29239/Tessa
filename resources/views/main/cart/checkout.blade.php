@@ -6,7 +6,10 @@
     <!-- Start Checkout Area -->
     <section class="checkout-area ptb-100">
         <div class="container">
-
+            <div class="user-actions">
+                <i class='bx bx-info-circle'></i>
+                <span>Change your details in Profile ! <a href="{{url('/profile')}}">Click <span class="the_link">here</span> to go to your profile</a></span>
+            </div>
 
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
@@ -18,7 +21,7 @@
                                     <div class="form-group">
                                         <label>{{__('messages.city')}}<span class="required">*</span></label>
                                         <div class="select-box">
-                                            <select class="form-control" >
+                                            <select class="form-control" disabled>
                                                 <option>{{ Auth::user()->city }}</option>
                                             </select>
                                         </div>
@@ -28,14 +31,14 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>{{__('messages.first_name')}}<span class="required">*</span></label>
-                                        <input type="text" name="first_name" value="{{ Auth::user()->first_name }}" class="form-control" />
+                                        <input type="text" name="first_name" value="{{ Auth::user()->first_name }}" class="form-control" readonly/>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>{{__('messages.last_name')}}<span class="required">*</span></label>
-                                        <input type="text" class="form-control" name="last_name" value="{{ Auth::user()->last_name }}" />
+                                        <input type="text" class="form-control" name="last_name" value="{{ Auth::user()->last_name }}" readonly/>
                                     </div>
                                 </div>
 
@@ -50,28 +53,28 @@
                                 <div class="col-lg-12 col-md-6">
                                     <div class="form-group">
                                         <label>{{__('messages.address')}}<span class="required">*</span></label>
-                                        <input type="text" class="form-control" name="address" value="{{ Auth::user()->address }}"/>
+                                        <input type="text" class="form-control" name="address" value="{{ Auth::user()->address }}" readonly/>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>{{__('messages.phone')}}<span class="required">*</span></label>
-                                        <input type="text" class="form-control" name="phone" value="{{ Auth::user()->phone }}" />
+                                        <input type="text" class="form-control" name="phone" value="{{ Auth::user()->phone }}" readonly/>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>{{__('messages.postcode')}}<span class="required">*</span></label>
-                                        <input type="text" class="form-control" name="postcode" value="{{ Auth::user()->postcode }}" />
+                                        <input type="text" class="form-control" name="postcode" value="{{ Auth::user()->postcode }}" readonly/>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12 col-md-6">
                                     <div class="form-group">
                                         <label>{{__('messages.email')}}<span class="required">*</span></label>
-                                        <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}" />
+                                        <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}" readonly/>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-6">

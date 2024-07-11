@@ -5,6 +5,15 @@
   margin: auto;
   overflow: hidden;
 }
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust transparency as needed */
+}
 
 .carousel-inner {
   display: flex;
@@ -22,36 +31,6 @@
   height: 100%;
   object-fit: cover;
 }
-
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  text-decoration: none;
-  font-size: 2em;
-  padding: 0;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.carousel-control.prev {
-  left: 0;
-}
-
-.carousel-control.next {
-  right: 0;
-}
-
-/* Hide all but the active item */
-.carousel-item:not(.active) {
-  display: none;
-}
-
-.active {
-  display: block;
-}
 .carousel-background {
   position: absolute;
   top: 0;
@@ -65,58 +44,6 @@
   transition: opacity 0.5s ease; /* Optional: fade transition for the background */
 }
 
-@keyframes moveUp {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes moveDown {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes moveLeft {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes moveRight {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-/* Animation classes */
-.animate-up {
-  animation: moveUp 2s ease forwards;
-}
-
-.animate-down {
-  animation: moveDown 2s ease forwards;
-}
-
-.animate-left {
-  animation: moveLeft 2s ease forwards;
-}
-
-.animate-right {
-  animation: moveRight 2s ease forwards;
-}
 /* This stays mostly the same, but let's make sure it's positioned absolutely */
 .banner-content {
   position: absolute;
@@ -130,78 +57,6 @@
   overflow: visible; /* Changed from hidden to ensure the border clip is visible */
   margin-left: auto;
   margin-right: auto;
-}
-
-/* Adapting .line to work with new carousel structure */
-.banner-content .line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 9px solid #ffffff;
-  clip-path: polygon(0 0, 60% 0, 36% 100%, 0 100%);
-  z-index: -1; /* Behind the text content */
-}
-
-/* Since we're not using Owl Carousel, we'll apply animations differently */
-.carousel-item.active .banner-content .sub-title,
-.carousel-item.active .banner-content h1,
-.carousel-item.active .banner-content p,
-.carousel-item.active .banner-content .btn-box,
-.carousel-item.active .banner-content .line {
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  animation-delay: 0.3s;
-}
-
-/* Here we apply the same animation but you'll need to define fadeInDown and fadeInUp if not already defined */
-.carousel-item.active .banner-content .sub-title,
-.carousel-item.active .banner-content h1 {
-  animation-name: fadeInDown;
-}
-
-.carousel-item.active .banner-content p,
-.carousel-item.active .banner-content .btn-box {
-  animation-name: fadeInUp;
-}
-
-.carousel-item.active .banner-content .line {
-  animation-name: fadeInLeft;
-}
-
-/* You need to define the keyframes for the animations if they're not already in your CSS */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translate3d(-100%, 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
 }
 /* This media query targets screens with a width less than 768px (tablets and smaller) */
 @media only screen and (max-width: 768px) {
@@ -235,29 +90,21 @@
   }
 
   .carousel .banner-content .sub-title {
-    font-size: 9px; /* Smaller font size for subtitle */
+    font-size: 20px; /* Smaller font size for subtitle */
   }
 
   .carousel .banner-content h1 {
-    font-size: 12px; /* Smaller font size for the main title */
-    line-height: 1.2; /* Adjust line height to prevent overlapping */
+    font-size: 20px; /* Smaller font size for the main title */
   }
 
   .carousel .banner-content p {
-    font-size: 8px; /* Smaller font size for paragraph text */
+    font-size: 13px; /* Smaller font size for paragraph text */
   }
 
   .carousel .banner-content .btn-box a {
     font-size: 7px; /* Smaller font size for buttons */
     padding: 7px 8px; /* Smaller padding for buttons */
     margin: 5px 0; /* Add margin between stacked buttons */
-  }
-
-  /* If you have a line or other decorative elements, adjust as necessary */
-  .carousel .banner-content .line {
-    /* Adjust the line properties for small screens */
-    border-width: 6px; /* Smaller border width */
-    /* Adjust clip-path if necessary */
   }
 }
 

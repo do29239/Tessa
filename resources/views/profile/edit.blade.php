@@ -90,7 +90,7 @@
                                     <div class="col-lg-12 col-md-12 mb-3">
                                         <div class="form-group">
                                             <label>{{ __('Saloon Name') }} <span>*</span></label>
-                                            <input type="text" name="saloon_name" id="saloon_name" class="form-control" required value="{{ old('saloon_name', $user->stylistProfile->saloon_name ?? '') }}">
+                                            <input type="text" name="saloon_name" id="saloon_name" class="form-control" required value="{{ old('saloon_name', $user->profile->saloon_name ?? '') }}">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -98,7 +98,7 @@
                                     <div class="col-lg-12 col-md-12 mb-3">
                                         <div class="form-group">
                                             <label>{{ __('Saloon Address') }} <span>*</span></label>
-                                            <input type="text" name="saloon_address" id="saloon_address" class="form-control" required value="{{ old('saloon_address', $user->stylistProfile->saloon_address ?? '') }}">
+                                            <input type="text" name="saloon_address" id="saloon_address" class="form-control" required value="{{ old('saloon_address', $user->profile->saloon_address ?? '') }}">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -106,7 +106,7 @@
                                     <div class="col-lg-12 col-md-12 mb-3">
                                         <div class="form-group">
                                             <label>{{ __('Saloon City') }} <span>*</span></label>
-                                            <input type="text" name="saloon_city" id="saloon_city" class="form-control" required value="{{ old('saloon_city', $user->stylistProfile->saloon_city ?? '') }}">
+                                            <input type="text" name="saloon_city" id="saloon_city" class="form-control" required value="{{ old('saloon_city', $user->profile->saloon_city ?? '') }}">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -114,7 +114,7 @@
                                     <div class="col-lg-12 col-md-12 mb-3">
                                         <div class="form-group">
                                             <label>{{ __('Saloon Phone') }} <span>*</span></label>
-                                            <input type="text" name="saloon_phone" id="saloon_phone" class="form-control" required value="{{ old('saloon_phone', $user->stylistProfile->saloon_phone ?? '') }}">
+                                            <input type="text" name="saloon_phone" id="saloon_phone" class="form-control" required value="{{ old('saloon_phone', $user->profile->saloon_phone ?? '') }}">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>

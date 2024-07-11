@@ -2,12 +2,13 @@
 
 @section('content')
 <div class="carousel">
-    <div class="carousel-background">
 
-    </div>
     <div class="carousel-inner">
+
         <div class="carousel-item active">
-            <img src="{{url('../../assets/img/webp/blackandwhite.webp')}}" fetchpriority="high" loading="lazy" alt="Item 1">
+        <div class="overlay">
+        </div>
+            <img src="{{url('../../assets/img/banner.webp')}}" fetchpriority="high" loading="lazy" alt="Item 1">
             <div class="banner-content text-white">
                 <span class="sub-title">{{__('messages.ShipAlloverMk')}}</span>
                 <h1>{{__('messages.AllInOne')}}</h1>
@@ -18,22 +19,8 @@
                 </div>
             </div>
         </div>
-        <div class="carousel-item">
-            <img src="{{url('../../assets/img/redhairr.webp')}}" fetchpriority="high" alt="Item 2" loading="lazy">
-            <div class="banner-content text-white">
-                <span class="sub-title">{{__('messages.ShipAlloverMk')}}</span>
-                <h1>{{__('messages.AllInOne')}}</h1>
-                <p>{{__('messages.NewInspiration')}}</p>
-                <div class="btn-box">
-                    <a href="/shop" class="default-btn">{{__('messages.GoShop')}}</a>
-                    <a href="/courses" class="optional-btn">{{__('messages.OurCourses')}}</a>
-                </div>
-            </div>
-        </div>
-        <!-- Add more items here -->
     </div>
-    <a class="carousel-control prev" onclick="moveToPrevSlide()"><i class='flaticon-left'></i></a>
-    <a class="carousel-control next" onclick="moveToNextSlide()"><i class='flaticon-right-arrow'></i></a>
+
 </div>
 
 
@@ -146,23 +133,36 @@
 </section>
 
 <!-- End Products Area -->
+<!-- Start Shop By Brand -->
 
-<!-- Start Offer Area -->
-<section class="offer-area bg-image2 ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-5 col-md-6 offset-lg-7 offset-md-6">
-                <div class="offer-content-box">
-                    <span class="sub-title">{{__('messages.limited_time_offer')}}</span>
-                    <h2>{{__('messages.products_in_sale')}}</h2>
-                    <p>{{__('messages.best_deals')}}</p>
-                    <a href="/contact" class="default-btn">{{__('messages.go_to_sale')}}</a>
-                </div>
+<div class="brand-area ptb-70">
+    <div class="container">
+        <div class="section-title">
+            <h2>{{__('messages.ShopBrand')}}</h2>
+        </div>
+
+        <div class="brand-slides">
+            <div class="brand-item">
+                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand1.webp" height="150" width="150" alt="image"></a>
+            </div>
+            <div class="brand-item">
+                <a href="{{route('shop.brand', 'Fanola')}}"><img src="assets/img/brand/shopbybrand2.jpg" alt="image"></a>
+            </div>
+            <div class="brand-item">
+                <a href="{{route('shop.brand', 'No Yellow')}}"><img src="assets/img/webp/shopbybrand2.webp" height="150" width="150" alt="image"></a>
+            </div>
+            <div class="brand-item">
+                <a href="{{route('shop.brand', 'Oro Therapy')}}"><img src="assets/img/webp/shopbybrand3.webp" height="150" width="150" alt="image"></a>
+            </div>
+            <div class="brand-item">
+                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand3.webp" height="150" width="150" alt="image"></a>
             </div>
         </div>
     </div>
-</section>
-<!-- End Offer Area -->
+</div>
+
+<!-- End Shop By Brand -->
+
 
 <!-- Start Products Area -->
 <section class="products-area pt-100 pb-70">
@@ -230,31 +230,7 @@
     }
 </style>
 
-<div class="brand-area ptb-70">
-    <div class="container">
-        <div class="section-title">
-            <h2>{{__('messages.ShopBrand')}}</h2>
-        </div>
 
-        <div class="brand-slides">
-            <div class="brand-item">
-                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand1.webp" height="150" width="150" alt="image"></a>
-            </div>
-            <div class="brand-item">
-                <a href="{{route('shop.brand', 'Fanola')}}"><img src="assets/img/brand/shopbybrand2.jpg" alt="image"></a>
-            </div>
-            <div class="brand-item">
-                <a href="{{route('shop.brand', 'No Yellow')}}"><img src="assets/img/webp/shopbybrand2.webp" height="150" width="150" alt="image"></a>
-            </div>
-            <div class="brand-item">
-                <a href="{{route('shop.brand', 'Oro Therapy')}}"><img src="assets/img/webp/shopbybrand3.webp" height="150" width="150" alt="image"></a>
-            </div>
-            <div class="brand-item">
-                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand3.webp" height="150" width="150" alt="image"></a>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Start Blog Area -->
 {{--<section class="blog-area pt-100 pb-70">--}}
