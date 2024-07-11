@@ -274,13 +274,13 @@
 @vite('resources/js/adminjs/plugins/perfect-scrollbar.jquery.min.js')
 @vite('resources/js/adminjs/plugins/chartjs.min.js')
 @vite('resources/js/adminjs/black-dashboard.min.js?v=1.0.0')
+@vite('resources/js/adminjs/demo.js')
 <!--  Google Maps Plugin    -->
 <!-- Place this tag in your head or just before your close body tag. -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Chart JS -->
 <!--  Notifications Plugin    -->
 <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../assets/adminassets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/adminassets/demo/demo.js"></script>
 
 

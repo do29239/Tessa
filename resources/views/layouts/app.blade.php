@@ -12,7 +12,7 @@
 
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/adminjs/app.adminjs'])
+{{--    @vite(['resources/css/app.css', 'resources/adminjs/app.adminjs'])--}}
     @livewireStyles
 </head>
 <body class="font-sans antialiased">
