@@ -26,6 +26,7 @@ export default defineConfig({
                 'resources/js/adminjs/plugins/chartjs.min.js',
                 'resources/js/adminjs/black-dashboard.min.js',
                 'resources/css/table.css',
+                // 'resources/js/adminjs/demo.js',
             ],
             refresh: true,
         }),

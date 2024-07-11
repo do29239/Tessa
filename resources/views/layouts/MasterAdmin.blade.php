@@ -280,7 +280,7 @@
 <!-- Chart JS -->
 <!--  Notifications Plugin    -->
 <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../assets/adminassets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/adminassets/js/black-dashboard.min.js?"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/adminassets/demo/demo.js"></script>
 
 
