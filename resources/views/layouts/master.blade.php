@@ -3,6 +3,8 @@
 <head>
     <!-- (Changes )Required meta tags-->
     <meta charset="utf-8">
+    <meta name="description" content="Discover Tessa Beauty Institute and Tessa Academy. Our institute offers top-notch beauty treatments and advanced aesthetic solutions, while our academy provides comprehensive training programs in beauty and skincare. Visit our online store for high-quality beauty products, shampoos, hair colors, and professional supplies for hairstylists and individuals. Join us for a transformative beauty experience and start your journey towards a successful career in the beauty industry.">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Preloading Fonts for performance -->
@@ -504,16 +506,16 @@
                     <div class="footer-newsletter-box">
                         <p>{{__('messages.newsletter_prompt')}}</p>
                         <form class="newsletter-form" data-bs-toggle="validator">
-                            <label>{{__('messages.your_email_address')}}</label>
+                            <label>{{__('messages.YourEmail')}}</label>
                             <input
                                 type="email"
                                 class="input-newsletter"
-                                placeholder="Enter your email"
+                                placeholder="{{__('messages.enter_your_email')}}"
                                 name="EMAIL"
                                 required
                                 autocomplete="off"
                             />
-                            <button type="submit">{{__('messages.subscribe')}}</button>
+                            <button type="submit">{{__('messages.Subscribe')}}</button>
                             <div id="validator-newsletter" class="form-result"></div>
                         </form>
                     </div>
