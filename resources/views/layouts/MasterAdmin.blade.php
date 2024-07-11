@@ -123,12 +123,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href={{ route('courses.index') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Courses</p>
-                    </a>
-                </li>
-                <li>
                     <a href="{{url('/admin/icons')}}">
                         <i class="tim-icons icon-atom"></i>
                         <p>Icons</p>

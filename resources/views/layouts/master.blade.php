@@ -200,11 +200,6 @@
                         <li class="hide-on-mobile"><a href="{{ route('show.wishlist') }}"><i
                                     class="bx bx-heart"></i>{{__('messages.wishlist')}}</a></li>
                     @endauth
-                    <li><a href="{{ route('courses') }}"><i
-                                class="bx bx-book {{ request()->routeIs('courses') ? ' active' : '' }}"></i>{{__('messages.courses')}}
-                        </a></li>
-                    <li><a href="{{url('/about')}}"><i class="bx bx-info-circle"></i>{{__('messages.about_us')}}</a>
-                    </li>
                     <li><a href="{{url('/contact')}}"><i class="bx bx-phone"></i>{{__('messages.contact')}}</a></li>
                     @auth()
                         <li><a href="my-account.html"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
@@ -292,13 +287,6 @@
                                class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.shop')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="{{ route('courses') }}"
-                               class="nav-link{{ request()->routeIs('courses') ? ' active' : '' }}">{{__('messages.courses')}}</a>
-                        </li>
-                        <li class="nav-item megamenu">
-                            <a href="{{(url('/about'))}}" class="nav-link">{{__('messages.about_us')}}</a>
-                        </li>
-                        <li class="nav-item megamenu">
                             <a href="{{url('/contact')}}" class="nav-link">{{__('messages.contact')}}</a>
                         </li>
                     </ul>
@@ -342,13 +330,6 @@
                         <li class="nav-item">
                             <a href="{{ route('shop') }}"
                                class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.shop')}}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('courses') }}"
-                               class="nav-link{{ request()->routeIs('courses') ? ' active' : '' }}">{{__('messages.courses')}}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{(url('/about'))}}" class="nav-link">{{__('messages.about_us')}}</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{url('/contact')}}" class="nav-link">{{__('messages.contact')}}</a>
@@ -518,8 +499,6 @@
                     <ul class="quick-links">
                         <li><a href="{{url('/')}}">{{__('messages.home')}}</a></li>
                         <li><a href="{{route('shop')}}">{{__('messages.shop')}}</a></li>
-                        <li><a href="{{route('courses')}}">{{__('messages.courses')}}</a></li>
-                        <li><a href="{{url('/about')}}">{{__('messages.about_us')}}</a></li>
                         <li><a href="{{url('/contact')}}">{{__('messages.contact')}}</a></li>
                     </ul>
                 </div>
