@@ -59,7 +59,7 @@
                         <h4 class="card-title">Courses</h4>
                     </div>
                     <div class="card-body">
-                        @if(count($course) > 0)
+                        @if(count($courses) > 0)
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover">
                                     <thead class="text-primary">
@@ -70,21 +70,21 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($course as $courses)
-                                        <tr onclick="window.location='{{ route('courses.show', $courses) }}';" style="cursor: pointer;">
-                                            <td>{{ $courses->name }}</td>
-                                            <td>{{ $courses->category }}</td>
+                                    @foreach($courses as $course)
+                                        <tr onclick="window.location='{{ route('courses.show', $course) }}';" style="cursor: pointer;">
+                                            <td>{{ $course->name }}</td>
+                                            <td>{{ $course->category }}</td>
                                             <td>
                                                 <div class="image-grid">
-                                                    @foreach($courses->image as $image)
+                                                    @foreach($course->image as $image)
                                                         <img src="{{ asset('storage/images/'.$image->name) }}" alt="Course Image" class="image-item">
                                                         @break
                                                     @endforeach
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="{{ route('courses.edit', $courses) }}" class="btn btn-primary btn-sm">Edit</a>
-                                                <form action="{{ route('courses.destroy', $courses) }}" method="POST" class="d-inline">
+                                                <a href="{{ route('courses.edit', $course) }}" class="btn btn-primary btn-sm">Edit</a>
+                                                <form action="{{ route('courses.destroy', $course) }}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
