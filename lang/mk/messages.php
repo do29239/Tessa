@@ -4,7 +4,7 @@ return [
     //NAVBAR
     'home'=>'Насловна',
     'shop'=>'Продавница',
-    'courses'=>'Курсеви',
+    'courses'=>'Едукација',
     'about_us'=>'За Нас',
     'contact'=>'Контакт',
     'search'=>'Пребарување',

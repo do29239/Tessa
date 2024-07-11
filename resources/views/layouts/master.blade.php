@@ -493,7 +493,7 @@
                             </li>
                             <li>
                                 <i class="bx bx-envelope"></i>
-                                <a href="">tessa.academy@gmail.com</a>
+                                <a href="">tessa@tessa.com</a>
                             </li>
                         </ul>
                     </div>
