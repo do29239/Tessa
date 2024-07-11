@@ -15,7 +15,7 @@
                 <p>{{__('messages.NewInspiration')}}</p>
                 <div class="btn-box">
                     <a href="/shop" class="default-btn">{{__('messages.GoShop')}}</a>
-                    <a href="/courses" class="optional-btn">{{__('messages.OurCourses')}}</a>
+                    <a href="/contact" class="optional-btn">{{__('messages.ContactUs')}}</a>
                 </div>
             </div>
         </div>
@@ -301,7 +301,4 @@
 {{--    </div>--}}
 {{--</section>--}}
 <!-- End Blog Area -->
-@endsection
-@section('scripts')
-{{--//<script src="{{ asset('assets/adminjs/carousel.adminjs') }}" defer></script>--}}
 @endsection

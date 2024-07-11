@@ -6,8 +6,9 @@ return [
     'shop'=>'Produktet',
     'courses'=>'Edukim',
     'about_us'=>'Rreth Nesh',
+    'ContactUs' =>'Na Kontaktoni',
     'contact'=>'Kontakt',
-
+    'newsletter_prompt'=>'Për të marrë lajmet dhe përditësimet më të fundit nga ne.',
 
     'welcome' => 'Mirë se vini në Tessa',
     'call_us' =>'Telefononi',
