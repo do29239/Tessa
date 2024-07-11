@@ -28,7 +28,7 @@
 
 
     @if(!isset($excludeGlobalStyles))
-        @vite('assets/css/table.css')
+        @vite('resources/css/table.css')
     @endif
 
     @livewireStyles

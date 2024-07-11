@@ -15,11 +15,9 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Nucleo Icons -->
-    <link href="{{asset('../assets/adminassets/css/nucleo-icons.css')}}" rel="stylesheet" />
+    @vite('resources/css/admincss/nucleo-icons.css')
     <!-- CSS Files -->
-    <link href="{{asset('../assets/adminassets/css/black-dashboard.css?v=1.0.0')}}" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{{asset('../assets/adminassets/demo/demo.css')}}" rel="stylesheet" />
+    @vite('resources/css/admincss/black-dashboard.css?v=1.0.0')
 </head>
 
 <body class="">
@@ -270,17 +268,17 @@
     </div>
 </div>
 <!--   Core JS Files   -->
-<script src="../assets/adminassets/js/core/jquery.min.js"></script>
-<script src="../assets/adminassets/js/core/popper.min.js"></script>
-<script src="../assets/adminassets/js/core/bootstrap.min.js"></script>
-<script src="../assets/adminassets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+@vite('resources/js/adminjs/core/jquery.min.js')
+@vite('resources/js/adminjs/core/popper.min.js')
+@vite('resources/js/adminjs/core/bootstrap.min.js')
+@vite('resources/js/adminjs/plugins/perfect-scrollbar.jquery.min.js')
+@vite('resources/js/adminjs/plugins/chartjs.min.js')
+@vite('resources/js/adminjs/black-dashboard.min.js?v=1.0.0')
 <!--  Google Maps Plugin    -->
 <!-- Place this tag in your head or just before your close body tag. -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Chart JS -->
-<script src="../assets/adminassets/js/plugins/chartjs.min.js"></script>
 <!--  Notifications Plugin    -->
-<script src="../assets/adminassets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="../assets/adminassets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/adminassets/demo/demo.js"></script>
