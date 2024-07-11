@@ -17,6 +17,7 @@ export default defineConfig({
                 'resources/css/dark.css',
                 'resources/css/bottom-navbar.css',
                 'resources/css/carousel.css',
+                'resources/css/table.css',
             ],
             refresh: true,
         }),

@@ -28,7 +28,7 @@
 
 
     @if(!isset($excludeGlobalStyles))
-        @vite('assets/css/table.css')
+        @vite('resources/css/table.css')
     @endif
 
     @livewireStyles
@@ -95,31 +95,31 @@
                             <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                 @if(App::currentLocale() == "shq")
-                                    <img src="{{ asset('assets/img/albania-flag-01.png') }}" alt="image"/>
+                                    <img src="{{ asset('assets/img/albania-flag-01.webp') }}" alt="image"/>
                                     <span>AL <i class="bx bx-chevron-down"></i></span>
                                 @elseif(App::currentLocale() == "en")
-                                    <img src="{{ asset('assets/img/us-flag.jpg') }}" alt="image"/>
+                                    <img src="{{ asset('assets/img/us-flag.webp') }}" alt="image"/>
                                     <span>EN <i class="bx bx-chevron-down"></i></span>
                                 @elseif(App::currentLocale() == "mk")
-                                    <img src="{{ asset('assets/img/macedonia-flag-01.png') }}" alt="image"/>
+                                    <img src="{{ asset('assets/img/macedonia-flag-01.webp') }}" alt="image"/>
                                     <span>MK <i class="bx bx-chevron-down"></i></span>
                                 @endif
                             </button>
                             <div class="dropdown-menu">
                                 <a href="{{ route('set.language', 'en') }}"
                                    class="dropdown-item d-flex align-items-center">
-                                    <img src="{{ asset('assets/img/us-flag.jpg') }}" class="shadow-sm" alt="flag"/>
+                                    <img src="{{ asset('assets/img/us-flag.webp') }}" class="shadow-sm" alt="flag"/>
                                     <span>EN</span>
                                 </a>
                                 <a href="{{ route('set.language', 'shq') }}"
                                    class="dropdown-item d-flex align-items-center">
-                                    <img src="{{ asset('assets/img/albania-flag-01.png') }}" class="shadow-sm"
+                                    <img src="{{ asset('assets/img/albania-flag-01.webp') }}" class="shadow-sm"
                                          alt="flag"/>
                                     <span>AL</span>
                                 </a>
                                 <a href="{{ route('set.language', 'mk') }}"
                                    class="dropdown-item d-flex align-items-center">
-                                    <img src="{{ asset('assets/img/macedonia-flag-01.png') }}" class="shadow-sm"
+                                    <img src="{{ asset('assets/img/macedonia-flag-01.webp') }}" class="shadow-sm"
                                          alt="flag"/>
                                     <span>MK</span>
                                 </a>
@@ -366,61 +366,61 @@
 
         <div class="instagram-slides">
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto1.jpg')}}" alt="image" width="317.16" height="317.16">
+                <img src="{{asset('assets/img/instagram/foto1.webp')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto2.jpg')}}" alt="image" width="317.16" height="317.16">
+                <img src="{{asset('assets/img/instagram/foto2.webp')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto3.jpg')}}" alt="image" width="317.16" height="317.16">
+                <img src="{{asset('assets/img/instagram/foto3.webp')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto4.jpg')}}" alt="image" width="317.16" height="317.16">
+                <img src="{{asset('assets/img/instagram/foto4.webp')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto5.jpg')}}" alt="image" width="317.16" height="317.16">
+                <img src="{{asset('assets/img/instagram/foto5.webp')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto6.jpg')}}" alt="image" width="317.16" height="317.16">
+                <img src="{{asset('assets/img/instagram/foto6.webp')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto7.jpg')}}" alt="image" width="317.16" height="317.16">
+                <img src="{{asset('assets/img/instagram/foto7.webp')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto1.jpg')}}" alt="image" width="317.16" height="317.16">
+                <img src="{{asset('assets/img/instagram/foto1.webp')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto2.jpg')}}" alt="image" width="317.16" height="317.16">
+                <img src="{{asset('assets/img/instagram/foto2.webp')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
 
             <div class="single-instagram-post">
-                <img src="{{asset('assets/img/instagram/foto3.jpg')}}" alt="image" width="317.16" height="317.16">
+                <img src="{{asset('assets/img/instagram/foto3.webp')}}" alt="image" width="317.16" height="317.16">
                 <i class='bx bxl-instagram'></i>
                 <a href="https://www.instagram.com/tessabeauty.institute/" target="_blank" class="link-btn"></a>
             </div>
