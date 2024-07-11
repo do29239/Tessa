@@ -300,7 +300,8 @@ return [
 //    'PhoneNo'=>'Enter your phone number',
 
 
-
+    'register_info' => 'The fields below will be used for your orders so make sure to fill them with the correct infromation. You can change them later in your Profile',
+    'enter_your_postcode' => 'Enter your Postcode', // Placeholder example
 
 ];
 

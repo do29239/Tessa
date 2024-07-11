@@ -63,6 +63,10 @@ Default CSS
     border-top: 3px solid #f53f85;
     position: relative;
     margin-bottom: 40px;
+    width: 80%; /* Set a width */
+    max-width: 600px; /* Set a maximum width */
+    margin: 0 auto; /* Center the container */
+    text-align: center;
 }
 
 .user-actions i {
@@ -80,10 +84,10 @@ Default CSS
 
 .user-actions span a {
     display: inline-block;
-
     color: #000000;
 }
-.user-actions span a span{
+
+.user-actions span a span {
     text-decoration: underline;
     color: #f53f85;
 }

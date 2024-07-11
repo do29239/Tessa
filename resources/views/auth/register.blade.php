@@ -2,6 +2,10 @@
 
 @section('content')
     <section class="login-area ptb-100">
+        <div class="user-actions">
+            <i class='bx bx-info-circle'></i>
+            <span> {{__('messages.register_info')}}</span></span>
+        </div>
         <div class="login-content">
             <h2>{{ __('messages.register') }}</h2>
             <form method="POST" action="{{ route('register') }}" class="login-form">
