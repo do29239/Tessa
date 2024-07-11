@@ -55,6 +55,43 @@ Default CSS
 @import url("https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400iactive,700,700i,900,900i&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,600i,700,700i&display=swap");
 
+.user-actions {
+    -webkit-box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+    padding: 15px 20px;
+    border-top: 3px solid #f53f85;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.user-actions i {
+    color: #f53f85;
+    margin-right: 2px;
+    font-size: 20px;
+    position: relative;
+    top: 3px;
+}
+
+.user-actions span {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.user-actions span a {
+    display: inline-block;
+
+    color: #000000;
+}
+.user-actions span a span{
+    text-decoration: underline;
+    color: #f53f85;
+}
+
+
+
+
+
 /* Add your existing CSS styles here */
 .input-counter {
   padding-left: 20px;
@@ -176,12 +213,12 @@ h6 {
   font-weight: 600;
 }
 
-.default-btn:hover {
-  background-color: transparent;
-  color: #000000;
-  border-color: #000000;
-}
-
+@media only screen and (min-width: 768px) {
+    .default-btn:hover {
+        background-color: transparent;
+        color: #000000;
+        border-color: #000000;
+    }}
 .optional-btn {
   display: inline-block;
   border: 1px solid #000000;
@@ -1986,103 +2023,6 @@ Products Details CSS
   font-weight: 700;
 }
 
-/*================================================
-Offer CSS
-=================================================*/
-.offer-area {
-  position: relative;
-  z-index: 1;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-.offer-area.bg-image1 {
-  background-image: url(../../assets/img/oursalon.webp);
-}
-
-.offer-area.bg-image2 {
-  background-image: url(../../assets/img/adult-taking-care-their-hair.webp);
-}
-
-.offer-content {
-  max-width: 550px;
-  border: 1px solid #ffffff;
-  margin-left: auto;
-  text-align: center;
-  border-radius: 5px;
-  padding: 70px 40px;
-  position: relative;
-  z-index: 1;
-}
-
-.offer-content span {
-  display: block;
-  margin-bottom: 10px;
-  color: #f53f85;
-  font-weight: 600;
-}
-
-.offer-content h2 {
-  margin-bottom: 0;
-  font-size: 45px;
-  font-weight: 700;
-}
-
-.offer-content p {
-  line-height: initial;
-  margin-top: 10px;
-}
-
-.offer-content .default-btn {
-  margin-top: 12px;
-}
-
-.offer-content::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: #ffffff;
-  z-index: -1;
-  border-radius: 5px;
-  margin: 10px;
-}
-
-.offer-content-box {
-  max-width: 720px;
-  margin-right: auto;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.offer-content-box span {
-  display: block;
-  color: #ffffff;
-  font-weight: 300;
-  font-size: 30px;
-}
-
-.offer-content-box h2 {
-  margin: 10px 0 10px;
-  color: #ffffff;
-  font-size: 65px;
-  font-weight: 700;
-}
-
-.offer-content-box p {
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.offer-content-box .default-btn {
-  margin-top: 10px;
-}
 /*================================================
 Facility CSS
 =================================================*/

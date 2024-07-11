@@ -25,6 +25,7 @@ class OrderRequest extends FormRequest
             'user_id' => 'required|exists:users,id',
             'total' => 'required|numeric',
             'discount' => 'numeric',
+            'message'=>'nullable|string',
         ];
     }
 }
