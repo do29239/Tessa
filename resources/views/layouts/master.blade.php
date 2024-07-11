@@ -16,39 +16,25 @@
 
 
     <!-- Preloading and Loading CSS files -->
-    <link rel="preload" href="{{ asset('assets/css/bootstrap.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"></noscript>
+    @vite('resources/css/bootstrap.min.css')
+    @vite('resources/css/style.css')
+    @vite('resources/css/responsive.css')
+    @vite('resources/css/boxicons.min.css')
+    @vite('resources/css/flaticon.css')
+    @vite('resources/css/dark.css')
+    @vite('resources/css/bottom-navbar.css')
+    @vite('resources/css/carousel.css')
 
-    <link rel="preload" href="{{ asset('assets/css/style.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"></noscript>
-
-    <link rel="preload" href="{{ asset('assets/css/responsive.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}"></noscript>
-    {{--    <link rel="preload" href="{{ asset('assets/css/owl.carousel.min.css') }}" as="style" onload="this.rel='stylesheet'">--}}
-
-    <!-- Regular style links -->
-    {{--    <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">--}}
-    <link rel="stylesheet" href="{{ asset('assets/css/boxicons.min.css') }}" media="print" onload="this.onload=null;this.media='all'">
-    <noscript><link rel="stylesheet" href="{{ asset('assets/css/boxicons.min.css') }}"></noscript>
-    <link rel="stylesheet" href="{{ asset('assets/css/flaticon.css') }}">
-    {{--    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">--}}
-    {{--    <link rel="stylesheet" href="{{ asset('assets/css/nice-select.min.css') }}">--}}
-    {{--    <link rel="stylesheet" href="{{ asset('assets/css/slick.min.css') }}">--}}
-    {{--    <link rel="stylesheet" href="{{ asset('assets/css/rangeSlider.min.css') }}">--}}
-    <link rel="stylesheet" href="{{ asset('assets/css/dark.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/bottom-navbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/carousel.css') }}">
 
 
     @if(!isset($excludeGlobalStyles))
-        <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
+        @vite('assets/css/table.css')
     @endif
 
     @livewireStyles
 
     <title>Tessa Academy</title>
     <link rel="icon" type="image/png" href="{{asset('assets/img/tessapurplelogo-01.png')}}">
-
 </head>
 <body>
 @include('main.alerts')
@@ -580,22 +566,9 @@
 <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
 
 <!-- Links of JS files -->
-{{--<script src="{{ asset('assets/js/jquery.min.js') }}"></script>--}}
-<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
-{{--<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>--}}
-{{--<script src="{{ asset('assets/js/magnific-popup.min.js') }}" defer></script>--}}
-{{--<script src="{{ asset('assets/js/parallax.min.js') }}" defer></script>--}}
-{{--<script src="{{ asset('assets/js/rangeSlider.min.js') }}" defer></script>--}}
-{{--<script src="{{ asset('assets/js/nice-select.min.js') }}" defer></script>--}}
-{{--<script src="{{ asset('assets/js/meanmenu.min.js') }}" defer></script>--}}
-{{--<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}" defer></script>--}}
-{{--<script src="{{ asset('assets/js/slick.min.js') }}" defer></script>--}}
-<script src="{{ asset('assets/js/sticky-sidebar.min.js') }}" defer></script>
-{{--<script src="{{ asset('assets/js/wow.min.js') }}" defer></script>--}}
-{{--<script src="{{ asset('assets/js/form-validator.min.js') }}" defer></script>--}}
-{{--<script src="{{ asset('assets/js/contact-form-script.js') }}" defer></script>--}}
-{{--<script src="{{ asset('assets/js/ajaxchimp.min.js') }}" defer></script>--}}
-<script src="{{ asset('assets/js/main.js') }}" defer></script>
+@vite('resources/js/bootstrap.bundle.min.js')
+@vite('resources/js/sticky-sidebar.min.js')
+@vite('resources/js/main.js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
 @yield('scripts')
 

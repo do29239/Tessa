@@ -926,7 +926,7 @@ Main Banner CSS
 /*}*/
 
 .banner-bg2 {
-  background-image: url(../../assets/img/redhairr.webp);
+  background-image: url(../../public/assets/img/redhairr.webp);
 }
 
 /*.banner-bg3 {*/
@@ -934,11 +934,11 @@ Main Banner CSS
 /*}*/
 
 .banner-bg4 {
-  background-image: url(../../assets/img/webp/blackandwhite.webp);
+  background-image: url(../../public/assets/img/webp/blackandwhite.webp);
 }
 
 .banner-bg5 {
-  background-image: url(../../assets/img/webp/brownhair.webp);
+  background-image: url(../../public/assets/img/webp/brownhair.webp);
 }
 .banner-content {
   position: relative;
@@ -1999,11 +1999,11 @@ Offer CSS
 }
 
 .offer-area.bg-image1 {
-  background-image: url(../../assets/img/oursalon.webp);
+  background-image: url(../../public/assets/img/oursalon.webp);
 }
 
 .offer-area.bg-image2 {
-  background-image: url(../../assets/img/adult-taking-care-their-hair.webp);
+  background-image: url(../../public/assets/img/adult-taking-care-their-hair.webp);
 }
 
 .offer-content {

@@ -327,5 +327,5 @@
 <!-- End Blog Area -->
 @endsection
 @section('scripts')
-<script src="{{ asset('assets/js/carousel.js') }}" defer></script>
+<script src="{{ asset('assets/adminjs/carousel.adminjs') }}" defer></script>
 @endsection
