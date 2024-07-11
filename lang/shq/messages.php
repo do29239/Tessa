@@ -253,6 +253,9 @@ return [
     'PhoneNo'=>'Shkruani numrin e telefonit tuaj',
     'SubmitReq'=>'Paraqisni kërkesë',
 
+    'register_info' => 'Fushat më poshtë do të përdoren për porositë tuaja, prandaj sigurohuni që t\'i plotësoni me informacionin e saktë. Mund t\'i ndryshoni më vonë në Profilin tuaj.',
+
+
 ];
 
 ?>

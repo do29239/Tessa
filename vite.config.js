@@ -6,7 +6,6 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                'resources/js/app.js',
                 'resources/js/bootstrap.bundle.min.js',
                 'resources/js/sticky-sidebar.min.js',
                 'resources/js/main.js',
@@ -20,15 +19,10 @@ export default defineConfig({
                 'resources/css/carousel.css',
                 'resources/css/admincss/nucleo-icons.css',
                 'resources/css/admincss/black-dashboard.css',
-                'resources/js/adminjs/core/jquery.min.js',
-                'resources/js/adminjs/core/popper.min.js',
-                'resources/js/adminjs/core/bootstrap.min.js',
-                'resources/js/adminjs/plugins/perfect-scrollbar.jquery.min.js',
-                'resources/js/adminjs/plugins/chartjs.min.js',
-                'resources/js/adminjs/plugins/bootstrap-notify.js',
-                'resources/js/adminjs/black-dashboard.js',
                 'resources/css/table.css',
-                'resources/css/admincss/demo.css',
+                'resources/js/carousel.js',
+                'resources/js/adminjs/custom.js',
+                'resources/css/admincss/custom.css'
                 // 'resources/js/adminjs/demo.js',
             ],
             refresh: true,

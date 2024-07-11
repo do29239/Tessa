@@ -8,142 +8,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-    <title>
-        Black Dashboard by Creative Tim
-    </title>
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <title>Black Dashboard by Creative Tim</title>
+
     <!-- Nucleo Icons -->
     @vite('resources/css/admincss/nucleo-icons.css')
     <!-- CSS Files -->
+    @vite('resources/css/admincss/custom.css')
     @vite('resources/css/admincss/black-dashboard.css')
-    @vite('resources/css/admincss/demo.css')
 
 </head>
 
-<body class="">
+<body>
 <div class="wrapper">
-    <div class="sidebar">
-        <!--
-          Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
-      -->
+    <div class="sidebar" data-color="blue">
         <div class="sidebar-wrapper">
             <div class="logo">
-                <a href="javascript:void(0)" class="simple-text logo-mini">
-                    CT
-                </a>
-                <a href="javascript:void(0)" class="simple-text logo-normal">
-                    Creative Tim
-                </a>
+                <a href="javascript:void(0)" class="simple-text logo-mini">CT</a>
+                <a href="javascript:void(0)" class="simple-text logo-normal">Creative Tim</a>
             </div>
             <ul class="nav">
-                <li class="active ">
-                    <a href="./dashboard.html">
+                <li class="active">
+                    <a href="{{url('/admin/dashboard')}}">
                         <i class="tim-icons icon-chart-pie-36"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li>
-                    <a href={{ route('categories.index') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Categories</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('brands.index') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Brands</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('products.index') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Products</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('orders.index') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Orders</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('show_users') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Users</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('request.index') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Requests</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('show_stylists') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Stylists</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('orders.index') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Orders</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('sales.index') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Sales</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('codes.index') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Stylist Codes</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('distributors.index') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Distributors</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('coupons.index') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Coupons</p>
-                    </a>
-                </li>
-                <li>
-                    <a href={{ route('admin.bulkSale.create') }}>
-                        <i class="tim-icons icon-book-bookmark"></i>
-                        <p>Bulk Sale</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{url('/admin/icons')}}">
-                        <i class="tim-icons icon-atom"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{url('/admin/icons')}}">
-                        <i class="tim-icons icon-atom"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{url('/admin/icons')}}">
-                        <i class="tim-icons icon-atom"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
+                <li><a href="{{ route('categories.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Categories</p></a></li>
+                <li><a href="{{ route('brands.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Brands</p></a></li>
+                <li><a href="{{ route('products.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Products</p></a></li>
+                <li><a href="{{ route('orders.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Orders</p></a></li>
+                <li><a href="{{ route('show_users') }}"><i class="tim-icons icon-book-bookmark"></i><p>Users</p></a></li>
+                <li><a href="{{ route('request.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Requests</p></a></li>
+                <li><a href="{{ route('show_stylists') }}"><i class="tim-icons icon-book-bookmark"></i><p>Stylists</p></a></li>
+                <li><a href="{{ route('orders.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Orders</p></a></li>
+                <li><a href="{{ route('sales.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Sales</p></a></li>
+                <li><a href="{{ route('codes.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Stylist Codes</p></a></li>
+                <li><a href="{{ route('distributors.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Distributors</p></a></li>
+                <li><a href="{{ route('coupons.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Coupons</p></a></li>
+                <li><a href="{{ route('admin.bulkSale.create') }}"><i class="tim-icons icon-book-bookmark"></i><p>Bulk Sale</p></a></li>
+                <li><a href="{{ url('/admin/icons') }}"><i class="tim-icons icon-atom"></i><p>Icons</p></a></li>
             </ul>
         </div>
-
     </div>
+
     <div class="main-panel">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
@@ -173,7 +80,7 @@
                         </li>
 
                         <!-- Search Modal -->
-                        <div class="modal" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -190,14 +97,13 @@
                                                 <option value="Course">Courses</option>
                                                 <option value="Order">Orders</option>
                                             </select>
-                                            <input type="text" name="query"  placeholder="Type your search...">
+                                            <input type="text" name="query" placeholder="Type your search...">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-primary">Search</button>
                                         </div>
                                     </form>
-
                                 </div>
                             </div>
                         </div>
@@ -206,9 +112,7 @@
                             <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                 <div class="notification d-none d-lg-block d-xl-block"></div>
                                 <i class="tim-icons icon-sound-wave"></i>
-                                <p class="d-lg-none">
-                                    Notifications
-                                </p>
+                                <p class="d-lg-none">Notifications</p>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
                                 <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded to your email</a></li>
@@ -218,37 +122,18 @@
                                 <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown nav-item">
-                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                <div class="photo">
-                                    <img src="../assets/img/anime3.png" alt="Profile Photo">
-                                </div>
-                                <b class="caret d-none d-lg-block d-xl-block"></b>
-                                <p class="d-lg-none">
-                                    Log out
-                                </p>
-                            </a>
-                            <ul class="dropdown-menu dropdown-navbar">
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
-                                <li class="dropdown-divider"></li>
-                                <li class="nav-link">
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <button type="submit" class="nav-item dropdown-item">
-                                            {{ __('Log Out') }}
-                                        </button>
-                                    </form>
-                                </li>
-                            </ul>
-
+                        <li class="nav-item">
+                            <form method="POST" action="{{ route('logout') }}" class="form-inline">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">{{ __('Log Out') }}</button>
+                            </form>
                         </li>
                         <li class="separator d-lg-none"></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+        <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -262,31 +147,12 @@
         </div>
         <!-- End Navbar -->
         @yield('content')
-
-        @stack('scripts') <!-- This will include the pushed scripts -->
+        @vite('resources/js/adminjs/custom.js')
         <footer class="footer">
 
         </footer>
     </div>
 </div>
-<!--   Core JS Files   -->
-@vite('resources/js/adminjs/core/jquery.min.js')
-@vite('resources/js/adminjs/core/popper.min.js')
-@vite('resources/js/adminjs/core/bootstrap.min.js')
-@vite('resources/js/adminjs/plugins/perfect-scrollbar.jquery.min.js')
-@vite('resources/js/adminjs/plugins/chartjs.min.js')
-@vite('resources/js/adminjs/black-dashboard.js')
-@vite('resources/js/adminjs/plugins/bootstrap-notify.js')
-@vite('resources/js/adminjs/plugins/perfect-scrollbar.jquery.min.js')
-<!--  Google Maps Plugin    -->
-<!-- Place this tag in your head or just before your close body tag. -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<!-- Chart JS -->
-<!--  Notifications Plugin    -->
-<!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-
-
-
 </body>
 
 </html>

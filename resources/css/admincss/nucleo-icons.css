@@ -12,8 +12,7 @@ Created using IcoMoon - icomoon.io
   src: url('../../../public/assets/adminassets/fonts/nucleo.eot') format('embedded-opentype'),
     url('../../../public/assets/adminassets/fonts/nucleo.woff2') format('woff2'),
     url('../../../public/assets/adminassets/fonts/nucleo.woff') format('woff'),
-    url('../../../public/assets/adminassets/fonts/nucleo.ttf') format('truetype'),
-    url('../fonts/nucleo.svg') format('svg');
+    url('../../../public/assets/adminassets/fonts/nucleo.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
