@@ -143,19 +143,16 @@
 
         <div class="brand-slides">
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand1.webp" height="150" width="150" alt="image"></a>
+                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/rr.webp" height="150" width="150" alt="image"></a>
             </div>
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'Fanola')}}"><img src="assets/img/brand/shopbybrand2.jpg" alt="image"></a>
+                <a href="{{route('shop.brand', 'Fanola')}}"><img src="assets/img/webp/fanola.webp" height="150" width="150" alt="image"></a>
             </div>
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'No Yellow')}}"><img src="assets/img/webp/shopbybrand2.webp" height="150" width="150" alt="image"></a>
+                <a href="{{route('shop.brand', 'No Yellow')}}"><img src="assets/img/webp/noyellow.webp" height="150" width="150" alt="image"></a>
             </div>
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'Oro Therapy')}}"><img src="assets/img/webp/shopbybrand3.webp" height="150" width="150" alt="image"></a>
-            </div>
-            <div class="brand-item">
-                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/shopbybrand3.webp" height="150" width="150" alt="image"></a>
+                <a href="{{route('shop.brand', 'Oro Therapy')}}"><img src="assets/img/webp/oro.webp" height="150" width="150" alt="image"></a>
             </div>
         </div>
     </div>
@@ -301,4 +298,7 @@
 {{--    </div>--}}
 {{--</section>--}}
 <!-- End Blog Area -->
+@endsection
+@section('scripts')
+    @vite('resources/js/carousel.js')
 @endsection
