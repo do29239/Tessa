@@ -21,7 +21,7 @@
                 @foreach($brands as $brand)
                     <li class="{{ $selectedBrand == $brand->id ? 'active' : '' }}">
                         <a href="#" wire:click.prevent="selectBrand({{ $brand->id }})"
-                        ><span></span> {{ $brand->name }}</a>
+                        zzz><span></span> {{ $brand->name }}</a>
                     </li>
                 @endforeach
             </ul>

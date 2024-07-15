@@ -44,7 +44,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="mobileFilterModalLabel">{{__('messages.filter_products')}}</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" id="modalCloseButton" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -91,3 +91,20 @@
     </style>
     <!-- End Products Area -->
 @endsection
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var modalCloseButton = document.getElementById('modalCloseButton');
+
+        Livewire.on('categorySelected', function () {
+            if (modalCloseButton) {
+                modalCloseButton.click();
+            }
+        });
+
+        Livewire.on('brandSelected', function () {
+            if (modalCloseButton) {
+                modalCloseButton.click();
+            }
+        });
+    });
+</script>
