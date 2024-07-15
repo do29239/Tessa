@@ -571,7 +571,6 @@
 @vite('resources/js/bootstrap.bundle.min.js')
 @vite('resources/js/sticky-sidebar.min.js')
 @vite('resources/js/main.js')
-@vite('resources/js/app.js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
 @yield('scripts')
 
