@@ -39,7 +39,9 @@ return [
     'Search'=>'Search',
     'AddCart'=>'Add To Cart',
 
-
+    'Treatments' => 'Treatments',
+    'SeeOurTreatments' => 'See Our Treatments',
+    'OurTreatments' => 'Our Treatments',
     //Home
     'NewInspiration' =>'New Inspiration!!!New Look!!! ',
     'ProductsForAllYourNeeds' =>'Products For All Your Needs',

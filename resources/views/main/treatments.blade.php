@@ -5,8 +5,8 @@
     <section class="products-area pt-100 pb-70">
         <div class="container">
             <div class="section-title">
-                <span class="sub-title">See Our Treatments</span>
-                <h2>Our Treatments</h2>
+                <span class="sub-title">{{__('messages.SeeOurTreatments')}}</span>
+                <h2>{{__('messages.OurTreatments')}}</h2>
             </div>
 
             <div class="row">

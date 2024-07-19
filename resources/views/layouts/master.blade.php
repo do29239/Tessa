@@ -183,7 +183,8 @@
                     <li class="hide-on-mobile"><a href="{{ url('/') }}"><i
                                 class="bx bx-home"></i>{{__('messages.home')}}</a></li>
                     <li class="hide-on-mobile"><a href="{{ url('/treatments') }}"><i
-                                class="bx bx-home"></i>{{__('messages.home')}}</a></li>
+                                class="bx bx-home"></i>{{__('messages.Treatments')}}
+                        </a></li>
                     <li class="hide-on-mobile"><a href="{{ route('shop') }}"><i
                                 class="bx bx-store"></i>{{__('messages.shop')}}</a></li>
                     @auth()
@@ -277,7 +278,8 @@
                                class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.shop')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="{{url('/treatments')}}" class="nav-link{{ request()->routeIs('treatments') ? ' active' : '' }}">Treatments</a>
+                            <a href="{{route('treatments')}}" class="nav-link{{ request()->routeIs('treatments') ? ' active' : '' }}">{{__('messages.Treatments')}}
+                            </a>
                         </li>
                         <li class="nav-item megamenu">
                             <a href="{{url('/contact')}}" class="nav-link{{ request()->routeIs('contact') ? ' active' : '' }}">{{__('messages.contact')}}</a>
@@ -319,6 +321,11 @@
                         <li class="nav-item">
                             <a href="{{ url('/') }}"
                                class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">{{__('messages.home')}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('treatments')}}"
+                               class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.Treatments')}}
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('shop') }}"

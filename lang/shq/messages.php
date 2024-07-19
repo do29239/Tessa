@@ -24,6 +24,9 @@ return [
     'lost_password'=>'Keni humbur fjalëkalimin tuaj?',
     'email_address'=> 'Adresa e emailit',
     'password'=>'Fjalëkalimi',
+    'Treatments' => 'Tretmane',
+    'SeeOurTreatments' => 'Shikoni Tretmanet Tona',
+    'OurTreatments' => 'Tretmanet Tona',
 
     'confirm_password' => 'Konfirmo fjalëkalimin',
     'already_registered' => 'Tashmë i regjistruar?',
