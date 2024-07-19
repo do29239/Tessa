@@ -16,15 +16,15 @@ class LoadProducts extends Component
 
     public function mount()
     {
+        $this->search = session('searchTerm', '');
+        session()->forget('searchTerm');
         $this->selectedBrand = session('brandId', '');
-
         if ($this->selectedBrand) {
             $this->brandSelected($this->selectedBrand);
         }
     }
     public function render()
     {
-        $this->search = session('searchTerm', '');
         $products = $this->queryProducts();
 
 

@@ -21,4 +21,8 @@ class ShopByBrandController extends Controller
 
             return redirect('/shop');
     }
+    public function shopSearch($treatment){
+        session(['searchTerm' => $treatment]);
+        return redirect('/shop')->with('searchTerm', $treatment);
+    }
 }

@@ -1,0 +1,109 @@
+@extends('layouts.master')
+
+@section('content')
+
+    <section class="products-area pt-100 pb-70">
+        <div class="container">
+            <div class="section-title">
+                <span class="sub-title">See Our Treatments</span>
+                <h2>Our Treatments</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/Oro Therapy-01.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>Oro Puro Treatment</h3>
+                        </div>
+                        <a href="{{route('shop.search', 'Oro Therapy')}}" class="link-btn"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/Fiber Fix-01.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>Fiber Fix Treatment</h3>
+                        </div>
+                        <a href="{{ route('sales','Fiber Fix') }}" class="link-btn"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/Real Macadamia-01.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>Real Macadamia Treatment</h3>
+                        </div>
+                        <a href="{{ route('sales', 'Real Macadamia') }}" class="link-btn"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/Real Keratin-01.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>Real Keratin Treatment</h3>
+                        </div>
+                        <a href="{{ route('sales', 'Real Keratin') }}" class="link-btn"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/Real Argan-01.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>Real Argan Treatment</h3>
+                        </div>
+                        <a href="{{ route('sales', 'Real Argan') }}" class="link-btn"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>Botugen Treatment</h3>
+                        </div>
+                        <a href="{{ route('sales') }}" class="link-btn"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>Keraterm Treatment</h3>
+                        </div>
+                        <a href="{{ route('sales') }}" class="link-btn"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>No Yellow and No Orange Care</h3>
+                        </div>
+                        <a href="{{ route('sales') }}" class="link-btn"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/Energy-01.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>Energy Vitamins</h3>
+                        </div>
+                        <a href="{{ route('sales', 'Energy') }}" class="link-btn"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>Nutri Care</h3>
+                        </div>
+                        <a href="{{ route('sales') }}" class="link-btn"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection

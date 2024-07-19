@@ -49,11 +49,15 @@ Route::middleware(DistributorAccess::class)->group(function () {
     Route::get('/hair-color/{brandName}', [HairColorController::class, 'showHairColors'])->name('hair.colors');
     Route::get('/sale', [SalesController::class, 'index'])->name('sales');
     Route::get('/shop/{brandName}', [ShopByBrandController::class, 'shopByBrand'])->name('shop.brand');
+    Route::get('/shop/search/{searchTerm}', [ShopByBrandController::class, 'shopSearch'])->name('shop.search');
+
     Route::get('course/show-course/{course}', [CoursesController::class, 'show'])->name('showCourse');
     Route::get('/course', [CoursesController::class, 'index'])->name('courses');
     Route::view('/about', 'main/about/about');
-    Route::view('/contact', 'main/contact/contact');
     Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+    Route::get("/treatments", function(){
+        return view("main.treatments");
+    }) ->name('treatments');
 });
 
 
