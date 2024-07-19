@@ -16,7 +16,7 @@
                         <div class="content">
                             <h3>Oro Puro Treatment</h3>
                         </div>
-                        <a href="{{route('shop.search', 'Oro Therapy')}}" class="link-btn"></a>
+                        <a href="{{route('shop.search', 'Oro Puro')}}" class="link-btn"></a>
                     </div>
                 </div>
 
@@ -26,7 +26,7 @@
                         <div class="content">
                             <h3>Fiber Fix Treatment</h3>
                         </div>
-                        <a href="{{ route('sales','Fiber Fix') }}" class="link-btn"></a>
+                        <a href="{{ route('shop.search','Fiber Fix') }}" class="link-btn"></a>
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@
                         <div class="content">
                             <h3>Real Macadamia Treatment</h3>
                         </div>
-                        <a href="{{ route('sales', 'Real Macadamia') }}" class="link-btn"></a>
+                        <a href="{{ route('shop.search', 'Real Macadamia') }}" class="link-btn"></a>
                     </div>
                 </div>
 
@@ -46,7 +46,7 @@
                         <div class="content">
                             <h3>Real Keratin Treatment</h3>
                         </div>
-                        <a href="{{ route('sales', 'Real Keratin') }}" class="link-btn"></a>
+                        <a href="{{ route('shop.search', 'Real Keratin') }}" class="link-btn"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -55,7 +55,7 @@
                         <div class="content">
                             <h3>Real Argan Treatment</h3>
                         </div>
-                        <a href="{{ route('sales', 'Real Argan') }}" class="link-btn"></a>
+                        <a href="{{ route('shop.search', 'Real Argan') }}" class="link-btn"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -64,7 +64,7 @@
                         <div class="content">
                             <h3>Botugen Treatment</h3>
                         </div>
-                        <a href="{{ route('sales') }}" class="link-btn"></a>
+                        <a href="{{ route('shop.search') }}" class="link-btn"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -73,7 +73,7 @@
                         <div class="content">
                             <h3>Keraterm Treatment</h3>
                         </div>
-                        <a href="{{ route('sales') }}" class="link-btn"></a>
+                        <a href="{{ route('shop.search') }}" class="link-btn"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -82,7 +82,7 @@
                         <div class="content">
                             <h3>No Yellow and No Orange Care</h3>
                         </div>
-                        <a href="{{ route('sales') }}" class="link-btn"></a>
+                        <a href="{{ route('shop.search', 'No Yellow No Orange') }}" class="link-btn"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -91,7 +91,7 @@
                         <div class="content">
                             <h3>Energy Vitamins</h3>
                         </div>
-                        <a href="{{ route('sales', 'Energy') }}" class="link-btn"></a>
+                        <a href="{{ route('shop.search', 'Energy') }}" class="link-btn"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -100,7 +100,7 @@
                         <div class="content">
                             <h3>Nutri Care</h3>
                         </div>
-                        <a href="{{ route('sales') }}" class="link-btn"></a>
+                        <a href="{{ route('shop.search') }}" class="link-btn"></a>
                     </div>
                 </div>
             </div>

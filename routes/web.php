@@ -55,9 +55,7 @@ Route::middleware(DistributorAccess::class)->group(function () {
     Route::get('/course', [CoursesController::class, 'index'])->name('courses');
     Route::view('/about', 'main/about/about');
     Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
-    Route::get("/treatments", function(){
-        return view("main.treatments");
-    }) ->name('treatments');
+    Route::view('/treatments','main/treatments')->name('treatments');
 });
 
 
