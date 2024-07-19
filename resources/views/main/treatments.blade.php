@@ -64,7 +64,7 @@
                         <div class="content">
                             <h3>Botugen Treatment</h3>
                         </div>
-                        <a href="{{ route('shop.search') }}" class="link-btn"></a>
+                        <a href="{{ route('shop.search', 'Botugen') }}" class="link-btn"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -73,7 +73,7 @@
                         <div class="content">
                             <h3>Keraterm Treatment</h3>
                         </div>
-                        <a href="{{ route('shop.search') }}" class="link-btn"></a>
+                        <a href="{{ route('shop.search', 'Keraterm') }}" class="link-btn"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -100,7 +100,7 @@
                         <div class="content">
                             <h3>Nutri Care</h3>
                         </div>
-                        <a href="{{ route('shop.search') }}" class="link-btn"></a>
+                        <a href="{{ route('shop.search', 'Nutri Care') }}" class="link-btn"></a>
                     </div>
                 </div>
             </div>
