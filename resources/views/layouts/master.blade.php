@@ -320,14 +320,15 @@
                             <a href="{{ url('/') }}"
                                class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">{{__('messages.home')}}</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('shop') }}"
+                               class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.shop')}}</a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{route('treatments')}}"
                                class="nav-link{{ request()->routeIs('treatments') ? ' active' : '' }}">{{__('messages.Treatments')}}
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('shop') }}"
-                               class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.shop')}}</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{url('/contact')}}" class="nav-link">{{__('messages.contact')}}</a>

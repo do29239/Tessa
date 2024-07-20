@@ -15,7 +15,6 @@ class LoadProducts extends Component
 
     public function mount($brandId = null)
     {
-        // Check if a brandId is passed
         if ($brandId) {
             session()->forget(['selectedCategory', 'searchTerm', 'amount']);
             $this->selectedBrand = $brandId;
@@ -24,10 +23,8 @@ class LoadProducts extends Component
             $this->selectedBrand = session('selectedBrand', null);
         }
 
-        // Check if a new search term is set in the session
         if (session('searchTerm')) {
             $this->search = session('searchTerm', '');
-            session()->forget('searchTerm');
             $this->updatedSearch();
         } else {
             $this->search = session('searchTerm', '');

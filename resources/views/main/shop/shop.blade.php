@@ -109,11 +109,21 @@
         });
     });
     document.addEventListener('DOMContentLoaded', function () {
+        // Variables to store the component state
         let selectedCategory = null;
         let selectedBrand = null;
         let searchTerm = '';
         let amount = 9;
 
+        // Event listener for when the component state is loaded
+        window.addEventListener('loadState', function (event) {
+            selectedCategory = event.detail.selectedCategory;
+            selectedBrand = event.detail.selectedBrand;
+            searchTerm = event.detail.searchTerm;
+            amount = event.detail.amount;
+        });
+
+        // Event listener for before the page is unloaded
         window.addEventListener('beforeunload', function () {
             axios.post('/save-shop-state', {
                 selectedCategory: selectedCategory,
@@ -121,13 +131,6 @@
                 searchTerm: searchTerm,
                 amount: amount
             });
-        });
-
-        window.addEventListener('loadState', function (event) {
-            selectedCategory = event.detail.selectedCategory;
-            selectedBrand = event.detail.selectedBrand;
-            searchTerm = event.detail.searchTerm;
-            amount = event.detail.amount;
         });
     });
 </script>
