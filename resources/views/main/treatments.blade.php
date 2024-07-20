@@ -30,11 +30,20 @@
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="categories-box">
-                        <img src="{{ asset('assets/img/webp/NoYellowNoOorange.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <img src="{{ asset('assets/img/webp/No Yellow.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
                         <div class="content">
-                            <h3>No Yellow and No Orange Care</h3>
+                            <h3>No Yellow Care </h3>
                         </div>
-                        <a href="{{ route('shop.search', 'No Yellow No Orange') }}" class="link-btn"></a>
+                        <a href="{{ route('shop.search', 'No Yellow Fanola') }}" class="link-btn"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/No Orange.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>No Orange Care </h3>
+                        </div>
+                        <a href="{{ route('shop.search', 'No Orange') }}" class="link-btn"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -102,6 +111,15 @@
                             <h3>Nutri Care</h3>
                         </div>
                         <a href="{{ route('shop.search', 'Nutri Care') }}" class="link-btn"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/Goji-01.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>Real Color Goji</h3>
+                        </div>
+                        <a href="{{ route('shop.search', 'Goji') }}" class="link-btn"></a>
                     </div>
                 </div>
             </div>
