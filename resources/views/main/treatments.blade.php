@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="categories-box">
-                        <img src="{{ asset('assets/img/webp/No Yellow.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <img src="{{ asset('assets/img/webp/No Yellow-01.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
                         <div class="content">
                             <h3>No Yellow Care </h3>
                         </div>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="categories-box">
-                        <img src="{{ asset('assets/img/webp/No Orange.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <img src="{{ asset('assets/img/webp/No Orange-01.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
                         <div class="content">
                             <h3>No Orange Care </h3>
                         </div>
