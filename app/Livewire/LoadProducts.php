@@ -9,7 +9,7 @@ class LoadProducts extends Component
     public $amount = 9;
     public $selectedCategory = null;
     public $selectedBrand = null;
-    public $noMoreProducts = null;
+    public $noMoreProducts = false;
     public $search = '';
     protected $listeners = ['categorySelected', 'brandSelected'];
 
@@ -25,12 +25,16 @@ class LoadProducts extends Component
 
         if (session('searchTerm')) {
             $this->search = session('searchTerm', '');
+            session()->forget('searchTerm');
             $this->updatedSearch();
         } else {
             $this->search = session('searchTerm', '');
             $this->selectedCategory = session('selectedCategory', null);
             $this->amount = session('amount', 9);
         }
+
+        // Check if there are more products to load initially
+        $this->checkIfMoreProducts();
     }
 
     public function hydrate()
@@ -45,13 +49,17 @@ class LoadProducts extends Component
 
     public function render()
     {
-        $products = $this->queryProducts();
+        $productsData = $this->queryProducts();
+        $products = $productsData['products'];
+        $this->noMoreProducts = $productsData['noMoreProducts'];
+
         return view('livewire.product.load-products', compact('products'));
     }
 
     public function load()
     {
-        $productsCount = $this->queryProducts()->count();
+        $productsData = $this->queryProducts();
+        $productsCount = count($productsData['products']);
 
         if ($this->amount <= $productsCount) {
             $this->amount += 9;
@@ -90,12 +98,21 @@ class LoadProducts extends Component
             $query->where('brand_id', $this->selectedBrand);
         }
 
-        return $query->take($this->amount)->get();
+        // Get total count of products for the current query
+        $totalProductsCount = $query->count();
+
+        // Fetch the limited number of products based on the amount
+        $products = $query->take($this->amount)->get();
+
+        return [
+            'products' => $products,
+            'noMoreProducts' => $this->amount >= $totalProductsCount
+        ];
     }
 
     public function resetNoMoreProducts()
     {
-        $this->noMoreProducts = null;
+        $this->noMoreProducts = false;
     }
 
     public function resetFilters()
@@ -113,6 +130,7 @@ class LoadProducts extends Component
         $this->resetNoMoreProducts();
         $this->selectedCategory = $categoryId;
         $this->updateSessionState(); // Save the current state to session
+        $this->checkIfMoreProducts(); // Check if there are more products to load after category selection
     }
 
     public function brandSelected($brandId)
@@ -121,6 +139,7 @@ class LoadProducts extends Component
         $this->resetNoMoreProducts();
         $this->selectedBrand = $brandId;
         $this->updateSessionState(); // Save the current state to session
+        $this->checkIfMoreProducts(); // Check if there are more products to load after brand selection
     }
 
     private function resetPage()
@@ -134,6 +153,7 @@ class LoadProducts extends Component
         session(['searchTerm' => $this->search]);
         $this->resetPage();
         $this->updateSessionState(); // Save the current state to session
+        $this->checkIfMoreProducts(); // Check if there are more products to load after search
     }
 
     private function updateSessionState()
@@ -144,5 +164,11 @@ class LoadProducts extends Component
             'searchTerm' => $this->search,
             'amount' => $this->amount
         ]);
+    }
+
+    private function checkIfMoreProducts()
+    {
+        $productsData = $this->queryProducts();
+        $this->noMoreProducts = $productsData['noMoreProducts'];
     }
 }
