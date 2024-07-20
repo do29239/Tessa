@@ -24,8 +24,10 @@ class LoadProducts extends Component
         }
 
         if (session('searchTerm')) {
-            $this->search = session('searchTerm', '');
+            $tempSearch = session('searchTerm', '');
             session()->forget('searchTerm');
+            $this->resetFilters();
+            $this->search = $tempSearch;
             $this->updatedSearch();
         } else {
             $this->search = session('searchTerm', '');
