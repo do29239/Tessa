@@ -32,7 +32,6 @@
     }
 </style>
 
-
     <!-- Start Products Filter Modal Area -->
     <div class="text-center">
         <div class="text-center" wire:loading>

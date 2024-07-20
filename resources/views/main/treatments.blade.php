@@ -12,6 +12,43 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/Botugen.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>Botugen Treatment</h3>
+                        </div>
+                        <a href="{{ route('shop.search', 'Botugen') }}" class="link-btn"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/Keraterm.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>Keraterm Treatment</h3>
+                        </div>
+                        <a href="{{ route('shop.search', 'Keraterm') }}" class="link-btn"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/NoYellowNoOorange.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>No Yellow and No Orange Care</h3>
+                        </div>
+                        <a href="{{ route('shop.search', 'No Yellow No Orange') }}" class="link-btn"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
+                        <img src="{{ asset('assets/img/webp/Energy-01.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <div class="content">
+                            <h3>Energy Vitamins</h3>
+                        </div>
+                        <a href="{{ route('shop.search', 'Energy') }}" class="link-btn"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="categories-box">
                         <img src="{{ asset('assets/img/webp/Oro Therapy-01.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
                         <div class="content">
                             <h3>Oro Puro Treatment</h3>
@@ -60,43 +97,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="categories-box">
-                        <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
-                        <div class="content">
-                            <h3>Botugen Treatment</h3>
-                        </div>
-                        <a href="{{ route('shop.search', 'Botugen') }}" class="link-btn"></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="categories-box">
-                        <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
-                        <div class="content">
-                            <h3>Keraterm Treatment</h3>
-                        </div>
-                        <a href="{{ route('shop.search', 'Keraterm') }}" class="link-btn"></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="categories-box">
-                        <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
-                        <div class="content">
-                            <h3>No Yellow and No Orange Care</h3>
-                        </div>
-                        <a href="{{ route('shop.search', 'No Yellow No Orange') }}" class="link-btn"></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="categories-box">
-                        <img src="{{ asset('assets/img/webp/Energy-01.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
-                        <div class="content">
-                            <h3>Energy Vitamins</h3>
-                        </div>
-                        <a href="{{ route('shop.search', 'Energy') }}" class="link-btn"></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="categories-box">
-                        <img src="{{ asset('assets/img/webp/orrossss1.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
+                        <img src="{{ asset('assets/img/webp/NutriCare.webp') }}" fetchpriority="high" alt="image" height="608.19" width="927.5">
                         <div class="content">
                             <h3>Nutri Care</h3>
                         </div>

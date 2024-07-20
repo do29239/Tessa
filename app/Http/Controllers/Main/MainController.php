@@ -44,4 +44,16 @@ class MainController extends Controller
             ]);
     }
 
+    public function saveState(Request $request)
+    {
+        session([
+            'selectedCategory' => $request->input('selectedCategory'),
+            'selectedBrand' => $request->input('selectedBrand'),
+            'searchTerm' => $request->input('searchTerm'),
+            'amount' => $request->input('amount')
+        ]);
+
+        return response()->json(['status' => 'success']);
+    }
+
 }

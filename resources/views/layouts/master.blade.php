@@ -182,9 +182,6 @@
                 <ul class="nav-menu-list">
                     <li class="hide-on-mobile"><a href="{{ url('/') }}"><i
                                 class="bx bx-home"></i>{{__('messages.home')}}</a></li>
-                    <li class="hide-on-mobile"><a href="{{ url('/treatments') }}"><i
-                                class="bx bx-home"></i>{{__('messages.Treatments')}}
-                        </a></li>
                     <li class="hide-on-mobile"><a href="{{ route('shop') }}"><i
                                 class="bx bx-store"></i>{{__('messages.shop')}}</a></li>
                     @auth()
@@ -192,6 +189,7 @@
                                     class="bx bx-heart"></i>{{__('messages.wishlist')}}</a></li>
                     @endauth
                     <li><a href="{{url('/contact')}}"><i class="bx bx-phone"></i>{{__('messages.contact')}}</a></li>
+                    <li><a href="{{ url('/treatments') }}"><i class="bx bx-info-circle"></i>{{__('messages.Treatments')}}</a></li>
                     @auth()
                         <li><a href="my-account.html"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
                         @if(!auth()->user()->request_submitted)
@@ -324,7 +322,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('treatments')}}"
-                               class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.Treatments')}}
+                               class="nav-link{{ request()->routeIs('treatments') ? ' active' : '' }}">{{__('messages.Treatments')}}
                             </a>
                         </li>
                         <li class="nav-item">

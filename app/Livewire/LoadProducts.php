@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Livewire;
 
 use App\Models\Product;
@@ -12,22 +11,44 @@ class LoadProducts extends Component
     public $selectedBrand = null;
     public $noMoreProducts = null;
     public $search = '';
-    protected $listeners = ['categorySelected', 'brandSelected', 'searchPerformed'];
+    protected $listeners = ['categorySelected', 'brandSelected'];
 
-    public function mount()
+    public function mount($brandId = null)
     {
-        $this->search = session('searchTerm', '');
-        session()->forget('searchTerm');
-        $this->selectedBrand = session('brandId', '');
-        if ($this->selectedBrand) {
-            $this->brandSelected($this->selectedBrand);
+        // Check if a brandId is passed
+        if ($brandId) {
+            session()->forget(['selectedCategory', 'searchTerm', 'amount']);
+            $this->selectedBrand = $brandId;
+            session(['selectedBrand' => $brandId]);
+        } else {
+            $this->selectedBrand = session('selectedBrand', null);
+        }
+
+        // Check if a new search term is set in the session
+        if (session('searchTerm')) {
+            $this->search = session('searchTerm', '');
+            session()->forget('searchTerm');
+            $this->updatedSearch();
+        } else {
+            $this->search = session('searchTerm', '');
+            $this->selectedCategory = session('selectedCategory', null);
+            $this->amount = session('amount', 9);
         }
     }
+
+    public function hydrate()
+    {
+        $this->dispatch('loadState', [
+            'selectedCategory' => $this->selectedCategory,
+            'selectedBrand' => $this->selectedBrand,
+            'searchTerm' => $this->search,
+            'amount' => $this->amount
+        ]);
+    }
+
     public function render()
     {
         $products = $this->queryProducts();
-
-
         return view('livewire.product.load-products', compact('products'));
     }
 
@@ -40,18 +61,16 @@ class LoadProducts extends Component
         } else {
             $this->noMoreProducts = true; // all products are loaded
         }
+
+        $this->updateSessionState(); // Save the current state to session
     }
 
     private function queryProducts()
     {
         $query = Product::query();
 
-        // Optimize search by avoiding splitting into multiple terms
         if (!empty($this->search)) {
-            // Split the search term into individual keywords.
             $keywords = explode(' ', $this->search);
-
-            // Apply each keyword as a condition across the relevant fields.
             foreach ($keywords as $keyword) {
                 $query->where(function ($subQuery) use ($keyword) {
                     $likeKeyword = '%' . $keyword . '%';
@@ -66,7 +85,6 @@ class LoadProducts extends Component
             }
         }
 
-        // Apply filters for category and brand if they are set
         if (!empty($this->selectedCategory)) {
             $query->where('category_id', $this->selectedCategory);
         }
@@ -75,7 +93,6 @@ class LoadProducts extends Component
             $query->where('brand_id', $this->selectedBrand);
         }
 
-        // Implement pagination and limit the number of products loaded
         return $query->take($this->amount)->get();
     }
 
@@ -83,10 +100,10 @@ class LoadProducts extends Component
     {
         $this->noMoreProducts = null;
     }
+
     public function resetFilters()
     {
-        session()->forget('searchTerm');
-        session()->forget('brandId');
+        session()->forget(['searchTerm', 'selectedCategory', 'selectedBrand', 'amount']);
         $this->search = null;
         $this->selectedCategory = null;
         $this->selectedBrand = null;
@@ -95,26 +112,40 @@ class LoadProducts extends Component
 
     public function categorySelected($categoryId)
     {
-        $this->resetPage();
         $this->resetFilters();
         $this->resetNoMoreProducts();
         $this->selectedCategory = $categoryId;
-
-
+        $this->updateSessionState(); // Save the current state to session
     }
 
     public function brandSelected($brandId)
     {
-        $this->resetPage();
         $this->resetFilters();
         $this->resetNoMoreProducts();
         $this->selectedBrand = $brandId;
-
-
+        $this->updateSessionState(); // Save the current state to session
     }
 
     private function resetPage()
     {
         $this->amount = 9;
+    }
+
+    public function updatedSearch()
+    {
+        session()->forget(['selectedCategory', 'selectedBrand', 'amount']);
+        session(['searchTerm' => $this->search]);
+        $this->resetPage();
+        $this->updateSessionState(); // Save the current state to session
+    }
+
+    private function updateSessionState()
+    {
+        session([
+            'selectedCategory' => $this->selectedCategory,
+            'selectedBrand' => $this->selectedBrand,
+            'searchTerm' => $this->search,
+            'amount' => $this->amount
+        ]);
     }
 }

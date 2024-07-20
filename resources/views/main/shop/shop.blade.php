@@ -92,6 +92,7 @@
     <!-- End Products Area -->
 @endsection
 <script>
+
     document.addEventListener('DOMContentLoaded', function () {
         var modalCloseButton = document.getElementById('modalCloseButton');
 
@@ -105,6 +106,28 @@
             if (modalCloseButton) {
                 modalCloseButton.click();
             }
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        let selectedCategory = null;
+        let selectedBrand = null;
+        let searchTerm = '';
+        let amount = 9;
+
+        window.addEventListener('beforeunload', function () {
+            axios.post('/save-shop-state', {
+                selectedCategory: selectedCategory,
+                selectedBrand: selectedBrand,
+                searchTerm: searchTerm,
+                amount: amount
+            });
+        });
+
+        window.addEventListener('loadState', function (event) {
+            selectedCategory = event.detail.selectedCategory;
+            selectedBrand = event.detail.selectedBrand;
+            searchTerm = event.detail.searchTerm;
+            amount = event.detail.amount;
         });
     });
 </script>

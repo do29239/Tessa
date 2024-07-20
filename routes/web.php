@@ -56,6 +56,7 @@ Route::middleware(DistributorAccess::class)->group(function () {
     Route::view('/about', 'main/about/about');
     Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
     Route::view('/treatments','main/treatments')->name('treatments');
+    Route::post('/save-shop-state', [MainController::class, 'saveState']);
 });
 
 
