@@ -13,12 +13,14 @@ class LoadProducts extends Component
     public $search = '';
     protected $listeners = ['categorySelected', 'brandSelected'];
 
-    public function mount($brandId = null)
+    public function mount()
     {
-        if ($brandId) {
-            session()->forget(['selectedCategory', 'searchTerm', 'amount']);
-            $this->selectedBrand = $brandId;
-            session(['selectedBrand' => $brandId]);
+        if (session('brandId')) {
+            $tempBrandId = session('brandId');
+            session()->forget('brandId');
+            $this->resetFilters();
+            $this->brandSelected($tempBrandId);
+
         } else {
             $this->selectedBrand = session('selectedBrand', null);
         }
