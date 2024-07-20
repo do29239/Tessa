@@ -150,7 +150,7 @@
 
         <div class="brand-slides">
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'RrLine')}}"><img src="{{asset('assets/img/webp/rr.webp')}}" height="150" width="150" alt="image"></a>
+                <a href="{{route('shop.brand', 'Rr Line')}}"><img src="{{asset('assets/img/webp/rr.webp')}}" height="150" width="150" alt="image"></a>
             </div>
             <div class="brand-item">
                 <a href="{{route('shop.brand', 'Fanola')}}"><img src="{{asset('assets/img/webp/fanola.webp')}}" height="150" width="150" alt="image"></a>
