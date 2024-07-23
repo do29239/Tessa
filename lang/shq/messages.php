@@ -258,7 +258,10 @@ return [
 
     'register_info' => 'Fushat më poshtë do të përdoren për porositë tuaja, prandaj sigurohuni që t\'i plotësoni me informacionin e saktë. Mund t\'i ndryshoni më vonë në Profilin tuaj.',
 
-
+    'new_customer' => "Klient i Ri",
+    'create_account' => "Krijo Një Llogari",
+    'create_account_text' => "Regjistrimi është i shpejtë dhe i lehtë, zgjat rreth 2 minuta! Informacionet e dhëna do të përdoren për porositë tuaja, që të mos keni nevojë t'i plotësoni vetë porositë. Kjo ju lejon të porositni nga dyqani ynë. Për të filluar blerjet klikoni Krijo Një Llogari.",
+    'clientPrice' => 'Çmim Klienti',
 ];
 
 ?>
