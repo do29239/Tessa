@@ -57,7 +57,7 @@ class PlaceOrderService
             DB::commit();
 //            Mail::to($user->email)->send(new OrderConfirmation($order->id, $order->total));
 //            SendOrderConfirmationEmail::dispatch($order->id, $finalTotal, $user->email, $user->address);
-            SendAdminOrderNotification::dispatch($order);
+            SendAdminOrderNotification::dispatch($order)->delay(now()->addSeconds(60));;
             return true;
         } catch (\Exception $e) {
             DB::rollBack();
