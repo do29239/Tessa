@@ -4589,13 +4589,6 @@ input#remember {
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
 }
-
-/* Styling the filter button on hover */
-.filter-button:hover {
-    background-color: #000; /* Change background on hover */
-    color: #fff; /* Change text color on hover */
-}
-
 /* Make the filter button fixed when scrolling */
 .filter-button.fixed {
     position: fixed;
