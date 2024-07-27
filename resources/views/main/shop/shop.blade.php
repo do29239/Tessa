@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <div class="row">
                 <span class="sub-title d-lg-none">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#mobileFilterModal">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#mobileFilterModal" class="filter-button">
                         <i class="bx bx-filter-alt"></i>{{__('messages.filter')}}
                     </a>
                 </span>
@@ -131,6 +131,17 @@
                 searchTerm: searchTerm,
                 amount: amount
             });
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const filterButton = document.querySelector('.filter-button');
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) { // Adjust the scroll value as needed
+                filterButton.classList.add('fixed');
+            } else {
+                filterButton.classList.remove('fixed');
+            }
         });
     });
 </script>

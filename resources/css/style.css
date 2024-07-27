@@ -4575,3 +4575,49 @@ Go Top CSS
 input#remember {
     width: fit-content !important;
 }
+
+
+.filter-button {
+    display: inline-block;
+    padding: 10px 15px;
+    border: 2px solid #000; /* Add a border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #fff; /* Background color */
+    color: #000; /* Text color */
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+}
+
+/* Styling the filter button on hover */
+.filter-button:hover {
+    background-color: #000; /* Change background on hover */
+    color: #fff; /* Change text color on hover */
+}
+
+/* Make the filter button fixed when scrolling */
+.filter-button.fixed {
+    position: fixed;
+    top: 70px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.products-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 670 / 800;
+}
+.load-more-btn {
+    background-color: #FF8A80 !important;
+    color: #FFFFFF; /* Ensure the text is readable */
+    border: 1px solid #FF8A80; /* Ensure the border is applied correctly */
+    padding: 10px 20px; /* Adjust the padding to control the size */
+    font-size: 16px; /* Adjust the font size as needed */
+    width: auto; /* You can set a specific width if needed */
+    height: auto; /* You can set a specific height if needed */
+    border-radius: 5px; /* Optional: round the corners */
+    cursor: pointer; /* Change the cursor to pointer */
+    transition: background-color 0.3s ease; /* Optional: smooth background color transition */
+}
