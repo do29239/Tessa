@@ -70,9 +70,9 @@ class RequestStylistController extends Controller
     {
         try {
             $this->requestStylistService->approveRequest($request);
-            return redirect()->back()->with('success', 'Request approved successfully');
+            return redirect()->route('requests.index')->with('success', 'Request approved successfully');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Unable to approve request: ' . $e->getMessage());
+            return redirect()->route('requests.index')->with('error', 'Unable to approve request: ' . $e->getMessage());
         }
     }
 
@@ -80,9 +80,9 @@ class RequestStylistController extends Controller
     {
         try {
             $this->requestStylistService->denyRequest($request);
-            return redirect()->back()->with('success', 'Request denied successfully');
+            return redirect()->route('requests.index')->with('success', 'Request denied successfully');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Unable to deny request: ' . $e->getMessage());
+            return redirect()->route('requests.index')->with('error', 'Unable to deny request: ' . $e->getMessage());
         }
     }
 

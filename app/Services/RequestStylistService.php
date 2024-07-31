@@ -129,8 +129,6 @@ class RequestStylistService
         return true;
     }
 
-
-
     public function changeRole($user, $newRole)
     {
         $user->update(['role' => $newRole]);

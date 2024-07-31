@@ -41,10 +41,10 @@
                                     </thead>
                                     <tbody>
                                     @foreach($requests as $request)
-                                        @php
-                                            $message = $request->message;
-                                            $shortMessage = strlen($message) > 15 ? substr($message, 0, 15) . '...' : $message;
-                                        @endphp
+{{--                                        @php--}}
+{{--                                            $message = $request->message;--}}
+{{--                                            $shortMessage = strlen($message) > 15 ? substr($message, 0, 15) . '...' : $message;--}}
+{{--                                        @endphp--}}
                                         <tr class="text-center">
                                             <td class="text-center-custom">{{ $request->user->first_name }}</td>
                                             <td class="text-center-custom">{{ $request->user->last_name }}</td>
@@ -53,33 +53,30 @@
                                             <td class="text-center-custom">{{ $request->saloon_city }}</td>
                                             <td class="text-center-custom">{{ $request->saloon_address }}</td>
                                             <td class="text-center-custom">{{ $request->saloon_phone }}</td>
-                                            <td>
-                                                <span class="short-message">{{ $shortMessage }}</span>
-                                                <span class="full-message" style="display: none;">{{ $message }}</span>
-                                                @if (strlen($message) > 15)
-                                                    <button class="read-more-btn">Read More</button>
-                                                    <button class="show-less-btn" style="display: none;">Show Less</button>
-                                                @endif
-                                            </td>
+{{--                                            <td>--}}
+{{--                                                <span class="short-message">{{ $shortMessage }}</span>--}}
+{{--                                                <span class="full-message" style="display: none;">{{ $message }}</span>--}}
+{{--                                                @if (strlen($message) > 15)--}}
+{{--                                                    <button class="read-more-btn">Read More</button>--}}
+{{--                                                    <button class="show-less-btn" style="display: none;">Show Less</button>--}}
+{{--                                                @endif--}}
+{{--                                            </td>--}}
                                             <td class="text-center-custom">
-                                                <form action="{{ route('request.update', $request) }}" method="POST">
+                                                <form action="{{ route('requests.update', $request) }}" method="POST">
                                                     @csrf
                                                     @method('PUT') {{-- This line specifies that the form is making a PUT request --}}
                                                     <button type="submit" class="btn btn-primary btn-sm">Approve</button>
                                                 </form>
                                             </td>
                                             <td class="text-center-custom">
-                                                <form action="{{ route('request.destroy', $request) }}" method="POST">
+                                                <form action="{{ route('requests.destroy', $request) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE') {{-- This specifies that the form is making a DELETE request --}}
                                                     <button type="submit" class="btn btn-primary btn-sm">Disapprove</button>
                                                 </form>
                                             </td>
                                             <td class="text-center-custom">
-                                                <form action="{{ route('request.show', $request) }}">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-primary btn-sm">View</button>
-                                                </form>
+                                                <a href="{{ route('requests.show', $request) }}" class="btn btn-primary btn-sm">View</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -95,36 +92,36 @@
     </div>
 @endsection
 
-@push('scripts')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.read-more-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const td = this.closest('td');
-                    const shortMessageElement = td.querySelector('.short-message');
-                    const fullMessageElement = td.querySelector('.full-message');
-                    const showLessButton = td.querySelector('.show-less-btn');
+{{--@push('scripts')--}}
+{{--    <script>--}}
+{{--        document.addEventListener('DOMContentLoaded', function() {--}}
+{{--            document.querySelectorAll('.read-more-btn').forEach(button => {--}}
+{{--                button.addEventListener('click', function() {--}}
+{{--                    const td = this.closest('td');--}}
+{{--                    const shortMessageElement = td.querySelector('.short-message');--}}
+{{--                    const fullMessageElement = td.querySelector('.full-message');--}}
+{{--                    const showLessButton = td.querySelector('.show-less-btn');--}}
 
-                    shortMessageElement.style.display = 'none';
-                    fullMessageElement.style.display = 'inline';
-                    this.style.display = 'none';
-                    showLessButton.style.display = 'inline';
-                });
-            });
+{{--                    shortMessageElement.style.display = 'none';--}}
+{{--                    fullMessageElement.style.display = 'inline';--}}
+{{--                    this.style.display = 'none';--}}
+{{--                    showLessButton.style.display = 'inline';--}}
+{{--                });--}}
+{{--            });--}}
 
-            document.querySelectorAll('.show-less-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const td = this.closest('td');
-                    const fullMessageElement = td.querySelector('.full-message');
-                    const shortMessageElement = td.querySelector('.short-message');
-                    const readMoreButton = td.querySelector('.read-more-btn');
+{{--            document.querySelectorAll('.show-less-btn').forEach(button => {--}}
+{{--                button.addEventListener('click', function() {--}}
+{{--                    const td = this.closest('td');--}}
+{{--                    const fullMessageElement = td.querySelector('.full-message');--}}
+{{--                    const shortMessageElement = td.querySelector('.short-message');--}}
+{{--                    const readMoreButton = td.querySelector('.read-more-btn');--}}
 
-                    fullMessageElement.style.display = 'none';
-                    shortMessageElement.style.display = 'inline';
-                    this.style.display = 'none';
-                    readMoreButton.style.display = 'inline';
-                });
-            });
-        });
-    </script>
-@endpush
+{{--                    fullMessageElement.style.display = 'none';--}}
+{{--                    shortMessageElement.style.display = 'inline';--}}
+{{--                    this.style.display = 'none';--}}
+{{--                    readMoreButton.style.display = 'inline';--}}
+{{--                });--}}
+{{--            });--}}
+{{--        });--}}
+{{--    </script>--}}
+{{--@endpush--}}

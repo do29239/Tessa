@@ -39,7 +39,7 @@
                 <li><a href="{{ route('products.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Products</p></a></li>
                 <li><a href="{{ route('orders.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Orders</p></a></li>
                 <li><a href="{{ route('show_users') }}"><i class="tim-icons icon-book-bookmark"></i><p>Users</p></a></li>
-                <li><a href="{{ route('request.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Requests</p></a></li>
+                <li><a href="{{ route('requests.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Requests</p></a></li>
                 <li><a href="{{ route('show_stylists') }}"><i class="tim-icons icon-book-bookmark"></i><p>Stylists</p></a></li>
                 <li><a href="{{ route('orders.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Orders</p></a></li>
                 <li><a href="{{ route('sales.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Sales</p></a></li>
@@ -155,7 +155,7 @@
                     <li><a href="{{ route('products.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Products</p></a></li>
                     <li><a href="{{ route('orders.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Orders</p></a></li>
                     <li><a href="{{ route('show_users') }}"><i class="tim-icons icon-book-bookmark"></i><p>Users</p></a></li>
-                    <li><a href="{{ route('request.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Requests</p></a></li>
+                    <li><a href="{{ route('requests.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Requests</p></a></li>
                     <li><a href="{{ route('show_stylists') }}"><i class="tim-icons icon-book-bookmark"></i><p>Stylists</p></a></li>
                     <li><a href="{{ route('orders.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Orders</p></a></li>
                     <li><a href="{{ route('sales.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Sales</p></a></li>

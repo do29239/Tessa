@@ -18,26 +18,22 @@
 
                     <div class="card-header d-flex justify-content-between align-items-center">
 
-                        <form action="{{ route('request.index') }}" class="d-inline">
+                        <form action="{{ route('requests.index') }}" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-primary btn-sm">Stylist Requests</button>
                         </form>
                         <h2 class="card-title text-center-custom">Request Details</h2>
-                        <div>
 
-                            <form action="{{ route('request.update', $request) }}" method="POST" class="d-inline">
+                            <form action="{{ route('requests.update', $request) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('PUT')
                                 <button type="submit" class="btn btn-primary btn-sm">Approve</button>
                             </form>
-                            <form action="{{ route('request.destroy', $request) }}" method="POST" class="d-inline">
+                            <form action="{{ route('requests.destroy', $request) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-primary btn-sm">Disapprove</button>
                             </form>
-                            <p>Nuk Punojn Perkohsisht nese duhet te aprovojsh ktheu mbas edhe mundet</p>
-
-                        </div>
                     </div>
 
                     <div class="card-body">
