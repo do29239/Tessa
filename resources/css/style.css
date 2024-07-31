@@ -68,12 +68,6 @@ Default CSS
     white-space: nowrap;
 }
 
-.inp-cbx {
-    margin-right: 8px;
-}
-
-
-
 .user-actions {
     -webkit-box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
     box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
