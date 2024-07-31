@@ -4511,20 +4511,6 @@ Go Top CSS
 .go-top:hover i {
     margin-top: -3px;
 }
-@media (min-width: 300px) and (max-width: 600px) {
-    /* CSS rules here will only apply to screens between 400px and 600px wide */
-    .login-content .login-form {
-        width: 90%; /* Example: Adjust width to 90% of the viewport */
-        margin: 10px auto; /* Center the form with margin auto and add some vertical space */
-        padding: 20px; /* Example: Add padding for better spacing */
-    }
-
-    .login-content .login-form input,
-    .login-content .login-form button {
-        width: 100%; /* Make inputs and buttons fill the form */
-        font-size: 14px; /* Adjust font size to be appropriate for mid-sized devices */
-    }
-}
 
 /*Added CSS */
 
