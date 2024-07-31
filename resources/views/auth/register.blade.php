@@ -28,8 +28,8 @@
 
         .form-check.register {
             display: flex !important;
-            gap: 10px !important;
-            align-items: center;
+            gap: 1px !important;
+            align-items: flex-start;
         }
         .sub-title {
             white-space: nowrap;
