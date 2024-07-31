@@ -1,10 +1,36 @@
 @extends('layouts.master')
 
 @section('content')
+    <style>
+        .login-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px; /* or any other desired width */
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+    </style>
     <section class="login-area ptb-100">
         <div class="user-actions">
             <i class='bx bx-info-circle'></i>
-            <span> {{__('messages.register_info')}}</span></span>
+            <span> {{__('messages.register_info')}}</span>
         </div>
         <div class="login-content">
             <h2>{{ __('messages.register') }}</h2>
