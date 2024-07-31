@@ -181,28 +181,42 @@
                     />
                     <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                 </div>
-
-                <div class="flex items-center justify-end mt-4">
+                <div class="flex flex-col items-center mt-4">
+                    <div class="buy-checkbox-btn mb-4">
+                        <label class="inline-flex items-center">
+                            <input class="inp-cbx mr-2" id="cbx" type="checkbox" name="is_stylist" value="1">
+                            <span>Click this if you are a Stylist!!</span>
+                        </label>
+                    </div>
+                    <button class="default-btn mb-4">
+                        {{ __('Register') }}
+                    </button>
                     <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
                         {{ __('Already registered?') }}
                     </a>
-                    <div class="buy-checkbox-btn">
-                        <div class="item">
-                            <input class="inp-cbx" id="cbx" type="checkbox" name="is_stylist" value="1">
-                            <label class="cbx" for="is_stylist">
-                                <span>
-                                    <h5>Click this if you are a Stylist!!</h5>
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-                    <button class="default-btn" >
-                        {{ __('Register') }}
-                    </button>
                 </div>
+
             </form>
 
         </div>
 
     </section>
 @endsection
+<style>
+    .buy-checkbox-btn {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .inline-flex {
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    .inp-cbx {
+        margin-right: 8px;
+    }
+
+</style>
