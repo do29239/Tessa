@@ -55,19 +55,6 @@ Default CSS
 @import url("https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400iactive,700,700i,900,900i&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,600i,700,700i&display=swap");
 
-
-.buy-checkbox-btn {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.inline-flex {
-    display: inline-flex;
-    align-items: center;
-    white-space: nowrap;
-}
-
 .user-actions {
     -webkit-box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
     box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);

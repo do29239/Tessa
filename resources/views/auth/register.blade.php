@@ -1,36 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-    <style>
-        .login-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .login-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 500px; /* or any other desired width */
-        }
-
-        .form-group {
-            width: 100%;
-            margin-bottom: 15px;
-        }
-
-        .form-control {
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-    </style>
     <section class="login-area ptb-100">
         <div class="user-actions">
             <i class='bx bx-info-circle'></i>
-            <span> {{__('messages.register_info')}}</span>
+            <span> {{__('messages.register_info')}}</span></span>
         </div>
         <div class="login-content">
             <h2>{{ __('messages.register') }}</h2>
@@ -181,21 +155,24 @@
                     />
                     <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                 </div>
-                <div class="flex flex-col items-center mt-4">
-                    <div class="buy-checkbox-btn mb-4">
-                        <label class="inline-flex items-center">
-                            <input class="inp-cbx mr-2" id="cbx" type="checkbox" name="is_stylist" value="1">
-                            <span>Click this if you are a Stylist!!</span>
-                        </label>
+
+                <div class="flex items-center justify-end mt-4">
+
+                    <div class="buy-checkbox-btn">
+                        <div class="form-check">
+                            <input class="form-check-input" id="remember" type="checkbox" name="is_stylist" value="1">
+                            <label class="sub-title form-check-label mb-0" for="is_stylist" style="white-space: nowrap; margin-right: 90px;" >
+                                Click this if you are a Stylist!!
+                            </label>
+                        </div>
                     </div>
-                    <button class="default-btn mb-4">
+                    <button class="default-btn" >
                         {{ __('Register') }}
                     </button>
                     <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
                         {{ __('Already registered?') }}
                     </a>
                 </div>
-
             </form>
 
         </div>
