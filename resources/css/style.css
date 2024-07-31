@@ -4514,7 +4514,7 @@ Go Top CSS
 @media (min-width: 300px) and (max-width: 600px) {
     /* CSS rules here will only apply to screens between 400px and 600px wide */
     .login-content .login-form {
-        width: 90%; /* Example: Adjust width to 90% of the viewport */
+        width: 80%; /* Example: Adjust width to 90% of the viewport */
         margin: 10px auto; /* Center the form with margin auto and add some vertical space */
         padding: 20px; /* Example: Add padding for better spacing */
     }
