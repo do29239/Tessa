@@ -29,7 +29,7 @@ class DistributorController extends Controller
         ]);
 
         User::create($validatedData + [
-                'password' => Hash::make('defaultpassword'),
+                'password' => Hash::make('password'),
                 'role' => 3 // Set the role as 3 by default
             ]);
 
