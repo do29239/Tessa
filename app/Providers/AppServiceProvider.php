@@ -24,9 +24,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Blade::component('success-message', 'successMessage');
-        // Customize the password reset URL
-        ResetPassword::createUrlUsing(function ($user, string $token) {
-            return 'https://tessa.mk/reset-password?token=' . $token . '&email=' . urlencode($user->getEmailForPasswordReset());
-        });
     }
 }
