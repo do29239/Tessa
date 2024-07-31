@@ -202,21 +202,3 @@
 
     </section>
 @endsection
-<style>
-    .buy-checkbox-btn {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .inline-flex {
-        display: inline-flex;
-        align-items: center;
-        white-space: nowrap;
-    }
-
-    .inp-cbx {
-        margin-right: 8px;
-    }
-
-</style>
