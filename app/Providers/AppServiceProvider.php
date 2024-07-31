@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 

@@ -39,7 +39,9 @@ return [
     'Search'=>'Search',
     'AddCart'=>'Add To Cart',
 
-
+    'Treatments' => 'Treatments',
+    'SeeOurTreatments' => 'See Our Treatments',
+    'OurTreatments' => 'Our Treatments',
     //Home
     'NewInspiration' =>'New Inspiration!!!New Look!!! ',
     'ProductsForAllYourNeeds' =>'Products For All Your Needs',
@@ -302,6 +304,12 @@ return [
 
     'register_info' => 'The fields below will be used for your orders so make sure to fill them with the correct infromation. You can change them later in your Profile',
     'enter_your_postcode' => 'Enter your Postcode', // Placeholder example
+
+'new_customer' => "New Customer",
+'create_account' => "Create An Account",
+'create_account_text' => "Registration is quick and easy about 2 minutes!.The infomation provided will be used for your orders so you dont need to fill the orders yourself... It allows you to be able to order from our shop. To start shopping click on Create An Account.",
+'clientPrice' => 'Client Price',
+
 
 ];
 

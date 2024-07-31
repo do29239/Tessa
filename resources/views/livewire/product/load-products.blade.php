@@ -24,29 +24,22 @@
     <div id="products-collections-filter" class="row">
         @include('main.display-products')
     </div>
-<style>
-    .products-image img {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 670 / 800;
-    }
-</style>
-
 
     <!-- Start Products Filter Modal Area -->
     <div class="text-center">
         <div class="text-center" wire:loading>
-            <button class="default-btn">{{__('messages.Loading')}}</button>
+            <button class="default-btn load-more-btn">{{__('messages.Loading')}}</button>
         </div>
 
         <div class="text-center" wire:loading.remove>
             @if ($noMoreProducts)
                 <span class="sub-title">{{__('messages.NoMoreProd')}}</span>
             @else
-                <button wire:click="load" class="default-btn">{{__('messages.LoadMore')}}</button>
+                <button wire:click="load" class="default-btn load-more-btn">{{__('messages.LoadMore')}}</button>
             @endif
         </div>
     </div>
 </div>
+
 
 

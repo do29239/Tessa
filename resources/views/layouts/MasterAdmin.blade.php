@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>Black Dashboard by Creative Tim</title>
 
+
     <!-- Nucleo Icons -->
     @vite('resources/css/admincss/nucleo-icons.css')
     <!-- CSS Files -->
@@ -57,28 +58,23 @@
             <div class="container-fluid">
                 <div class="navbar-wrapper">
                     <div class="navbar-toggle d-inline">
-                        <button type="button" class="navbar-toggler">
-                            <span class="navbar-toggler-bar bar1"></span>
-                            <span class="navbar-toggler-bar bar2"></span>
-                            <span class="navbar-toggler-bar bar3"></span>
+                        <button type="button" class="navbar-toggler" data-bs-toggle="modal" data-bs-target="#sidebarModal">
+                            <div class="burger-menu">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
                         </button>
                     </div>
                     <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-bar navbar-kebab"></span>
-                    <span class="navbar-toggler-bar navbar-kebab"></span>
-                    <span class="navbar-toggler-bar navbar-kebab"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navigation">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="search-bar input-group">
+                <div id="navigation" class="d-flex">
+                    <ul class="navbar-nav custom-navbar-nav ml-auto">
+                        <li class="custom-search-bar">
                             <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal">
                                 <i class="tim-icons icon-zoom-split"></i>
-                                <span class="d-lg-none d-md-block">Search</span>
                             </button>
                         </li>
-
                         <!-- Search Modal -->
                         <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -107,22 +103,7 @@
                                 </div>
                             </div>
                         </div>
-
-                        <li class="dropdown nav-item">
-                            <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                <div class="notification d-none d-lg-block d-xl-block"></div>
-                                <i class="tim-icons icon-sound-wave"></i>
-                                <p class="d-lg-none">Notifications</p>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                                <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded to your email</a></li>
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a></li>
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a></li>
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a></li>
-                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
+                        <li class="custom-nav-item">
                             <form method="POST" action="{{ route('logout') }}" class="form-inline">
                                 @csrf
                                 <button type="submit" class="btn btn-primary">{{ __('Log Out') }}</button>
@@ -133,6 +114,8 @@
                 </div>
             </div>
         </nav>
+
+
         <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -153,6 +136,79 @@
         </footer>
     </div>
 </div>
+<div class="modal right fade sidebarModal" id="sidebarModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class='bx bx-x'></i></span>
+            </button>
+            <div class="modal-body">
+                <ul class="sidebar-nav">
+                    <li class="active">
+                        <a href="{{url('/admin/dashboard')}}">
+                            <i class="tim-icons icon-chart-pie-36"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li><a href="{{ route('categories.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Categories</p></a></li>
+                    <li><a href="{{ route('brands.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Brands</p></a></li>
+                    <li><a href="{{ route('products.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Products</p></a></li>
+                    <li><a href="{{ route('orders.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Orders</p></a></li>
+                    <li><a href="{{ route('show_users') }}"><i class="tim-icons icon-book-bookmark"></i><p>Users</p></a></li>
+                    <li><a href="{{ route('request.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Requests</p></a></li>
+                    <li><a href="{{ route('show_stylists') }}"><i class="tim-icons icon-book-bookmark"></i><p>Stylists</p></a></li>
+                    <li><a href="{{ route('orders.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Orders</p></a></li>
+                    <li><a href="{{ route('sales.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Sales</p></a></li>
+                    <li><a href="{{ route('codes.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Stylist Codes</p></a></li>
+                    <li><a href="{{ route('distributors.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Distributors</p></a></li>
+                    <li><a href="{{ route('coupons.index') }}"><i class="tim-icons icon-book-bookmark"></i><p>Coupons</p></a></li>
+                    <li><a href="{{ route('admin.bulkSale.create') }}"><i class="tim-icons icon-book-bookmark"></i><p>Bulk Sale</p></a></li>
+                    <li><a href="{{ url('/admin/icons') }}"><i class="tim-icons icon-atom"></i><p>Icons</p></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@vite('resources/js/bootstrap.bundle.min.js')
+
 </body>
 
 </html>
+<style>
+    /* Custom navbar styles */
+    .custom-navbar-nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end; /* Align items to the right */
+        gap: 5px; /* Add small space between items */
+        margin-left: auto; /* Push the navbar items to the right */
+    }
+
+    .custom-navbar-nav .custom-nav-item,
+    .custom-navbar-nav .custom-search-bar {
+        display: flex;
+        align-items: center;
+        margin: 0; /* Remove any default margins */
+    }
+
+    .custom-navbar-nav .custom-nav-item .btn {
+        padding: 2px 8px; /* Make the button smaller */
+        font-size: 12px; /* Adjust the font size */
+    }
+
+    @media (max-width: 768px) {
+        .custom-navbar-nav {
+            flex-direction: row; /* Force row direction on smaller screens */
+        }
+
+        .custom-navbar-nav .custom-nav-item,
+        .custom-navbar-nav .custom-search-bar {
+            display: flex;
+            align-items: center;
+        }
+    }
+</style>

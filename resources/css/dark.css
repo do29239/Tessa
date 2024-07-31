@@ -3,7 +3,7 @@ Default CSS
 =================================================*/
 .switch-box {
   position: fixed;
-  z-index: 10000;
+  z-index: 1;
   left: 3%;
   bottom: 90px;
 }

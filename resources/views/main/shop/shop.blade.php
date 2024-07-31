@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <div class="row">
                 <span class="sub-title d-lg-none">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#mobileFilterModal">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#mobileFilterModal" class="filter-button">
                         <i class="bx bx-filter-alt"></i>{{__('messages.filter')}}
                     </a>
                 </span>
@@ -44,7 +44,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="mobileFilterModalLabel">{{__('messages.filter_products')}}</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" id="modalCloseButton" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -91,3 +91,57 @@
     </style>
     <!-- End Products Area -->
 @endsection
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var modalCloseButton = document.getElementById('modalCloseButton');
+
+        Livewire.on('categorySelected', function () {
+            if (modalCloseButton) {
+                modalCloseButton.click();
+            }
+        });
+
+        Livewire.on('brandSelected', function () {
+            if (modalCloseButton) {
+                modalCloseButton.click();
+            }
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        // Variables to store the component state
+        let selectedCategory = null;
+        let selectedBrand = null;
+        let searchTerm = '';
+        let amount = 9;
+
+        // Event listener for when the component state is loaded
+        window.addEventListener('loadState', function (event) {
+            selectedCategory = event.detail.selectedCategory;
+            selectedBrand = event.detail.selectedBrand;
+            searchTerm = event.detail.searchTerm;
+            amount = event.detail.amount;
+        });
+
+        // Event listener for before the page is unloaded
+        window.addEventListener('beforeunload', function () {
+            axios.post('/save-shop-state', {
+                selectedCategory: selectedCategory,
+                selectedBrand: selectedBrand,
+                searchTerm: searchTerm,
+                amount: amount
+            });
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const filterButton = document.querySelector('.filter-button');
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) { // Adjust the scroll value as needed
+                filterButton.classList.add('fixed');
+            } else {
+                filterButton.classList.remove('fixed');
+            }
+        });
+    });
+</script>

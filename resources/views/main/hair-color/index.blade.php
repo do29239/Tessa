@@ -20,50 +20,9 @@
     <section class="products-area pt-100 pb-70">
         <div class="container">
             <div class="row">
-                @foreach($products as $product) {{-- Loop through sales items --}}
-                <div class="col-lg-4 col-md-6 col-sm-6" wire:key="{{$product->id}}">
-                    <div class="products-box">
-                        <div class="products-image">
-                            <a href="{{ route('showProduct', $product->id) }}">
-                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="main-image" alt="image">
-                                <img src="{{ asset('storage/images/'.$product->image->name) }}" class="hover-image" alt="image">
-                            </a>
-
-                            <div class="products-button">
-                                <ul>
-                                    <li>
-                                        @auth()
-                                            <livewire:wishlist :product_id="$product->id" />
-                                        @endauth
-                                    </li>
-
-                                    <li>
-                                        <div class="quick-view-btn">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                                                <i class='bx bx-search-alt'></i>
-                                                <span class="tooltip-label">{{__('messages.quick_view')}}</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                        <div class="products-content">
-                            <span class="category">{{$product->category->name}}</span>
-                            <h3><a href="{{ route('showProduct', $product->id) }}">{{ $product->name }}</a></h3>
-                            <div class="price">
-                                <span class="price">{{ $product->price }}den</span>
-{{--                                <span class="new-price">${{ $product->sale->sale_price }}</span>--}}
-                            </div>
-                            <livewire:wishlist :product_id="$product->id" />
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+            @include('main.display-products')
             </div>
         </div>
-    </section>
-    <!-- End Sales Products Area -->
+</section>
+<!-- End Sales Products Area -->
 @endsection

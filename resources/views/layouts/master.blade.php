@@ -189,6 +189,7 @@
                                     class="bx bx-heart"></i>{{__('messages.wishlist')}}</a></li>
                     @endauth
                     <li><a href="{{url('/contact')}}"><i class="bx bx-phone"></i>{{__('messages.contact')}}</a></li>
+                    <li><a href="{{ url('/treatments') }}"><i class="bx bx-info-circle"></i>{{__('messages.Treatments')}}</a></li>
                     @auth()
                         <li><a href="my-account.html"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
                         @if(!auth()->user()->request_submitted)
@@ -275,7 +276,11 @@
                                class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.shop')}}</a>
                         </li>
                         <li class="nav-item megamenu">
-                            <a href="{{url('/contact')}}" class="nav-link">{{__('messages.contact')}}</a>
+                            <a href="{{route('treatments')}}" class="nav-link{{ request()->routeIs('treatments') ? ' active' : '' }}">{{__('messages.Treatments')}}
+                            </a>
+                        </li>
+                        <li class="nav-item megamenu">
+                            <a href="{{url('/contact')}}" class="nav-link{{ request()->routeIs('contact') ? ' active' : '' }}">{{__('messages.contact')}}</a>
                         </li>
                     </ul>
                 </div>
@@ -315,9 +320,15 @@
                             <a href="{{ url('/') }}"
                                class="nav-link{{ request()->routeIs('show_products') ? ' active' : '' }}">{{__('messages.home')}}</a>
                         </li>
+
                         <li class="nav-item">
                             <a href="{{ route('shop') }}"
                                class="nav-link{{ request()->routeIs('shop') ? ' active' : '' }}">{{__('messages.shop')}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('treatments')}}"
+                               class="nav-link{{ request()->routeIs('treatments') ? ' active' : '' }}">{{__('messages.Treatments')}}
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{url('/contact')}}" class="nav-link">{{__('messages.contact')}}</a>

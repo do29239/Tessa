@@ -34,11 +34,23 @@
             <div class="products-details-desc">
               <h3>{{$product->name}}</h3>
 
-              <div class="price">
-                <span class="new-price">{{$product->price}} den</span>
-              </div>
+                <div class="price">
+                    @if(auth()->check() && auth()->user()->role == 2)
+                        <span class="new-price">{{ $product->stylist_price }}den</span>
+                    @elseif($product->sale()->active()->exists())
+                        <span class="old-price">{{ $product->price }}den</span>
+                        <span class="new-price">{{ $product->sale->sale_price }}den</span>
+                    @else
+                        <span class="new-price">{{ $product->price }}den</span>
+                    @endif
+                </div>
 
               <ul class="products-info">
+                  @if(auth()->check() && auth()->user()->role == 2)
+                  <li>
+                      <span>{{__('messages.clientPrice')}}</span> <a href="#">{{ $product->price }}</a></li>
+                  <li>
+                  @endif
                 <li>
                     <span>{{__('messages.brand')}}</span> <a href="#">{{$product->brand->name}}</a></li>
                 <li>

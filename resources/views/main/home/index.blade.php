@@ -105,7 +105,7 @@
                             <div class="content">
                                 <h3>{{ __('messages.NYColor') }}</h3>
                             </div>
-                            <a href="{{ route('hair.colors', 'No Yellow') }}" class="link-btn"></a>
+                            <a href="{{ route('hair.colors', 'No Yellow Color') }}" class="link-btn"></a>
                         </div>
                     </div>
                 </div>
@@ -133,6 +133,13 @@
 </section>
 
 <!-- End Products Area -->
+
+
+
+
+
+
+
 <!-- Start Shop By Brand -->
 
 <div class="brand-area ptb-70">
@@ -143,16 +150,16 @@
 
         <div class="brand-slides">
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'RrLine')}}"><img src="assets/img/webp/rr.webp" height="150" width="150" alt="image"></a>
+                <a href="{{route('shop.brand', 'Rr Line')}}"><img src="{{asset('assets/img/webp/rr.webp')}}" height="150" width="150" alt="image"></a>
             </div>
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'Fanola')}}"><img src="assets/img/webp/fanola.webp" height="150" width="150" alt="image"></a>
+                <a href="{{route('shop.brand', 'Fanola')}}"><img src="{{asset('assets/img/webp/fanola.webp')}}" height="150" width="150" alt="image"></a>
             </div>
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'No Yellow')}}"><img src="assets/img/webp/noyellow.webp" height="150" width="150" alt="image"></a>
+                <a href="{{route('shop.brand', 'No Yellow Color')}}"><img src="{{asset('assets/img/webp/noyellow.webp')}}" height="150" width="150" alt="image"></a>
             </div>
             <div class="brand-item">
-                <a href="{{route('shop.brand', 'Oro Therapy')}}"><img src="assets/img/webp/oro.webp" height="150" width="150" alt="image"></a>
+                <a href="{{route('shop.brand', 'Oro Therapy')}}"><img src="{{asset('assets/img/webp/oro.webp')}}" height="150" width="150" alt="image"></a>
             </div>
         </div>
     </div>

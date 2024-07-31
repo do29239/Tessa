@@ -37,8 +37,8 @@ class OrderService
         $order->status = $status;
         $order->save();
         // Send email only if the status is updated to 1 (completed)
-        if ($status == 1) {
-            SendOrderConfirmationEmail::dispatch($order->id, $order->total, $order->user->email, $order->user->address);
+        if ($order->status == 1) {
+            SendOrderConfirmationEmail::dispatch($order->id, $order->total, $order->user->email, $order->user->address)->delay(now()->addSeconds(60));;
         }
 
     }

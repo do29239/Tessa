@@ -31,7 +31,7 @@ class SendOrderConfirmationEmail implements ShouldQueue
      *
      * @var int
      */
-    public $timeout = 120;
+    public $timeout = 120z;
 
     /**
      * The number of seconds to wait before retrying the job.
