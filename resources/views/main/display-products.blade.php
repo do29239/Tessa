@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <span class="category brand">{{$product->brand->name}}</span>
-                    <h3><a href="#">{{$product->name}}</a></h3>
+                    <h6><a href="#">{{$product->name}}</a></h6>
                     <div class="price">
                         @if(auth()->check() && auth()->user()->role == 2)
                             <span class="new-price">{{ $product->stylist_price }}den</span>
