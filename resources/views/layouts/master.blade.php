@@ -191,7 +191,7 @@
                     <li><a href="{{url('/contact')}}"><i class="bx bx-phone"></i>{{__('messages.contact')}}</a></li>
                     <li><a href="{{ url('/treatments') }}"><i class="bx bx-info-circle"></i>{{__('messages.Treatments')}}</a></li>
                     @auth()
-                        <li><a href="my-account.html"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
+                        <li><a href="{{ url('/profile') }}"><i class="bx bxs-user"></i>{{__('messages.my_account')}}</a></li>
                         @if(!auth()->user()->request_submitted)
                             <li><a href="{{ url('request_form') }}"><i
                                         class="bx bx-log-in"></i>{{__('messages.request_stylist')}}</a></li>
