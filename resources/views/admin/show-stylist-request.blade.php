@@ -58,7 +58,7 @@
                             <tr><td><strong>Address:</strong></td><td>{{ $request->user?->address ?? '—' }}</td></tr>
                             <tr><td><strong>Postcode / Zip:</strong></td><td>{{ $request->user?->postcode ?? '—' }}</td></tr>
                             <tr><td><strong>Phone:</strong></td><td>{{ $request->user?->phone ?? '—' }}</td></tr>
-                            <tr><td><strong>Email Address1:</strong></td><td>{{ $request->user?->email ?? '—' }}</td></tr>
+                            <tr><td><strong>Email Address:</strong></td><td>{{ $request->user?->email ?? '—' }}</td></tr>
                         </table>
                     </div>
                 </div>
