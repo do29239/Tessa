@@ -73,7 +73,9 @@ Route::middleware('auth')->group(function () {
         Route::resource('brands', BrandController::class)->except('show');
         Route::resource('orders', \App\Http\Controllers\Admin\OrderController::class);
         Route::get('order-history', [\App\Http\Controllers\Admin\OrderController::class, 'history'])->name('history');
-        Route::resource('requests', RequestStylistController::class)->except(['create','store']);
+        Route::resource('requests', RequestStylistController::class)
+            ->only(['index','show','update','destroy','store'])
+            ->parameters(['requests' => 'request']);
         Route::get('/users', [UserController::class, 'index'])->name('show_users');
         Route::get('/user/{user}', [UserController::class, 'show'])->name('show_user');
         Route::delete('users/{user}', [UserController::class, 'destroy'])->name('user.destroy');
